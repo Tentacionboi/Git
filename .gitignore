@@ -1,1 +1,35 @@
 .DS_Store
+
+# OS metadata
+Thumbs.db
+
+# Editor and IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Environment and local config
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build outputs
+dist/
+build/
+out/
+coverage/
+
+# Cache and temporary files
+.cache/
+.tmp/
+tmp/
+*.tmp
