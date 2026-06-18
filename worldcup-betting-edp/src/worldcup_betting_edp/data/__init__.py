@@ -7,6 +7,14 @@ from worldcup_betting_edp.data.backtest_manifest import (
     load_backtest_manifest_path,
     load_backtest_manifest_text,
 )
+from worldcup_betting_edp.data.canonical_matches import (
+    CANONICAL_MATCH_COLUMNS,
+    CanonicalMatch,
+    build_canonical_matches_from_results,
+    load_canonical_matches_csv,
+    summarize_canonical_matches,
+    write_canonical_matches_csv,
+)
 from worldcup_betting_edp.data.historical_results import (
     MARTJ42_RESULTS_URL,
     InternationalResult,
@@ -34,6 +42,8 @@ from worldcup_betting_edp.data.settled_result import (
 __all__ = [
     "BacktestManifest",
     "BacktestManifestEntry",
+    "CANONICAL_MATCH_COLUMNS",
+    "CanonicalMatch",
     "InternationalResult",
     "MARTJ42_RESULTS_URL",
     "PredictionInput",
@@ -42,9 +52,11 @@ __all__ = [
     "filter_tournament",
     "filter_world_cup_results",
     "infer_result_1x2",
+    "build_canonical_matches_from_results",
     "load_backtest_manifest_mapping",
     "load_backtest_manifest_path",
     "load_backtest_manifest_text",
+    "load_canonical_matches_csv",
     "load_martj42_results_path",
     "load_martj42_results_text",
     "load_prediction_input_mapping",
@@ -53,5 +65,7 @@ __all__ = [
     "load_settled_result_mapping",
     "load_settled_result_path",
     "load_settled_result_text",
+    "summarize_canonical_matches",
     "summarize_results",
+    "write_canonical_matches_csv",
 ]

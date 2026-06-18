@@ -40,3 +40,14 @@ This file records candidate data sources, their expected use, and their risks.
 - Current parsed FIFA World Cup rows: 984.
 - Date coverage in parsed settled rows: 1872-11-30 to 2026-06-16.
 - Loader behavior: skips unplayed/unsettled rows where score is `NA` by default.
+
+### Canonical historical match table
+
+- Processed file: `data/processed/matches/canonical_matches.csv`
+- Metadata: `data/processed/matches/canonical_matches.csv.metadata.json`
+- Source raw file: `data/raw/martj42/results.csv`
+- Current processed rows: 49,425 settled matches.
+- Date coverage: 1872-11-30 to 2026-06-16.
+- Columns: `match_id`, `match_date`, `home_team`, `away_team`, `home_score`, `away_score`, `result_1x2`, `total_goals`, `tournament`, `city`, `country`, `neutral`, `source`, `source_match_id`.
+- Intended use: baseline modeling, Elo updates, Poisson training, tournament filters, and reproducible historical backtests.
+- Limitation: this table currently has match results only. It does not include odds, xG, lineups, injuries, market movement, or live situation signals.

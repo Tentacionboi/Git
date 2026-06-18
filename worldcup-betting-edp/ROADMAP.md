@@ -33,7 +33,7 @@ Exit criteria:
 
 ## Phase 3: Data Pipeline
 
-Status: In progress. martj42 international results have been downloaded and parsed.
+Status: In progress. martj42 international results have been downloaded, parsed, and converted into a canonical processed match table.
 
 Deliverables:
 
@@ -44,8 +44,8 @@ Deliverables:
 
 Exit criteria:
 
-- Historical matches can be loaded into a single dataframe-like table.
-- Every row has date, teams, score, tournament, neutral flag.
+- Historical matches can be loaded into a single dataframe-like table. Done for the martj42 snapshot.
+- Every row has date, teams, score, tournament, neutral flag. Done for the martj42 snapshot.
 
 ## Phase 4: Baseline Models
 

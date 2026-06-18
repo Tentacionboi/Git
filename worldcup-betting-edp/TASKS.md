@@ -32,15 +32,16 @@
 - [x] Configure GitHub remote and push.
 - [x] Download martj42 international results data.
 - [x] Parse martj42 international results data.
+- [x] Build canonical historical match table.
 
 ## Doing
 
-- [ ] Build canonical historical match table.
+- [ ] Implement Elo ratings.
 
 ## Next
 
 - [ ] Download openfootball/worldcup data.
-- [ ] Implement Elo ratings.
+- [ ] Generate Elo-based 1X2 probabilities for historical matches.
 
 ## Later
 

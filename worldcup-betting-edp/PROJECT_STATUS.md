@@ -4,7 +4,7 @@ Last updated: 2026-06-18
 
 ## One-Line Summary
 
-This project is currently a bilingual, local, single-match World Cup 1X2 value-bet research dashboard with reproducible JSON contracts for predictions and settled results. It is not yet a real-time odds monitor or an automatic prediction system.
+This project is currently a bilingual, local World Cup 1X2 value-bet research dashboard plus a reproducible historical-results data pipeline. It is not yet a real-time odds monitor or an automatic prediction system.
 
 ## Current Capability
 
@@ -29,7 +29,8 @@ The project can:
 - run single-match prediction and batch backtest flows from the CLI;
 - save CLI JSON/CSV outputs to files with `--output`;
 - run a local Streamlit dashboard with single-match and batch-backtest modes, English-first bilingual labels, JSON upload, summary metrics, tables, and Kelly bankroll chart.
-- download and parse martj42 international results CSV into typed historical result rows.
+- download and parse martj42 international results CSV into typed historical result rows;
+- build, write, load, and summarize a canonical historical match table for modeling.
 
 ## What It Does Not Do Yet
 
@@ -38,7 +39,7 @@ The project does not yet:
 - scrape or monitor live odds;
 - ingest real fixture feeds;
 - auto-detect the next match;
-- build a canonical processed match table from multiple sources;
+- merge multiple raw sources into one deduplicated canonical table;
 - generate model probabilities from Elo;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
@@ -60,6 +61,8 @@ worldcup-betting-edp/
 │   ├── data/prediction_input.py
 │   ├── data/settled_result.py
 │   ├── data/backtest_manifest.py
+│   ├── data/historical_results.py
+│   ├── data/canonical_matches.py
 │   ├── cli.py
 │   ├── domain.py
 │   ├── market/devig.py
@@ -100,13 +103,16 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/data/prediction_input.py`: JSON input parser and validator.
 - `src/worldcup_betting_edp/data/settled_result.py`: settled result parser and validator.
 - `src/worldcup_betting_edp/data/backtest_manifest.py`: batch backtest manifest parser and validator.
+- `src/worldcup_betting_edp/data/historical_results.py`: martj42 CSV downloader/parser and dataset summaries.
+- `src/worldcup_betting_edp/data/canonical_matches.py`: canonical historical match table builder/loader.
 - `src/worldcup_betting_edp/backtest/scoring.py`: Brier score and log loss.
 - `src/worldcup_betting_edp/backtest/settlement.py`: flat-stake settlement and Kelly bankroll curves.
 - `src/worldcup_betting_edp/backtest/runner.py`: manifest-driven batch backtest runner.
 - `src/worldcup_betting_edp/cli.py`: command-line report generator.
-- `src/worldcup_betting_edp/data/historical_results.py`: martj42 CSV downloader/parser and dataset summaries.
 - `data/raw/martj42/results.csv`: downloaded public historical international results snapshot.
 - `data/raw/martj42/results.csv.metadata.json`: source URL, download time, and license notes.
+- `data/processed/matches/canonical_matches.csv`: processed canonical match table for model training.
+- `data/processed/matches/canonical_matches.csv.metadata.json`: processed table creation time, source, row count, and columns.
 
 ## Current UI
 
@@ -143,7 +149,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 73 tests
+Ran 78 tests
 OK
 ```
 
@@ -157,8 +163,7 @@ The Streamlit dashboard was also browser-verified with local Chrome automation. 
 
 - Branch: `main`
 - Remote: `https://github.com/Tentacionboi/Git.git`
-- Latest pushed commit before the data-pipeline update: `842813b`.
-- The current local data-pipeline changes still need their own checkpoint after verification.
+- The repository is being checkpointed directly on `main` for now.
 
 ## Current Historical Results Data
 
@@ -180,6 +185,25 @@ FIFA World Cup match_count: 984
 ```
 
 The loader skips rows with `NA` scores by default because those rows are not settled historical results.
+
+The project can also build and load a processed canonical match table:
+
+```text
+data/processed/matches/canonical_matches.csv
+```
+
+Current processed snapshot:
+
+```text
+match_count: 49425
+first_date: 1872-11-30
+last_date: 2026-06-16
+team_count: 336
+tournament_count: 200
+neutral_match_count: 13075
+```
+
+This is the immediate input table for Elo ratings and the later Poisson model.
 
 ## Current JSON Input Contract
 

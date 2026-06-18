@@ -1,0 +1,23 @@
+{
+  "columns": [
+    "match_id",
+    "match_date",
+    "home_team",
+    "away_team",
+    "home_score",
+    "away_score",
+    "result_1x2",
+    "total_goals",
+    "tournament",
+    "city",
+    "country",
+    "neutral",
+    "source",
+    "source_match_id"
+  ],
+  "created_at": "2026-06-18T09:29:32.233820+00:00",
+  "first_date": "1872-11-30",
+  "last_date": "2026-06-16",
+  "row_count": 49425,
+  "source_raw_path": "data/raw/martj42/results.csv"
+}
