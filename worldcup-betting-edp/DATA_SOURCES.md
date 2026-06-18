@@ -116,12 +116,14 @@ This file records candidate data sources, their expected use, and their risks.
 ### Market odds schema and demo comparison
 
 - Canonical odds schema columns: `match_id`, `bookmaker`, `captured_at`, `home_odds`, `draw_odds`, `away_odds`, `odds_type`, `source`.
+- Canonical kickoff timing schema columns: `match_id`, `kickoff_time`, `time_zone`, `precision`, `source`.
 - Demo odds file: `examples/demo_world_cup_market_odds.csv`
+- Demo timing file: `examples/demo_world_cup_match_timing.csv`
 - Demo comparison report: `reports/demo_market_comparison.json`
 - Demo match count: 3 matched rows, 981 unmatched model rows.
-- Demo source note: the demo odds are synthetic and must not be used as historical market evidence.
+- Demo source note: the demo odds and kickoff times are synthetic and must not be used as historical market evidence.
 - Implemented use: once real World Cup odds are available with `match_id` alignment, the project can devig market odds, score model and market probabilities on the same matches, and report Brier/log-loss deltas.
 - Timing validation: odds comparisons can enforce `odds_captured_at <= prediction_time <= kickoff_time` for actionable pre-match backtests.
 - Leakage labels: `low`, `medium`, and `high` leakage risk are reported in model-vs-market summaries.
 - Closing odds rule: closing odds are rejected by default for actionable pre-match validation unless explicitly allowed; closing-market comparison is treated as market baseline research, not an early betting simulation.
-- Current blocker: no verified redistributable historical World Cup 1X2 odds dataset has been committed to the repository.
+- Current blocker: no verified redistributable historical World Cup 1X2 odds dataset or full real kickoff timestamp dataset has been committed to the repository.

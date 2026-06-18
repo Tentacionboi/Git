@@ -335,6 +335,24 @@ PY
 
 `examples/demo_world_cup_market_odds.csv` is synthetic and exists only to verify the pipeline. It is not real historical market data.
 
+Load synthetic kickoff timing rows for as-of validation:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 - <<'PY'
+from worldcup_betting_edp.data import (
+    kickoff_time_by_match_id,
+    load_match_timing_csv,
+    summarize_match_timing_coverage,
+)
+
+timings = load_match_timing_csv("examples/demo_world_cup_match_timing.csv")
+print(kickoff_time_by_match_id(timings))
+print(summarize_match_timing_coverage(match_ids=[row.match_id for row in timings], timings=timings))
+PY
+```
+
+`examples/demo_world_cup_match_timing.csv` is synthetic and exists only to verify the timing contract. It is not real historical kickoff data.
+
 Validate odds timing for a no-leakage pre-match backtest:
 
 ```bash

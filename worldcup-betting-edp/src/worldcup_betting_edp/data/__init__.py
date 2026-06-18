@@ -34,6 +34,14 @@ from worldcup_betting_edp.data.market_odds import (
     select_one_odds_per_match,
     write_market_odds_csv,
 )
+from worldcup_betting_edp.data.match_timing import (
+    MATCH_TIMING_COLUMNS,
+    MatchTiming,
+    kickoff_time_by_match_id,
+    load_match_timing_csv,
+    summarize_match_timing_coverage,
+    write_match_timing_csv,
+)
 from worldcup_betting_edp.data.prediction_input import (
     PredictionInput,
     load_prediction_input_mapping,
@@ -56,6 +64,8 @@ __all__ = [
     "InternationalResult",
     "MARTJ42_RESULTS_URL",
     "MARKET_ODDS_COLUMNS",
+    "MATCH_TIMING_COLUMNS",
+    "MatchTiming",
     "PredictionInput",
     "SettledResult",
     "WORLD_CUP_TOURNAMENT",
@@ -71,6 +81,7 @@ __all__ = [
     "load_backtest_manifest_text",
     "load_canonical_matches_csv",
     "load_market_odds_csv",
+    "load_match_timing_csv",
     "load_martj42_results_path",
     "load_martj42_results_text",
     "load_prediction_input_mapping",
@@ -82,6 +93,9 @@ __all__ = [
     "summarize_canonical_matches",
     "summarize_results",
     "select_one_odds_per_match",
+    "kickoff_time_by_match_id",
+    "summarize_match_timing_coverage",
+    "write_match_timing_csv",
     "write_market_odds_csv",
     "write_canonical_matches_csv",
 ]

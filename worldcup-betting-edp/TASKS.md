@@ -44,6 +44,8 @@
 - [x] Implement model-vs-market probability comparison.
 - [x] Add synthetic demo market comparison report.
 - [x] Implement as-of/no-leakage timing validation for odds backtests.
+- [x] Define canonical match kickoff timing schema.
+- [x] Add synthetic kickoff timing demo for as-of market comparison.
 
 ## Doing
 
@@ -54,7 +56,7 @@
 - [ ] Download openfootball/worldcup data.
 - [ ] Add World Cup era/time-split evaluation.
 - [ ] Add real historical World Cup odds once source and license are verified.
-- [ ] Add kickoff timestamps for World Cup matches.
+- [ ] Add verified real kickoff timestamps for World Cup matches.
 
 ## Later
 

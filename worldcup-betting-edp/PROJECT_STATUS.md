@@ -39,6 +39,7 @@ The project can:
 - evaluate World Cup Elo 1X2 probability quality with Brier score, log loss, accuracy, and outcome-count diagnostics;
 - calibrate World Cup Elo draw-probability parameters with a train/validation split;
 - load canonical historical 1X2 odds snapshots from CSV;
+- load canonical match kickoff timing rows from CSV;
 - compare model probabilities against devigged market probabilities when odds snapshots are supplied;
 - validate odds timing with as-of/no-leakage rules for pre-match, closing-market, and in-play modes.
 
@@ -51,7 +52,7 @@ The project does not yet:
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
 - compare World Cup predictions against verified real historical market odds;
-- attach exact kickoff timestamps to historical World Cup matches;
+- attach verified exact kickoff timestamps to all historical World Cup matches;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
 - run historical backtests;
@@ -117,6 +118,7 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/data/backtest_manifest.py`: batch backtest manifest parser and validator.
 - `src/worldcup_betting_edp/data/historical_results.py`: martj42 CSV downloader/parser and dataset summaries.
 - `src/worldcup_betting_edp/data/canonical_matches.py`: canonical historical match table builder/loader.
+- `src/worldcup_betting_edp/data/match_timing.py`: kickoff timestamp schema, loader, writer, and coverage diagnostics.
 - `src/worldcup_betting_edp/backtest/scoring.py`: Brier score and log loss.
 - `src/worldcup_betting_edp/backtest/market_comparison.py`: model-vs-market probability comparison for matched odds rows.
 - `src/worldcup_betting_edp/backtest/temporal_validation.py`: as-of timing validation to detect odds leakage.
@@ -138,6 +140,7 @@ worldcup-betting-edp/
 - `reports/world_cup_elo_1x2_evaluation_calibrated.json`: calibrated World Cup-only Elo probability evaluation report.
 - `reports/world_cup_elo_draw_calibration.json`: train/validation draw calibration report.
 - `examples/demo_world_cup_market_odds.csv`: synthetic odds file that demonstrates the historical odds schema.
+- `examples/demo_world_cup_match_timing.csv`: synthetic kickoff timing file that demonstrates as-of validation.
 - `reports/demo_market_comparison.json`: synthetic demo model-vs-market comparison report.
 
 ## Current UI
@@ -175,7 +178,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 121 tests
+Ran 126 tests
 OK
 ```
 
@@ -325,13 +328,14 @@ Demo report:
 ```text
 report: reports/demo_market_comparison.json
 odds_file: examples/demo_world_cup_market_odds.csv
+timing_file: examples/demo_world_cup_match_timing.csv
 matched_match_count: 3
 unmatched_model_match_count: 981
 average_market_overround: 6.44%
 leakage_risk_counts: low 3
 ```
 
-The demo odds are synthetic and are not historical market evidence. The project can now compare against market odds once a real, reproducible, legally usable World Cup odds file is added.
+The demo odds and kickoff times are synthetic and are not historical market evidence. The project can now compare against market odds once real, reproducible, legally usable World Cup odds and kickoff timestamp files are added.
 
 Timing leakage policy now exists in code:
 
@@ -350,6 +354,14 @@ in-play comparison:
 ```
 
 Date-only timestamps are treated as medium leakage risk because they do not prove the odds were available at the claimed prediction moment.
+
+Kickoff timing contract:
+
+```text
+match_id, kickoff_time, time_zone, precision, source
+```
+
+Coverage diagnostics can report how many World Cup matches have exact datetime precision versus date-only precision. Exact kickoff times are still a data-source task, not a solved historical data problem.
 
 ## Current JSON Input Contract
 
