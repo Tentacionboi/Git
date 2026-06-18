@@ -33,7 +33,7 @@ Exit criteria:
 
 ## Phase 3: Data Pipeline
 
-Status: In progress. martj42 international results have been downloaded, parsed, and converted into a canonical processed match table.
+Status: In progress. martj42 international results have been downloaded, parsed, converted into a canonical processed match table, and sliced into a World Cup-only evaluation table.
 
 Deliverables:
 
@@ -46,10 +46,11 @@ Exit criteria:
 
 - Historical matches can be loaded into a single dataframe-like table. Done for the martj42 snapshot.
 - Every row has date, teams, score, tournament, neutral flag. Done for the martj42 snapshot.
+- World Cup-only matches can be loaded as the primary project evaluation target. Done for the martj42 snapshot.
 
 ## Phase 4: Baseline Models
 
-Status: In progress. Market baseline exists, and a deterministic Elo rating engine now produces historical rating tables plus first-pass 1X2 probabilities. Draw calibration and model evaluation are still pending.
+Status: In progress. Market baseline exists, and a deterministic Elo rating engine now produces historical rating tables plus first-pass 1X2 probabilities. World Cup-only Elo evaluation exists; draw calibration and market comparison are still pending.
 
 Deliverables:
 

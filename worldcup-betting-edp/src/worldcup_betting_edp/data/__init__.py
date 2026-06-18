@@ -9,8 +9,10 @@ from worldcup_betting_edp.data.backtest_manifest import (
 )
 from worldcup_betting_edp.data.canonical_matches import (
     CANONICAL_MATCH_COLUMNS,
+    WORLD_CUP_TOURNAMENT,
     CanonicalMatch,
     build_canonical_matches_from_results,
+    filter_world_cup_canonical_matches,
     load_canonical_matches_csv,
     summarize_canonical_matches,
     write_canonical_matches_csv,
@@ -48,8 +50,10 @@ __all__ = [
     "MARTJ42_RESULTS_URL",
     "PredictionInput",
     "SettledResult",
+    "WORLD_CUP_TOURNAMENT",
     "download_martj42_results",
     "filter_tournament",
+    "filter_world_cup_canonical_matches",
     "filter_world_cup_results",
     "infer_result_1x2",
     "build_canonical_matches_from_results",

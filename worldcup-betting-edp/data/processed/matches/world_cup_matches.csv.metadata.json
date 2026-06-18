@@ -1,0 +1,23 @@
+{
+  "columns": [
+    "match_id",
+    "match_date",
+    "home_team",
+    "away_team",
+    "home_score",
+    "away_score",
+    "result_1x2",
+    "total_goals",
+    "tournament",
+    "city",
+    "country",
+    "neutral",
+    "source",
+    "source_match_id"
+  ],
+  "created_at": "2026-06-18T14:27:21.887667+00:00",
+  "first_date": "1930-07-13",
+  "last_date": "2026-06-16",
+  "row_count": 984,
+  "source_raw_path": "data/processed/matches/canonical_matches.csv"
+}

@@ -209,6 +209,17 @@ print(matches[0].to_dict())
 PY
 ```
 
+Load the World Cup-only match table:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 - <<'PY'
+from worldcup_betting_edp.data import load_canonical_matches_csv, summarize_canonical_matches
+
+matches = load_canonical_matches_csv("data/processed/matches/world_cup_matches.csv")
+print(summarize_canonical_matches(matches))
+PY
+```
+
 Generate Elo history and current team ratings from the canonical table:
 
 ```bash
@@ -249,6 +260,23 @@ write_elo_probability_history_csv(
     "data/processed/ratings/elo_1x2_probabilities.csv",
 )
 print(probabilities[0].to_dict())
+PY
+```
+
+Evaluate the World Cup-only Elo 1X2 probability table:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 - <<'PY'
+from worldcup_betting_edp.backtest import (
+    evaluate_1x2_probability_rows,
+    load_1x2_probability_rows_csv,
+)
+
+rows = load_1x2_probability_rows_csv(
+    "data/processed/ratings/world_cup_elo_1x2_probabilities.csv"
+)
+summary = evaluate_1x2_probability_rows(rows, model_name="elo_heuristic_1x2_world_cup")
+print(summary.to_dict())
 PY
 ```
 

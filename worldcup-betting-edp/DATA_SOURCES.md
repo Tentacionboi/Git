@@ -52,6 +52,16 @@ This file records candidate data sources, their expected use, and their risks.
 - Intended use: baseline modeling, Elo updates, Poisson training, tournament filters, and reproducible historical backtests.
 - Limitation: this table currently has match results only. It does not include odds, xG, lineups, injuries, market movement, or live situation signals.
 
+### World Cup-only match table
+
+- Processed file: `data/processed/matches/world_cup_matches.csv`
+- Metadata: `data/processed/matches/world_cup_matches.csv.metadata.json`
+- Source table: `data/processed/matches/canonical_matches.csv`
+- Current processed rows: 984 FIFA World Cup matches.
+- Date coverage: 1930-07-13 to 2026-06-16.
+- Intended use: primary evaluation target for this project.
+- Limitation: this is still result-only data. It does not include market odds or pre-match lineup/injury context.
+
 ### Project-generated Elo tables
 
 - Elo history file: `data/processed/ratings/elo_history.csv`
@@ -60,11 +70,26 @@ This file records candidate data sources, their expected use, and their risks.
 - Current ratings metadata: `data/processed/ratings/current_elo_ratings.csv.metadata.json`
 - Elo 1X2 probability file: `data/processed/ratings/elo_1x2_probabilities.csv`
 - Elo 1X2 probability metadata: `data/processed/ratings/elo_1x2_probabilities.csv.metadata.json`
+- World Cup Elo 1X2 probability file: `data/processed/ratings/world_cup_elo_1x2_probabilities.csv`
+- World Cup Elo 1X2 probability metadata: `data/processed/ratings/world_cup_elo_1x2_probabilities.csv.metadata.json`
 - Source table: `data/processed/matches/canonical_matches.csv`
 - Current Elo history rows: 49,425 matches.
 - Current team rating rows: 336 teams.
 - Current Elo 1X2 probability rows: 49,425 matches.
+- Current World Cup Elo 1X2 probability rows: 984 matches.
 - Current Elo 1X2 average probabilities: home 39.18%, draw 23.87%, away 36.94%.
 - Current simple-Elo top five: Argentina, Spain, France, England, Brazil.
 - Intended use: model features, historical rating diagnostics, first-pass Elo 1X2 model scoring, and later calibration.
 - Limitation: these are project-generated simple Elo ratings and heuristic Elo 1X2 probabilities, not official ratings, not market-validated, and not yet draw-calibrated.
+
+### World Cup Elo evaluation report
+
+- Report file: `reports/world_cup_elo_1x2_evaluation.json`
+- Model name: `elo_heuristic_1x2_world_cup`
+- Match count: 984 FIFA World Cup matches.
+- Accuracy: 54.17%.
+- Mean Brier score: 0.5867.
+- Mean log loss: 0.9880.
+- Actual result mix: home 449, draw 222, away 313.
+- Predicted outcome mix: home 600, draw 0, away 384.
+- Interpretation: useful as a first baseline, but the zero predicted draws are a clear sign that draw probability needs calibration before this can be treated as a serious World Cup 1X2 model.

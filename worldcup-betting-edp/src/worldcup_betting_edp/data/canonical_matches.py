@@ -30,6 +30,8 @@ CANONICAL_MATCH_COLUMNS = (
     "source_match_id",
 )
 
+WORLD_CUP_TOURNAMENT = "FIFA World Cup"
+
 
 @dataclass(frozen=True)
 class CanonicalMatch:
@@ -125,6 +127,13 @@ def load_canonical_matches_csv(path: str | Path) -> list[CanonicalMatch]:
         if missing:
             raise ValueError(f"canonical matches CSV missing required columns: {missing}")
         return [_parse_canonical_row(row, row_number=index + 2) for index, row in enumerate(reader)]
+
+
+def filter_world_cup_canonical_matches(
+    matches: Iterable[CanonicalMatch],
+) -> list[CanonicalMatch]:
+    """Return only FIFA World Cup matches from canonical rows."""
+    return [match for match in matches if match.tournament == WORLD_CUP_TOURNAMENT]
 
 
 def summarize_canonical_matches(matches: Iterable[CanonicalMatch]) -> dict[str, object]:

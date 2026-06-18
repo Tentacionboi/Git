@@ -4,7 +4,7 @@ Last updated: 2026-06-18
 
 ## One-Line Summary
 
-This project is currently a bilingual, local World Cup 1X2 value-bet research dashboard plus a reproducible historical-results data pipeline. It is not yet a real-time odds monitor or an automatic prediction system.
+This project is currently a bilingual, local World Cup 1X2 value-bet research dashboard plus a reproducible World Cup-focused historical-results and Elo baseline pipeline. It is not yet a real-time odds monitor or an automatic prediction system.
 
 ## Current Capability
 
@@ -34,7 +34,9 @@ The project can:
 - replay historical matches through a deterministic Elo rating engine;
 - write full Elo history and current team Elo rating tables to processed CSV files;
 - convert Elo expected score into first-pass home/draw/away probabilities with a transparent draw heuristic;
-- write historical Elo 1X2 probabilities to processed CSV files.
+- write historical Elo 1X2 probabilities to processed CSV files;
+- generate World Cup-only match and Elo probability tables;
+- evaluate World Cup Elo 1X2 probability quality with Brier score, log loss, accuracy, and outcome-count diagnostics.
 
 ## What It Does Not Do Yet
 
@@ -45,7 +47,7 @@ The project does not yet:
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
 - calibrate Elo draw probability against historical data;
-- evaluate Elo 1X2 probabilities with Brier score and log loss;
+- compare World Cup predictions against market odds;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
 - run historical backtests;
@@ -120,9 +122,12 @@ worldcup-betting-edp/
 - `data/raw/martj42/results.csv.metadata.json`: source URL, download time, and license notes.
 - `data/processed/matches/canonical_matches.csv`: processed canonical match table for model training.
 - `data/processed/matches/canonical_matches.csv.metadata.json`: processed table creation time, source, row count, and columns.
+- `data/processed/matches/world_cup_matches.csv`: World Cup-only match table and primary evaluation target.
 - `data/processed/ratings/elo_history.csv`: match-by-match simple Elo replay output.
 - `data/processed/ratings/current_elo_ratings.csv`: latest simple Elo team ratings.
 - `data/processed/ratings/elo_1x2_probabilities.csv`: match-by-match first-pass Elo 1X2 probabilities.
+- `data/processed/ratings/world_cup_elo_1x2_probabilities.csv`: World Cup-only Elo 1X2 probabilities.
+- `reports/world_cup_elo_1x2_evaluation.json`: first World Cup-only Elo probability evaluation report.
 
 ## Current UI
 
@@ -159,7 +164,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 93 tests
+Ran 98 tests
 OK
 ```
 
@@ -215,6 +220,20 @@ neutral_match_count: 13075
 
 This is the immediate input table for Elo ratings and the later Poisson model.
 
+The project now also has a World Cup-only match table:
+
+```text
+data/processed/matches/world_cup_matches.csv
+```
+
+Current World Cup-only snapshot:
+
+```text
+match_count: 984
+first_date: 1930-07-13
+last_date: 2026-06-16
+```
+
 ## Current Elo Data
 
 The project can replay the canonical match table through a simple Elo engine:
@@ -223,6 +242,7 @@ The project can replay the canonical match table through a simple Elo engine:
 data/processed/ratings/elo_history.csv
 data/processed/ratings/current_elo_ratings.csv
 data/processed/ratings/elo_1x2_probabilities.csv
+data/processed/ratings/world_cup_elo_1x2_probabilities.csv
 ```
 
 Current generated snapshot:
@@ -231,11 +251,29 @@ Current generated snapshot:
 elo_history_rows: 49425
 current_team_rows: 336
 elo_1x2_probability_rows: 49425
+world_cup_elo_1x2_probability_rows: 984
 elo_1x2_average_probabilities: home 39.18%, draw 23.87%, away 36.94%
 top_5_simple_elo: Argentina, Spain, France, England, Brazil
 ```
 
 Important: these are project-generated simple Elo ratings and heuristic 1X2 probabilities. They are useful model features, but they are not yet draw-calibrated, not compared against market odds, and they do not prove betting edge.
+
+## Current World Cup Elo Evaluation
+
+First World Cup-only Elo 1X2 evaluation:
+
+```text
+report: reports/world_cup_elo_1x2_evaluation.json
+match_count: 984
+accuracy: 54.17%
+mean_brier_score: 0.5867
+mean_log_loss: 0.9880
+average_probability_actual: 0.4036
+actual_results: home 449, draw 222, away 313
+predicted_results: home 600, draw 0, away 384
+```
+
+The zero predicted draws are not acceptable for a mature 1X2 model. This is the strongest current evidence that the next modeling task should be draw calibration, not UI polish.
 
 ## Current JSON Input Contract
 

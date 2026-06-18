@@ -1,0 +1,985 @@
+match_id,match_date,home_team,away_team,home_score,away_score,result_1x2,total_goals,tournament,city,country,neutral,source,source_match_id
+match_5ee3ea4b7733c50c,1930-07-13,Belgium,United States,0,3,away,3,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1490
+match_c4c6a86bb6f0e3a5,1930-07-13,France,Mexico,4,1,home,5,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1491
+match_c6248335ba9b59d4,1930-07-14,Brazil,Yugoslavia,1,2,away,3,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1492
+match_ef665e252f68eef6,1930-07-14,Peru,Romania,1,3,away,4,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1493
+match_1356002dec20e642,1930-07-15,Argentina,France,1,0,home,1,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1494
+match_3a3c4f34c28c2f85,1930-07-16,Chile,Mexico,3,0,home,3,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1495
+match_fd98290a7139e4a5,1930-07-17,Bolivia,Yugoslavia,0,4,away,4,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1496
+match_edc159025ee62092,1930-07-17,Paraguay,United States,0,3,away,3,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1497
+match_d1137c64387120cb,1930-07-18,Uruguay,Peru,1,0,home,1,FIFA World Cup,Montevideo,Uruguay,False,martj42/international_results,martj42/international_results:1499
+match_736ef32abe6fb5e8,1930-07-19,Argentina,Mexico,6,3,home,9,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1500
+match_0c6b47d68d821e26,1930-07-19,Chile,France,1,0,home,1,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1501
+match_5ead734238ffb09d,1930-07-20,Belgium,Paraguay,0,1,away,1,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1502
+match_7d454ed47efd18a4,1930-07-20,Bolivia,Brazil,0,4,away,4,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1503
+match_2f0d938f43e9e9e0,1930-07-21,Uruguay,Romania,4,0,home,4,FIFA World Cup,Montevideo,Uruguay,False,martj42/international_results,martj42/international_results:1504
+match_265538270059211d,1930-07-22,Argentina,Chile,3,1,home,4,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1505
+match_ac517f624aeee7a3,1930-07-26,Argentina,United States,6,1,home,7,FIFA World Cup,Montevideo,Uruguay,True,martj42/international_results,martj42/international_results:1507
+match_291c7d408e546c44,1930-07-27,Uruguay,Yugoslavia,6,1,home,7,FIFA World Cup,Montevideo,Uruguay,False,martj42/international_results,martj42/international_results:1508
+match_66f8499b3c1aeb69,1930-07-30,Uruguay,Argentina,4,2,home,6,FIFA World Cup,Montevideo,Uruguay,False,martj42/international_results,martj42/international_results:1509
+match_576b72187fd73425,1934-05-27,Argentina,Sweden,2,3,away,5,FIFA World Cup,Bologna,Italy,True,martj42/international_results,martj42/international_results:1877
+match_7d77fffcc001be9d,1934-05-27,Austria,France,3,2,home,5,FIFA World Cup,Turin,Italy,True,martj42/international_results,martj42/international_results:1878
+match_684895465a7059ba,1934-05-27,Belgium,Germany,2,5,away,7,FIFA World Cup,Florence,Italy,True,martj42/international_results,martj42/international_results:1879
+match_8a838e22b2428205,1934-05-27,Brazil,Spain,1,3,away,4,FIFA World Cup,Genoa,Italy,True,martj42/international_results,martj42/international_results:1880
+match_878059f8b30250cd,1934-05-27,Czechoslovakia,Romania,2,1,home,3,FIFA World Cup,Trieste,Italy,True,martj42/international_results,martj42/international_results:1881
+match_ad9b6fdf90613c7d,1934-05-27,Egypt,Hungary,2,4,away,6,FIFA World Cup,Naples,Italy,True,martj42/international_results,martj42/international_results:1882
+match_795b8625182af15b,1934-05-27,Italy,United States,7,1,home,8,FIFA World Cup,Rome,Italy,False,martj42/international_results,martj42/international_results:1883
+match_c284e0150accb146,1934-05-27,Netherlands,Switzerland,2,3,away,5,FIFA World Cup,Milan,Italy,True,martj42/international_results,martj42/international_results:1884
+match_a1d44fa15a578b93,1934-05-31,Austria,Hungary,2,1,home,3,FIFA World Cup,Bologna,Italy,True,martj42/international_results,martj42/international_results:1885
+match_49f247cdccb8877d,1934-05-31,Czechoslovakia,Switzerland,3,2,home,5,FIFA World Cup,Turin,Italy,True,martj42/international_results,martj42/international_results:1886
+match_aa80001b4a6a5474,1934-05-31,Germany,Sweden,2,1,home,3,FIFA World Cup,Milan,Italy,True,martj42/international_results,martj42/international_results:1887
+match_a1efe5795b01cde6,1934-05-31,Italy,Spain,1,1,draw,2,FIFA World Cup,Florence,Italy,False,martj42/international_results,martj42/international_results:1888
+match_d978be4835179350,1934-06-01,Italy,Spain,1,0,home,1,FIFA World Cup,Florence,Italy,False,martj42/international_results,martj42/international_results:1889
+match_5e925901eabb7091,1934-06-03,Czechoslovakia,Germany,3,1,home,4,FIFA World Cup,Rome,Italy,True,martj42/international_results,martj42/international_results:1890
+match_77ab108e7234424d,1934-06-03,Italy,Austria,1,0,home,1,FIFA World Cup,Milan,Italy,False,martj42/international_results,martj42/international_results:1891
+match_a6896a50808690e5,1934-06-07,Austria,Germany,2,3,away,5,FIFA World Cup,Naples,Italy,True,martj42/international_results,martj42/international_results:1893
+match_49f20f65e28ed231,1934-06-10,Italy,Czechoslovakia,2,1,home,3,FIFA World Cup,Rome,Italy,False,martj42/international_results,martj42/international_results:1894
+match_0b91cf1c298d4098,1938-06-04,Germany,Switzerland,1,1,draw,2,FIFA World Cup,Paris,France,True,martj42/international_results,martj42/international_results:2328
+match_e08adeda27823ef5,1938-06-05,Brazil,Poland,6,5,home,11,FIFA World Cup,Strasbourg,France,True,martj42/international_results,martj42/international_results:2329
+match_53af7c662dcfabc9,1938-06-05,Cuba,Romania,3,3,draw,6,FIFA World Cup,Toulouse,France,True,martj42/international_results,martj42/international_results:2330
+match_b46788d7b2b77f1d,1938-06-05,Czechoslovakia,Netherlands,3,0,home,3,FIFA World Cup,Le Havre,France,True,martj42/international_results,martj42/international_results:2331
+match_79a54e4b65e728de,1938-06-05,France,Belgium,3,1,home,4,FIFA World Cup,Colombes,France,False,martj42/international_results,martj42/international_results:2332
+match_d4bca2139ae73196,1938-06-05,Hungary,Indonesia,6,0,home,6,FIFA World Cup,Reims,France,True,martj42/international_results,martj42/international_results:2333
+match_1e86fbb71f7b08b9,1938-06-05,Italy,Norway,2,1,home,3,FIFA World Cup,Marseille,France,True,martj42/international_results,martj42/international_results:2334
+match_b182f822ddcb9e65,1938-06-09,Cuba,Romania,2,1,home,3,FIFA World Cup,Toulouse,France,True,martj42/international_results,martj42/international_results:2335
+match_b396179f5c13318d,1938-06-09,Germany,Switzerland,2,4,away,6,FIFA World Cup,Paris,France,True,martj42/international_results,martj42/international_results:2336
+match_e98e9c8475a63ef5,1938-06-12,Brazil,Czechoslovakia,1,1,draw,2,FIFA World Cup,Bordeaux,France,True,martj42/international_results,martj42/international_results:2339
+match_2c3968357363ff57,1938-06-12,Cuba,Sweden,0,8,away,8,FIFA World Cup,Antibes,France,True,martj42/international_results,martj42/international_results:2340
+match_7ea94118b60415e3,1938-06-12,France,Italy,1,3,away,4,FIFA World Cup,Colombes,France,False,martj42/international_results,martj42/international_results:2341
+match_fdb8a908a3bb995c,1938-06-12,Hungary,Switzerland,2,0,home,2,FIFA World Cup,Lille,France,True,martj42/international_results,martj42/international_results:2342
+match_ba8be0587dc593cd,1938-06-14,Brazil,Czechoslovakia,2,1,home,3,FIFA World Cup,Bordeaux,France,True,martj42/international_results,martj42/international_results:2343
+match_e2e29b567e002bfd,1938-06-16,Brazil,Italy,1,2,away,3,FIFA World Cup,Marseille,France,True,martj42/international_results,martj42/international_results:2345
+match_b622ed39bc8f467b,1938-06-16,Hungary,Sweden,5,1,home,6,FIFA World Cup,Paris,France,True,martj42/international_results,martj42/international_results:2346
+match_03baeab717ad2a2b,1938-06-19,Brazil,Sweden,4,2,home,6,FIFA World Cup,Bordeaux,France,True,martj42/international_results,martj42/international_results:2349
+match_650d16661ad0cd35,1938-06-19,Hungary,Italy,2,4,away,6,FIFA World Cup,Colombes,France,True,martj42/international_results,martj42/international_results:2350
+match_ffea90710f5cdc0e,1950-06-24,Brazil,Mexico,4,0,home,4,FIFA World Cup,Rio de Janeiro,Brazil,False,martj42/international_results,martj42/international_results:3391
+match_46bad44ca5fe0733,1950-06-25,Chile,England,0,2,away,2,FIFA World Cup,Rio de Janeiro,Brazil,True,martj42/international_results,martj42/international_results:3393
+match_73125c7d296d0b2c,1950-06-25,Italy,Sweden,2,3,away,5,FIFA World Cup,São Paulo,Brazil,True,martj42/international_results,martj42/international_results:3395
+match_7c861e8b0037731c,1950-06-25,Spain,United States,3,1,home,4,FIFA World Cup,Curitiba,Brazil,True,martj42/international_results,martj42/international_results:3396
+match_74e57be29781abd0,1950-06-25,Switzerland,Yugoslavia,0,3,away,3,FIFA World Cup,Belo Horizonte,Brazil,True,martj42/international_results,martj42/international_results:3397
+match_42a898a388fe0ba5,1950-06-28,Brazil,Switzerland,2,2,draw,4,FIFA World Cup,São Paulo,Brazil,False,martj42/international_results,martj42/international_results:3398
+match_8be9b640cade053b,1950-06-28,Mexico,Yugoslavia,1,4,away,5,FIFA World Cup,Porto Alegre,Brazil,True,martj42/international_results,martj42/international_results:3399
+match_36893b40ab385bfa,1950-06-29,Chile,Spain,0,2,away,2,FIFA World Cup,Rio de Janeiro,Brazil,True,martj42/international_results,martj42/international_results:3400
+match_4fff5cf88ae714b9,1950-06-29,England,United States,0,1,away,1,FIFA World Cup,Belo Horizonte,Brazil,True,martj42/international_results,martj42/international_results:3401
+match_12c14485ad33b62c,1950-06-29,Paraguay,Sweden,2,2,draw,4,FIFA World Cup,Curitiba,Brazil,True,martj42/international_results,martj42/international_results:3402
+match_4956fd16c82bb707,1950-07-01,Brazil,Yugoslavia,2,0,home,2,FIFA World Cup,Rio de Janeiro,Brazil,False,martj42/international_results,martj42/international_results:3403
+match_fbb3d6e10f3c68e5,1950-07-02,Bolivia,Uruguay,0,8,away,8,FIFA World Cup,Belo Horizonte,Brazil,True,martj42/international_results,martj42/international_results:3405
+match_7b231e87dec11a9f,1950-07-02,Chile,United States,5,2,home,7,FIFA World Cup,Recife,Brazil,True,martj42/international_results,martj42/international_results:3406
+match_1543f4377be2dce1,1950-07-02,England,Spain,0,1,away,1,FIFA World Cup,Rio de Janeiro,Brazil,True,martj42/international_results,martj42/international_results:3407
+match_e9c3277b58090b3d,1950-07-02,Italy,Paraguay,2,0,home,2,FIFA World Cup,São Paulo,Brazil,True,martj42/international_results,martj42/international_results:3408
+match_2d96553feefe24f2,1950-07-02,Mexico,Switzerland,1,2,away,3,FIFA World Cup,Porto Alegre,Brazil,True,martj42/international_results,martj42/international_results:3409
+match_c11617331eafa852,1950-07-09,Brazil,Sweden,7,1,home,8,FIFA World Cup,Rio de Janeiro,Brazil,False,martj42/international_results,martj42/international_results:3411
+match_5461bc8e32723f36,1950-07-09,Spain,Uruguay,2,2,draw,4,FIFA World Cup,São Paulo,Brazil,True,martj42/international_results,martj42/international_results:3412
+match_325684f693b88867,1950-07-13,Brazil,Spain,6,1,home,7,FIFA World Cup,Rio de Janeiro,Brazil,False,martj42/international_results,martj42/international_results:3415
+match_2688762aa8265d1a,1950-07-13,Sweden,Uruguay,2,3,away,5,FIFA World Cup,São Paulo,Brazil,True,martj42/international_results,martj42/international_results:3416
+match_ee11d886b513e5c0,1950-07-16,Brazil,Uruguay,1,2,away,3,FIFA World Cup,Rio de Janeiro,Brazil,False,martj42/international_results,martj42/international_results:3417
+match_b4e439aab86fff13,1950-07-16,Spain,Sweden,1,3,away,4,FIFA World Cup,São Paulo,Brazil,True,martj42/international_results,martj42/international_results:3418
+match_7117baae8bf9ef0c,1954-06-16,Austria,Scotland,1,0,home,1,FIFA World Cup,Zürich,Switzerland,True,martj42/international_results,martj42/international_results:3956
+match_fd479c9ed5ca1245,1954-06-16,Brazil,Mexico,5,0,home,5,FIFA World Cup,Geneva,Switzerland,True,martj42/international_results,martj42/international_results:3957
+match_06ea82391f4da89c,1954-06-16,Czechoslovakia,Uruguay,0,2,away,2,FIFA World Cup,Bern,Switzerland,True,martj42/international_results,martj42/international_results:3958
+match_e0757721eb3ec7ba,1954-06-16,France,Yugoslavia,0,1,away,1,FIFA World Cup,Lausanne,Switzerland,True,martj42/international_results,martj42/international_results:3959
+match_29c7385595ae9007,1954-06-17,Belgium,England,4,4,draw,8,FIFA World Cup,Basel,Switzerland,True,martj42/international_results,martj42/international_results:3960
+match_3d49b258ab9f70b3,1954-06-17,Germany,Turkey,4,1,home,5,FIFA World Cup,Bern,Switzerland,True,martj42/international_results,martj42/international_results:3961
+match_a7e22f0409822e05,1954-06-17,Hungary,South Korea,9,0,home,9,FIFA World Cup,Zürich,Switzerland,True,martj42/international_results,martj42/international_results:3962
+match_ed2b8d1c95c799df,1954-06-17,Switzerland,Italy,2,1,home,3,FIFA World Cup,Lausanne,Switzerland,False,martj42/international_results,martj42/international_results:3963
+match_8412b2c570d38dc2,1954-06-19,Austria,Czechoslovakia,5,0,home,5,FIFA World Cup,Zürich,Switzerland,True,martj42/international_results,martj42/international_results:3964
+match_d9582a9c5308d884,1954-06-19,Brazil,Yugoslavia,1,1,draw,2,FIFA World Cup,Lausanne,Switzerland,True,martj42/international_results,martj42/international_results:3965
+match_a1874e17380f70f3,1954-06-19,France,Mexico,3,2,home,5,FIFA World Cup,Geneva,Switzerland,True,martj42/international_results,martj42/international_results:3966
+match_31d6c8d88a69d6fe,1954-06-19,Scotland,Uruguay,0,7,away,7,FIFA World Cup,Basel,Switzerland,True,martj42/international_results,martj42/international_results:3967
+match_b786767b25ae1aec,1954-06-20,Belgium,Italy,1,4,away,5,FIFA World Cup,Lugano,Switzerland,True,martj42/international_results,martj42/international_results:3968
+match_6c456c06cafeb163,1954-06-20,Germany,Hungary,3,8,away,11,FIFA World Cup,Basel,Switzerland,True,martj42/international_results,martj42/international_results:3969
+match_9681d95251c227cc,1954-06-20,South Korea,Turkey,0,7,away,7,FIFA World Cup,Geneva,Switzerland,True,martj42/international_results,martj42/international_results:3970
+match_e41b95c4d5acce69,1954-06-20,Switzerland,England,0,2,away,2,FIFA World Cup,Bern,Switzerland,False,martj42/international_results,martj42/international_results:3971
+match_b3aa94e3d422ddf4,1954-06-23,Germany,Turkey,7,2,home,9,FIFA World Cup,Zürich,Switzerland,True,martj42/international_results,martj42/international_results:3972
+match_39d33ad311949db4,1954-06-23,Switzerland,Italy,4,1,home,5,FIFA World Cup,Basel,Switzerland,False,martj42/international_results,martj42/international_results:3973
+match_bfe56cd0f2161b54,1954-06-26,England,Uruguay,2,4,away,6,FIFA World Cup,Basel,Switzerland,True,martj42/international_results,martj42/international_results:3974
+match_3345b49fcf2462b9,1954-06-26,Switzerland,Austria,5,7,away,12,FIFA World Cup,Lausanne,Switzerland,False,martj42/international_results,martj42/international_results:3975
+match_af334394a2f03b45,1954-06-27,Brazil,Hungary,2,4,away,6,FIFA World Cup,Bern,Switzerland,True,martj42/international_results,martj42/international_results:3976
+match_bf3f147b4643c8c1,1954-06-27,Germany,Yugoslavia,2,0,home,2,FIFA World Cup,Geneva,Switzerland,True,martj42/international_results,martj42/international_results:3977
+match_24f61d7c16877376,1954-06-30,Austria,Germany,1,6,away,7,FIFA World Cup,Basel,Switzerland,True,martj42/international_results,martj42/international_results:3978
+match_79ec44b0445279a2,1954-06-30,Hungary,Uruguay,4,2,home,6,FIFA World Cup,Lausanne,Switzerland,True,martj42/international_results,martj42/international_results:3979
+match_e9a36a57f046de11,1954-07-03,Austria,Uruguay,3,1,home,4,FIFA World Cup,Zürich,Switzerland,True,martj42/international_results,martj42/international_results:3980
+match_97c24081612876dc,1954-07-04,Germany,Hungary,3,2,home,5,FIFA World Cup,Bern,Switzerland,True,martj42/international_results,martj42/international_results:3981
+match_aa4dd987c03c510e,1958-06-08,Argentina,Germany,1,3,away,4,FIFA World Cup,Malmö,Sweden,True,martj42/international_results,martj42/international_results:4696
+match_a7c5f8e064edc369,1958-06-08,Austria,Brazil,0,3,away,3,FIFA World Cup,Uddevalla,Sweden,True,martj42/international_results,martj42/international_results:4697
+match_d9c79a318c9509d7,1958-06-08,Czechoslovakia,Northern Ireland,0,1,away,1,FIFA World Cup,Halmstad,Sweden,True,martj42/international_results,martj42/international_results:4698
+match_b7d01c06b2fd2b84,1958-06-08,England,Russia,2,2,draw,4,FIFA World Cup,Gothenburg,Sweden,True,martj42/international_results,martj42/international_results:4699
+match_f8d04fdb188e8a0f,1958-06-08,France,Paraguay,7,3,home,10,FIFA World Cup,Norrköping,Sweden,True,martj42/international_results,martj42/international_results:4700
+match_9f5d1a3e5f463a55,1958-06-08,Hungary,Wales,1,1,draw,2,FIFA World Cup,Sandviken,Sweden,True,martj42/international_results,martj42/international_results:4701
+match_d521a026446c62f1,1958-06-08,Scotland,Yugoslavia,1,1,draw,2,FIFA World Cup,Västerås,Sweden,True,martj42/international_results,martj42/international_results:4702
+match_95875dfabd775c1b,1958-06-08,Sweden,Mexico,3,0,home,3,FIFA World Cup,Solna,Sweden,False,martj42/international_results,martj42/international_results:4703
+match_5f6febad523d5372,1958-06-11,Argentina,Northern Ireland,3,1,home,4,FIFA World Cup,Halmstad,Sweden,True,martj42/international_results,martj42/international_results:4704
+match_db78c65d06a1aa23,1958-06-11,Austria,Russia,0,2,away,2,FIFA World Cup,Borås,Sweden,True,martj42/international_results,martj42/international_results:4705
+match_7eae30478c4bca9d,1958-06-11,Brazil,England,0,0,draw,0,FIFA World Cup,Gothenburg,Sweden,True,martj42/international_results,martj42/international_results:4706
+match_281f4ceb4b2b741d,1958-06-11,Czechoslovakia,Germany,2,2,draw,4,FIFA World Cup,Helsingborg,Sweden,True,martj42/international_results,martj42/international_results:4707
+match_b4207132dfc2c506,1958-06-11,France,Yugoslavia,2,3,away,5,FIFA World Cup,Västerås,Sweden,True,martj42/international_results,martj42/international_results:4708
+match_bd5fadf1e907483c,1958-06-11,Mexico,Wales,1,1,draw,2,FIFA World Cup,Solna,Sweden,True,martj42/international_results,martj42/international_results:4709
+match_728df351bdd0388e,1958-06-11,Paraguay,Scotland,3,2,home,5,FIFA World Cup,Norrköping,Sweden,True,martj42/international_results,martj42/international_results:4710
+match_2f90e9b6693cc63f,1958-06-12,Sweden,Hungary,2,1,home,3,FIFA World Cup,Solna,Sweden,False,martj42/international_results,martj42/international_results:4711
+match_d8701836140da3fd,1958-06-15,Argentina,Czechoslovakia,1,6,away,7,FIFA World Cup,Helsingborg,Sweden,True,martj42/international_results,martj42/international_results:4712
+match_b0125fb6f0cd2cd2,1958-06-15,Austria,England,2,2,draw,4,FIFA World Cup,Borås,Sweden,True,martj42/international_results,martj42/international_results:4713
+match_1ef7e2e526b06cf0,1958-06-15,Brazil,Russia,2,0,home,2,FIFA World Cup,Gothenburg,Sweden,True,martj42/international_results,martj42/international_results:4714
+match_e2ff6359dd69a62e,1958-06-15,France,Scotland,2,1,home,3,FIFA World Cup,Örebro,Sweden,True,martj42/international_results,martj42/international_results:4715
+match_5eefc4e68e576d4b,1958-06-15,Germany,Northern Ireland,2,2,draw,4,FIFA World Cup,Malmö,Sweden,True,martj42/international_results,martj42/international_results:4716
+match_11a6805a36dcf7e8,1958-06-15,Hungary,Mexico,4,0,home,4,FIFA World Cup,Sandviken,Sweden,True,martj42/international_results,martj42/international_results:4717
+match_b18a1cea466fb0a7,1958-06-15,Paraguay,Yugoslavia,3,3,draw,6,FIFA World Cup,Eskilstuna,Sweden,True,martj42/international_results,martj42/international_results:4719
+match_a82ce71d5113782a,1958-06-15,Sweden,Wales,0,0,draw,0,FIFA World Cup,Solna,Sweden,False,martj42/international_results,martj42/international_results:4720
+match_d09f9947008b4623,1958-06-17,Czechoslovakia,Northern Ireland,1,2,away,3,FIFA World Cup,Malmö,Sweden,True,martj42/international_results,martj42/international_results:4721
+match_5ee5710304e90d89,1958-06-17,England,Russia,0,1,away,1,FIFA World Cup,Gothenburg,Sweden,True,martj42/international_results,martj42/international_results:4722
+match_251c25b00c3aaaa9,1958-06-17,Hungary,Wales,1,2,away,3,FIFA World Cup,Solna,Sweden,True,martj42/international_results,martj42/international_results:4723
+match_10be63bc7ef5e380,1958-06-19,Brazil,Wales,1,0,home,1,FIFA World Cup,Gothenburg,Sweden,True,martj42/international_results,martj42/international_results:4724
+match_7a2adb7616b88de2,1958-06-19,France,Northern Ireland,4,0,home,4,FIFA World Cup,Norrköping,Sweden,True,martj42/international_results,martj42/international_results:4725
+match_875723f91a059c79,1958-06-19,Germany,Yugoslavia,1,0,home,1,FIFA World Cup,Malmö,Sweden,True,martj42/international_results,martj42/international_results:4726
+match_96ed781d6fbb2500,1958-06-19,Sweden,Russia,2,0,home,2,FIFA World Cup,Solna,Sweden,False,martj42/international_results,martj42/international_results:4727
+match_fe0e31ee0d34dfd9,1958-06-24,Brazil,France,5,2,home,7,FIFA World Cup,Solna,Sweden,True,martj42/international_results,martj42/international_results:4728
+match_cb6de6188096292b,1958-06-24,Sweden,Germany,3,1,home,4,FIFA World Cup,Gothenburg,Sweden,False,martj42/international_results,martj42/international_results:4729
+match_3b784749c46bdba5,1958-06-28,France,Germany,6,3,home,9,FIFA World Cup,Gothenburg,Sweden,True,martj42/international_results,martj42/international_results:4730
+match_58b7b7210946d265,1958-06-29,Sweden,Brazil,2,5,away,7,FIFA World Cup,Solna,Sweden,False,martj42/international_results,martj42/international_results:4733
+match_222499ad2ba177e9,1962-05-30,Argentina,Bulgaria,1,0,home,1,FIFA World Cup,Rancagua,Chile,True,martj42/international_results,martj42/international_results:5501
+match_c4ec64f8eefce9d1,1962-05-30,Brazil,Mexico,2,0,home,2,FIFA World Cup,Viña del Mar,Chile,True,martj42/international_results,martj42/international_results:5502
+match_e2ffd0409f8a4d5a,1962-05-30,Chile,Switzerland,3,1,home,4,FIFA World Cup,Santiago,Chile,False,martj42/international_results,martj42/international_results:5503
+match_72707f43d1b5dfa3,1962-05-30,Colombia,Uruguay,1,2,away,3,FIFA World Cup,Arica,Chile,True,martj42/international_results,martj42/international_results:5504
+match_082034d2efd210dd,1962-05-31,Czechoslovakia,Spain,1,0,home,1,FIFA World Cup,Viña del Mar,Chile,True,martj42/international_results,martj42/international_results:5505
+match_e1f1f1d2d0580d68,1962-05-31,England,Hungary,1,2,away,3,FIFA World Cup,Rancagua,Chile,True,martj42/international_results,martj42/international_results:5506
+match_3188ec319ffbc764,1962-05-31,Germany,Italy,0,0,draw,0,FIFA World Cup,Santiago,Chile,True,martj42/international_results,martj42/international_results:5507
+match_1a9a4c852f4859d7,1962-05-31,Russia,Yugoslavia,2,0,home,2,FIFA World Cup,Arica,Chile,True,martj42/international_results,martj42/international_results:5508
+match_e8d77944872d2c9b,1962-06-02,Argentina,England,1,3,away,4,FIFA World Cup,Rancagua,Chile,True,martj42/international_results,martj42/international_results:5509
+match_792231c65b0d4bb5,1962-06-02,Brazil,Czechoslovakia,0,0,draw,0,FIFA World Cup,Viña del Mar,Chile,True,martj42/international_results,martj42/international_results:5510
+match_fddd9e1cecc72473,1962-06-02,Chile,Italy,2,0,home,2,FIFA World Cup,Santiago,Chile,False,martj42/international_results,martj42/international_results:5511
+match_d7ca0a287e9d6c99,1962-06-02,Uruguay,Yugoslavia,1,3,away,4,FIFA World Cup,Arica,Chile,True,martj42/international_results,martj42/international_results:5513
+match_dd137ccc53278bb4,1962-06-03,Bulgaria,Hungary,1,6,away,7,FIFA World Cup,Rancagua,Chile,True,martj42/international_results,martj42/international_results:5514
+match_1ef3f79fbb3496e3,1962-06-03,Colombia,Russia,4,4,draw,8,FIFA World Cup,Arica,Chile,True,martj42/international_results,martj42/international_results:5515
+match_00d35f60428a1f4f,1962-06-03,Germany,Switzerland,2,1,home,3,FIFA World Cup,Santiago,Chile,True,martj42/international_results,martj42/international_results:5516
+match_cedbe7532e9b1fa3,1962-06-03,Mexico,Spain,0,1,away,1,FIFA World Cup,Viña del Mar,Chile,True,martj42/international_results,martj42/international_results:5517
+match_101aa3323c3fd5d9,1962-06-06,Argentina,Hungary,0,0,draw,0,FIFA World Cup,Rancagua,Chile,True,martj42/international_results,martj42/international_results:5520
+match_28af40868508f8f9,1962-06-06,Brazil,Spain,2,1,home,3,FIFA World Cup,Viña del Mar,Chile,True,martj42/international_results,martj42/international_results:5521
+match_fa541f1133ac724f,1962-06-06,Chile,Germany,0,2,away,2,FIFA World Cup,Santiago,Chile,False,martj42/international_results,martj42/international_results:5522
+match_50df55709dda1abe,1962-06-06,Russia,Uruguay,2,1,home,3,FIFA World Cup,Arica,Chile,True,martj42/international_results,martj42/international_results:5523
+match_05782c14fde1427b,1962-06-07,Bulgaria,England,0,0,draw,0,FIFA World Cup,Rancagua,Chile,True,martj42/international_results,martj42/international_results:5524
+match_71f87b29e7420fd6,1962-06-07,Colombia,Yugoslavia,0,5,away,5,FIFA World Cup,Arica,Chile,True,martj42/international_results,martj42/international_results:5525
+match_65467be1ac811590,1962-06-07,Czechoslovakia,Mexico,1,3,away,4,FIFA World Cup,Viña del Mar,Chile,True,martj42/international_results,martj42/international_results:5526
+match_1398689f8c2f541d,1962-06-07,Italy,Switzerland,3,0,home,3,FIFA World Cup,Santiago,Chile,True,martj42/international_results,martj42/international_results:5527
+match_d77b997303f82ddd,1962-06-10,Brazil,England,3,1,home,4,FIFA World Cup,Viña del Mar,Chile,True,martj42/international_results,martj42/international_results:5529
+match_02ee1a03a1a89341,1962-06-10,Chile,Russia,2,1,home,3,FIFA World Cup,Arica,Chile,False,martj42/international_results,martj42/international_results:5530
+match_db3ccdf0ef5b6677,1962-06-10,Czechoslovakia,Hungary,1,0,home,1,FIFA World Cup,Rancagua,Chile,True,martj42/international_results,martj42/international_results:5531
+match_189b92139227fe8f,1962-06-10,Germany,Yugoslavia,0,1,away,1,FIFA World Cup,Santiago,Chile,True,martj42/international_results,martj42/international_results:5532
+match_6d7d0db6a5040b75,1962-06-13,Chile,Brazil,2,4,away,6,FIFA World Cup,Santiago,Chile,False,martj42/international_results,martj42/international_results:5534
+match_9a024f6f8b6f4a64,1962-06-13,Czechoslovakia,Yugoslavia,3,1,home,4,FIFA World Cup,Viña del Mar,Chile,True,martj42/international_results,martj42/international_results:5535
+match_fbc0db6c9a35b10a,1962-06-16,Chile,Yugoslavia,1,0,home,1,FIFA World Cup,Santiago,Chile,False,martj42/international_results,martj42/international_results:5536
+match_6c91fca59a7b5ca8,1962-06-17,Brazil,Czechoslovakia,3,1,home,4,FIFA World Cup,Santiago,Chile,True,martj42/international_results,martj42/international_results:5537
+match_6e12a7cdb13eb271,1966-07-11,England,Uruguay,0,0,draw,0,FIFA World Cup,London,England,False,martj42/international_results,martj42/international_results:6696
+match_a0f0175af4c947be,1966-07-12,Brazil,Bulgaria,2,0,home,2,FIFA World Cup,Liverpool,England,True,martj42/international_results,martj42/international_results:6697
+match_ab01aeddc11aed1a,1966-07-12,Germany,Switzerland,5,0,home,5,FIFA World Cup,Sheffield,England,True,martj42/international_results,martj42/international_results:6698
+match_9d17e48017b371f6,1966-07-12,North Korea,Russia,0,3,away,3,FIFA World Cup,Middlesbrough,England,True,martj42/international_results,martj42/international_results:6699
+match_fa17ce3d1be833d3,1966-07-13,Argentina,Spain,2,1,home,3,FIFA World Cup,Birmingham,England,True,martj42/international_results,martj42/international_results:6700
+match_6db4cc2d7c1e2d99,1966-07-13,Chile,Italy,0,2,away,2,FIFA World Cup,Sunderland,England,True,martj42/international_results,martj42/international_results:6701
+match_6bab5293a4285f47,1966-07-13,France,Mexico,1,1,draw,2,FIFA World Cup,London,England,True,martj42/international_results,martj42/international_results:6702
+match_bfbbf17d234815aa,1966-07-13,Hungary,Portugal,1,3,away,4,FIFA World Cup,Manchester,England,True,martj42/international_results,martj42/international_results:6703
+match_1708b1d7b64a3c4e,1966-07-15,Brazil,Hungary,1,3,away,4,FIFA World Cup,Liverpool,England,True,martj42/international_results,martj42/international_results:6704
+match_d738159cf215d6fd,1966-07-15,Chile,North Korea,1,1,draw,2,FIFA World Cup,Middlesbrough,England,True,martj42/international_results,martj42/international_results:6705
+match_d6018f7a165c910f,1966-07-15,France,Uruguay,1,2,away,3,FIFA World Cup,London,England,True,martj42/international_results,martj42/international_results:6706
+match_0ccb6bd5ed61c7cc,1966-07-15,Spain,Switzerland,2,1,home,3,FIFA World Cup,Sheffield,England,True,martj42/international_results,martj42/international_results:6707
+match_051fb1d6fd8b8250,1966-07-16,Argentina,Germany,0,0,draw,0,FIFA World Cup,Birmingham,England,True,martj42/international_results,martj42/international_results:6708
+match_bec156a9c3141ca6,1966-07-16,Bulgaria,Portugal,0,3,away,3,FIFA World Cup,Manchester,England,True,martj42/international_results,martj42/international_results:6709
+match_61ab5f75f8df9c81,1966-07-16,England,Mexico,2,0,home,2,FIFA World Cup,London,England,False,martj42/international_results,martj42/international_results:6710
+match_4d09d42aa19edc12,1966-07-16,Italy,Russia,0,1,away,1,FIFA World Cup,Sunderland,England,True,martj42/international_results,martj42/international_results:6711
+match_3d5b72f1f35ca2c5,1966-07-19,Argentina,Switzerland,2,0,home,2,FIFA World Cup,Sheffield,England,True,martj42/international_results,martj42/international_results:6713
+match_5cdda5d8c6feedfd,1966-07-19,Brazil,Portugal,1,3,away,4,FIFA World Cup,Liverpool,England,True,martj42/international_results,martj42/international_results:6714
+match_303190b37f33a60f,1966-07-19,Italy,North Korea,0,1,away,1,FIFA World Cup,Middlesbrough,England,True,martj42/international_results,martj42/international_results:6715
+match_5e53074a193a8bf1,1966-07-19,Mexico,Uruguay,0,0,draw,0,FIFA World Cup,London,England,True,martj42/international_results,martj42/international_results:6716
+match_8e06637ba2efa82c,1966-07-20,Bulgaria,Hungary,1,3,away,4,FIFA World Cup,Manchester,England,True,martj42/international_results,martj42/international_results:6717
+match_1fc9839b2ad999f0,1966-07-20,Chile,Russia,1,2,away,3,FIFA World Cup,Sunderland,England,True,martj42/international_results,martj42/international_results:6718
+match_04b495ec01931583,1966-07-20,England,France,2,0,home,2,FIFA World Cup,London,England,False,martj42/international_results,martj42/international_results:6719
+match_36defdff83054907,1966-07-20,Germany,Spain,2,1,home,3,FIFA World Cup,Birmingham,England,True,martj42/international_results,martj42/international_results:6720
+match_743a6731820b9e9d,1966-07-23,England,Argentina,1,0,home,1,FIFA World Cup,London,England,False,martj42/international_results,martj42/international_results:6722
+match_d4e0ad5cf120cf9a,1966-07-23,Germany,Uruguay,4,0,home,4,FIFA World Cup,Sheffield,England,True,martj42/international_results,martj42/international_results:6723
+match_8a8b1e5af7ef9a8d,1966-07-23,Hungary,Russia,1,2,away,3,FIFA World Cup,Sunderland,England,True,martj42/international_results,martj42/international_results:6724
+match_57327678bd3319b1,1966-07-23,North Korea,Portugal,3,5,away,8,FIFA World Cup,Liverpool,England,True,martj42/international_results,martj42/international_results:6725
+match_9f2333817abeb25b,1966-07-25,Germany,Russia,2,1,home,3,FIFA World Cup,Liverpool,England,True,martj42/international_results,martj42/international_results:6726
+match_247e5ca187aef30f,1966-07-26,England,Portugal,2,1,home,3,FIFA World Cup,London,England,False,martj42/international_results,martj42/international_results:6727
+match_27ed1b0563388349,1966-07-28,Portugal,Russia,2,1,home,3,FIFA World Cup,London,England,True,martj42/international_results,martj42/international_results:6728
+match_8a11d04a25588aa1,1966-07-30,England,Germany,4,2,home,6,FIFA World Cup,London,England,False,martj42/international_results,martj42/international_results:6729
+match_d7583639db1b2f62,1970-05-31,Mexico,Russia,0,0,draw,0,FIFA World Cup,Mexico City,Mexico,False,martj42/international_results,martj42/international_results:8057
+match_228489023e715bea,1970-06-02,Bulgaria,Peru,2,3,away,5,FIFA World Cup,León,Mexico,True,martj42/international_results,martj42/international_results:8058
+match_17570459f3cc15b7,1970-06-02,England,Romania,1,0,home,1,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:8059
+match_a44f453baca0ca00,1970-06-02,Israel,Uruguay,0,2,away,2,FIFA World Cup,Puebla,Mexico,True,martj42/international_results,martj42/international_results:8060
+match_2a8ad66f41832311,1970-06-03,Belgium,El Salvador,3,0,home,3,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:8061
+match_a2f00635a121767f,1970-06-03,Brazil,Czechoslovakia,4,1,home,5,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:8062
+match_bed94674c91b8427,1970-06-03,Germany,Morocco,2,1,home,3,FIFA World Cup,León,Mexico,True,martj42/international_results,martj42/international_results:8064
+match_d7a5334a16b76b92,1970-06-03,Italy,Sweden,1,0,home,1,FIFA World Cup,Toluca,Mexico,True,martj42/international_results,martj42/international_results:8065
+match_8344b894ab8a5127,1970-06-06,Belgium,Russia,1,4,away,5,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:8066
+match_e7565c857ba80023,1970-06-06,Czechoslovakia,Romania,1,2,away,3,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:8067
+match_f5e003a077d303b0,1970-06-06,Italy,Uruguay,0,0,draw,0,FIFA World Cup,Puebla,Mexico,True,martj42/international_results,martj42/international_results:8068
+match_2f2d2698c8b5e68a,1970-06-06,Morocco,Peru,0,3,away,3,FIFA World Cup,León,Mexico,True,martj42/international_results,martj42/international_results:8069
+match_e6c242086b2e3f6f,1970-06-07,Brazil,England,1,0,home,1,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:8071
+match_972e8405bfc4f6d8,1970-06-07,Bulgaria,Germany,2,5,away,7,FIFA World Cup,León,Mexico,True,martj42/international_results,martj42/international_results:8072
+match_82725738a740f6a3,1970-06-07,Israel,Sweden,1,1,draw,2,FIFA World Cup,Toluca,Mexico,True,martj42/international_results,martj42/international_results:8073
+match_db1c2107b82cc38b,1970-06-07,Mexico,El Salvador,4,0,home,4,FIFA World Cup,Mexico City,Mexico,False,martj42/international_results,martj42/international_results:8074
+match_f4a2c4d6d775032f,1970-06-10,Brazil,Romania,3,2,home,5,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:8075
+match_cb99fd12fd51be9b,1970-06-10,El Salvador,Russia,0,2,away,2,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:8076
+match_82e58209aa83b61d,1970-06-10,Germany,Peru,3,1,home,4,FIFA World Cup,León,Mexico,True,martj42/international_results,martj42/international_results:8077
+match_ae3bdc744d292d7b,1970-06-10,Sweden,Uruguay,1,0,home,1,FIFA World Cup,Puebla,Mexico,True,martj42/international_results,martj42/international_results:8078
+match_9d54c696d2720288,1970-06-11,Bulgaria,Morocco,1,1,draw,2,FIFA World Cup,León,Mexico,True,martj42/international_results,martj42/international_results:8079
+match_036248ba58eefe43,1970-06-11,Czechoslovakia,England,0,1,away,1,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:8080
+match_ca40062ec4b29ef8,1970-06-11,Israel,Italy,0,0,draw,0,FIFA World Cup,Toluca,Mexico,True,martj42/international_results,martj42/international_results:8081
+match_0458fb69f9a12798,1970-06-11,Mexico,Belgium,1,0,home,1,FIFA World Cup,Mexico City,Mexico,False,martj42/international_results,martj42/international_results:8082
+match_13afa5275c5bdf65,1970-06-14,Brazil,Peru,4,2,home,6,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:8084
+match_8d6644e83ed38089,1970-06-14,England,Germany,2,3,away,5,FIFA World Cup,León,Mexico,True,martj42/international_results,martj42/international_results:8085
+match_e9426c57d7f2e0ac,1970-06-14,Mexico,Italy,1,4,away,5,FIFA World Cup,Toluca,Mexico,False,martj42/international_results,martj42/international_results:8086
+match_dc77b24a06d1079a,1970-06-14,Russia,Uruguay,0,1,away,1,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:8087
+match_2c1737cbf6c45f85,1970-06-17,Brazil,Uruguay,3,1,home,4,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:8088
+match_4aef211868d57983,1970-06-17,Germany,Italy,3,4,away,7,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:8089
+match_75359f45724a720e,1970-06-20,Germany,Uruguay,1,0,home,1,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:8091
+match_c50fc6da53e625e1,1970-06-21,Brazil,Italy,4,1,home,5,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:8093
+match_aa758e09d5b0c8e4,1974-06-13,Brazil,Yugoslavia,0,0,draw,0,FIFA World Cup,Frankfurt,Germany,True,martj42/international_results,martj42/international_results:9768
+match_57958c45062bd107,1974-06-14,DR Congo,Scotland,0,2,away,2,FIFA World Cup,Dortmund,Germany,True,martj42/international_results,martj42/international_results:9769
+match_3375e374087f214c,1974-06-14,German DR,Australia,2,0,home,2,FIFA World Cup,Hamburg,Germany,True,martj42/international_results,martj42/international_results:9770
+match_dd7a125dc7695b9c,1974-06-14,Germany,Chile,1,0,home,1,FIFA World Cup,Berlin,Germany,False,martj42/international_results,martj42/international_results:9771
+match_47d8cd2a3371ddb8,1974-06-15,Italy,Haiti,3,1,home,4,FIFA World Cup,Munich,Germany,True,martj42/international_results,martj42/international_results:9772
+match_28d5297f744aa4ad,1974-06-15,Poland,Argentina,3,2,home,5,FIFA World Cup,Stuttgart,Germany,True,martj42/international_results,martj42/international_results:9773
+match_4e3e9b7cf285aa8b,1974-06-15,Sweden,Bulgaria,0,0,draw,0,FIFA World Cup,Düsseldorf,Germany,True,martj42/international_results,martj42/international_results:9774
+match_46de2c5322387b1f,1974-06-15,Uruguay,Netherlands,0,2,away,2,FIFA World Cup,Hanover,Germany,True,martj42/international_results,martj42/international_results:9775
+match_a1b666bb0894d33c,1974-06-18,Chile,German DR,1,1,draw,2,FIFA World Cup,Berlin,Germany,True,martj42/international_results,martj42/international_results:9776
+match_309c7a48152149da,1974-06-18,Germany,Australia,3,0,home,3,FIFA World Cup,Hamburg,Germany,False,martj42/international_results,martj42/international_results:9777
+match_294972adc0df6c98,1974-06-18,Scotland,Brazil,0,0,draw,0,FIFA World Cup,Frankfurt,Germany,True,martj42/international_results,martj42/international_results:9778
+match_13ef3857f02ae534,1974-06-18,Yugoslavia,DR Congo,9,0,home,9,FIFA World Cup,Gelsenkirchen,Germany,True,martj42/international_results,martj42/international_results:9779
+match_f50afb8d7f88f9d5,1974-06-19,Argentina,Italy,1,1,draw,2,FIFA World Cup,Stuttgart,Germany,True,martj42/international_results,martj42/international_results:9780
+match_6fc75d4b5e93b558,1974-06-19,Bulgaria,Uruguay,1,1,draw,2,FIFA World Cup,Hanover,Germany,True,martj42/international_results,martj42/international_results:9781
+match_3a6ee5e8c46a2265,1974-06-19,Haiti,Poland,0,7,away,7,FIFA World Cup,Munich,Germany,True,martj42/international_results,martj42/international_results:9782
+match_abb0f4784da3442d,1974-06-19,Netherlands,Sweden,0,0,draw,0,FIFA World Cup,Dortmund,Germany,True,martj42/international_results,martj42/international_results:9783
+match_aad3135f6b7746bf,1974-06-22,Australia,Chile,0,0,draw,0,FIFA World Cup,Berlin,Germany,True,martj42/international_results,martj42/international_results:9784
+match_679ce3c6d846c162,1974-06-22,DR Congo,Brazil,0,3,away,3,FIFA World Cup,Gelsenkirchen,Germany,True,martj42/international_results,martj42/international_results:9785
+match_1b8685d52caf4159,1974-06-22,Germany,German DR,0,1,away,1,FIFA World Cup,Hamburg,Germany,False,martj42/international_results,martj42/international_results:9786
+match_d4e6b43a166a2362,1974-06-22,Scotland,Yugoslavia,1,1,draw,2,FIFA World Cup,Frankfurt,Germany,True,martj42/international_results,martj42/international_results:9787
+match_f2a34f542765eafa,1974-06-23,Argentina,Haiti,4,1,home,5,FIFA World Cup,Munich,Germany,True,martj42/international_results,martj42/international_results:9788
+match_6a04b7e01db16039,1974-06-23,Bulgaria,Netherlands,1,4,away,5,FIFA World Cup,Dortmund,Germany,True,martj42/international_results,martj42/international_results:9789
+match_23a1983871ffe288,1974-06-23,Poland,Italy,2,1,home,3,FIFA World Cup,Stuttgart,Germany,True,martj42/international_results,martj42/international_results:9790
+match_a44a76a2b82ec0b3,1974-06-23,Sweden,Uruguay,3,0,home,3,FIFA World Cup,Düsseldorf,Germany,True,martj42/international_results,martj42/international_results:9791
+match_4bc61d08c3c77568,1974-06-26,Brazil,German DR,1,0,home,1,FIFA World Cup,Hanover,Germany,True,martj42/international_results,martj42/international_results:9792
+match_9988d5f6739578bc,1974-06-26,Germany,Yugoslavia,2,0,home,2,FIFA World Cup,Düsseldorf,Germany,False,martj42/international_results,martj42/international_results:9793
+match_8fb9acdbe3f69d39,1974-06-26,Netherlands,Argentina,4,0,home,4,FIFA World Cup,Gelsenkirchen,Germany,True,martj42/international_results,martj42/international_results:9795
+match_2e692d8820ad8cc2,1974-06-26,Sweden,Poland,0,1,away,1,FIFA World Cup,Stuttgart,Germany,True,martj42/international_results,martj42/international_results:9796
+match_6132a5e67d128c70,1974-06-30,Argentina,Brazil,1,2,away,3,FIFA World Cup,Hanover,Germany,True,martj42/international_results,martj42/international_results:9797
+match_797f0cd1c16cd13d,1974-06-30,German DR,Netherlands,0,2,away,2,FIFA World Cup,Gelsenkirchen,Germany,True,martj42/international_results,martj42/international_results:9798
+match_f4544a5256611298,1974-06-30,Germany,Sweden,4,2,home,6,FIFA World Cup,Düsseldorf,Germany,False,martj42/international_results,martj42/international_results:9799
+match_08bc2f47a21c24eb,1974-06-30,Poland,Yugoslavia,2,1,home,3,FIFA World Cup,Frankfurt,Germany,True,martj42/international_results,martj42/international_results:9800
+match_c5911e71e84cca31,1974-07-03,Argentina,German DR,1,1,draw,2,FIFA World Cup,Gelsenkirchen,Germany,True,martj42/international_results,martj42/international_results:9801
+match_74a6f7eb740354ba,1974-07-03,Germany,Poland,1,0,home,1,FIFA World Cup,Frankfurt,Germany,False,martj42/international_results,martj42/international_results:9803
+match_f7c099e541f4f603,1974-07-03,Netherlands,Brazil,2,0,home,2,FIFA World Cup,Dortmund,Germany,True,martj42/international_results,martj42/international_results:9804
+match_97d06d9acd695f20,1974-07-03,Sweden,Yugoslavia,2,1,home,3,FIFA World Cup,Düsseldorf,Germany,True,martj42/international_results,martj42/international_results:9805
+match_12795dcaf69cd742,1974-07-06,Brazil,Poland,0,1,away,1,FIFA World Cup,Munich,Germany,True,martj42/international_results,martj42/international_results:9807
+match_9be810a144dcba7f,1974-07-07,Germany,Netherlands,2,1,home,3,FIFA World Cup,Munich,Germany,False,martj42/international_results,martj42/international_results:9809
+match_e7a120400e020562,1978-06-01,Germany,Poland,0,0,draw,0,FIFA World Cup,Buenos Aires,Argentina,True,martj42/international_results,martj42/international_results:11381
+match_d74c034e1b8bb4a1,1978-06-02,Argentina,Hungary,2,1,home,3,FIFA World Cup,Buenos Aires,Argentina,False,martj42/international_results,martj42/international_results:11382
+match_4db690c15a5e4e11,1978-06-02,France,Italy,1,2,away,3,FIFA World Cup,Mar del Plata,Argentina,True,martj42/international_results,martj42/international_results:11383
+match_1aafbb1cf760b5d8,1978-06-02,Mexico,Tunisia,1,3,away,4,FIFA World Cup,Rosario,Argentina,True,martj42/international_results,martj42/international_results:11384
+match_be29ac0d11b8b056,1978-06-03,Austria,Spain,2,1,home,3,FIFA World Cup,Buenos Aires,Argentina,True,martj42/international_results,martj42/international_results:11385
+match_52a230b42480ceb0,1978-06-03,Brazil,Sweden,1,1,draw,2,FIFA World Cup,Mar del Plata,Argentina,True,martj42/international_results,martj42/international_results:11386
+match_92ccc703a96b7e9d,1978-06-03,Iran,Netherlands,0,3,away,3,FIFA World Cup,Mendoza,Argentina,True,martj42/international_results,martj42/international_results:11387
+match_6937a5f523953cf7,1978-06-03,Peru,Scotland,3,1,home,4,FIFA World Cup,Córdoba,Argentina,True,martj42/international_results,martj42/international_results:11388
+match_62253909bbe27db4,1978-06-06,Argentina,France,2,1,home,3,FIFA World Cup,Buenos Aires,Argentina,False,martj42/international_results,martj42/international_results:11389
+match_2831f478d251d75b,1978-06-06,Germany,Mexico,6,0,home,6,FIFA World Cup,Córdoba,Argentina,True,martj42/international_results,martj42/international_results:11390
+match_9dd08ce825c69c80,1978-06-06,Hungary,Italy,1,3,away,4,FIFA World Cup,Mar del Plata,Argentina,True,martj42/international_results,martj42/international_results:11391
+match_df30bc10cbd7df65,1978-06-06,Poland,Tunisia,1,0,home,1,FIFA World Cup,Rosario,Argentina,True,martj42/international_results,martj42/international_results:11392
+match_0370d3e61ccd4c40,1978-06-07,Austria,Sweden,1,0,home,1,FIFA World Cup,Buenos Aires,Argentina,True,martj42/international_results,martj42/international_results:11393
+match_8b6a89e5425c6807,1978-06-07,Brazil,Spain,0,0,draw,0,FIFA World Cup,Mar del Plata,Argentina,True,martj42/international_results,martj42/international_results:11394
+match_644b0d336128ad44,1978-06-07,Iran,Scotland,1,1,draw,2,FIFA World Cup,Córdoba,Argentina,True,martj42/international_results,martj42/international_results:11395
+match_6ae1c62f80b65e53,1978-06-07,Netherlands,Peru,0,0,draw,0,FIFA World Cup,Mendoza,Argentina,True,martj42/international_results,martj42/international_results:11396
+match_1278c7575a6c90b4,1978-06-10,Argentina,Italy,0,1,away,1,FIFA World Cup,Buenos Aires,Argentina,False,martj42/international_results,martj42/international_results:11397
+match_3d6700c5256ea243,1978-06-10,France,Hungary,3,1,home,4,FIFA World Cup,Mar del Plata,Argentina,True,martj42/international_results,martj42/international_results:11398
+match_76586827897aa61b,1978-06-10,Germany,Tunisia,0,0,draw,0,FIFA World Cup,Córdoba,Argentina,True,martj42/international_results,martj42/international_results:11399
+match_79602d68d9d79f9d,1978-06-10,Mexico,Poland,1,3,away,4,FIFA World Cup,Rosario,Argentina,True,martj42/international_results,martj42/international_results:11400
+match_30f5a3a13402b16c,1978-06-11,Austria,Brazil,0,1,away,1,FIFA World Cup,Mar del Plata,Argentina,True,martj42/international_results,martj42/international_results:11402
+match_0b2c5bd2e16cc9ce,1978-06-11,Iran,Peru,1,4,away,5,FIFA World Cup,Córdoba,Argentina,True,martj42/international_results,martj42/international_results:11403
+match_0bdd27ec890af44e,1978-06-11,Netherlands,Scotland,2,3,away,5,FIFA World Cup,Mendoza,Argentina,True,martj42/international_results,martj42/international_results:11405
+match_56fbfe73dfc283e9,1978-06-11,Spain,Sweden,1,0,home,1,FIFA World Cup,Buenos Aires,Argentina,True,martj42/international_results,martj42/international_results:11406
+match_156da3ce9ed0ff05,1978-06-14,Argentina,Poland,2,0,home,2,FIFA World Cup,Rosario,Argentina,False,martj42/international_results,martj42/international_results:11408
+match_19a2c1fb27a521e4,1978-06-14,Austria,Netherlands,1,5,away,6,FIFA World Cup,Córdoba,Argentina,True,martj42/international_results,martj42/international_results:11410
+match_6a39f76cdbb9ea45,1978-06-14,Brazil,Peru,3,0,home,3,FIFA World Cup,Mendoza,Argentina,True,martj42/international_results,martj42/international_results:11411
+match_6c5023b1038fd11d,1978-06-14,Germany,Italy,0,0,draw,0,FIFA World Cup,Buenos Aires,Argentina,True,martj42/international_results,martj42/international_results:11412
+match_618607916fbb3dbd,1978-06-18,Argentina,Brazil,0,0,draw,0,FIFA World Cup,Rosario,Argentina,False,martj42/international_results,martj42/international_results:11416
+match_6aaaa4ef9d29487c,1978-06-18,Austria,Italy,0,1,away,1,FIFA World Cup,Buenos Aires,Argentina,True,martj42/international_results,martj42/international_results:11417
+match_143473dd58ae1a48,1978-06-18,Germany,Netherlands,2,2,draw,4,FIFA World Cup,Córdoba,Argentina,True,martj42/international_results,martj42/international_results:11418
+match_40afb8d963050293,1978-06-18,Peru,Poland,0,1,away,1,FIFA World Cup,Mendoza,Argentina,True,martj42/international_results,martj42/international_results:11420
+match_4afefdf9f29d65dc,1978-06-21,Argentina,Peru,6,0,home,6,FIFA World Cup,Rosario,Argentina,False,martj42/international_results,martj42/international_results:11421
+match_e25020902c7fcf5c,1978-06-21,Austria,Germany,3,2,home,5,FIFA World Cup,Córdoba,Argentina,True,martj42/international_results,martj42/international_results:11422
+match_7d98c1491990bc64,1978-06-21,Brazil,Poland,3,1,home,4,FIFA World Cup,Mendoza,Argentina,True,martj42/international_results,martj42/international_results:11423
+match_43e49b26fe4571c0,1978-06-21,Italy,Netherlands,1,2,away,3,FIFA World Cup,Buenos Aires,Argentina,True,martj42/international_results,martj42/international_results:11425
+match_3e6d7e936ca13db3,1978-06-24,Brazil,Italy,2,1,home,3,FIFA World Cup,Buenos Aires,Argentina,True,martj42/international_results,martj42/international_results:11429
+match_21f27a0234f64365,1978-06-25,Argentina,Netherlands,3,1,home,4,FIFA World Cup,Buenos Aires,Argentina,False,martj42/international_results,martj42/international_results:11430
+match_bbcf67f12bc388c5,1982-06-13,Argentina,Belgium,0,1,away,1,FIFA World Cup,Barcelona,Spain,True,martj42/international_results,martj42/international_results:13297
+match_33a61c9fc75ad12e,1982-06-14,Brazil,Russia,2,1,home,3,FIFA World Cup,Seville,Spain,True,martj42/international_results,martj42/international_results:13300
+match_eaba43ab80077c7e,1982-06-14,Italy,Poland,0,0,draw,0,FIFA World Cup,Vigo,Spain,True,martj42/international_results,martj42/international_results:13301
+match_f4a647c954a8a8d1,1982-06-15,Hungary,El Salvador,10,1,home,11,FIFA World Cup,Elche,Spain,True,martj42/international_results,martj42/international_results:13302
+match_6797362450dde368,1982-06-15,Peru,Cameroon,0,0,draw,0,FIFA World Cup,A Coruña,Spain,True,martj42/international_results,martj42/international_results:13304
+match_4898655b40050099,1982-06-15,Scotland,New Zealand,5,2,home,7,FIFA World Cup,Málaga,Spain,True,martj42/international_results,martj42/international_results:13305
+match_92fc039c4682aa74,1982-06-16,England,France,3,1,home,4,FIFA World Cup,Bilbao,Spain,True,martj42/international_results,martj42/international_results:13306
+match_83e6a25ff0ef494a,1982-06-16,Germany,Algeria,1,2,away,3,FIFA World Cup,Gijón,Spain,True,martj42/international_results,martj42/international_results:13307
+match_8c3850fbcf30a2d9,1982-06-16,Spain,Honduras,1,1,draw,2,FIFA World Cup,Valencia,Spain,False,martj42/international_results,martj42/international_results:13308
+match_fdac7f36f412b175,1982-06-17,Chile,Austria,0,1,away,1,FIFA World Cup,Oviedo,Spain,True,martj42/international_results,martj42/international_results:13309
+match_5326a3004e58845f,1982-06-17,Czechoslovakia,Kuwait,1,1,draw,2,FIFA World Cup,Valladolid,Spain,True,martj42/international_results,martj42/international_results:13310
+match_ab0dabde5b47dc21,1982-06-17,Yugoslavia,Northern Ireland,0,0,draw,0,FIFA World Cup,Zaragoza,Spain,True,martj42/international_results,martj42/international_results:13311
+match_67faa353fbcd1eb4,1982-06-18,Argentina,Hungary,4,1,home,5,FIFA World Cup,Alicante,Spain,True,martj42/international_results,martj42/international_results:13312
+match_13ed118ef297b47d,1982-06-18,Brazil,Scotland,4,1,home,5,FIFA World Cup,Seville,Spain,True,martj42/international_results,martj42/international_results:13313
+match_655fee0a48565040,1982-06-18,Italy,Peru,1,1,draw,2,FIFA World Cup,Vigo,Spain,True,martj42/international_results,martj42/international_results:13314
+match_0e0590ba2fe7d0ca,1982-06-19,Belgium,El Salvador,1,0,home,1,FIFA World Cup,Elche,Spain,True,martj42/international_results,martj42/international_results:13315
+match_336a0c2d15d10ae3,1982-06-19,Poland,Cameroon,0,0,draw,0,FIFA World Cup,A Coruña,Spain,True,martj42/international_results,martj42/international_results:13316
+match_0eab5aa2779ce34d,1982-06-19,Russia,New Zealand,3,0,home,3,FIFA World Cup,Málaga,Spain,True,martj42/international_results,martj42/international_results:13317
+match_e7c9a7b3a7c6a349,1982-06-20,England,Czechoslovakia,2,0,home,2,FIFA World Cup,Bilbao,Spain,True,martj42/international_results,martj42/international_results:13318
+match_258de8ff9ae70c63,1982-06-20,Germany,Chile,4,1,home,5,FIFA World Cup,Gijón,Spain,True,martj42/international_results,martj42/international_results:13319
+match_4ea46cd14e63b1b0,1982-06-20,Spain,Yugoslavia,2,1,home,3,FIFA World Cup,Valencia,Spain,False,martj42/international_results,martj42/international_results:13320
+match_f03a0425885d6311,1982-06-21,Algeria,Austria,0,2,away,2,FIFA World Cup,Oviedo,Spain,True,martj42/international_results,martj42/international_results:13321
+match_e387318489be97aa,1982-06-21,France,Kuwait,4,1,home,5,FIFA World Cup,Valladolid,Spain,True,martj42/international_results,martj42/international_results:13322
+match_817470ce3f4b1e90,1982-06-21,Honduras,Northern Ireland,1,1,draw,2,FIFA World Cup,Zaragoza,Spain,True,martj42/international_results,martj42/international_results:13323
+match_5b833a1766dcfa8a,1982-06-22,Belgium,Hungary,1,1,draw,2,FIFA World Cup,Elche,Spain,True,martj42/international_results,martj42/international_results:13324
+match_f69ffbd2523dc232,1982-06-22,Poland,Peru,5,1,home,6,FIFA World Cup,A Coruña,Spain,True,martj42/international_results,martj42/international_results:13325
+match_e7f14dba3c9b345f,1982-06-22,Russia,Scotland,2,2,draw,4,FIFA World Cup,Málaga,Spain,True,martj42/international_results,martj42/international_results:13326
+match_99bc0a88bc5c3f8a,1982-06-23,Argentina,El Salvador,2,0,home,2,FIFA World Cup,Alicante,Spain,True,martj42/international_results,martj42/international_results:13328
+match_dda136a28d27e94a,1982-06-23,Brazil,New Zealand,4,0,home,4,FIFA World Cup,Seville,Spain,True,martj42/international_results,martj42/international_results:13329
+match_ee55742edb077858,1982-06-23,Italy,Cameroon,1,1,draw,2,FIFA World Cup,Vigo,Spain,True,martj42/international_results,martj42/international_results:13330
+match_f2c4292bdcb79201,1982-06-24,Algeria,Chile,3,2,home,5,FIFA World Cup,Oviedo,Spain,True,martj42/international_results,martj42/international_results:13331
+match_3f8d9aabf8e7e3b7,1982-06-24,France,Czechoslovakia,1,1,draw,2,FIFA World Cup,Valladolid,Spain,True,martj42/international_results,martj42/international_results:13332
+match_78e02bae8b8bf346,1982-06-24,Honduras,Yugoslavia,0,1,away,1,FIFA World Cup,Zaragoza,Spain,True,martj42/international_results,martj42/international_results:13333
+match_f9ff6ef37f8764c3,1982-06-25,England,Kuwait,1,0,home,1,FIFA World Cup,Bilbao,Spain,True,martj42/international_results,martj42/international_results:13334
+match_56ee532530dc515a,1982-06-25,Germany,Austria,1,0,home,1,FIFA World Cup,Gijón,Spain,True,martj42/international_results,martj42/international_results:13335
+match_970f0eec3364298f,1982-06-25,Spain,Northern Ireland,0,1,away,1,FIFA World Cup,Valencia,Spain,False,martj42/international_results,martj42/international_results:13336
+match_070134cc0ecc176f,1982-06-28,Austria,France,0,1,away,1,FIFA World Cup,Madrid,Spain,True,martj42/international_results,martj42/international_results:13340
+match_1c8d80ff60e6fcbb,1982-06-28,Poland,Belgium,3,0,home,3,FIFA World Cup,Barcelona,Spain,True,martj42/international_results,martj42/international_results:13341
+match_8f355024e819d131,1982-06-29,Germany,England,0,0,draw,0,FIFA World Cup,Madrid,Spain,True,martj42/international_results,martj42/international_results:13342
+match_325418d601961927,1982-06-29,Italy,Argentina,2,1,home,3,FIFA World Cup,Barcelona,Spain,True,martj42/international_results,martj42/international_results:13343
+match_a0cf2881b94b5b08,1982-07-01,Austria,Northern Ireland,2,2,draw,4,FIFA World Cup,Madrid,Spain,True,martj42/international_results,martj42/international_results:13344
+match_62288a297fef30f2,1982-07-01,Belgium,Russia,0,1,away,1,FIFA World Cup,Barcelona,Spain,True,martj42/international_results,martj42/international_results:13345
+match_d5570ce830193441,1982-07-02,Argentina,Brazil,1,3,away,4,FIFA World Cup,Barcelona,Spain,True,martj42/international_results,martj42/international_results:13346
+match_ea483651969662ad,1982-07-02,Spain,Germany,1,2,away,3,FIFA World Cup,Madrid,Spain,False,martj42/international_results,martj42/international_results:13347
+match_4d0d30aa3de5a3d5,1982-07-04,France,Northern Ireland,4,1,home,5,FIFA World Cup,Madrid,Spain,True,martj42/international_results,martj42/international_results:13348
+match_07510082f17d96db,1982-07-04,Poland,Russia,0,0,draw,0,FIFA World Cup,Barcelona,Spain,True,martj42/international_results,martj42/international_results:13349
+match_e17ad0e324c0771e,1982-07-05,Italy,Brazil,3,2,home,5,FIFA World Cup,Barcelona,Spain,True,martj42/international_results,martj42/international_results:13350
+match_8cb5df1bf3462f76,1982-07-05,Spain,England,0,0,draw,0,FIFA World Cup,Madrid,Spain,False,martj42/international_results,martj42/international_results:13351
+match_4ede08a564fadf12,1982-07-08,Germany,France,3,3,draw,6,FIFA World Cup,Seville,Spain,True,martj42/international_results,martj42/international_results:13353
+match_b97c0c4b836d1fad,1982-07-08,Poland,Italy,0,2,away,2,FIFA World Cup,Barcelona,Spain,True,martj42/international_results,martj42/international_results:13355
+match_2f79cf52d5975a0b,1982-07-10,Poland,France,3,2,home,5,FIFA World Cup,Alicante,Spain,True,martj42/international_results,martj42/international_results:13356
+match_fe18c6812fd7f620,1982-07-11,Italy,Germany,3,1,home,4,FIFA World Cup,Madrid,Spain,True,martj42/international_results,martj42/international_results:13358
+match_c8a33721ce857cd4,1986-05-31,Bulgaria,Italy,1,1,draw,2,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:15318
+match_bf2a38738ca23927,1986-06-01,Canada,France,0,1,away,1,FIFA World Cup,León,Mexico,True,martj42/international_results,martj42/international_results:15320
+match_ced9602f90b5c870,1986-06-01,Spain,Brazil,0,1,away,1,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:15321
+match_fc8019a18842c099,1986-06-02,Argentina,South Korea,3,1,home,4,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:15322
+match_bf2ad9dba4bea01a,1986-06-02,Morocco,Poland,0,0,draw,0,FIFA World Cup,Monterrey,Mexico,True,martj42/international_results,martj42/international_results:15323
+match_f29ff0f53e66516b,1986-06-02,Russia,Hungary,6,0,home,6,FIFA World Cup,Irapuato,Mexico,True,martj42/international_results,martj42/international_results:15324
+match_8b9eb506456f01bd,1986-06-03,Algeria,Northern Ireland,1,1,draw,2,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:15325
+match_d76f94677df57d87,1986-06-03,Mexico,Belgium,2,1,home,3,FIFA World Cup,Mexico City,Mexico,False,martj42/international_results,martj42/international_results:15327
+match_b0f61c0a608db602,1986-06-03,Portugal,England,1,0,home,1,FIFA World Cup,Monterrey,Mexico,True,martj42/international_results,martj42/international_results:15328
+match_760153f95591f573,1986-06-04,Paraguay,Iraq,1,0,home,1,FIFA World Cup,Toluca,Mexico,True,martj42/international_results,martj42/international_results:15330
+match_ddda854f23c13e10,1986-06-04,Scotland,Denmark,0,1,away,1,FIFA World Cup,Nezahualcóyotl,Mexico,True,martj42/international_results,martj42/international_results:15332
+match_8f52b780290a324c,1986-06-04,Uruguay,Germany,1,1,draw,2,FIFA World Cup,Querétaro,Mexico,True,martj42/international_results,martj42/international_results:15333
+match_03eecfe9b4619f99,1986-06-05,France,Russia,1,1,draw,2,FIFA World Cup,León,Mexico,True,martj42/international_results,martj42/international_results:15334
+match_923ee527de9cec38,1986-06-05,Italy,Argentina,1,1,draw,2,FIFA World Cup,Puebla,Mexico,True,martj42/international_results,martj42/international_results:15335
+match_1390290afc36fa9f,1986-06-05,South Korea,Bulgaria,1,1,draw,2,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:15336
+match_76e06a7250e3ec69,1986-06-06,Brazil,Algeria,1,0,home,1,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:15337
+match_3690b1a7d6db1ea2,1986-06-06,England,Morocco,0,0,draw,0,FIFA World Cup,Monterrey,Mexico,True,martj42/international_results,martj42/international_results:15338
+match_7561ee60d6fbff61,1986-06-06,Hungary,Canada,2,0,home,2,FIFA World Cup,Irapuato,Mexico,True,martj42/international_results,martj42/international_results:15339
+match_70866888591f1ad2,1986-06-07,Mexico,Paraguay,1,1,draw,2,FIFA World Cup,Mexico City,Mexico,False,martj42/international_results,martj42/international_results:15341
+match_4def621a4fd09046,1986-06-07,Northern Ireland,Spain,1,2,away,3,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:15343
+match_daacd42c9afd9023,1986-06-07,Poland,Portugal,1,0,home,1,FIFA World Cup,Monterrey,Mexico,True,martj42/international_results,martj42/international_results:15344
+match_6f61bc2046de6fd5,1986-06-08,Denmark,Uruguay,6,1,home,7,FIFA World Cup,Nezahualcóyotl,Mexico,True,martj42/international_results,martj42/international_results:15345
+match_ca67fab81b9aa178,1986-06-08,Germany,Scotland,2,1,home,3,FIFA World Cup,Querétaro,Mexico,True,martj42/international_results,martj42/international_results:15346
+match_722186041b04c3b4,1986-06-08,Iraq,Belgium,1,2,away,3,FIFA World Cup,Toluca,Mexico,True,martj42/international_results,martj42/international_results:15347
+match_bec2dd8015c3a8ad,1986-06-09,Hungary,France,0,3,away,3,FIFA World Cup,León,Mexico,True,martj42/international_results,martj42/international_results:15348
+match_3e2adbe4ba8de327,1986-06-09,Russia,Canada,2,0,home,2,FIFA World Cup,Irapuato,Mexico,True,martj42/international_results,martj42/international_results:15349
+match_f9ffae8757ef40f3,1986-06-10,Argentina,Bulgaria,2,0,home,2,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:15350
+match_3d55053fab3b4584,1986-06-10,South Korea,Italy,2,3,away,5,FIFA World Cup,Puebla,Mexico,True,martj42/international_results,martj42/international_results:15351
+match_3e8f6c66cf56b36f,1986-06-11,England,Poland,3,0,home,3,FIFA World Cup,Monterrey,Mexico,True,martj42/international_results,martj42/international_results:15352
+match_49c7416443930689,1986-06-11,Mexico,Iraq,1,0,home,1,FIFA World Cup,Mexico City,Mexico,False,martj42/international_results,martj42/international_results:15354
+match_a060c5d3ea123d23,1986-06-11,Paraguay,Belgium,2,2,draw,4,FIFA World Cup,Toluca,Mexico,True,martj42/international_results,martj42/international_results:15355
+match_bcab530417cf275f,1986-06-11,Portugal,Morocco,1,3,away,4,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:15356
+match_cd9335a1a755e94f,1986-06-12,Algeria,Spain,0,3,away,3,FIFA World Cup,Monterrey,Mexico,True,martj42/international_results,martj42/international_results:15357
+match_133b8c8f5392ee43,1986-06-12,Northern Ireland,Brazil,0,3,away,3,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:15358
+match_eff557e542749146,1986-06-13,Denmark,Germany,2,0,home,2,FIFA World Cup,Querétaro,Mexico,True,martj42/international_results,martj42/international_results:15359
+match_1a220d9dca8531f2,1986-06-13,Scotland,Uruguay,0,0,draw,0,FIFA World Cup,Nezahualcóyotl,Mexico,True,martj42/international_results,martj42/international_results:15361
+match_a6ee3ee7f687c010,1986-06-15,Mexico,Bulgaria,2,0,home,2,FIFA World Cup,Mexico City,Mexico,False,martj42/international_results,martj42/international_results:15362
+match_76c9c9ffdb087d9c,1986-06-15,Russia,Belgium,3,4,away,7,FIFA World Cup,León,Mexico,True,martj42/international_results,martj42/international_results:15363
+match_98615983b7e4a53a,1986-06-16,Argentina,Uruguay,1,0,home,1,FIFA World Cup,Puebla,Mexico,True,martj42/international_results,martj42/international_results:15364
+match_7d81e02bb77a830e,1986-06-16,Brazil,Poland,4,0,home,4,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:15365
+match_76c4fe678b11851f,1986-06-17,Italy,France,0,2,away,2,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:15366
+match_bf8e44846aa46748,1986-06-17,Morocco,Germany,0,1,away,1,FIFA World Cup,Monterrey,Mexico,True,martj42/international_results,martj42/international_results:15367
+match_57ae58302e03d2d1,1986-06-18,Denmark,Spain,1,5,away,6,FIFA World Cup,Querétaro,Mexico,True,martj42/international_results,martj42/international_results:15368
+match_231181b2b95e0084,1986-06-18,England,Paraguay,3,0,home,3,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:15369
+match_908d561b81eb6e96,1986-06-21,Brazil,France,1,1,draw,2,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:15370
+match_c42ea7dd0bb06fa0,1986-06-21,Mexico,Germany,0,0,draw,0,FIFA World Cup,Monterrey,Mexico,False,martj42/international_results,martj42/international_results:15372
+match_0e84f7a14eb4de03,1986-06-22,Argentina,England,2,1,home,3,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:15373
+match_21db4ae1433145d7,1986-06-22,Spain,Belgium,1,1,draw,2,FIFA World Cup,Puebla,Mexico,True,martj42/international_results,martj42/international_results:15375
+match_70e7269e14dab21f,1986-06-25,Argentina,Belgium,2,0,home,2,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:15376
+match_a325de27046f24b4,1986-06-25,France,Germany,0,2,away,2,FIFA World Cup,Guadalajara,Mexico,True,martj42/international_results,martj42/international_results:15377
+match_0548dbf256f51365,1986-06-28,France,Belgium,4,2,home,6,FIFA World Cup,Puebla,Mexico,True,martj42/international_results,martj42/international_results:15378
+match_9228d5e5ec9bebad,1986-06-29,Argentina,Germany,3,2,home,5,FIFA World Cup,Mexico City,Mexico,True,martj42/international_results,martj42/international_results:15379
+match_142b45bdb7174a09,1990-06-08,Argentina,Cameroon,0,1,away,1,FIFA World Cup,Milan,Italy,True,martj42/international_results,martj42/international_results:17323
+match_0b0bafcad0e72c0b,1990-06-09,Italy,Austria,1,0,home,1,FIFA World Cup,Rome,Italy,False,martj42/international_results,martj42/international_results:17324
+match_cb467a6fa8cc885f,1990-06-09,Russia,Romania,0,2,away,2,FIFA World Cup,Bari,Italy,True,martj42/international_results,martj42/international_results:17325
+match_bbad33daf6532289,1990-06-09,United Arab Emirates,Colombia,0,2,away,2,FIFA World Cup,Bologna,Italy,True,martj42/international_results,martj42/international_results:17326
+match_6723c412a1daa70f,1990-06-10,Brazil,Sweden,2,1,home,3,FIFA World Cup,Turin,Italy,True,martj42/international_results,martj42/international_results:17328
+match_60a1063e98e0d455,1990-06-10,Germany,Yugoslavia,4,1,home,5,FIFA World Cup,Milan,Italy,True,martj42/international_results,martj42/international_results:17329
+match_c2bcdae9cda2c697,1990-06-10,United States,Czechoslovakia,1,5,away,6,FIFA World Cup,Florence,Italy,True,martj42/international_results,martj42/international_results:17330
+match_46d8a190c5eaac7f,1990-06-11,Costa Rica,Scotland,1,0,home,1,FIFA World Cup,Genoa,Italy,True,martj42/international_results,martj42/international_results:17331
+match_cf274b92e51ad71b,1990-06-11,England,Republic of Ireland,1,1,draw,2,FIFA World Cup,Cagliari,Italy,True,martj42/international_results,martj42/international_results:17332
+match_2d9c0e6899e94162,1990-06-12,Belgium,South Korea,2,0,home,2,FIFA World Cup,Verona,Italy,True,martj42/international_results,martj42/international_results:17333
+match_264351fc773fd98d,1990-06-12,Netherlands,Egypt,1,1,draw,2,FIFA World Cup,Palermo,Italy,True,martj42/international_results,martj42/international_results:17334
+match_14f977ceda0ef222,1990-06-13,Argentina,Russia,2,0,home,2,FIFA World Cup,Naples,Italy,True,martj42/international_results,martj42/international_results:17335
+match_5755b939af7bd8ea,1990-06-13,Uruguay,Spain,0,0,draw,0,FIFA World Cup,Udine,Italy,True,martj42/international_results,martj42/international_results:17336
+match_7a8e698910dc5f85,1990-06-14,Cameroon,Romania,2,1,home,3,FIFA World Cup,Bari,Italy,True,martj42/international_results,martj42/international_results:17337
+match_74fbcf35f8688ea2,1990-06-14,Italy,United States,1,0,home,1,FIFA World Cup,Rome,Italy,False,martj42/international_results,martj42/international_results:17338
+match_ed3bb2bfd379dfbc,1990-06-14,Yugoslavia,Colombia,1,0,home,1,FIFA World Cup,Bologna,Italy,True,martj42/international_results,martj42/international_results:17339
+match_31d33dbea4dd9b39,1990-06-15,Austria,Czechoslovakia,0,1,away,1,FIFA World Cup,Florence,Italy,True,martj42/international_results,martj42/international_results:17340
+match_645bb828cf43b2a5,1990-06-15,Germany,United Arab Emirates,5,1,home,6,FIFA World Cup,Milan,Italy,True,martj42/international_results,martj42/international_results:17341
+match_50eefa83e5c03156,1990-06-16,Brazil,Costa Rica,1,0,home,1,FIFA World Cup,Turin,Italy,True,martj42/international_results,martj42/international_results:17342
+match_d052229a3f912bd1,1990-06-16,England,Netherlands,0,0,draw,0,FIFA World Cup,Cagliari,Italy,True,martj42/international_results,martj42/international_results:17343
+match_4b182fd28544abab,1990-06-16,Sweden,Scotland,1,2,away,3,FIFA World Cup,Genoa,Italy,True,martj42/international_results,martj42/international_results:17344
+match_427e164e3fd9db7b,1990-06-17,Belgium,Uruguay,3,1,home,4,FIFA World Cup,Verona,Italy,True,martj42/international_results,martj42/international_results:17345
+match_8075109caa476dc0,1990-06-17,Republic of Ireland,Egypt,0,0,draw,0,FIFA World Cup,Palermo,Italy,True,martj42/international_results,martj42/international_results:17346
+match_86cd1bac2b839670,1990-06-17,South Korea,Spain,1,3,away,4,FIFA World Cup,Udine,Italy,True,martj42/international_results,martj42/international_results:17347
+match_13b322fd6c5a0f4b,1990-06-18,Argentina,Romania,1,1,draw,2,FIFA World Cup,Naples,Italy,True,martj42/international_results,martj42/international_results:17348
+match_da4c3353dafc06d4,1990-06-18,Cameroon,Russia,0,4,away,4,FIFA World Cup,Bari,Italy,True,martj42/international_results,martj42/international_results:17349
+match_5de7ed35d38663e1,1990-06-19,Austria,United States,2,1,home,3,FIFA World Cup,Florence,Italy,True,martj42/international_results,martj42/international_results:17350
+match_3a904c01af069e5a,1990-06-19,Germany,Colombia,1,1,draw,2,FIFA World Cup,Milan,Italy,True,martj42/international_results,martj42/international_results:17351
+match_ee0485290f68960a,1990-06-19,Italy,Czechoslovakia,2,0,home,2,FIFA World Cup,Rome,Italy,False,martj42/international_results,martj42/international_results:17352
+match_2e957b98be2363f7,1990-06-19,Yugoslavia,United Arab Emirates,4,1,home,5,FIFA World Cup,Bologna,Italy,True,martj42/international_results,martj42/international_results:17353
+match_097005355d4b17cf,1990-06-20,Brazil,Scotland,1,0,home,1,FIFA World Cup,Turin,Italy,True,martj42/international_results,martj42/international_results:17354
+match_21f621695259429d,1990-06-20,Sweden,Costa Rica,1,2,away,3,FIFA World Cup,Genoa,Italy,True,martj42/international_results,martj42/international_results:17355
+match_489d936c50a203e0,1990-06-21,Belgium,Spain,1,2,away,3,FIFA World Cup,Verona,Italy,True,martj42/international_results,martj42/international_results:17356
+match_ce0d1b830bff5fc3,1990-06-21,England,Egypt,1,0,home,1,FIFA World Cup,Cagliari,Italy,True,martj42/international_results,martj42/international_results:17357
+match_2e20c826046c396f,1990-06-21,Republic of Ireland,Netherlands,1,1,draw,2,FIFA World Cup,Palermo,Italy,True,martj42/international_results,martj42/international_results:17358
+match_7ef442db1f1720fd,1990-06-21,South Korea,Uruguay,0,1,away,1,FIFA World Cup,Udine,Italy,True,martj42/international_results,martj42/international_results:17359
+match_3b66954295ab0967,1990-06-23,Cameroon,Colombia,2,1,home,3,FIFA World Cup,Naples,Italy,True,martj42/international_results,martj42/international_results:17360
+match_571f9214bf82803b,1990-06-23,Czechoslovakia,Costa Rica,4,1,home,5,FIFA World Cup,Bari,Italy,True,martj42/international_results,martj42/international_results:17361
+match_7601cf438043b96b,1990-06-24,Brazil,Argentina,0,1,away,1,FIFA World Cup,Turin,Italy,True,martj42/international_results,martj42/international_results:17362
+match_e37cbaa178162cd6,1990-06-24,Germany,Netherlands,2,1,home,3,FIFA World Cup,Milan,Italy,True,martj42/international_results,martj42/international_results:17363
+match_e1e31b061dc9db22,1990-06-25,Republic of Ireland,Romania,0,0,draw,0,FIFA World Cup,Genoa,Italy,True,martj42/international_results,martj42/international_results:17364
+match_db14d21a2f98419b,1990-06-25,Italy,Uruguay,2,0,home,2,FIFA World Cup,Rome,Italy,False,martj42/international_results,martj42/international_results:17365
+match_9365d140844d0b94,1990-06-26,England,Belgium,1,0,home,1,FIFA World Cup,Bologna,Italy,True,martj42/international_results,martj42/international_results:17366
+match_cd9150d52152dfa3,1990-06-26,Spain,Yugoslavia,1,2,away,3,FIFA World Cup,Verona,Italy,True,martj42/international_results,martj42/international_results:17367
+match_141372b683dba7fb,1990-06-30,Italy,Republic of Ireland,1,0,home,1,FIFA World Cup,Rome,Italy,False,martj42/international_results,martj42/international_results:17368
+match_9e904c097856c1b3,1990-06-30,Yugoslavia,Argentina,0,0,draw,0,FIFA World Cup,Florence,Italy,True,martj42/international_results,martj42/international_results:17369
+match_2a7772ebf3a47724,1990-07-01,Cameroon,England,2,3,away,5,FIFA World Cup,Naples,Italy,True,martj42/international_results,martj42/international_results:17370
+match_c656470264e6f10d,1990-07-01,Germany,Czechoslovakia,1,0,home,1,FIFA World Cup,Milan,Italy,True,martj42/international_results,martj42/international_results:17371
+match_c8a642941ed7c34e,1990-07-03,Italy,Argentina,1,1,draw,2,FIFA World Cup,Naples,Italy,False,martj42/international_results,martj42/international_results:17372
+match_6879ccf09514af93,1990-07-04,Germany,England,1,1,draw,2,FIFA World Cup,Turin,Italy,True,martj42/international_results,martj42/international_results:17373
+match_9beb85446de481ce,1990-07-07,Italy,England,2,1,home,3,FIFA World Cup,Bari,Italy,False,martj42/international_results,martj42/international_results:17375
+match_e3232cc96b4f8bc5,1990-07-08,Germany,Argentina,1,0,home,1,FIFA World Cup,Rome,Italy,True,martj42/international_results,martj42/international_results:17376
+match_2c49adbcefef5a82,1994-06-17,Germany,Bolivia,1,0,home,1,FIFA World Cup,Chicago,United States,True,martj42/international_results,martj42/international_results:19765
+match_51a50429f79538fd,1994-06-17,Spain,South Korea,2,2,draw,4,FIFA World Cup,Dallas,United States,True,martj42/international_results,martj42/international_results:19766
+match_4a1714c194a0acc8,1994-06-18,Colombia,Romania,1,3,away,4,FIFA World Cup,Pasadena,United States,True,martj42/international_results,martj42/international_results:19767
+match_b9a4a1852e8f422c,1994-06-18,Italy,Republic of Ireland,0,1,away,1,FIFA World Cup,East Rutherford,United States,True,martj42/international_results,martj42/international_results:19768
+match_8cabf6c5919d588e,1994-06-18,United States,Switzerland,1,1,draw,2,FIFA World Cup,Pontiac,United States,False,martj42/international_results,martj42/international_results:19769
+match_20eb417893846271,1994-06-19,Belgium,Morocco,1,0,home,1,FIFA World Cup,Orlando,United States,True,martj42/international_results,martj42/international_results:19770
+match_76ce4a4a921b64dc,1994-06-19,Cameroon,Sweden,2,2,draw,4,FIFA World Cup,Pasadena,United States,True,martj42/international_results,martj42/international_results:19771
+match_4aee7cf8f284e1f1,1994-06-19,Norway,Mexico,1,0,home,1,FIFA World Cup,"Washington, D.C.",United States,True,martj42/international_results,martj42/international_results:19772
+match_6c1408db7e5c17a2,1994-06-20,Brazil,Russia,2,0,home,2,FIFA World Cup,Palo Alto,United States,True,martj42/international_results,martj42/international_results:19773
+match_71c3c047d4a536a3,1994-06-20,Netherlands,Saudi Arabia,2,1,home,3,FIFA World Cup,"Washington, D.C.",United States,True,martj42/international_results,martj42/international_results:19774
+match_33ef0567f899f455,1994-06-21,Argentina,Greece,4,0,home,4,FIFA World Cup,Foxborough,United States,True,martj42/international_results,martj42/international_results:19775
+match_85409edd9b3ff879,1994-06-21,Germany,Spain,1,1,draw,2,FIFA World Cup,Chicago,United States,True,martj42/international_results,martj42/international_results:19776
+match_68cfd69ffe4c0efa,1994-06-21,Nigeria,Bulgaria,3,0,home,3,FIFA World Cup,Dallas,United States,True,martj42/international_results,martj42/international_results:19777
+match_1ca8466ebdb9e737,1994-06-22,Romania,Switzerland,1,4,away,5,FIFA World Cup,Pontiac,United States,True,martj42/international_results,martj42/international_results:19778
+match_6ac16706db059a3f,1994-06-22,United States,Colombia,2,1,home,3,FIFA World Cup,Pasadena,United States,False,martj42/international_results,martj42/international_results:19779
+match_ea284cc4804ff70b,1994-06-23,Italy,Norway,1,0,home,1,FIFA World Cup,East Rutherford,United States,True,martj42/international_results,martj42/international_results:19780
+match_9b18cb3d10d1991a,1994-06-23,South Korea,Bolivia,0,0,draw,0,FIFA World Cup,Foxborough,United States,True,martj42/international_results,martj42/international_results:19781
+match_90cc1284d32bd29c,1994-06-24,Brazil,Cameroon,3,0,home,3,FIFA World Cup,Palo Alto,United States,True,martj42/international_results,martj42/international_results:19782
+match_fc43a0a0ceaf6aa6,1994-06-24,Mexico,Republic of Ireland,2,1,home,3,FIFA World Cup,Orlando,United States,True,martj42/international_results,martj42/international_results:19783
+match_6c5b40209d969a41,1994-06-24,Sweden,Russia,3,1,home,4,FIFA World Cup,Pontiac,United States,True,martj42/international_results,martj42/international_results:19784
+match_2e0430d394cc670f,1994-06-25,Argentina,Nigeria,2,1,home,3,FIFA World Cup,Foxborough,United States,True,martj42/international_results,martj42/international_results:19785
+match_b230c598e0882e83,1994-06-25,Belgium,Netherlands,1,0,home,1,FIFA World Cup,Orlando,United States,True,martj42/international_results,martj42/international_results:19786
+match_70eda365b4cb7561,1994-06-25,Saudi Arabia,Morocco,2,1,home,3,FIFA World Cup,East Rutherford,United States,True,martj42/international_results,martj42/international_results:19787
+match_f97d9478fc3ac141,1994-06-26,Bulgaria,Greece,4,0,home,4,FIFA World Cup,Chicago,United States,True,martj42/international_results,martj42/international_results:19788
+match_1913b0d876d7130b,1994-06-26,Switzerland,Colombia,0,2,away,2,FIFA World Cup,Palo Alto,United States,True,martj42/international_results,martj42/international_results:19790
+match_bfebc800fd030eba,1994-06-26,United States,Romania,0,1,away,1,FIFA World Cup,Pasadena,United States,False,martj42/international_results,martj42/international_results:19791
+match_2c327a42c62c9a4b,1994-06-27,Bolivia,Spain,1,3,away,4,FIFA World Cup,Chicago,United States,True,martj42/international_results,martj42/international_results:19792
+match_ef9a1b00eef485d9,1994-06-27,Germany,South Korea,3,2,home,5,FIFA World Cup,Dallas,United States,True,martj42/international_results,martj42/international_results:19793
+match_1ff3a1587df05371,1994-06-28,Brazil,Sweden,1,1,draw,2,FIFA World Cup,Pontiac,United States,True,martj42/international_results,martj42/international_results:19794
+match_07f2d269bcd27415,1994-06-28,Republic of Ireland,Norway,0,0,draw,0,FIFA World Cup,East Rutherford,United States,True,martj42/international_results,martj42/international_results:19795
+match_25bd3c62b4679774,1994-06-28,Italy,Mexico,1,1,draw,2,FIFA World Cup,"Washington, D.C.",United States,True,martj42/international_results,martj42/international_results:19796
+match_ab6acae9c2eeee8c,1994-06-28,Russia,Cameroon,6,1,home,7,FIFA World Cup,Palo Alto,United States,True,martj42/international_results,martj42/international_results:19797
+match_4d8363ff28504588,1994-06-29,Belgium,Saudi Arabia,0,1,away,1,FIFA World Cup,"Washington, D.C.",United States,True,martj42/international_results,martj42/international_results:19798
+match_39e578c8822b7dfa,1994-06-29,Morocco,Netherlands,1,2,away,3,FIFA World Cup,Orlando,United States,True,martj42/international_results,martj42/international_results:19799
+match_11a074d559ff0169,1994-06-30,Argentina,Bulgaria,0,2,away,2,FIFA World Cup,Dallas,United States,True,martj42/international_results,martj42/international_results:19800
+match_27739089e215c0f2,1994-06-30,Greece,Nigeria,0,2,away,2,FIFA World Cup,Foxborough,United States,True,martj42/international_results,martj42/international_results:19801
+match_8d852c070e191a6d,1994-07-02,Germany,Belgium,3,2,home,5,FIFA World Cup,Chicago,United States,True,martj42/international_results,martj42/international_results:19803
+match_93ad2734a8b729d6,1994-07-02,Spain,Switzerland,3,0,home,3,FIFA World Cup,"Washington, D.C.",United States,True,martj42/international_results,martj42/international_results:19804
+match_73393531fa916135,1994-07-03,Romania,Argentina,3,2,home,5,FIFA World Cup,Pasadena,United States,True,martj42/international_results,martj42/international_results:19806
+match_e04cc6570bd3b954,1994-07-03,Saudi Arabia,Sweden,1,3,away,4,FIFA World Cup,Dallas,United States,True,martj42/international_results,martj42/international_results:19807
+match_5b643f57fd4d7fa4,1994-07-04,Netherlands,Republic of Ireland,2,0,home,2,FIFA World Cup,Orlando,United States,True,martj42/international_results,martj42/international_results:19809
+match_d09163d98cd9f812,1994-07-04,United States,Brazil,0,1,away,1,FIFA World Cup,Palo Alto,United States,False,martj42/international_results,martj42/international_results:19810
+match_c271f3fe7f165c59,1994-07-05,Mexico,Bulgaria,1,1,draw,2,FIFA World Cup,East Rutherford,United States,True,martj42/international_results,martj42/international_results:19811
+match_a477f65260fa4d73,1994-07-05,Nigeria,Italy,1,2,away,3,FIFA World Cup,Foxborough,United States,True,martj42/international_results,martj42/international_results:19812
+match_eb2c27eeeb97ca9b,1994-07-09,Italy,Spain,2,1,home,3,FIFA World Cup,Foxborough,United States,True,martj42/international_results,martj42/international_results:19822
+match_2ad4fdf00207d5b1,1994-07-09,Netherlands,Brazil,2,3,away,5,FIFA World Cup,Dallas,United States,True,martj42/international_results,martj42/international_results:19823
+match_50754201218ddacc,1994-07-10,Bulgaria,Germany,2,1,home,3,FIFA World Cup,East Rutherford,United States,True,martj42/international_results,martj42/international_results:19824
+match_0e1088e498e5dba5,1994-07-10,Romania,Sweden,2,2,draw,4,FIFA World Cup,Palo Alto,United States,True,martj42/international_results,martj42/international_results:19825
+match_a702e8d446b6232f,1994-07-13,Bulgaria,Italy,1,2,away,3,FIFA World Cup,East Rutherford,United States,True,martj42/international_results,martj42/international_results:19826
+match_996b06afdb55d44a,1994-07-13,Sweden,Brazil,0,1,away,1,FIFA World Cup,Pasadena,United States,True,martj42/international_results,martj42/international_results:19827
+match_232bd12ca1ea6710,1994-07-16,Sweden,Bulgaria,4,0,home,4,FIFA World Cup,Pasadena,United States,True,martj42/international_results,martj42/international_results:19830
+match_cc909afd9eb64044,1994-07-17,Brazil,Italy,0,0,draw,0,FIFA World Cup,Pasadena,United States,True,martj42/international_results,martj42/international_results:19831
+match_6b1e8a1e550f0b23,1998-06-10,Brazil,Scotland,2,1,home,3,FIFA World Cup,Saint-Denis,France,True,martj42/international_results,martj42/international_results:22824
+match_e29d48f4d292522d,1998-06-10,Morocco,Norway,2,2,draw,4,FIFA World Cup,Montpellier,France,True,martj42/international_results,martj42/international_results:22825
+match_515fd30380a46ffe,1998-06-11,Cameroon,Austria,1,1,draw,2,FIFA World Cup,Toulouse,France,True,martj42/international_results,martj42/international_results:22826
+match_f4c8cf85a101f7c6,1998-06-11,Italy,Chile,2,2,draw,4,FIFA World Cup,Bordeaux,France,True,martj42/international_results,martj42/international_results:22827
+match_055b3668b3a3bb2e,1998-06-12,France,South Africa,3,0,home,3,FIFA World Cup,Marseille,France,False,martj42/international_results,martj42/international_results:22828
+match_332fb6dd2a68dcfd,1998-06-12,Paraguay,Bulgaria,0,0,draw,0,FIFA World Cup,Montpellier,France,True,martj42/international_results,martj42/international_results:22829
+match_e490a9b3b393e5e9,1998-06-12,Saudi Arabia,Denmark,0,1,away,1,FIFA World Cup,Lens,France,True,martj42/international_results,martj42/international_results:22830
+match_065a333bfdc1295e,1998-06-13,South Korea,Mexico,1,3,away,4,FIFA World Cup,Lyon,France,True,martj42/international_results,martj42/international_results:22831
+match_800b3120ae774b83,1998-06-13,Netherlands,Belgium,0,0,draw,0,FIFA World Cup,Saint-Denis,France,True,martj42/international_results,martj42/international_results:22832
+match_12c26e145b880943,1998-06-13,Spain,Nigeria,2,3,away,5,FIFA World Cup,Nantes,France,True,martj42/international_results,martj42/international_results:22834
+match_75279ffd70b24c1e,1998-06-14,Argentina,Japan,1,0,home,1,FIFA World Cup,Toulouse,France,True,martj42/international_results,martj42/international_results:22835
+match_fe0e1ec3fa935e6c,1998-06-14,Jamaica,Croatia,1,3,away,4,FIFA World Cup,Lens,France,True,martj42/international_results,martj42/international_results:22836
+match_b0e064d22a17b4ad,1998-06-14,Serbia,Iran,1,0,home,1,FIFA World Cup,Saint-Étienne,France,True,martj42/international_results,martj42/international_results:22837
+match_5ff6f9f32f71ba2d,1998-06-15,England,Tunisia,2,0,home,2,FIFA World Cup,Marseille,France,True,martj42/international_results,martj42/international_results:22838
+match_6b60aa978f0d7c2e,1998-06-15,Germany,United States,2,0,home,2,FIFA World Cup,Paris,France,True,martj42/international_results,martj42/international_results:22839
+match_47cb0a5bd4fd2111,1998-06-15,Romania,Colombia,1,0,home,1,FIFA World Cup,Lyon,France,True,martj42/international_results,martj42/international_results:22840
+match_47d08fc915cb7905,1998-06-16,Brazil,Morocco,3,0,home,3,FIFA World Cup,Nantes,France,True,martj42/international_results,martj42/international_results:22841
+match_c5548c03355a3da8,1998-06-16,Scotland,Norway,1,1,draw,2,FIFA World Cup,Bordeaux,France,True,martj42/international_results,martj42/international_results:22842
+match_72a387cb031e34dc,1998-06-17,Chile,Austria,1,1,draw,2,FIFA World Cup,Saint-Étienne,France,True,martj42/international_results,martj42/international_results:22843
+match_c4f8f8e07c73e84a,1998-06-17,Italy,Cameroon,3,0,home,3,FIFA World Cup,Montpellier,France,True,martj42/international_results,martj42/international_results:22844
+match_22f05c49376d1cc5,1998-06-18,France,Saudi Arabia,4,0,home,4,FIFA World Cup,Saint-Denis,France,False,martj42/international_results,martj42/international_results:22845
+match_3c2b493ef4faabb5,1998-06-18,South Africa,Denmark,1,1,draw,2,FIFA World Cup,Toulouse,France,True,martj42/international_results,martj42/international_results:22846
+match_27d8c4b12bb71724,1998-06-19,Nigeria,Bulgaria,1,0,home,1,FIFA World Cup,Paris,France,True,martj42/international_results,martj42/international_results:22847
+match_15a474c2925959e5,1998-06-19,Spain,Paraguay,0,0,draw,0,FIFA World Cup,Saint-Étienne,France,True,martj42/international_results,martj42/international_results:22848
+match_d51c82479b9cab2e,1998-06-20,Belgium,Mexico,2,2,draw,4,FIFA World Cup,Bordeaux,France,True,martj42/international_results,martj42/international_results:22849
+match_71ad6e9e080e0c91,1998-06-20,Japan,Croatia,0,1,away,1,FIFA World Cup,Nantes,France,True,martj42/international_results,martj42/international_results:22850
+match_0abd406aaa43a978,1998-06-20,Netherlands,South Korea,5,0,home,5,FIFA World Cup,Marseille,France,True,martj42/international_results,martj42/international_results:22851
+match_6eeee5c40b9acfb3,1998-06-21,Argentina,Jamaica,5,0,home,5,FIFA World Cup,Paris,France,True,martj42/international_results,martj42/international_results:22852
+match_c5f7e11fa9a2be43,1998-06-21,Germany,Serbia,2,2,draw,4,FIFA World Cup,Lens,France,True,martj42/international_results,martj42/international_results:22853
+match_2bb6ed7c43537595,1998-06-21,United States,Iran,1,2,away,3,FIFA World Cup,Lyon,France,True,martj42/international_results,martj42/international_results:22854
+match_e596fce686bb40b1,1998-06-22,Colombia,Tunisia,1,0,home,1,FIFA World Cup,Montpellier,France,True,martj42/international_results,martj42/international_results:22855
+match_ab5d499e6d8d7c59,1998-06-22,Romania,England,2,1,home,3,FIFA World Cup,Toulouse,France,True,martj42/international_results,martj42/international_results:22857
+match_1c52fab4a85bf3ed,1998-06-23,Brazil,Norway,1,2,away,3,FIFA World Cup,Marseille,France,True,martj42/international_results,martj42/international_results:22858
+match_ab6079c899cf17ee,1998-06-23,Chile,Cameroon,1,1,draw,2,FIFA World Cup,Nantes,France,True,martj42/international_results,martj42/international_results:22859
+match_4f670bac6848c9b0,1998-06-23,Italy,Austria,2,1,home,3,FIFA World Cup,Saint-Denis,France,True,martj42/international_results,martj42/international_results:22860
+match_92035e53dac103ea,1998-06-23,Scotland,Morocco,0,3,away,3,FIFA World Cup,Saint-Étienne,France,True,martj42/international_results,martj42/international_results:22861
+match_f0a1fafa3abdf212,1998-06-24,France,Denmark,2,1,home,3,FIFA World Cup,Lyon,France,False,martj42/international_results,martj42/international_results:22863
+match_436a6431d5ecced7,1998-06-24,Nigeria,Paraguay,1,3,away,4,FIFA World Cup,Toulouse,France,True,martj42/international_results,martj42/international_results:22864
+match_3bcb7d0f6ab24ce1,1998-06-24,South Africa,Saudi Arabia,2,2,draw,4,FIFA World Cup,Bordeaux,France,True,martj42/international_results,martj42/international_results:22865
+match_7f28394e4f8c9e88,1998-06-24,Spain,Bulgaria,6,1,home,7,FIFA World Cup,Lens,France,True,martj42/international_results,martj42/international_results:22866
+match_e1366774f621e794,1998-06-25,Belgium,South Korea,1,1,draw,2,FIFA World Cup,Paris,France,True,martj42/international_results,martj42/international_results:22867
+match_34644806c2114e5a,1998-06-25,Germany,Iran,2,0,home,2,FIFA World Cup,Montpellier,France,True,martj42/international_results,martj42/international_results:22869
+match_e9e97347e29cd7ae,1998-06-25,Netherlands,Mexico,2,2,draw,4,FIFA World Cup,Saint-Étienne,France,True,martj42/international_results,martj42/international_results:22870
+match_84d195e809f0aba5,1998-06-25,United States,Serbia,0,1,away,1,FIFA World Cup,Nantes,France,True,martj42/international_results,martj42/international_results:22871
+match_a2f75930952b5419,1998-06-26,Argentina,Croatia,1,0,home,1,FIFA World Cup,Bordeaux,France,True,martj42/international_results,martj42/international_results:22872
+match_5ec123fae6abb9a0,1998-06-26,Colombia,England,0,2,away,2,FIFA World Cup,Lens,France,True,martj42/international_results,martj42/international_results:22874
+match_ae2bcd937735d208,1998-06-26,Japan,Jamaica,1,2,away,3,FIFA World Cup,Lyon,France,True,martj42/international_results,martj42/international_results:22875
+match_ce74ce0b887858b9,1998-06-26,Romania,Tunisia,1,1,draw,2,FIFA World Cup,Saint-Denis,France,True,martj42/international_results,martj42/international_results:22877
+match_a9dbde2577d3eabf,1998-06-27,Brazil,Chile,4,1,home,5,FIFA World Cup,Paris,France,True,martj42/international_results,martj42/international_results:22878
+match_7080077e8963d974,1998-06-27,Italy,Norway,1,0,home,1,FIFA World Cup,Marseille,France,True,martj42/international_results,martj42/international_results:22879
+match_fb8089868f5c96fd,1998-06-28,France,Paraguay,1,0,home,1,FIFA World Cup,Lens,France,False,martj42/international_results,martj42/international_results:22882
+match_4c0a131bbc8747ea,1998-06-28,Nigeria,Denmark,1,4,away,5,FIFA World Cup,Saint-Denis,France,True,martj42/international_results,martj42/international_results:22883
+match_3057a8faec82fdbb,1998-06-29,Germany,Mexico,2,1,home,3,FIFA World Cup,Montpellier,France,True,martj42/international_results,martj42/international_results:22884
+match_7a1de6c0a1f4fef5,1998-06-29,Netherlands,Serbia,2,1,home,3,FIFA World Cup,Toulouse,France,True,martj42/international_results,martj42/international_results:22886
+match_9052f6ffc96e5ec7,1998-06-30,Argentina,England,2,2,draw,4,FIFA World Cup,Saint-Étienne,France,True,martj42/international_results,martj42/international_results:22887
+match_c89ba430507f7e69,1998-06-30,Romania,Croatia,0,1,away,1,FIFA World Cup,Bordeaux,France,True,martj42/international_results,martj42/international_results:22888
+match_b0bed28de23a3111,1998-07-03,Brazil,Denmark,3,2,home,5,FIFA World Cup,Nantes,France,True,martj42/international_results,martj42/international_results:22890
+match_cb7595adcc77dea3,1998-07-03,France,Italy,0,0,draw,0,FIFA World Cup,Saint-Denis,France,False,martj42/international_results,martj42/international_results:22891
+match_b339c487e2765aa7,1998-07-04,Germany,Croatia,0,3,away,3,FIFA World Cup,Lyon,France,True,martj42/international_results,martj42/international_results:22892
+match_3e74fa140f2151e1,1998-07-04,Netherlands,Argentina,2,1,home,3,FIFA World Cup,Marseille,France,True,martj42/international_results,martj42/international_results:22893
+match_a4922d82cce5b80e,1998-07-07,Brazil,Netherlands,1,1,draw,2,FIFA World Cup,Marseille,France,True,martj42/international_results,martj42/international_results:22897
+match_7bd53040f15d5477,1998-07-08,France,Croatia,2,1,home,3,FIFA World Cup,Saint-Denis,France,False,martj42/international_results,martj42/international_results:22898
+match_72e4171b62ca1651,1998-07-11,Netherlands,Croatia,1,2,away,3,FIFA World Cup,Paris,France,True,martj42/international_results,martj42/international_results:22902
+match_048f82a3dcac402d,1998-07-12,France,Brazil,3,0,home,3,FIFA World Cup,Saint-Denis,France,False,martj42/international_results,martj42/international_results:22903
+match_d595877d3b41076f,2002-05-31,France,Senegal,0,1,away,1,FIFA World Cup,Seoul,South Korea,True,martj42/international_results,martj42/international_results:26436
+match_e01e76ab6d078cec,2002-06-01,Germany,Saudi Arabia,8,0,home,8,FIFA World Cup,Sapporo,Japan,True,martj42/international_results,martj42/international_results:26437
+match_f382901b7c09102f,2002-06-01,Republic of Ireland,Cameroon,1,1,draw,2,FIFA World Cup,Niigata,Japan,True,martj42/international_results,martj42/international_results:26438
+match_3a166742c4014568,2002-06-01,Uruguay,Denmark,1,2,away,3,FIFA World Cup,Ulsan,South Korea,True,martj42/international_results,martj42/international_results:26439
+match_f57b184c41b9874f,2002-06-02,Argentina,Nigeria,1,0,home,1,FIFA World Cup,Kashima,Japan,True,martj42/international_results,martj42/international_results:26440
+match_e9045f079fb4df21,2002-06-02,England,Sweden,1,1,draw,2,FIFA World Cup,Saitama,Japan,True,martj42/international_results,martj42/international_results:26441
+match_6f8c8c9eac37b768,2002-06-02,Paraguay,South Africa,2,2,draw,4,FIFA World Cup,Busan,South Korea,True,martj42/international_results,martj42/international_results:26442
+match_c8c2c8cbd730f0d9,2002-06-02,Spain,Slovenia,3,1,home,4,FIFA World Cup,Gwangju,South Korea,True,martj42/international_results,martj42/international_results:26443
+match_dcfc6a1aef303f22,2002-06-03,Brazil,Turkey,2,1,home,3,FIFA World Cup,Ulsan,South Korea,True,martj42/international_results,martj42/international_results:26444
+match_d028737b3c3dccb6,2002-06-03,Croatia,Mexico,0,1,away,1,FIFA World Cup,Niigata,Japan,True,martj42/international_results,martj42/international_results:26445
+match_874e2fe7088cac91,2002-06-03,Italy,Ecuador,2,0,home,2,FIFA World Cup,Sapporo,Japan,True,martj42/international_results,martj42/international_results:26446
+match_4d5535c8c1822862,2002-06-04,China,Costa Rica,0,2,away,2,FIFA World Cup,Gwangju,South Korea,True,martj42/international_results,martj42/international_results:26447
+match_1db89d93c00dfb33,2002-06-04,Japan,Belgium,2,2,draw,4,FIFA World Cup,Saitama,Japan,False,martj42/international_results,martj42/international_results:26448
+match_a602188fdcb77c69,2002-06-04,South Korea,Poland,2,0,home,2,FIFA World Cup,Busan,South Korea,False,martj42/international_results,martj42/international_results:26449
+match_3456deaeb221a52f,2002-06-05,Germany,Republic of Ireland,1,1,draw,2,FIFA World Cup,Kashima,Japan,True,martj42/international_results,martj42/international_results:26450
+match_0652f1ac8e5e6d65,2002-06-05,Russia,Tunisia,2,0,home,2,FIFA World Cup,Kobe,Japan,True,martj42/international_results,martj42/international_results:26451
+match_fb072e5b28d49480,2002-06-05,United States,Portugal,3,2,home,5,FIFA World Cup,Suwon,South Korea,True,martj42/international_results,martj42/international_results:26452
+match_0b2deabbb53ff7a7,2002-06-06,Cameroon,Saudi Arabia,1,0,home,1,FIFA World Cup,Saitama,Japan,True,martj42/international_results,martj42/international_results:26453
+match_fab68ebb8361f677,2002-06-06,Denmark,Senegal,1,1,draw,2,FIFA World Cup,Daegu,South Korea,True,martj42/international_results,martj42/international_results:26454
+match_16b90c8315ac559b,2002-06-06,France,Uruguay,0,0,draw,0,FIFA World Cup,Busan,South Korea,True,martj42/international_results,martj42/international_results:26455
+match_8e286082f381fcab,2002-06-07,Argentina,England,0,1,away,1,FIFA World Cup,Sapporo,Japan,True,martj42/international_results,martj42/international_results:26458
+match_e83b2ea2ad2e0347,2002-06-07,Spain,Paraguay,3,1,home,4,FIFA World Cup,Jeonju,South Korea,True,martj42/international_results,martj42/international_results:26459
+match_f33182e82a63147f,2002-06-07,Sweden,Nigeria,2,1,home,3,FIFA World Cup,Kobe,Japan,True,martj42/international_results,martj42/international_results:26460
+match_7e09cf761aad2bc6,2002-06-08,Brazil,China,4,0,home,4,FIFA World Cup,Seogwipo,South Korea,True,martj42/international_results,martj42/international_results:26461
+match_8aa4740b535473fd,2002-06-08,Italy,Croatia,1,2,away,3,FIFA World Cup,Kashima,Japan,True,martj42/international_results,martj42/international_results:26462
+match_b84d4cc3ca29fc25,2002-06-08,South Africa,Slovenia,1,0,home,1,FIFA World Cup,Daegu,South Korea,True,martj42/international_results,martj42/international_results:26464
+match_d2c4ccd8efc5f60e,2002-06-09,Costa Rica,Turkey,1,1,draw,2,FIFA World Cup,Incheon,South Korea,True,martj42/international_results,martj42/international_results:26465
+match_98ead6292a1bbae7,2002-06-09,Japan,Russia,1,0,home,1,FIFA World Cup,Yokohama,Japan,False,martj42/international_results,martj42/international_results:26466
+match_0a70887ece819731,2002-06-09,Mexico,Ecuador,2,1,home,3,FIFA World Cup,Rifu,Japan,True,martj42/international_results,martj42/international_results:26468
+match_4df5bf40faf74bcb,2002-06-10,South Korea,United States,1,1,draw,2,FIFA World Cup,Daegu,South Korea,False,martj42/international_results,martj42/international_results:26469
+match_7e37408eaab04dfb,2002-06-10,Portugal,Poland,4,0,home,4,FIFA World Cup,Jeonju,South Korea,True,martj42/international_results,martj42/international_results:26470
+match_2bbfd946344247fd,2002-06-10,Tunisia,Belgium,1,1,draw,2,FIFA World Cup,Ōita,Japan,True,martj42/international_results,martj42/international_results:26471
+match_218e58ea3511fd2c,2002-06-11,Cameroon,Germany,0,2,away,2,FIFA World Cup,Fukuroi,Japan,True,martj42/international_results,martj42/international_results:26472
+match_d56a037d58ec9eb8,2002-06-11,Denmark,France,2,0,home,2,FIFA World Cup,Incheon,South Korea,True,martj42/international_results,martj42/international_results:26473
+match_bdf0884fcc632df9,2002-06-11,Saudi Arabia,Republic of Ireland,0,3,away,3,FIFA World Cup,Yokohama,Japan,True,martj42/international_results,martj42/international_results:26474
+match_eaf065f4f1732151,2002-06-11,Senegal,Uruguay,3,3,draw,6,FIFA World Cup,Suwon,South Korea,True,martj42/international_results,martj42/international_results:26475
+match_c2620fc325c051ef,2002-06-12,Nigeria,England,0,0,draw,0,FIFA World Cup,Osaka,Japan,True,martj42/international_results,martj42/international_results:26476
+match_4aaa7ef85dd3bf30,2002-06-12,Slovenia,Paraguay,1,3,away,4,FIFA World Cup,Seogwipo,South Korea,True,martj42/international_results,martj42/international_results:26477
+match_c5f568ce23bfd6fb,2002-06-12,South Africa,Spain,2,3,away,5,FIFA World Cup,Daejeon,South Korea,True,martj42/international_results,martj42/international_results:26478
+match_2cd27e966e566605,2002-06-12,Sweden,Argentina,1,1,draw,2,FIFA World Cup,Rifu,Japan,True,martj42/international_results,martj42/international_results:26479
+match_51a51098657c8d65,2002-06-13,Costa Rica,Brazil,2,5,away,7,FIFA World Cup,Suwon,South Korea,True,martj42/international_results,martj42/international_results:26480
+match_a0270b9a62a84ee7,2002-06-13,Ecuador,Croatia,1,0,home,1,FIFA World Cup,Yokohama,Japan,True,martj42/international_results,martj42/international_results:26481
+match_865571dcdd1a7799,2002-06-13,Mexico,Italy,1,1,draw,2,FIFA World Cup,Ōita,Japan,True,martj42/international_results,martj42/international_results:26482
+match_b37809edc5b17bde,2002-06-13,Turkey,China,3,0,home,3,FIFA World Cup,Seoul,South Korea,True,martj42/international_results,martj42/international_results:26483
+match_ffbaeced47af56c2,2002-06-14,Belgium,Russia,3,2,home,5,FIFA World Cup,Fukuroi,Japan,True,martj42/international_results,martj42/international_results:26484
+match_c628b39472986ea4,2002-06-14,Japan,Tunisia,2,0,home,2,FIFA World Cup,Osaka,Japan,False,martj42/international_results,martj42/international_results:26485
+match_b39178d008d52699,2002-06-14,South Korea,Portugal,1,0,home,1,FIFA World Cup,Incheon,South Korea,False,martj42/international_results,martj42/international_results:26486
+match_40ec08a0131b62bb,2002-06-14,Poland,United States,3,1,home,4,FIFA World Cup,Daejeon,South Korea,True,martj42/international_results,martj42/international_results:26487
+match_666fbbaf4b11027a,2002-06-15,Denmark,England,0,3,away,3,FIFA World Cup,Niigata,Japan,True,martj42/international_results,martj42/international_results:26488
+match_6c051afa30c191e6,2002-06-15,Germany,Paraguay,1,0,home,1,FIFA World Cup,Seogwipo,South Korea,True,martj42/international_results,martj42/international_results:26489
+match_3c5688f50b6966da,2002-06-16,Spain,Republic of Ireland,1,1,draw,2,FIFA World Cup,Suwon,South Korea,True,martj42/international_results,martj42/international_results:26490
+match_293dfcbec1afd9a8,2002-06-16,Sweden,Senegal,1,2,away,3,FIFA World Cup,Ōita,Japan,True,martj42/international_results,martj42/international_results:26491
+match_87a3ad1347a18f64,2002-06-17,Brazil,Belgium,2,0,home,2,FIFA World Cup,Kobe,Japan,True,martj42/international_results,martj42/international_results:26492
+match_68704412a920d971,2002-06-17,Mexico,United States,0,2,away,2,FIFA World Cup,Jeonju,South Korea,True,martj42/international_results,martj42/international_results:26493
+match_d38f5b63779102ae,2002-06-18,Japan,Turkey,0,1,away,1,FIFA World Cup,Rifu,Japan,False,martj42/international_results,martj42/international_results:26494
+match_5af82f39dd2bf457,2002-06-18,South Korea,Italy,2,1,home,3,FIFA World Cup,Daejeon,South Korea,False,martj42/international_results,martj42/international_results:26495
+match_bc97df9eebf08ae9,2002-06-21,England,Brazil,1,2,away,3,FIFA World Cup,Fukuroi,Japan,True,martj42/international_results,martj42/international_results:26496
+match_76f729130a8e7601,2002-06-21,Germany,United States,1,0,home,1,FIFA World Cup,Ulsan,South Korea,True,martj42/international_results,martj42/international_results:26497
+match_2886f3377608e8f6,2002-06-22,South Korea,Spain,0,0,draw,0,FIFA World Cup,Gwangju,South Korea,False,martj42/international_results,martj42/international_results:26499
+match_85a9fba3fba4547e,2002-06-22,Senegal,Turkey,0,1,away,1,FIFA World Cup,Osaka,Japan,True,martj42/international_results,martj42/international_results:26500
+match_97162c6ddb60855c,2002-06-25,South Korea,Germany,0,1,away,1,FIFA World Cup,Seoul,South Korea,False,martj42/international_results,martj42/international_results:26502
+match_041a8b9b41626dbe,2002-06-26,Brazil,Turkey,1,0,home,1,FIFA World Cup,Saitama,Japan,True,martj42/international_results,martj42/international_results:26504
+match_dc65efd07d10f92a,2002-06-29,South Korea,Turkey,2,3,away,5,FIFA World Cup,Daegu,South Korea,False,martj42/international_results,martj42/international_results:26505
+match_8d6dc608bf644ec8,2002-06-30,Germany,Brazil,0,2,away,2,FIFA World Cup,Yokohama,Japan,True,martj42/international_results,martj42/international_results:26507
+match_c2cfe0fa308ba110,2006-06-09,Germany,Costa Rica,4,2,home,6,FIFA World Cup,Munich,Germany,False,martj42/international_results,martj42/international_results:30037
+match_adf02a4bf44aa8c6,2006-06-09,Poland,Ecuador,0,2,away,2,FIFA World Cup,Gelsenkirchen,Germany,True,martj42/international_results,martj42/international_results:30038
+match_45419d849e703759,2006-06-10,Argentina,Ivory Coast,2,1,home,3,FIFA World Cup,Hamburg,Germany,True,martj42/international_results,martj42/international_results:30039
+match_9f0ba7ab5b2c23ce,2006-06-10,England,Paraguay,1,0,home,1,FIFA World Cup,Frankfurt,Germany,True,martj42/international_results,martj42/international_results:30040
+match_6f1cc584594b87cf,2006-06-10,Trinidad and Tobago,Sweden,0,0,draw,0,FIFA World Cup,Dortmund,Germany,True,martj42/international_results,martj42/international_results:30041
+match_d363e60bb01bf17f,2006-06-11,Angola,Portugal,0,1,away,1,FIFA World Cup,Cologne,Germany,True,martj42/international_results,martj42/international_results:30042
+match_770392bd5d572b66,2006-06-11,Mexico,Iran,3,1,home,4,FIFA World Cup,Nuremberg,Germany,True,martj42/international_results,martj42/international_results:30043
+match_3c75b7262a958b31,2006-06-11,Serbia,Netherlands,0,1,away,1,FIFA World Cup,Leipzig,Germany,True,martj42/international_results,martj42/international_results:30044
+match_a523baf5a4faf1c6,2006-06-12,Australia,Japan,3,1,home,4,FIFA World Cup,Kaiserslautern,Germany,True,martj42/international_results,martj42/international_results:30045
+match_f4fbcc3e2375d88d,2006-06-12,Italy,Ghana,2,0,home,2,FIFA World Cup,Hanover,Germany,True,martj42/international_results,martj42/international_results:30046
+match_d76fbb9c6ead5a6a,2006-06-12,United States,Czech Republic,0,3,away,3,FIFA World Cup,Gelsenkirchen,Germany,True,martj42/international_results,martj42/international_results:30047
+match_b623fa1521fdd062,2006-06-13,Brazil,Croatia,1,0,home,1,FIFA World Cup,Berlin,Germany,True,martj42/international_results,martj42/international_results:30048
+match_792fc59b36b6c933,2006-06-13,France,Switzerland,0,0,draw,0,FIFA World Cup,Stuttgart,Germany,True,martj42/international_results,martj42/international_results:30049
+match_2999461c099e2d3d,2006-06-13,South Korea,Togo,2,1,home,3,FIFA World Cup,Frankfurt,Germany,True,martj42/international_results,martj42/international_results:30050
+match_bab290e2e55cfe0d,2006-06-14,Germany,Poland,1,0,home,1,FIFA World Cup,Dortmund,Germany,False,martj42/international_results,martj42/international_results:30051
+match_bb9390711318220e,2006-06-14,Spain,Ukraine,4,0,home,4,FIFA World Cup,Leipzig,Germany,True,martj42/international_results,martj42/international_results:30052
+match_6f42301ca2531c9f,2006-06-14,Tunisia,Saudi Arabia,2,2,draw,4,FIFA World Cup,Munich,Germany,True,martj42/international_results,martj42/international_results:30053
+match_d6dcc50f57f919ec,2006-06-15,Ecuador,Costa Rica,3,0,home,3,FIFA World Cup,Hamburg,Germany,True,martj42/international_results,martj42/international_results:30054
+match_a3cb2be4fe5c21ec,2006-06-15,England,Trinidad and Tobago,2,0,home,2,FIFA World Cup,Nuremberg,Germany,True,martj42/international_results,martj42/international_results:30055
+match_033e6da040a24070,2006-06-15,Sweden,Paraguay,1,0,home,1,FIFA World Cup,Berlin,Germany,True,martj42/international_results,martj42/international_results:30056
+match_d01c906fafb3679d,2006-06-16,Argentina,Serbia,6,0,home,6,FIFA World Cup,Gelsenkirchen,Germany,True,martj42/international_results,martj42/international_results:30057
+match_dce89c746d8f9e23,2006-06-16,Mexico,Angola,0,0,draw,0,FIFA World Cup,Hanover,Germany,True,martj42/international_results,martj42/international_results:30058
+match_1d4668033f504c14,2006-06-16,Netherlands,Ivory Coast,2,1,home,3,FIFA World Cup,Stuttgart,Germany,True,martj42/international_results,martj42/international_results:30059
+match_6968a34895c3835d,2006-06-17,Czech Republic,Ghana,0,2,away,2,FIFA World Cup,Cologne,Germany,True,martj42/international_results,martj42/international_results:30060
+match_b76943028321432c,2006-06-17,Italy,United States,1,1,draw,2,FIFA World Cup,Kaiserslautern,Germany,True,martj42/international_results,martj42/international_results:30061
+match_1b7edbabb697022b,2006-06-17,Portugal,Iran,2,0,home,2,FIFA World Cup,Frankfurt,Germany,True,martj42/international_results,martj42/international_results:30062
+match_0efe31dec3b82fbd,2006-06-18,Brazil,Australia,2,0,home,2,FIFA World Cup,Munich,Germany,True,martj42/international_results,martj42/international_results:30063
+match_39261b48f0019a57,2006-06-18,France,South Korea,1,1,draw,2,FIFA World Cup,Leipzig,Germany,True,martj42/international_results,martj42/international_results:30064
+match_edcd565674358d07,2006-06-18,Japan,Croatia,0,0,draw,0,FIFA World Cup,Nuremberg,Germany,True,martj42/international_results,martj42/international_results:30065
+match_3e296a507eccef3a,2006-06-19,Saudi Arabia,Ukraine,0,4,away,4,FIFA World Cup,Hamburg,Germany,True,martj42/international_results,martj42/international_results:30066
+match_39af457100608829,2006-06-19,Spain,Tunisia,3,1,home,4,FIFA World Cup,Stuttgart,Germany,True,martj42/international_results,martj42/international_results:30067
+match_7f38139557b43681,2006-06-19,Togo,Switzerland,0,2,away,2,FIFA World Cup,Dortmund,Germany,True,martj42/international_results,martj42/international_results:30068
+match_1aa809000f977ce6,2006-06-20,Costa Rica,Poland,1,2,away,3,FIFA World Cup,Hanover,Germany,True,martj42/international_results,martj42/international_results:30069
+match_e4e1292a63a928b6,2006-06-20,Germany,Ecuador,3,0,home,3,FIFA World Cup,Berlin,Germany,False,martj42/international_results,martj42/international_results:30070
+match_c8d393be0d3bb480,2006-06-20,Paraguay,Trinidad and Tobago,2,0,home,2,FIFA World Cup,Kaiserslautern,Germany,True,martj42/international_results,martj42/international_results:30071
+match_16c5f7c68e58f68b,2006-06-20,Sweden,England,2,2,draw,4,FIFA World Cup,Cologne,Germany,True,martj42/international_results,martj42/international_results:30072
+match_7086b56cce552cff,2006-06-21,Iran,Angola,1,1,draw,2,FIFA World Cup,Leipzig,Germany,True,martj42/international_results,martj42/international_results:30073
+match_d4a5fa9e08dec517,2006-06-21,Ivory Coast,Serbia,3,2,home,5,FIFA World Cup,Munich,Germany,True,martj42/international_results,martj42/international_results:30074
+match_6b6880523749d93d,2006-06-21,Netherlands,Argentina,0,0,draw,0,FIFA World Cup,Frankfurt,Germany,True,martj42/international_results,martj42/international_results:30075
+match_db79802d5de9f62b,2006-06-21,Portugal,Mexico,2,1,home,3,FIFA World Cup,Gelsenkirchen,Germany,True,martj42/international_results,martj42/international_results:30076
+match_d7a5d1bbb6fc14a9,2006-06-22,Croatia,Australia,2,2,draw,4,FIFA World Cup,Stuttgart,Germany,True,martj42/international_results,martj42/international_results:30077
+match_02203e78ba99e893,2006-06-22,Czech Republic,Italy,0,2,away,2,FIFA World Cup,Hamburg,Germany,True,martj42/international_results,martj42/international_results:30078
+match_efb21603abb5197c,2006-06-22,Ghana,United States,2,1,home,3,FIFA World Cup,Nuremberg,Germany,True,martj42/international_results,martj42/international_results:30079
+match_fb9cca50d4e099a8,2006-06-22,Japan,Brazil,1,4,away,5,FIFA World Cup,Dortmund,Germany,True,martj42/international_results,martj42/international_results:30080
+match_ecd838a4c2d3b675,2006-06-23,Saudi Arabia,Spain,0,1,away,1,FIFA World Cup,Kaiserslautern,Germany,True,martj42/international_results,martj42/international_results:30081
+match_533a812349b86d9a,2006-06-23,Switzerland,South Korea,2,0,home,2,FIFA World Cup,Hanover,Germany,True,martj42/international_results,martj42/international_results:30082
+match_b28a2f49d2da2ba0,2006-06-23,Togo,France,0,2,away,2,FIFA World Cup,Cologne,Germany,True,martj42/international_results,martj42/international_results:30083
+match_18c0ee0a14004a7c,2006-06-23,Ukraine,Tunisia,1,0,home,1,FIFA World Cup,Berlin,Germany,True,martj42/international_results,martj42/international_results:30084
+match_2e06be3f7aaa477a,2006-06-24,Argentina,Mexico,2,1,home,3,FIFA World Cup,Leipzig,Germany,True,martj42/international_results,martj42/international_results:30085
+match_943875b9e6559460,2006-06-24,Germany,Sweden,2,0,home,2,FIFA World Cup,Munich,Germany,False,martj42/international_results,martj42/international_results:30086
+match_5075e5c419052f79,2006-06-25,England,Ecuador,1,0,home,1,FIFA World Cup,Stuttgart,Germany,True,martj42/international_results,martj42/international_results:30089
+match_4bfd30030464db26,2006-06-25,Portugal,Netherlands,1,0,home,1,FIFA World Cup,Nuremberg,Germany,True,martj42/international_results,martj42/international_results:30091
+match_5de07a8f1d114871,2006-06-26,Italy,Australia,1,0,home,1,FIFA World Cup,Kaiserslautern,Germany,True,martj42/international_results,martj42/international_results:30093
+match_9fd50a29d974dc62,2006-06-26,Switzerland,Ukraine,0,0,draw,0,FIFA World Cup,Cologne,Germany,True,martj42/international_results,martj42/international_results:30095
+match_8e1c7dda4ebd2a7a,2006-06-27,Brazil,Ghana,3,0,home,3,FIFA World Cup,Dortmund,Germany,True,martj42/international_results,martj42/international_results:30096
+match_cc2ebe44414c27dd,2006-06-27,Spain,France,1,3,away,4,FIFA World Cup,Hanover,Germany,True,martj42/international_results,martj42/international_results:30097
+match_1c5adce1a0a776d8,2006-06-30,Germany,Argentina,1,1,draw,2,FIFA World Cup,Berlin,Germany,False,martj42/international_results,martj42/international_results:30099
+match_1ef96895bb6215c2,2006-06-30,Italy,Ukraine,3,0,home,3,FIFA World Cup,Hamburg,Germany,True,martj42/international_results,martj42/international_results:30100
+match_51877c6bacac25db,2006-07-01,Brazil,France,0,1,away,1,FIFA World Cup,Frankfurt,Germany,True,martj42/international_results,martj42/international_results:30102
+match_a32bf90483386ca4,2006-07-01,England,Portugal,0,0,draw,0,FIFA World Cup,Gelsenkirchen,Germany,True,martj42/international_results,martj42/international_results:30103
+match_576dbdcfa205d02c,2006-07-04,Germany,Italy,0,2,away,2,FIFA World Cup,Dortmund,Germany,False,martj42/international_results,martj42/international_results:30105
+match_77fce8030d191187,2006-07-05,Portugal,France,0,1,away,1,FIFA World Cup,Munich,Germany,True,martj42/international_results,martj42/international_results:30107
+match_92f7b993dc6c6204,2006-07-08,Germany,Portugal,3,1,home,4,FIFA World Cup,Stuttgart,Germany,False,martj42/international_results,martj42/international_results:30109
+match_dd5250eb09e85061,2006-07-09,Italy,France,1,1,draw,2,FIFA World Cup,Berlin,Germany,True,martj42/international_results,martj42/international_results:30111
+match_224a1647a86fee32,2010-06-11,South Africa,Mexico,1,1,draw,2,FIFA World Cup,Johannesburg,South Africa,False,martj42/international_results,martj42/international_results:33864
+match_b9ad82885bb093a0,2010-06-11,Uruguay,France,0,0,draw,0,FIFA World Cup,Cape Town,South Africa,True,martj42/international_results,martj42/international_results:33865
+match_62fbe0dcada94ec8,2010-06-12,Argentina,Nigeria,1,0,home,1,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33866
+match_6ec015b0b0d308a6,2010-06-12,England,United States,1,1,draw,2,FIFA World Cup,Rustenburg,South Africa,True,martj42/international_results,martj42/international_results:33867
+match_9dc0caadf1510c3f,2010-06-12,South Korea,Greece,2,0,home,2,FIFA World Cup,Port Elizabeth,South Africa,True,martj42/international_results,martj42/international_results:33868
+match_e64cf6bb633db1af,2010-06-13,Algeria,Slovenia,0,1,away,1,FIFA World Cup,Polokwane,South Africa,True,martj42/international_results,martj42/international_results:33869
+match_d5c27536a81068ef,2010-06-13,Germany,Australia,4,0,home,4,FIFA World Cup,Durban,South Africa,True,martj42/international_results,martj42/international_results:33870
+match_2e436d4cb7cfc6ca,2010-06-13,Serbia,Ghana,0,1,away,1,FIFA World Cup,Pretoria,South Africa,True,martj42/international_results,martj42/international_results:33871
+match_958d00f787b972ff,2010-06-14,Italy,Paraguay,1,1,draw,2,FIFA World Cup,Cape Town,South Africa,True,martj42/international_results,martj42/international_results:33872
+match_5ffa4e7e7b52307b,2010-06-14,Japan,Cameroon,1,0,home,1,FIFA World Cup,Bloemfontein,South Africa,True,martj42/international_results,martj42/international_results:33873
+match_ef26b011d73b86bd,2010-06-14,Netherlands,Denmark,2,0,home,2,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33874
+match_ad29d8ef26a79bb3,2010-06-15,Brazil,North Korea,2,1,home,3,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33875
+match_3279e2eb76ae82a6,2010-06-15,Ivory Coast,Portugal,0,0,draw,0,FIFA World Cup,Port Elizabeth,South Africa,True,martj42/international_results,martj42/international_results:33876
+match_569101b1e7646637,2010-06-15,New Zealand,Slovakia,1,1,draw,2,FIFA World Cup,Rustenburg,South Africa,True,martj42/international_results,martj42/international_results:33877
+match_0c6143471f99a4c2,2010-06-16,Honduras,Chile,0,1,away,1,FIFA World Cup,Nelspruit,South Africa,True,martj42/international_results,martj42/international_results:33878
+match_5d9e5a2018f4ce2c,2010-06-16,South Africa,Uruguay,0,3,away,3,FIFA World Cup,Pretoria,South Africa,False,martj42/international_results,martj42/international_results:33879
+match_a3a377aae8d5ee76,2010-06-16,Spain,Switzerland,0,1,away,1,FIFA World Cup,Durban,South Africa,True,martj42/international_results,martj42/international_results:33880
+match_2e4bd594e4cbf388,2010-06-17,Argentina,South Korea,4,1,home,5,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33881
+match_b9b8a93012de3baf,2010-06-17,France,Mexico,0,2,away,2,FIFA World Cup,Polokwane,South Africa,True,martj42/international_results,martj42/international_results:33882
+match_8785d5225b4f35e7,2010-06-17,Greece,Nigeria,2,1,home,3,FIFA World Cup,Bloemfontein,South Africa,True,martj42/international_results,martj42/international_results:33883
+match_1de460f48452f10b,2010-06-18,England,Algeria,0,0,draw,0,FIFA World Cup,Cape Town,South Africa,True,martj42/international_results,martj42/international_results:33884
+match_4348136be34f32f8,2010-06-18,Germany,Serbia,0,1,away,1,FIFA World Cup,Port Elizabeth,South Africa,True,martj42/international_results,martj42/international_results:33885
+match_a18fb6c5c2911dbf,2010-06-18,Slovenia,United States,2,2,draw,4,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33887
+match_deb8382dd818acf3,2010-06-19,Cameroon,Denmark,1,2,away,3,FIFA World Cup,Pretoria,South Africa,True,martj42/international_results,martj42/international_results:33888
+match_4ed6d8d3ebbe8be5,2010-06-19,Ghana,Australia,1,1,draw,2,FIFA World Cup,Rustenburg,South Africa,True,martj42/international_results,martj42/international_results:33890
+match_b66c0fc02488ce4d,2010-06-19,Netherlands,Japan,1,0,home,1,FIFA World Cup,Durban,South Africa,True,martj42/international_results,martj42/international_results:33891
+match_8e225069f6259542,2010-06-20,Brazil,Ivory Coast,3,1,home,4,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33894
+match_ff9eb35659dbbca3,2010-06-20,Italy,New Zealand,1,1,draw,2,FIFA World Cup,Nelspruit,South Africa,True,martj42/international_results,martj42/international_results:33895
+match_ffb29e34d7da0b86,2010-06-20,Slovakia,Paraguay,0,2,away,2,FIFA World Cup,Bloemfontein,South Africa,True,martj42/international_results,martj42/international_results:33897
+match_d1a0964b25b5c52c,2010-06-21,Chile,Switzerland,1,0,home,1,FIFA World Cup,Port Elizabeth,South Africa,True,martj42/international_results,martj42/international_results:33899
+match_61c1394be882ca91,2010-06-21,Portugal,North Korea,7,0,home,7,FIFA World Cup,Cape Town,South Africa,True,martj42/international_results,martj42/international_results:33900
+match_509b6b35f6c51c14,2010-06-21,Spain,Honduras,2,0,home,2,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33901
+match_aa7b11e9c7930b9f,2010-06-22,Greece,Argentina,0,2,away,2,FIFA World Cup,Polokwane,South Africa,True,martj42/international_results,martj42/international_results:33902
+match_a6b166ebc5228994,2010-06-22,Mexico,Uruguay,0,1,away,1,FIFA World Cup,Rustenburg,South Africa,True,martj42/international_results,martj42/international_results:33903
+match_5bc0db3769e75357,2010-06-22,Nigeria,South Korea,2,2,draw,4,FIFA World Cup,Durban,South Africa,True,martj42/international_results,martj42/international_results:33904
+match_c5bf1332f9877002,2010-06-22,South Africa,France,2,1,home,3,FIFA World Cup,Bloemfontein,South Africa,False,martj42/international_results,martj42/international_results:33905
+match_94e5258f30decae6,2010-06-23,Australia,Serbia,2,1,home,3,FIFA World Cup,Nelspruit,South Africa,True,martj42/international_results,martj42/international_results:33906
+match_44abed31d09b4e36,2010-06-23,Ghana,Germany,0,1,away,1,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33907
+match_d167c444ee1d5d55,2010-06-23,Slovenia,England,0,1,away,1,FIFA World Cup,Port Elizabeth,South Africa,True,martj42/international_results,martj42/international_results:33908
+match_b9e2ef60b35040af,2010-06-23,United States,Algeria,1,0,home,1,FIFA World Cup,Pretoria,South Africa,True,martj42/international_results,martj42/international_results:33909
+match_562a55d03c76f108,2010-06-24,Cameroon,Netherlands,1,2,away,3,FIFA World Cup,Cape Town,South Africa,True,martj42/international_results,martj42/international_results:33910
+match_724417c44f3a9462,2010-06-24,Denmark,Japan,1,3,away,4,FIFA World Cup,Rustenburg,South Africa,True,martj42/international_results,martj42/international_results:33911
+match_3fc6303f57897e2e,2010-06-24,Paraguay,New Zealand,0,0,draw,0,FIFA World Cup,Polokwane,South Africa,True,martj42/international_results,martj42/international_results:33912
+match_fbc481e97db412e8,2010-06-24,Slovakia,Italy,3,2,home,5,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33913
+match_e321a729867d6292,2010-06-25,Chile,Spain,1,2,away,3,FIFA World Cup,Pretoria,South Africa,True,martj42/international_results,martj42/international_results:33914
+match_11097aeb298c8868,2010-06-25,North Korea,Ivory Coast,0,3,away,3,FIFA World Cup,Nelspruit,South Africa,True,martj42/international_results,martj42/international_results:33915
+match_e02088c27e479653,2010-06-25,Portugal,Brazil,0,0,draw,0,FIFA World Cup,Durban,South Africa,True,martj42/international_results,martj42/international_results:33916
+match_33f9e9dc041a240c,2010-06-25,Switzerland,Honduras,0,0,draw,0,FIFA World Cup,Bloemfontein,South Africa,True,martj42/international_results,martj42/international_results:33917
+match_f0ed22f035158fcb,2010-06-26,Uruguay,South Korea,2,1,home,3,FIFA World Cup,Port Elizabeth,South Africa,True,martj42/international_results,martj42/international_results:33919
+match_a597ce8d1da8968b,2010-06-26,United States,Ghana,1,2,away,3,FIFA World Cup,Rustenburg,South Africa,True,martj42/international_results,martj42/international_results:33920
+match_f1993f20541d0d6c,2010-06-27,Argentina,Mexico,3,1,home,4,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33921
+match_4fee94a9bbf09f0c,2010-06-27,Germany,England,4,1,home,5,FIFA World Cup,Bloemfontein,South Africa,True,martj42/international_results,martj42/international_results:33922
+match_a92dcd873bf2e95c,2010-06-28,Brazil,Chile,3,0,home,3,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33923
+match_25db9fe6132848e3,2010-06-28,Netherlands,Slovakia,2,1,home,3,FIFA World Cup,Durban,South Africa,True,martj42/international_results,martj42/international_results:33924
+match_4e32dcdd9e4b9ed4,2010-06-29,Paraguay,Japan,0,0,draw,0,FIFA World Cup,Pretoria,South Africa,True,martj42/international_results,martj42/international_results:33925
+match_eba7ac6405fba540,2010-06-29,Spain,Portugal,1,0,home,1,FIFA World Cup,Cape Town,South Africa,True,martj42/international_results,martj42/international_results:33926
+match_13a9c9d764a5b1ce,2010-07-02,Netherlands,Brazil,2,1,home,3,FIFA World Cup,Port Elizabeth,South Africa,True,martj42/international_results,martj42/international_results:33929
+match_1899b4364fbb001d,2010-07-02,Uruguay,Ghana,1,1,draw,2,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33930
+match_dd083f1c8895eb5c,2010-07-03,Argentina,Germany,0,4,away,4,FIFA World Cup,Cape Town,South Africa,True,martj42/international_results,martj42/international_results:33931
+match_e233c188e8431655,2010-07-03,Paraguay,Spain,0,1,away,1,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33932
+match_682ef7f928de80db,2010-07-06,Uruguay,Netherlands,2,3,away,5,FIFA World Cup,Cape Town,South Africa,True,martj42/international_results,martj42/international_results:33934
+match_e01d39aadb5f0bb0,2010-07-07,Germany,Spain,0,1,away,1,FIFA World Cup,Durban,South Africa,True,martj42/international_results,martj42/international_results:33935
+match_ae65a5f81ee85081,2010-07-10,Uruguay,Germany,2,3,away,5,FIFA World Cup,Port Elizabeth,South Africa,True,martj42/international_results,martj42/international_results:33938
+match_43c472ed5c1af448,2010-07-11,Netherlands,Spain,0,1,away,1,FIFA World Cup,Johannesburg,South Africa,True,martj42/international_results,martj42/international_results:33939
+match_1b02cdc4305a90c6,2014-06-12,Brazil,Croatia,3,1,home,4,FIFA World Cup,São Paulo,Brazil,False,martj42/international_results,martj42/international_results:37861
+match_3fd57dbc2c5b9dd1,2014-06-13,Chile,Australia,3,1,home,4,FIFA World Cup,Cuiabá,Brazil,True,martj42/international_results,martj42/international_results:37862
+match_aed7759ff8635fdc,2014-06-13,Mexico,Cameroon,1,0,home,1,FIFA World Cup,Natal,Brazil,True,martj42/international_results,martj42/international_results:37863
+match_9e574378fb99f71e,2014-06-13,Spain,Netherlands,1,5,away,6,FIFA World Cup,Salvador,Brazil,True,martj42/international_results,martj42/international_results:37864
+match_eff07a431e8e8b3a,2014-06-14,Colombia,Greece,3,0,home,3,FIFA World Cup,Belo Horizonte,Brazil,True,martj42/international_results,martj42/international_results:37865
+match_a99714b3cb66e7f3,2014-06-14,England,Italy,1,2,away,3,FIFA World Cup,Manaus,Brazil,True,martj42/international_results,martj42/international_results:37866
+match_ccdab5d7a9041719,2014-06-14,Ivory Coast,Japan,2,1,home,3,FIFA World Cup,Recife,Brazil,True,martj42/international_results,martj42/international_results:37867
+match_73d4dff9fe06a626,2014-06-14,Uruguay,Costa Rica,1,3,away,4,FIFA World Cup,Fortaleza,Brazil,True,martj42/international_results,martj42/international_results:37868
+match_bd2f29a4b254791e,2014-06-15,Argentina,Bosnia and Herzegovina,2,1,home,3,FIFA World Cup,Rio de Janeiro,Brazil,True,martj42/international_results,martj42/international_results:37869
+match_be1b42395d8dad7c,2014-06-15,France,Honduras,3,0,home,3,FIFA World Cup,Porto Alegre,Brazil,True,martj42/international_results,martj42/international_results:37870
+match_db7363baf4176a15,2014-06-15,Switzerland,Ecuador,2,1,home,3,FIFA World Cup,Brasília,Brazil,True,martj42/international_results,martj42/international_results:37871
+match_7a7d62716ac4a302,2014-06-16,Germany,Portugal,4,0,home,4,FIFA World Cup,Salvador,Brazil,True,martj42/international_results,martj42/international_results:37872
+match_0dcc76077099bd40,2014-06-16,Ghana,United States,1,2,away,3,FIFA World Cup,Natal,Brazil,True,martj42/international_results,martj42/international_results:37873
+match_ceb277a4b023ca89,2014-06-16,Iran,Nigeria,0,0,draw,0,FIFA World Cup,Curitiba,Brazil,True,martj42/international_results,martj42/international_results:37874
+match_2d17646ecd54ad5d,2014-06-17,Belgium,Algeria,2,1,home,3,FIFA World Cup,Belo Horizonte,Brazil,True,martj42/international_results,martj42/international_results:37875
+match_02a61df6aa7a6d4e,2014-06-17,Brazil,Mexico,0,0,draw,0,FIFA World Cup,Fortaleza,Brazil,False,martj42/international_results,martj42/international_results:37876
+match_f08fbb181b7a1f88,2014-06-17,Russia,South Korea,1,1,draw,2,FIFA World Cup,Cuiabá,Brazil,True,martj42/international_results,martj42/international_results:37877
+match_338af85146a52a5d,2014-06-18,Australia,Netherlands,2,3,away,5,FIFA World Cup,Curitiba,Brazil,True,martj42/international_results,martj42/international_results:37878
+match_76adc508681ee76c,2014-06-18,Cameroon,Croatia,0,4,away,4,FIFA World Cup,Manaus,Brazil,True,martj42/international_results,martj42/international_results:37879
+match_c20efbb9887c6383,2014-06-18,Spain,Chile,0,2,away,2,FIFA World Cup,Rio de Janeiro,Brazil,True,martj42/international_results,martj42/international_results:37881
+match_8db4e580b512ed76,2014-06-19,Colombia,Ivory Coast,2,1,home,3,FIFA World Cup,Brasília,Brazil,True,martj42/international_results,martj42/international_results:37882
+match_2606be18a479db67,2014-06-19,Japan,Greece,0,0,draw,0,FIFA World Cup,Natal,Brazil,True,martj42/international_results,martj42/international_results:37883
+match_4e89da2b625ea624,2014-06-19,Uruguay,England,2,1,home,3,FIFA World Cup,São Paulo,Brazil,True,martj42/international_results,martj42/international_results:37884
+match_a8ca2205d21ea450,2014-06-20,Honduras,Ecuador,1,2,away,3,FIFA World Cup,Curitiba,Brazil,True,martj42/international_results,martj42/international_results:37885
+match_c020f640a597f4ff,2014-06-20,Italy,Costa Rica,0,1,away,1,FIFA World Cup,Recife,Brazil,True,martj42/international_results,martj42/international_results:37886
+match_b88af48dc63edf5b,2014-06-20,Switzerland,France,2,5,away,7,FIFA World Cup,Salvador,Brazil,True,martj42/international_results,martj42/international_results:37887
+match_4892f9892355caf8,2014-06-21,Argentina,Iran,1,0,home,1,FIFA World Cup,Belo Horizonte,Brazil,True,martj42/international_results,martj42/international_results:37888
+match_ebd2f88dab3595b6,2014-06-21,Germany,Ghana,2,2,draw,4,FIFA World Cup,Fortaleza,Brazil,True,martj42/international_results,martj42/international_results:37889
+match_8a57fff13b31e4da,2014-06-21,Nigeria,Bosnia and Herzegovina,1,0,home,1,FIFA World Cup,Cuiabá,Brazil,True,martj42/international_results,martj42/international_results:37891
+match_a105c369fa7cc8c7,2014-06-22,Belgium,Russia,1,0,home,1,FIFA World Cup,Rio de Janeiro,Brazil,True,martj42/international_results,martj42/international_results:37892
+match_831f032bed5211d9,2014-06-22,South Korea,Algeria,2,4,away,6,FIFA World Cup,Porto Alegre,Brazil,True,martj42/international_results,martj42/international_results:37894
+match_1ba989f3dddd165e,2014-06-22,United States,Portugal,2,2,draw,4,FIFA World Cup,Manaus,Brazil,True,martj42/international_results,martj42/international_results:37895
+match_55bfde3e2dfc2322,2014-06-23,Australia,Spain,0,3,away,3,FIFA World Cup,Curitiba,Brazil,True,martj42/international_results,martj42/international_results:37896
+match_3eb718f4b4c637de,2014-06-23,Brazil,Cameroon,4,1,home,5,FIFA World Cup,Brasília,Brazil,False,martj42/international_results,martj42/international_results:37897
+match_5aba78a6b17d4240,2014-06-23,Croatia,Mexico,1,3,away,4,FIFA World Cup,Recife,Brazil,True,martj42/international_results,martj42/international_results:37898
+match_2fa1375850a2f1da,2014-06-23,Netherlands,Chile,2,0,home,2,FIFA World Cup,São Paulo,Brazil,True,martj42/international_results,martj42/international_results:37899
+match_d6221646cb8515d8,2014-06-24,Costa Rica,England,0,0,draw,0,FIFA World Cup,Belo Horizonte,Brazil,True,martj42/international_results,martj42/international_results:37900
+match_933573182876a0bc,2014-06-24,Greece,Ivory Coast,2,1,home,3,FIFA World Cup,Fortaleza,Brazil,True,martj42/international_results,martj42/international_results:37901
+match_a0b4888668b53e04,2014-06-24,Italy,Uruguay,0,1,away,1,FIFA World Cup,Natal,Brazil,True,martj42/international_results,martj42/international_results:37902
+match_fb880d23b8e6ae09,2014-06-24,Japan,Colombia,1,4,away,5,FIFA World Cup,Cuiabá,Brazil,True,martj42/international_results,martj42/international_results:37903
+match_de7b9a5c0d75a1a5,2014-06-25,Bosnia and Herzegovina,Iran,3,1,home,4,FIFA World Cup,Salvador,Brazil,True,martj42/international_results,martj42/international_results:37904
+match_689288f0271c0513,2014-06-25,Ecuador,France,0,0,draw,0,FIFA World Cup,Rio de Janeiro,Brazil,True,martj42/international_results,martj42/international_results:37905
+match_ab81a27d415d04fc,2014-06-25,Honduras,Switzerland,0,3,away,3,FIFA World Cup,Manaus,Brazil,True,martj42/international_results,martj42/international_results:37906
+match_9f0f9a6c543e4771,2014-06-25,Nigeria,Argentina,2,3,away,5,FIFA World Cup,Porto Alegre,Brazil,True,martj42/international_results,martj42/international_results:37908
+match_73f7d3e6cf1ea970,2014-06-26,Algeria,Russia,1,1,draw,2,FIFA World Cup,Curitiba,Brazil,True,martj42/international_results,martj42/international_results:37909
+match_5025526cfab004bb,2014-06-26,South Korea,Belgium,0,1,away,1,FIFA World Cup,São Paulo,Brazil,True,martj42/international_results,martj42/international_results:37910
+match_8dba4fbb0eae3387,2014-06-26,Portugal,Ghana,2,1,home,3,FIFA World Cup,Brasília,Brazil,True,martj42/international_results,martj42/international_results:37911
+match_9065e9b8049fb70a,2014-06-26,United States,Germany,0,1,away,1,FIFA World Cup,Recife,Brazil,True,martj42/international_results,martj42/international_results:37912
+match_dff0fbff6e499162,2014-06-28,Brazil,Chile,1,1,draw,2,FIFA World Cup,Belo Horizonte,Brazil,False,martj42/international_results,martj42/international_results:37913
+match_bb0ea510a0e6543b,2014-06-28,Colombia,Uruguay,2,0,home,2,FIFA World Cup,Rio de Janeiro,Brazil,True,martj42/international_results,martj42/international_results:37914
+match_1614f5abcad1a26e,2014-06-29,Costa Rica,Greece,1,1,draw,2,FIFA World Cup,Recife,Brazil,True,martj42/international_results,martj42/international_results:37916
+match_503a2c1c67614938,2014-06-29,Netherlands,Mexico,2,1,home,3,FIFA World Cup,Fortaleza,Brazil,True,martj42/international_results,martj42/international_results:37917
+match_14b47d2428f3d29c,2014-06-30,France,Nigeria,2,0,home,2,FIFA World Cup,Brasília,Brazil,True,martj42/international_results,martj42/international_results:37918
+match_b7205ee92758fd18,2014-06-30,Germany,Algeria,2,1,home,3,FIFA World Cup,Porto Alegre,Brazil,True,martj42/international_results,martj42/international_results:37919
+match_ce9fe52dab4b9f89,2014-07-01,Argentina,Switzerland,1,0,home,1,FIFA World Cup,São Paulo,Brazil,True,martj42/international_results,martj42/international_results:37920
+match_ac5df440c830b0be,2014-07-01,Belgium,United States,2,1,home,3,FIFA World Cup,Salvador,Brazil,True,martj42/international_results,martj42/international_results:37921
+match_b3814fcbf43a33f8,2014-07-04,Brazil,Colombia,2,1,home,3,FIFA World Cup,Fortaleza,Brazil,False,martj42/international_results,martj42/international_results:37923
+match_ecbbe6351669788b,2014-07-04,France,Germany,0,1,away,1,FIFA World Cup,Rio de Janeiro,Brazil,True,martj42/international_results,martj42/international_results:37924
+match_47aad245c6ace3c6,2014-07-05,Argentina,Belgium,1,0,home,1,FIFA World Cup,Brasília,Brazil,True,martj42/international_results,martj42/international_results:37925
+match_60308ecbebb04310,2014-07-05,Netherlands,Costa Rica,0,0,draw,0,FIFA World Cup,Salvador,Brazil,True,martj42/international_results,martj42/international_results:37926
+match_2566a3897fbfc37a,2014-07-08,Brazil,Germany,1,7,away,8,FIFA World Cup,Belo Horizonte,Brazil,False,martj42/international_results,martj42/international_results:37928
+match_49fa8a0319facc48,2014-07-09,Netherlands,Argentina,0,0,draw,0,FIFA World Cup,São Paulo,Brazil,True,martj42/international_results,martj42/international_results:37929
+match_9a11e7c40450b0ed,2014-07-12,Brazil,Netherlands,0,3,away,3,FIFA World Cup,Brasília,Brazil,False,martj42/international_results,martj42/international_results:37931
+match_4b8e30e9ba39c21e,2014-07-13,Germany,Argentina,1,0,home,1,FIFA World Cup,Rio de Janeiro,Brazil,True,martj42/international_results,martj42/international_results:37933
+match_49e3cd7f92cae867,2018-06-14,Russia,Saudi Arabia,5,0,home,5,FIFA World Cup,Moscow,Russia,False,martj42/international_results,martj42/international_results:41639
+match_4f74bec887fcce83,2018-06-15,Egypt,Uruguay,0,1,away,1,FIFA World Cup,Ekaterinburg,Russia,True,martj42/international_results,martj42/international_results:41640
+match_5ac2707341d73e5e,2018-06-15,Morocco,Iran,0,1,away,1,FIFA World Cup,Saint Petersburg,Russia,True,martj42/international_results,martj42/international_results:41641
+match_46bd08a321202a66,2018-06-15,Portugal,Spain,3,3,draw,6,FIFA World Cup,Sochi,Russia,True,martj42/international_results,martj42/international_results:41642
+match_735dbf23db521154,2018-06-16,France,Australia,2,1,home,3,FIFA World Cup,Kazan,Russia,True,martj42/international_results,martj42/international_results:41643
+match_17e4deba5d31512f,2018-06-16,Argentina,Iceland,1,1,draw,2,FIFA World Cup,Moscow,Russia,True,martj42/international_results,martj42/international_results:41644
+match_0c73de4595af3b72,2018-06-16,Peru,Denmark,0,1,away,1,FIFA World Cup,Saransk,Russia,True,martj42/international_results,martj42/international_results:41645
+match_cfd5a5929284b0c8,2018-06-16,Croatia,Nigeria,2,0,home,2,FIFA World Cup,Kaliningrad,Russia,True,martj42/international_results,martj42/international_results:41646
+match_093b3d50c2cec168,2018-06-17,Costa Rica,Serbia,0,1,away,1,FIFA World Cup,Samara,Russia,True,martj42/international_results,martj42/international_results:41647
+match_9b38635cdcb8d1c3,2018-06-17,Germany,Mexico,0,1,away,1,FIFA World Cup,Moscow,Russia,True,martj42/international_results,martj42/international_results:41648
+match_e1c526e2ce6e8857,2018-06-17,Brazil,Switzerland,1,1,draw,2,FIFA World Cup,Rostov-on-Don,Russia,True,martj42/international_results,martj42/international_results:41649
+match_007d9e3d7681f873,2018-06-18,Sweden,South Korea,1,0,home,1,FIFA World Cup,Nizhny Novgorod,Russia,True,martj42/international_results,martj42/international_results:41650
+match_431a3573c3ca98cd,2018-06-18,Belgium,Panama,3,0,home,3,FIFA World Cup,Sochi,Russia,True,martj42/international_results,martj42/international_results:41651
+match_7a5292b7ac021c02,2018-06-18,Tunisia,England,1,2,away,3,FIFA World Cup,Volgograd,Russia,True,martj42/international_results,martj42/international_results:41652
+match_959798577fb013ac,2018-06-19,Colombia,Japan,1,2,away,3,FIFA World Cup,Saransk,Russia,True,martj42/international_results,martj42/international_results:41653
+match_57ce8d264cbceccc,2018-06-19,Poland,Senegal,1,2,away,3,FIFA World Cup,Moscow,Russia,True,martj42/international_results,martj42/international_results:41654
+match_7bb0827e6166fe1f,2018-06-19,Russia,Egypt,3,1,home,4,FIFA World Cup,Saint Petersburg,Russia,False,martj42/international_results,martj42/international_results:41655
+match_bfd29e346e536ce6,2018-06-20,Portugal,Morocco,1,0,home,1,FIFA World Cup,Moscow,Russia,True,martj42/international_results,martj42/international_results:41656
+match_2faacd055a61cc1f,2018-06-20,Uruguay,Saudi Arabia,1,0,home,1,FIFA World Cup,Rostov-on-Don,Russia,True,martj42/international_results,martj42/international_results:41657
+match_7be270f28c37b161,2018-06-20,Iran,Spain,0,1,away,1,FIFA World Cup,Kazan,Russia,True,martj42/international_results,martj42/international_results:41658
+match_fd8cd1b9963464cb,2018-06-21,Denmark,Australia,1,1,draw,2,FIFA World Cup,Samara,Russia,True,martj42/international_results,martj42/international_results:41659
+match_e89b3b33add6b8ce,2018-06-21,France,Peru,1,0,home,1,FIFA World Cup,Ekaterinburg,Russia,True,martj42/international_results,martj42/international_results:41660
+match_076a38429855bf22,2018-06-21,Argentina,Croatia,0,3,away,3,FIFA World Cup,Nizhny Novgorod,Russia,True,martj42/international_results,martj42/international_results:41661
+match_b2f94c6b70b84a2f,2018-06-22,Brazil,Costa Rica,2,0,home,2,FIFA World Cup,Saint Petersburg,Russia,True,martj42/international_results,martj42/international_results:41662
+match_e6524c6d73b171d9,2018-06-22,Nigeria,Iceland,2,0,home,2,FIFA World Cup,Volgograd,Russia,True,martj42/international_results,martj42/international_results:41663
+match_25186f968e07d0f2,2018-06-22,Serbia,Switzerland,1,2,away,3,FIFA World Cup,Kaliningrad,Russia,True,martj42/international_results,martj42/international_results:41664
+match_b2962878b690dd85,2018-06-23,Belgium,Tunisia,5,2,home,7,FIFA World Cup,Moscow,Russia,True,martj42/international_results,martj42/international_results:41665
+match_83eb2f58b86128a0,2018-06-23,South Korea,Mexico,1,2,away,3,FIFA World Cup,Rostov-on-Don,Russia,True,martj42/international_results,martj42/international_results:41666
+match_22cb2fa75cdcfc48,2018-06-23,Germany,Sweden,2,1,home,3,FIFA World Cup,Sochi,Russia,True,martj42/international_results,martj42/international_results:41667
+match_3c3e5b3007c59a60,2018-06-24,England,Panama,6,1,home,7,FIFA World Cup,Nizhny Novgorod,Russia,True,martj42/international_results,martj42/international_results:41668
+match_9808a48623e9a25e,2018-06-24,Japan,Senegal,2,2,draw,4,FIFA World Cup,Ekaterinburg,Russia,True,martj42/international_results,martj42/international_results:41669
+match_e709fafe4b2029aa,2018-06-24,Poland,Colombia,0,3,away,3,FIFA World Cup,Kazan,Russia,True,martj42/international_results,martj42/international_results:41670
+match_550ad4fda43845bd,2018-06-25,Russia,Uruguay,0,3,away,3,FIFA World Cup,Samara,Russia,False,martj42/international_results,martj42/international_results:41671
+match_4f2e053ad07ac6be,2018-06-25,Saudi Arabia,Egypt,2,1,home,3,FIFA World Cup,Volgograd,Russia,True,martj42/international_results,martj42/international_results:41672
+match_f757ddf21a80dc56,2018-06-25,Spain,Morocco,2,2,draw,4,FIFA World Cup,Kaliningrad,Russia,True,martj42/international_results,martj42/international_results:41673
+match_8abe549015554d6c,2018-06-25,Iran,Portugal,1,1,draw,2,FIFA World Cup,Saransk,Russia,True,martj42/international_results,martj42/international_results:41674
+match_ff669abfc3778a45,2018-06-26,Australia,Peru,0,2,away,2,FIFA World Cup,Sochi,Russia,True,martj42/international_results,martj42/international_results:41675
+match_d0e548a7bc639b18,2018-06-26,Denmark,France,0,0,draw,0,FIFA World Cup,Moscow,Russia,True,martj42/international_results,martj42/international_results:41676
+match_37403cad18363c10,2018-06-26,Nigeria,Argentina,1,2,away,3,FIFA World Cup,Saint Petersburg,Russia,True,martj42/international_results,martj42/international_results:41677
+match_6de13420ed625b17,2018-06-26,Iceland,Croatia,1,2,away,3,FIFA World Cup,Rostov-on-Don,Russia,True,martj42/international_results,martj42/international_results:41678
+match_f3cd0fd5e37a5fe7,2018-06-27,South Korea,Germany,2,0,home,2,FIFA World Cup,Kazan,Russia,True,martj42/international_results,martj42/international_results:41679
+match_9d61423d2efb5c99,2018-06-27,Mexico,Sweden,0,3,away,3,FIFA World Cup,Ekaterinburg,Russia,True,martj42/international_results,martj42/international_results:41680
+match_68c1478cbf374aab,2018-06-27,Serbia,Brazil,0,2,away,2,FIFA World Cup,Moscow,Russia,True,martj42/international_results,martj42/international_results:41681
+match_77a0cb5189f74bb5,2018-06-27,Switzerland,Costa Rica,2,2,draw,4,FIFA World Cup,Nizhny Novgorod,Russia,True,martj42/international_results,martj42/international_results:41682
+match_fa75b0492df98801,2018-06-28,Japan,Poland,0,1,away,1,FIFA World Cup,Volgograd,Russia,True,martj42/international_results,martj42/international_results:41683
+match_8a79f99525e928b3,2018-06-28,Senegal,Colombia,0,1,away,1,FIFA World Cup,Samara,Russia,True,martj42/international_results,martj42/international_results:41684
+match_d35f6a952ade825a,2018-06-28,Panama,Tunisia,1,2,away,3,FIFA World Cup,Saransk,Russia,True,martj42/international_results,martj42/international_results:41685
+match_b9d8038600f54242,2018-06-28,England,Belgium,0,1,away,1,FIFA World Cup,Kaliningrad,Russia,True,martj42/international_results,martj42/international_results:41686
+match_a02c15f8450cad95,2018-06-30,France,Argentina,4,3,home,7,FIFA World Cup,Kazan,Russia,True,martj42/international_results,martj42/international_results:41687
+match_b251bdfc1f2c4649,2018-06-30,Uruguay,Portugal,2,1,home,3,FIFA World Cup,Sochi,Russia,True,martj42/international_results,martj42/international_results:41688
+match_9d982b9f8115ca95,2018-07-01,Russia,Spain,1,1,draw,2,FIFA World Cup,Moscow,Russia,False,martj42/international_results,martj42/international_results:41689
+match_3cb50774490dd49d,2018-07-01,Croatia,Denmark,1,1,draw,2,FIFA World Cup,Nizhny Novgorod,Russia,True,martj42/international_results,martj42/international_results:41690
+match_94a42baf16a0fb45,2018-07-02,Brazil,Mexico,2,0,home,2,FIFA World Cup,Samara,Russia,True,martj42/international_results,martj42/international_results:41691
+match_744825efce6adac3,2018-07-02,Belgium,Japan,3,2,home,5,FIFA World Cup,Rostov-on-Don,Russia,True,martj42/international_results,martj42/international_results:41692
+match_be1c33e505364d3b,2018-07-03,Sweden,Switzerland,1,0,home,1,FIFA World Cup,Saint Petersburg,Russia,True,martj42/international_results,martj42/international_results:41693
+match_423ba3ff05e63a7f,2018-07-03,Colombia,England,1,1,draw,2,FIFA World Cup,Moscow,Russia,True,martj42/international_results,martj42/international_results:41694
+match_2ae3d4653220cc97,2018-07-06,Uruguay,France,0,2,away,2,FIFA World Cup,Nizhny Novgorod,Russia,True,martj42/international_results,martj42/international_results:41696
+match_0f47b9d839df9361,2018-07-06,Brazil,Belgium,1,2,away,3,FIFA World Cup,Kazan,Russia,True,martj42/international_results,martj42/international_results:41697
+match_05a878c4c4ba4ee7,2018-07-07,Sweden,England,0,2,away,2,FIFA World Cup,Samara,Russia,True,martj42/international_results,martj42/international_results:41698
+match_871ad991b233a352,2018-07-07,Russia,Croatia,2,2,draw,4,FIFA World Cup,Sochi,Russia,False,martj42/international_results,martj42/international_results:41699
+match_b0addf968c70ee24,2018-07-10,France,Belgium,1,0,home,1,FIFA World Cup,Saint Petersburg,Russia,True,martj42/international_results,martj42/international_results:41700
+match_4dff99e2fb04eef4,2018-07-11,Croatia,England,2,1,home,3,FIFA World Cup,Moscow,Russia,True,martj42/international_results,martj42/international_results:41701
+match_777cfaf9f8054957,2018-07-14,Belgium,England,2,0,home,2,FIFA World Cup,Saint Petersburg,Russia,True,martj42/international_results,martj42/international_results:41702
+match_62c223cafe7f36e8,2018-07-15,France,Croatia,4,2,home,6,FIFA World Cup,Moscow,Russia,True,martj42/international_results,martj42/international_results:41703
+match_790a3f49011d1e8a,2022-11-20,Qatar,Ecuador,0,2,away,2,FIFA World Cup,Al Khor,Qatar,False,martj42/international_results,martj42/international_results:45717
+match_ec8207cf73e84eda,2022-11-21,Senegal,Netherlands,0,2,away,2,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45718
+match_522c03317517430d,2022-11-21,England,Iran,6,2,home,8,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45719
+match_9c42e5e2259164ad,2022-11-21,United States,Wales,1,1,draw,2,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45720
+match_21fe2152fa817c16,2022-11-22,Argentina,Saudi Arabia,1,2,away,3,FIFA World Cup,Lusail,Qatar,True,martj42/international_results,martj42/international_results:45721
+match_c41316022edc7255,2022-11-22,Mexico,Poland,0,0,draw,0,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45722
+match_a6c84d6293e351b2,2022-11-22,Denmark,Tunisia,0,0,draw,0,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45723
+match_ff882b152b754e97,2022-11-22,France,Australia,4,1,home,5,FIFA World Cup,Al Wakrah,Qatar,True,martj42/international_results,martj42/international_results:45724
+match_c33cd2958c9804b2,2022-11-23,Germany,Japan,1,2,away,3,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45725
+match_061ebe9f46871165,2022-11-23,Spain,Costa Rica,7,0,home,7,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45726
+match_16a5bee0b4d2118e,2022-11-23,Morocco,Croatia,0,0,draw,0,FIFA World Cup,Al Khor,Qatar,True,martj42/international_results,martj42/international_results:45727
+match_d2b4cf059f29e89e,2022-11-23,Belgium,Canada,1,0,home,1,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45728
+match_7a48fcd085239889,2022-11-24,Switzerland,Cameroon,1,0,home,1,FIFA World Cup,Al Wakrah,Qatar,True,martj42/international_results,martj42/international_results:45729
+match_243da2690dc91e68,2022-11-24,Brazil,Serbia,2,0,home,2,FIFA World Cup,Lusail,Qatar,True,martj42/international_results,martj42/international_results:45730
+match_8d9963b547e00f19,2022-11-24,Uruguay,South Korea,0,0,draw,0,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45731
+match_a6b2df9c5eecbeb4,2022-11-24,Portugal,Ghana,3,2,home,5,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45732
+match_0fa5e33c4ae1a5e7,2022-11-25,Qatar,Senegal,1,3,away,4,FIFA World Cup,Doha,Qatar,False,martj42/international_results,martj42/international_results:45733
+match_a6766ca626d3e294,2022-11-25,Netherlands,Ecuador,1,1,draw,2,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45734
+match_c9ce1654f32c67c8,2022-11-25,Wales,Iran,0,2,away,2,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45735
+match_bc158c6a1d53a56d,2022-11-25,England,United States,0,0,draw,0,FIFA World Cup,Al Khor,Qatar,True,martj42/international_results,martj42/international_results:45736
+match_7b1f6d383a6caeca,2022-11-26,Poland,Saudi Arabia,2,0,home,2,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45737
+match_47a396f6453f9648,2022-11-26,Argentina,Mexico,2,0,home,2,FIFA World Cup,Lusail,Qatar,True,martj42/international_results,martj42/international_results:45738
+match_e673fb55e0380f87,2022-11-26,Tunisia,Australia,0,1,away,1,FIFA World Cup,Al Wakrah,Qatar,True,martj42/international_results,martj42/international_results:45739
+match_c4d05ac1218425c3,2022-11-26,France,Denmark,2,1,home,3,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45740
+match_ebde787fae1948b9,2022-11-27,Japan,Costa Rica,0,1,away,1,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45741
+match_4c96952799d2f313,2022-11-27,Spain,Germany,1,1,draw,2,FIFA World Cup,Al Khor,Qatar,True,martj42/international_results,martj42/international_results:45742
+match_6774258318e967eb,2022-11-27,Belgium,Morocco,0,2,away,2,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45743
+match_eb1348622b11770f,2022-11-27,Croatia,Canada,4,1,home,5,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45744
+match_be0ee50b64eafa66,2022-11-28,Cameroon,Serbia,3,3,draw,6,FIFA World Cup,Al Wakrah,Qatar,True,martj42/international_results,martj42/international_results:45745
+match_d2d7a86bc74eb9cf,2022-11-28,Brazil,Switzerland,1,0,home,1,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45746
+match_de0c609d5ea1b95a,2022-11-28,South Korea,Ghana,2,3,away,5,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45747
+match_52cc871ddc35f43a,2022-11-28,Portugal,Uruguay,2,0,home,2,FIFA World Cup,Lusail,Qatar,True,martj42/international_results,martj42/international_results:45748
+match_000516b25b7aa0b7,2022-11-29,Ecuador,Senegal,1,2,away,3,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45749
+match_8b5558fa1a158fba,2022-11-29,Qatar,Netherlands,0,2,away,2,FIFA World Cup,Al Khor,Qatar,False,martj42/international_results,martj42/international_results:45750
+match_2ef9774f46ac5cc7,2022-11-29,Wales,England,0,3,away,3,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45751
+match_d0c398b373913565,2022-11-29,Iran,United States,0,1,away,1,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45752
+match_d5d5ea63081091ad,2022-11-30,Poland,Argentina,0,2,away,2,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45753
+match_74ab73a338b32697,2022-11-30,Saudi Arabia,Mexico,1,2,away,3,FIFA World Cup,Lusail,Qatar,True,martj42/international_results,martj42/international_results:45754
+match_d45cbfc4cbe9c30a,2022-11-30,Australia,Denmark,1,0,home,1,FIFA World Cup,Al Wakrah,Qatar,True,martj42/international_results,martj42/international_results:45755
+match_693f57aeefc68d65,2022-11-30,Tunisia,France,1,0,home,1,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45756
+match_0bc70eb883892ce7,2022-12-01,Japan,Spain,2,1,home,3,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45757
+match_b3853a84a5827da6,2022-12-01,Costa Rica,Germany,2,4,away,6,FIFA World Cup,Al Khor,Qatar,True,martj42/international_results,martj42/international_results:45758
+match_6b77eb8943c9aef8,2022-12-01,Croatia,Belgium,0,0,draw,0,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45759
+match_ce92b263963af0ff,2022-12-01,Canada,Morocco,1,2,away,3,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45760
+match_11bef9abf8373d49,2022-12-02,Serbia,Switzerland,2,3,away,5,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45761
+match_6ff9f3f8fb7590bb,2022-12-02,Cameroon,Brazil,1,0,home,1,FIFA World Cup,Lusail,Qatar,True,martj42/international_results,martj42/international_results:45762
+match_423c05c5d6cf4657,2022-12-02,Ghana,Uruguay,0,2,away,2,FIFA World Cup,Al Wakrah,Qatar,True,martj42/international_results,martj42/international_results:45763
+match_cf8e8a27b2fe1818,2022-12-02,South Korea,Portugal,2,1,home,3,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45764
+match_b09a7e51470ba44a,2022-12-03,Netherlands,United States,3,1,home,4,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45765
+match_e02bce4ddf96595a,2022-12-03,Argentina,Australia,2,1,home,3,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45766
+match_a11ed6ff013a6f5e,2022-12-04,France,Poland,3,1,home,4,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45767
+match_e53376422de7637d,2022-12-04,England,Senegal,3,0,home,3,FIFA World Cup,Al Khor,Qatar,True,martj42/international_results,martj42/international_results:45768
+match_e0de3c76bea41e75,2022-12-05,Japan,Croatia,1,1,draw,2,FIFA World Cup,Al Wakrah,Qatar,True,martj42/international_results,martj42/international_results:45769
+match_120434f383b5ace8,2022-12-05,Brazil,South Korea,4,1,home,5,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45770
+match_cb80f1b15e9e1150,2022-12-06,Morocco,Spain,0,0,draw,0,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45771
+match_da023319bae3543e,2022-12-06,Portugal,Switzerland,6,1,home,7,FIFA World Cup,Lusail,Qatar,True,martj42/international_results,martj42/international_results:45772
+match_e14bf6b3e306847a,2022-12-09,Croatia,Brazil,1,1,draw,2,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45773
+match_191ca905f4ccbd2d,2022-12-09,Netherlands,Argentina,2,2,draw,4,FIFA World Cup,Lusail,Qatar,True,martj42/international_results,martj42/international_results:45774
+match_9d4c7e062426f3d5,2022-12-10,Morocco,Portugal,1,0,home,1,FIFA World Cup,Doha,Qatar,True,martj42/international_results,martj42/international_results:45776
+match_5722640b391252d4,2022-12-10,England,France,1,2,away,3,FIFA World Cup,Al Khor,Qatar,True,martj42/international_results,martj42/international_results:45777
+match_7cc8ece1b339a348,2022-12-13,Argentina,Croatia,3,0,home,3,FIFA World Cup,Lusail,Qatar,True,martj42/international_results,martj42/international_results:45779
+match_9ab19c5ebca417f9,2022-12-14,France,Morocco,2,0,home,2,FIFA World Cup,Al Khor,Qatar,True,martj42/international_results,martj42/international_results:45780
+match_405cf674ef0da60e,2022-12-17,Croatia,Morocco,2,1,home,3,FIFA World Cup,Al Rayyan,Qatar,True,martj42/international_results,martj42/international_results:45784
+match_21db49b7f4e50f55,2022-12-18,Argentina,France,3,3,draw,6,FIFA World Cup,Lusail,Qatar,True,martj42/international_results,martj42/international_results:45786
+match_8f2269b928d86028,2026-06-11,Mexico,South Africa,2,0,home,2,FIFA World Cup,Mexico City,Mexico,False,martj42/international_results,martj42/international_results:49405
+match_fa783dcf8cfca66a,2026-06-11,South Korea,Czech Republic,2,1,home,3,FIFA World Cup,Zapopan,Mexico,True,martj42/international_results,martj42/international_results:49406
+match_cd6e43b5e175862c,2026-06-12,Canada,Bosnia and Herzegovina,1,1,draw,2,FIFA World Cup,Toronto,Canada,False,martj42/international_results,martj42/international_results:49407
+match_ffcd651def90604a,2026-06-12,United States,Paraguay,4,1,home,5,FIFA World Cup,Inglewood,United States,False,martj42/international_results,martj42/international_results:49408
+match_9175e95473a4c844,2026-06-13,Qatar,Switzerland,1,1,draw,2,FIFA World Cup,Santa Clara,United States,True,martj42/international_results,martj42/international_results:49409
+match_0f9a25493ba2db45,2026-06-13,Brazil,Morocco,1,1,draw,2,FIFA World Cup,East Rutherford,United States,True,martj42/international_results,martj42/international_results:49410
+match_cf008dd8579f6915,2026-06-13,Haiti,Scotland,0,1,away,1,FIFA World Cup,Foxborough,United States,True,martj42/international_results,martj42/international_results:49411
+match_08a3a9c4d91244b8,2026-06-13,Australia,Turkey,2,0,home,2,FIFA World Cup,Vancouver,Canada,True,martj42/international_results,martj42/international_results:49412
+match_95e558c8ffe36a5f,2026-06-14,Germany,Curaçao,7,1,home,8,FIFA World Cup,Houston,United States,True,martj42/international_results,martj42/international_results:49413
+match_deb7bfa85ccfd5c1,2026-06-14,Ivory Coast,Ecuador,1,0,home,1,FIFA World Cup,Philadelphia,United States,True,martj42/international_results,martj42/international_results:49414
+match_4acaaa4ded14258b,2026-06-14,Netherlands,Japan,2,2,draw,4,FIFA World Cup,Arlington,United States,True,martj42/international_results,martj42/international_results:49415
+match_0a6047f6d26e924b,2026-06-14,Sweden,Tunisia,5,1,home,6,FIFA World Cup,Guadalupe,Mexico,True,martj42/international_results,martj42/international_results:49416
+match_f1150c9f6fa59fb5,2026-06-15,Belgium,Egypt,1,1,draw,2,FIFA World Cup,Seattle,United States,True,martj42/international_results,martj42/international_results:49417
+match_74715b5066a32eeb,2026-06-15,Iran,New Zealand,2,2,draw,4,FIFA World Cup,Inglewood,United States,True,martj42/international_results,martj42/international_results:49418
+match_1e2ef8e22b98f813,2026-06-15,Spain,Cape Verde,0,0,draw,0,FIFA World Cup,Atlanta,United States,True,martj42/international_results,martj42/international_results:49419
+match_fb148327ae33ac45,2026-06-15,Saudi Arabia,Uruguay,1,1,draw,2,FIFA World Cup,Miami Gardens,United States,True,martj42/international_results,martj42/international_results:49420
+match_48b102ceac9df89d,2026-06-16,France,Senegal,3,1,home,4,FIFA World Cup,East Rutherford,United States,True,martj42/international_results,martj42/international_results:49421
+match_2cc738d0da2b3364,2026-06-16,Iraq,Norway,1,4,away,5,FIFA World Cup,Foxborough,United States,True,martj42/international_results,martj42/international_results:49422
+match_8b77393ce376686b,2026-06-16,Argentina,Algeria,3,0,home,3,FIFA World Cup,Kansas City,United States,True,martj42/international_results,martj42/international_results:49423
+match_9b1ec0470cad8fa1,2026-06-16,Austria,Jordan,3,1,home,4,FIFA World Cup,Santa Clara,United States,True,martj42/international_results,martj42/international_results:49424

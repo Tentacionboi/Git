@@ -5,6 +5,7 @@ import unittest
 from worldcup_betting_edp.data import (
     CANONICAL_MATCH_COLUMNS,
     build_canonical_matches_from_results,
+    filter_world_cup_canonical_matches,
     load_canonical_matches_csv,
     load_martj42_results_path,
     summarize_canonical_matches,
@@ -62,6 +63,15 @@ class CanonicalMatchesTests(unittest.TestCase):
         self.assertEqual(summary["team_count"], 7)
         self.assertEqual(summary["tournament_count"], 2)
         self.assertEqual(summary["neutral_match_count"], 3)
+
+    def test_filters_world_cup_canonical_matches(self) -> None:
+        results = load_martj42_results_path(SAMPLE_CSV)
+        canonical = build_canonical_matches_from_results(results)
+
+        world_cup = filter_world_cup_canonical_matches(canonical)
+
+        self.assertEqual(len(world_cup), 3)
+        self.assertTrue(all(match.tournament == "FIFA World Cup" for match in world_cup))
 
     def test_rejects_canonical_csv_missing_columns(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

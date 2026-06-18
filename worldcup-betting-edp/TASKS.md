@@ -36,6 +36,8 @@
 - [x] Implement Elo ratings.
 - [x] Generate processed Elo history and current rating tables.
 - [x] Generate Elo-based 1X2 probabilities for historical matches.
+- [x] Generate World Cup-only match and Elo probability tables.
+- [x] Evaluate World Cup Elo 1X2 probability quality with Brier score and log loss.
 
 ## Doing
 
@@ -43,8 +45,8 @@
 
 ## Next
 
+- [ ] Add World Cup era/time-split evaluation.
 - [ ] Download openfootball/worldcup data.
-- [ ] Evaluate Elo 1X2 probability quality with Brier score and log loss.
 
 ## Later
 
