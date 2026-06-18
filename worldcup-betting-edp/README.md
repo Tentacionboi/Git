@@ -335,6 +335,32 @@ PY
 
 `examples/demo_world_cup_market_odds.csv` is synthetic and exists only to verify the pipeline. It is not real historical market data.
 
+Generate market movement features from an odds time series:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 - <<'PY'
+from worldcup_betting_edp.data import load_market_odds_csv
+from worldcup_betting_edp.market import (
+    build_market_movement_features,
+    write_market_movement_features_csv,
+)
+
+odds = load_market_odds_csv("examples/demo_world_cup_market_odds_timeseries.csv")
+features = build_market_movement_features(
+    odds,
+    start_odds_type="opening",
+    end_odds_type="current",
+)
+write_market_movement_features_csv(
+    features,
+    "reports/demo_market_movement_features.csv",
+)
+print(features[0].to_dict())
+PY
+```
+
+`examples/demo_world_cup_market_odds_timeseries.csv` is synthetic. It exists to verify opening/current odds movement logic, not to claim historical market edge.
+
 Load synthetic kickoff timing rows for as-of validation:
 
 ```bash

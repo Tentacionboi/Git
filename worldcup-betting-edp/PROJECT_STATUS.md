@@ -4,7 +4,7 @@ Last updated: 2026-06-18
 
 ## One-Line Summary
 
-This project is currently a bilingual, local World Cup 1X2 value-bet research dashboard plus a reproducible World Cup-focused historical-results and Elo baseline pipeline. It is not yet a real-time odds monitor or an automatic prediction system.
+This project is currently a bilingual, local World Cup 1X2 value-bet research dashboard plus a reproducible World Cup-focused historical-results, Elo baseline, and market-odds research pipeline. It is not yet a real-time odds monitor or an automatic prediction system.
 
 ## Current Capability
 
@@ -42,6 +42,9 @@ The project can:
 - load canonical match kickoff timing rows from CSV;
 - compare model probabilities against devigged market probabilities when odds snapshots are supplied;
 - validate odds timing with as-of/no-leakage rules for pre-match, closing-market, and in-play modes.
+- load time-series 1X2 market odds snapshots when a file contains multiple captures per match and bookmaker;
+- engineer market movement features between configurable start and end odds types, such as opening to current;
+- write market movement feature tables with overround deltas, devigged probability deltas, favorite changes, and largest probability moves.
 
 ## What It Does Not Do Yet
 
@@ -78,6 +81,7 @@ worldcup-betting-edp/
 │   ├── cli.py
 │   ├── domain.py
 │   ├── market/devig.py
+│   ├── market/movement.py
 │   ├── betting/kelly.py
 │   ├── backtest/scoring.py
 │   ├── backtest/settlement.py
@@ -122,6 +126,7 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/backtest/scoring.py`: Brier score and log loss.
 - `src/worldcup_betting_edp/backtest/market_comparison.py`: model-vs-market probability comparison for matched odds rows.
 - `src/worldcup_betting_edp/backtest/temporal_validation.py`: as-of timing validation to detect odds leakage.
+- `src/worldcup_betting_edp/market/movement.py`: market movement features between two odds snapshots for the same match and bookmaker.
 - `src/worldcup_betting_edp/backtest/settlement.py`: flat-stake settlement and Kelly bankroll curves.
 - `src/worldcup_betting_edp/backtest/runner.py`: manifest-driven batch backtest runner.
 - `src/worldcup_betting_edp/models/elo.py`: simple Elo rating engine, historical replay, and rating table writers.
@@ -141,7 +146,9 @@ worldcup-betting-edp/
 - `reports/world_cup_elo_draw_calibration.json`: train/validation draw calibration report.
 - `examples/demo_world_cup_market_odds.csv`: synthetic odds file that demonstrates the historical odds schema.
 - `examples/demo_world_cup_match_timing.csv`: synthetic kickoff timing file that demonstrates as-of validation.
+- `examples/demo_world_cup_market_odds_timeseries.csv`: synthetic opening/current odds time-series file for market movement features.
 - `reports/demo_market_comparison.json`: synthetic demo model-vs-market comparison report.
+- `reports/demo_market_movement_features.csv`: synthetic demo market movement feature table.
 
 ## Current UI
 
@@ -178,7 +185,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 126 tests
+Ran 130 tests
 OK
 ```
 
@@ -336,6 +343,19 @@ leakage_risk_counts: low 3
 ```
 
 The demo odds and kickoff times are synthetic and are not historical market evidence. The project can now compare against market odds once real, reproducible, legally usable World Cup odds and kickoff timestamp files are added.
+
+Market movement feature engineering now exists:
+
+```text
+module: src/worldcup_betting_edp/market/movement.py
+input demo: examples/demo_world_cup_market_odds_timeseries.csv
+output demo: reports/demo_market_movement_features.csv
+feature_count: 3
+```
+
+The feature table compares two snapshots for the same match and bookmaker, such as opening odds and current odds. It emits start/end overround, overround delta, start/end devigged probabilities, home/draw/away probability deltas, start/end favorite, favorite-changed flag, favorite probability delta, and largest probability move.
+
+Interpretation boundary: this describes how the market price moved. It does not prove the move is exploitable, and it does not by itself identify a value bet. For that, the project still needs real timestamped odds, model probabilities generated strictly as of the prediction time, and out-of-sample market comparison.
 
 Timing leakage policy now exists in code:
 

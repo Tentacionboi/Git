@@ -118,12 +118,16 @@ This file records candidate data sources, their expected use, and their risks.
 - Canonical odds schema columns: `match_id`, `bookmaker`, `captured_at`, `home_odds`, `draw_odds`, `away_odds`, `odds_type`, `source`.
 - Canonical kickoff timing schema columns: `match_id`, `kickoff_time`, `time_zone`, `precision`, `source`.
 - Demo odds file: `examples/demo_world_cup_market_odds.csv`
+- Demo odds time-series file: `examples/demo_world_cup_market_odds_timeseries.csv`
 - Demo timing file: `examples/demo_world_cup_match_timing.csv`
 - Demo comparison report: `reports/demo_market_comparison.json`
+- Demo market movement feature report: `reports/demo_market_movement_features.csv`
 - Demo match count: 3 matched rows, 981 unmatched model rows.
 - Demo source note: the demo odds and kickoff times are synthetic and must not be used as historical market evidence.
 - Implemented use: once real World Cup odds are available with `match_id` alignment, the project can devig market odds, score model and market probabilities on the same matches, and report Brier/log-loss deltas.
 - Timing validation: odds comparisons can enforce `odds_captured_at <= prediction_time <= kickoff_time` for actionable pre-match backtests.
 - Leakage labels: `low`, `medium`, and `high` leakage risk are reported in model-vs-market summaries.
 - Closing odds rule: closing odds are rejected by default for actionable pre-match validation unless explicitly allowed; closing-market comparison is treated as market baseline research, not an early betting simulation.
+- Market movement features: the project can compare two odds snapshots for the same match/bookmaker, such as opening and current odds, then emit overround deltas, devigged probability deltas, favorite changes, and largest probability moves.
+- Intended market-signal use: market movement features are candidate inputs for the later World Cup prediction model and dashboard, especially for detecting price movement, steam, favorite flips, and market reaction to team news.
 - Current blocker: no verified redistributable historical World Cup 1X2 odds dataset or full real kickoff timestamp dataset has been committed to the repository.

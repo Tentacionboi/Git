@@ -46,10 +46,14 @@
 - [x] Implement as-of/no-leakage timing validation for odds backtests.
 - [x] Define canonical match kickoff timing schema.
 - [x] Add synthetic kickoff timing demo for as-of market comparison.
+- [x] Define demo market odds time-series input.
+- [x] Implement market movement feature engineering.
+- [x] Add synthetic market movement feature report.
 
 ## Doing
 
 - [ ] Confirm a reproducible source for historical World Cup odds.
+- [ ] Design real-time odds ingestion plan for upcoming World Cup matches.
 
 ## Next
 
@@ -57,6 +61,8 @@
 - [ ] Add World Cup era/time-split evaluation.
 - [ ] Add real historical World Cup odds once source and license are verified.
 - [ ] Add verified real kickoff timestamps for World Cup matches.
+- [ ] Add market movement features to model-vs-market reports.
+- [ ] Add market movement signals to the Streamlit dashboard.
 
 ## Later
 
