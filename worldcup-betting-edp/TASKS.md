@@ -14,17 +14,28 @@
 - [x] Add Streamlit local dashboard.
 - [x] Verify Streamlit dashboard in a local browser.
 - [x] Add bilingual English/Chinese labels to the dashboard.
+- [x] Define a JSON input format for one-match predictions.
+- [x] Add JSON parser and validation tests.
+- [x] Add Streamlit JSON upload for one-match predictions.
+- [x] Add a CLI for one-match prediction.
+- [x] Define result schema for settled historical matches.
+- [x] Implement Brier score and log loss.
+- [x] Implement flat-stake ROI for settled predictions.
+- [x] Implement Kelly bankroll curve for settled predictions.
+- [x] Define batch backtest input format.
+- [x] Implement batch backtest runner.
+- [x] Add batch backtest CLI command.
+- [x] Add batch backtest output files.
+- [x] Add Streamlit batch backtest page.
+- [x] Add project screenshots for GitHub README.
 
 ## Doing
 
-- [ ] Define a CSV/JSON input format for one-match predictions.
+- [ ] Save a local Git checkpoint when permissions allow.
 
 ## Next
 
-- [ ] Add a CLI for one-match prediction.
-- [ ] Define result schema for settled historical matches.
-- [ ] Implement Brier score and log loss.
-- [ ] Implement flat-stake ROI for settled predictions.
+- [ ] Configure GitHub remote and push.
 
 ## Later
 

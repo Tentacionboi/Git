@@ -1,0 +1,145 @@
+{
+  "flat_stake_settlements": [
+    {
+      "actual_result": "home",
+      "bet_outcome": "home",
+      "bet_placed": true,
+      "decimal_odds": 2.2,
+      "hit": true,
+      "match_id": "demo-2026-final",
+      "profit": 12.000000000000002,
+      "reason": "positive edge: model-market=0.0529, EV=0.0780, stake=0.0163",
+      "roi": 1.2000000000000002,
+      "stake": 10.0
+    }
+  ],
+  "kelly_curve": {
+    "bet_count": 1,
+    "final_bankroll": 101.95,
+    "hit_count": 1,
+    "hit_rate": 1.0,
+    "max_drawdown": 0.0,
+    "peak_bankroll": 101.95,
+    "points": [
+      {
+        "actual_result": "home",
+        "bankroll_end": 101.95,
+        "bankroll_start": 100.0,
+        "bet_outcome": "home",
+        "bet_placed": true,
+        "decimal_odds": 2.2,
+        "drawdown": 0.0,
+        "hit": true,
+        "match_id": "demo-2026-final",
+        "peak_bankroll": 101.95,
+        "profit": 1.9500000000000017,
+        "stake": 1.625000000000001,
+        "stake_fraction": 0.01625000000000001
+      }
+    ],
+    "starting_bankroll": 100.0,
+    "total_profit": 1.9500000000000028,
+    "total_roi": 0.019500000000000028
+  },
+  "manifest": {
+    "entries": [
+      {
+        "label": "demo-final",
+        "match_id": "demo-2026-final",
+        "match_time": "2026-07-19T15:00:00+00:00",
+        "prediction_path": "examples/demo_single_match.json",
+        "settled_at": "2026-07-19T18:00:00+00:00",
+        "settled_result_path": "examples/demo_settled_match.json"
+      }
+    ],
+    "entry_count": 1,
+    "match_ids": [
+      "demo-2026-final"
+    ],
+    "source_path": "examples/demo_backtest_manifest.json"
+  },
+  "reports": [
+    {
+      "away_decision_reason": "no bet: probability edge -0.0271 below threshold 0.0200",
+      "away_ev": -0.136,
+      "away_kelly_fraction": 0.0,
+      "away_team": "Team B",
+      "bookmaker": "demo_book",
+      "competition": "FIFA World Cup",
+      "delta_away": -0.027090026148673896,
+      "delta_draw": -0.02585356742622341,
+      "delta_home": 0.05294359357489725,
+      "draw_decision_reason": "no bet: probability edge -0.0259 below threshold 0.0200",
+      "draw_ev": -0.12249999999999994,
+      "draw_kelly_fraction": 0.0,
+      "expected_value": 0.07800000000000007,
+      "fractional_kelly_fraction": 0.01625000000000001,
+      "home_decision_reason": "positive edge: model-market=0.0529, EV=0.0780, stake=0.0163",
+      "home_ev": 0.07800000000000007,
+      "home_kelly_fraction": 0.01625000000000001,
+      "home_team": "Team A",
+      "market_away_odds": 3.6,
+      "market_away_prob_devig": 0.2670900261486739,
+      "market_draw_odds": 3.25,
+      "market_draw_prob_devig": 0.29585356742622343,
+      "market_home_odds": 2.2,
+      "market_home_prob_devig": 0.43705640642510274,
+      "market_overround": 0.040015540015539974,
+      "match_id": "demo-2026-final",
+      "match_time": "2026-07-19T15:00:00+00:00",
+      "model_away_prob": 0.24,
+      "model_draw_prob": 0.27,
+      "model_home_prob": 0.49,
+      "model_name": "manual_research_model",
+      "neutral": true,
+      "odds_captured_at": "2026-06-18T07:32:42+00:00",
+      "reason": "positive edge: model-market=0.0529, EV=0.0780, stake=0.0163",
+      "risk_level": "low",
+      "stage": "Final",
+      "value_bet_direction": "home",
+      "value_bet_flag": true
+    }
+  ],
+  "scored_predictions": [
+    {
+      "actual_result": "home",
+      "market_brier_score": 0.4757719049739413,
+      "market_log_loss": 0.8276930157285507,
+      "market_predicted_outcome": "home",
+      "market_probability_actual": 0.43705640642510274,
+      "match_id": "demo-2026-final",
+      "model_beats_market_brier": true,
+      "model_beats_market_log_loss": true,
+      "model_brier_score": 0.3906,
+      "model_log_loss": 0.7133498878774648,
+      "model_name": "manual_research_model",
+      "model_predicted_outcome": "home",
+      "model_probability_actual": 0.49
+    }
+  ],
+  "summary": {
+    "entry_count": 1,
+    "flat_bet_count": 1,
+    "flat_hit_count": 1,
+    "flat_hit_rate": 1.0,
+    "flat_roi": 1.2000000000000002,
+    "flat_stake": 10.0,
+    "flat_total_profit": 12.000000000000002,
+    "flat_total_staked": 10.0,
+    "kelly_bet_count": 1,
+    "kelly_final_bankroll": 101.95,
+    "kelly_hit_count": 1,
+    "kelly_max_drawdown": 0.0,
+    "kelly_total_profit": 1.9500000000000028,
+    "kelly_total_roi": 0.019500000000000028,
+    "match_ids": [
+      "demo-2026-final"
+    ],
+    "mean_market_brier_score": 0.4757719049739413,
+    "mean_market_log_loss": 0.8276930157285507,
+    "mean_model_brier_score": 0.3906,
+    "mean_model_log_loss": 0.7133498878774648,
+    "model_beats_market_brier_count": 1,
+    "model_beats_market_log_loss_count": 1
+  }
+}

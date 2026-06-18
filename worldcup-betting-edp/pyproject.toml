@@ -14,6 +14,9 @@ authors = [
 ]
 dependencies = []
 
+[project.scripts]
+worldcup-edp-predict = "worldcup_betting_edp.cli:main"
+
 [project.optional-dependencies]
 dev = [
   "pytest>=8.0",

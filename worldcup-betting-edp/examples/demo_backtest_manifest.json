@@ -1,0 +1,9 @@
+{
+  "entries": [
+    {
+      "label": "demo-final",
+      "prediction_path": "demo_single_match.json",
+      "settled_result_path": "demo_settled_match.json"
+    }
+  ]
+}

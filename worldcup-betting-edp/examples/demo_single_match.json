@@ -1,0 +1,26 @@
+{
+  "match": {
+    "match_id": "demo-2026-final",
+    "match_time": "2026-07-19T15:00:00+00:00",
+    "home_team": "Team A",
+    "away_team": "Team B",
+    "competition": "FIFA World Cup",
+    "stage": "Final",
+    "neutral": true
+  },
+  "odds": {
+    "match_id": "demo-2026-final",
+    "captured_at": "2026-06-18T07:32:42+00:00",
+    "bookmaker": "demo_book",
+    "home": 2.2,
+    "draw": 3.25,
+    "away": 3.6
+  },
+  "model": {
+    "match_id": "demo-2026-final",
+    "model_name": "manual_research_model",
+    "home": 0.49,
+    "draw": 0.27,
+    "away": 0.24
+  }
+}

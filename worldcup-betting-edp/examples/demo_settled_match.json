@@ -1,0 +1,9 @@
+{
+  "match_id": "demo-2026-final",
+  "settled_at": "2026-07-19T18:00:00+00:00",
+  "home_goals": 2,
+  "away_goals": 1,
+  "result_1x2": "home",
+  "source": "manual_demo",
+  "notes": "Demo settled result for testing scoring and backtest plumbing."
+}
