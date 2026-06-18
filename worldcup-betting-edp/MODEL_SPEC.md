@@ -62,19 +62,34 @@ Output:
 - 1X2 probabilities.
 - Optional totals/handicap probabilities later.
 
-### 4. Simple Fusion
+### 4. Market-Residual Model
 
 Input:
 
 - Market probabilities.
-- Elo probabilities.
-- Poisson probabilities.
+- Fundamental probabilities from Elo, Poisson, or a later ensemble.
+- Optional market movement features.
 
 Output:
 
 - Final model probabilities.
+- Residual adjustments versus market probability.
 
 Initial rule:
+
+```text
+raw_adjustment_i =
+    w_fundamental * (p_fundamental_i - p_market_i)
+  + w_movement * market_movement_delta_i
+
+p_final_i = normalize_and_bound(p_market_i + raw_adjustment_i)
+```
+
+The market is the anchor, not an ordinary weak feature. Fundamental and movement signals must only apply bounded residual adjustments until out-of-sample evidence proves they add value.
+
+### 5. Simple Fusion
+
+Simple weighted averaging remains a research baseline, not the preferred decision model:
 
 ```text
 p_final = w_market*p_market + w_elo*p_elo + w_poisson*p_poisson

@@ -361,6 +361,30 @@ PY
 
 `examples/demo_world_cup_market_odds_timeseries.csv` is synthetic. It exists to verify opening/current odds movement logic, not to claim historical market edge.
 
+Build a conservative market-residual probability vector:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 - <<'PY'
+from worldcup_betting_edp.models import (
+    ResidualEdgeConfig,
+    build_market_residual_prediction,
+)
+
+prediction = build_market_residual_prediction(
+    match_id="demo_match",
+    market_probabilities={"home": 0.48, "draw": 0.27, "away": 0.25},
+    fundamental_probabilities={"home": 0.53, "draw": 0.26, "away": 0.21},
+    config=ResidualEdgeConfig(
+        fundamental_gap_weight=0.25,
+        max_abs_adjustment_per_outcome=0.05,
+    ),
+)
+print(prediction.to_dict())
+PY
+```
+
+The residual model does not replace the market. It treats market probability as the anchor and only applies bounded adjustments from fundamental or movement signals.
+
 Load synthetic kickoff timing rows for as-of validation:
 
 ```bash

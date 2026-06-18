@@ -45,6 +45,7 @@ The project can:
 - load time-series 1X2 market odds snapshots when a file contains multiple captures per match and bookmaker;
 - engineer market movement features between configurable start and end odds types, such as opening to current;
 - write market movement feature tables with overround deltas, devigged probability deltas, favorite changes, and largest probability moves.
+- build a conservative market-residual probability vector where market probability is the anchor and fundamental/movement signals can only make bounded adjustments.
 
 ## What It Does Not Do Yet
 
@@ -88,6 +89,7 @@ worldcup-betting-edp/
 │   ├── backtest/runner.py
 │   ├── models/market_baseline.py
 │   ├── models/elo.py
+│   ├── models/residual.py
 │   └── reports/single_match.py
 ├── tests/
 ├── reports/initial_research_report.md
@@ -130,6 +132,7 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/backtest/settlement.py`: flat-stake settlement and Kelly bankroll curves.
 - `src/worldcup_betting_edp/backtest/runner.py`: manifest-driven batch backtest runner.
 - `src/worldcup_betting_edp/models/elo.py`: simple Elo rating engine, historical replay, and rating table writers.
+- `src/worldcup_betting_edp/models/residual.py`: conservative market-residual model that treats market probability as the anchor and applies bounded residual adjustments.
 - `src/worldcup_betting_edp/cli.py`: command-line report generator.
 - `data/raw/martj42/results.csv`: downloaded public historical international results snapshot.
 - `data/raw/martj42/results.csv.metadata.json`: source URL, download time, and license notes.
@@ -185,7 +188,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 130 tests
+Ran 135 tests
 OK
 ```
 
@@ -548,14 +551,12 @@ This demo result only validates batch plumbing. It does not prove real market ed
 
 ## Next Recommended Task
 
-Add project screenshots for GitHub README:
+Wire the market-residual probability layer into the model-vs-market reporting path and Streamlit dashboard:
 
-1. Capture single-match dashboard screenshot.
-2. Capture batch-backtest dashboard screenshot.
-3. Save screenshots under `reports/` or `docs/assets/`.
-4. Reference screenshots from README.
-
-This should happen before Elo, Poisson, live odds, or full historical backtesting.
+1. Display market probability, fundamental/Elo probability, residual adjustment, and final probability side by side.
+2. Use final probability, not raw Elo probability, for value-bet decisions.
+3. Keep the market probability visible as the benchmark and current trade price.
+4. Do not claim market edge until real timestamped odds and out-of-sample backtests exist.
 
 ## Target End-State
 
@@ -564,7 +565,8 @@ The intended final system is:
 ```text
 fixtures + odds snapshots + team/model data
         -> market probability baseline
-        -> Elo / Poisson / fusion probabilities
+        -> Elo / Poisson / fundamental probabilities
+        -> bounded market-residual probability adjustment
         -> EDP-style situation signals
         -> model-vs-market comparison
         -> EV / Kelly / risk controls
@@ -584,5 +586,5 @@ Please continue the World Cup Betting EDP project. First read:
 - worldcup-betting-edp/ROADMAP.md
 - worldcup-betting-edp/DECISIONS.md
 
-Current priority: build the canonical historical match table from martj42 results, then continue toward Elo ratings. Do not start live odds monitoring before historical data and baseline models are reproducible.
+Current priority: wire the conservative market-residual probability layer into reports and the dashboard, while continuing to verify reproducible historical World Cup odds. Do not claim market edge before real timestamped odds and out-of-sample model-vs-market backtests exist.
 ```

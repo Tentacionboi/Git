@@ -49,6 +49,7 @@
 - [x] Define demo market odds time-series input.
 - [x] Implement market movement feature engineering.
 - [x] Add synthetic market movement feature report.
+- [x] Implement conservative market-residual probability model.
 
 ## Doing
 
@@ -62,6 +63,7 @@
 - [ ] Add real historical World Cup odds once source and license are verified.
 - [ ] Add verified real kickoff timestamps for World Cup matches.
 - [ ] Add market movement features to model-vs-market reports.
+- [ ] Add market-residual probabilities to model-vs-market reports.
 - [ ] Add market movement signals to the Streamlit dashboard.
 
 ## Later

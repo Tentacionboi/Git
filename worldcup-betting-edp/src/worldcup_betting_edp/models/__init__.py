@@ -24,6 +24,11 @@ from .elo import (
     write_elo_rating_history_csv,
 )
 from .market_baseline import MarketBaselineModel
+from .residual import (
+    MarketResidualPrediction,
+    ResidualEdgeConfig,
+    build_market_residual_prediction,
+)
 
 __all__ = [
     "DEFAULT_TOURNAMENT_MULTIPLIERS",
@@ -35,9 +40,12 @@ __all__ = [
     "EloMatchProbabilities",
     "EloProbabilityConfig",
     "MarketBaselineModel",
+    "MarketResidualPrediction",
+    "ResidualEdgeConfig",
     "actual_home_score",
     "build_elo_rating_history",
     "build_elo_probability_history",
+    "build_market_residual_prediction",
     "current_elo_table",
     "current_elo_ratings",
     "draw_probability_from_rating_gap",

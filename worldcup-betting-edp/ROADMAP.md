@@ -50,15 +50,16 @@ Exit criteria:
 
 ## Phase 4: Baseline Models
 
-Status: In progress. Market baseline exists, and a deterministic Elo rating engine now produces historical rating tables plus first-pass and calibrated 1X2 probabilities. World Cup-only Elo evaluation, draw calibration, model-vs-market comparison code, odds timing validation, kickoff timing schema, and market movement feature engineering exist; verified real historical World Cup odds and exact kickoff timestamps are still pending.
+Status: In progress. Market baseline exists, and a deterministic Elo rating engine now produces historical rating tables plus first-pass and calibrated 1X2 probabilities. World Cup-only Elo evaluation, draw calibration, model-vs-market comparison code, odds timing validation, kickoff timing schema, market movement feature engineering, and a conservative market-residual probability model exist; verified real historical World Cup odds and exact kickoff timestamps are still pending.
 
 Deliverables:
 
 - Market baseline.
 - Elo model. Rating engine, first-pass 1X2 probability split, World Cup evaluation, and draw calibration done.
 - Model-vs-market comparison. Code, no-leakage timing validation, kickoff timing schema, and market movement features done for supplied odds snapshots; real historical World Cup odds and exact kickoff timestamps pending.
+- Market-residual probability model. Conservative bounded adjustment from market probability using fundamental and movement signals done; report/UI integration pending.
 - Poisson goals model.
-- Simple probability fusion.
+- Simple probability fusion or trained residual model.
 
 Exit criteria:
 
