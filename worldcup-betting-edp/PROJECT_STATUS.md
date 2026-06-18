@@ -37,7 +37,9 @@ The project can:
 - write historical Elo 1X2 probabilities to processed CSV files;
 - generate World Cup-only match and Elo probability tables;
 - evaluate World Cup Elo 1X2 probability quality with Brier score, log loss, accuracy, and outcome-count diagnostics;
-- calibrate World Cup Elo draw-probability parameters with a train/validation split.
+- calibrate World Cup Elo draw-probability parameters with a train/validation split;
+- load canonical historical 1X2 odds snapshots from CSV;
+- compare model probabilities against devigged market probabilities when odds snapshots are supplied.
 
 ## What It Does Not Do Yet
 
@@ -47,7 +49,7 @@ The project does not yet:
 - ingest real fixture feeds;
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
-- compare World Cup predictions against market odds;
+- compare World Cup predictions against verified real historical market odds;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
 - run historical backtests;
@@ -114,6 +116,7 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/data/historical_results.py`: martj42 CSV downloader/parser and dataset summaries.
 - `src/worldcup_betting_edp/data/canonical_matches.py`: canonical historical match table builder/loader.
 - `src/worldcup_betting_edp/backtest/scoring.py`: Brier score and log loss.
+- `src/worldcup_betting_edp/backtest/market_comparison.py`: model-vs-market probability comparison for matched odds rows.
 - `src/worldcup_betting_edp/backtest/settlement.py`: flat-stake settlement and Kelly bankroll curves.
 - `src/worldcup_betting_edp/backtest/runner.py`: manifest-driven batch backtest runner.
 - `src/worldcup_betting_edp/models/elo.py`: simple Elo rating engine, historical replay, and rating table writers.
@@ -131,6 +134,8 @@ worldcup-betting-edp/
 - `reports/world_cup_elo_1x2_evaluation.json`: first World Cup-only Elo probability evaluation report.
 - `reports/world_cup_elo_1x2_evaluation_calibrated.json`: calibrated World Cup-only Elo probability evaluation report.
 - `reports/world_cup_elo_draw_calibration.json`: train/validation draw calibration report.
+- `examples/demo_world_cup_market_odds.csv`: synthetic odds file that demonstrates the historical odds schema.
+- `reports/demo_market_comparison.json`: synthetic demo model-vs-market comparison report.
 
 ## Current UI
 
@@ -167,7 +172,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 103 tests
+Ran 111 tests
 OK
 ```
 
@@ -297,6 +302,32 @@ validation_calibrated_mean_log_loss: 1.0037
 ```
 
 This is a small improvement over the uncalibrated heuristic, not a breakthrough. The next serious research blocker is historical World Cup odds: without odds, the project can score probability quality but cannot test market edge.
+
+## Current Market Comparison Status
+
+The project now has a canonical 1X2 historical odds schema:
+
+```text
+match_id, bookmaker, captured_at, home_odds, draw_odds, away_odds, odds_type, source
+```
+
+Implemented comparison flow:
+
+```text
+model probabilities + historical odds -> proportional devig -> model vs market Brier/log-loss comparison
+```
+
+Demo report:
+
+```text
+report: reports/demo_market_comparison.json
+odds_file: examples/demo_world_cup_market_odds.csv
+matched_match_count: 3
+unmatched_model_match_count: 981
+average_market_overround: 6.44%
+```
+
+The demo odds are synthetic and are not historical market evidence. The project can now compare against market odds once a real, reproducible, legally usable World Cup odds file is added.
 
 ## Current JSON Input Contract
 

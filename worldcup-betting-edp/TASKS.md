@@ -40,6 +40,9 @@
 - [x] Evaluate World Cup Elo 1X2 probability quality with Brier score and log loss.
 - [x] Calibrate World Cup Elo draw probability with a historical train/validation split.
 - [x] Add World Cup Elo calibration report.
+- [x] Define canonical historical 1X2 market odds schema.
+- [x] Implement model-vs-market probability comparison.
+- [x] Add synthetic demo market comparison report.
 
 ## Doing
 
@@ -49,6 +52,7 @@
 
 - [ ] Download openfootball/worldcup data.
 - [ ] Add World Cup era/time-split evaluation.
+- [ ] Add real historical World Cup odds once source and license are verified.
 
 ## Later
 

@@ -112,3 +112,13 @@ This file records candidate data sources, their expected use, and their risks.
 - Validation calibrated mean Brier score: 0.5966.
 - Validation calibrated mean log loss: 1.0037.
 - Interpretation: calibration slightly improves probability quality versus the uncalibrated heuristic, but not enough to claim a strong model. The project still needs market-odds comparison and richer World Cup-specific features.
+
+### Market odds schema and demo comparison
+
+- Canonical odds schema columns: `match_id`, `bookmaker`, `captured_at`, `home_odds`, `draw_odds`, `away_odds`, `odds_type`, `source`.
+- Demo odds file: `examples/demo_world_cup_market_odds.csv`
+- Demo comparison report: `reports/demo_market_comparison.json`
+- Demo match count: 3 matched rows, 981 unmatched model rows.
+- Demo source note: the demo odds are synthetic and must not be used as historical market evidence.
+- Implemented use: once real World Cup odds are available with `match_id` alignment, the project can devig market odds, score model and market probabilities on the same matches, and report Brier/log-loss deltas.
+- Current blocker: no verified redistributable historical World Cup 1X2 odds dataset has been committed to the repository.

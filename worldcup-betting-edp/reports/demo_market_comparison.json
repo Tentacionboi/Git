@@ -1,0 +1,55 @@
+{
+  "created_at": "2026-06-18T14:40:18.286514+00:00",
+  "notes": [
+    "Demo only: examples/demo_world_cup_market_odds.csv contains synthetic odds, not real historical market data.",
+    "The pipeline is ready for real historical World Cup 1X2 odds once a reproducible source is confirmed."
+  ],
+  "summary": {
+    "average_market_overround": 0.06444503332009537,
+    "market_name": "synthetic_demo_market",
+    "market_summary": {
+      "accuracy": 0.3333333333333333,
+      "average_probability_actual": 0.3473527703815788,
+      "match_count": 3,
+      "mean_brier_score": 0.6724661018281224,
+      "mean_log_loss": 1.1174900715297005,
+      "model_name": "synthetic_demo_market",
+      "outcome_counts": {
+        "away": 2,
+        "draw": 0,
+        "home": 1
+      },
+      "predicted_outcome_counts": {
+        "away": 0,
+        "draw": 0,
+        "home": 3
+      }
+    },
+    "matched_match_count": 3,
+    "model_beats_market_brier": false,
+    "model_beats_market_log_loss": false,
+    "model_minus_market_brier": 0.0737540607327013,
+    "model_minus_market_log_loss": 0.07809792706963203,
+    "model_name": "elo_draw_calibrated_world_cup",
+    "model_summary": {
+      "accuracy": 0.3333333333333333,
+      "average_probability_actual": 0.3078142194134581,
+      "match_count": 3,
+      "mean_brier_score": 0.7462201625608237,
+      "mean_log_loss": 1.1955879985993325,
+      "model_name": "elo_draw_calibrated_world_cup",
+      "outcome_counts": {
+        "away": 2,
+        "draw": 0,
+        "home": 1
+      },
+      "predicted_outcome_counts": {
+        "away": 2,
+        "draw": 0,
+        "home": 1
+      }
+    },
+    "unmatched_market_match_count": 0,
+    "unmatched_model_match_count": 981
+  }
+}

@@ -1,0 +1,4 @@
+match_id,bookmaker,captured_at,home_odds,draw_odds,away_odds,odds_type,source
+match_5ee3ea4b7733c50c,demo_book,1930-07-13,2.30,3.10,3.05,closing,synthetic-demo-not-real-odds
+match_c4c6a86bb6f0e3a5,demo_book,1930-07-13,1.85,3.35,4.75,closing,synthetic-demo-not-real-odds
+match_c6248335ba9b59d4,demo_book,1930-07-14,1.90,3.40,4.20,closing,synthetic-demo-not-real-odds

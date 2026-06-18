@@ -27,6 +27,13 @@ from worldcup_betting_edp.data.historical_results import (
     load_martj42_results_text,
     summarize_results,
 )
+from worldcup_betting_edp.data.market_odds import (
+    MARKET_ODDS_COLUMNS,
+    MarketOddsSnapshot,
+    load_market_odds_csv,
+    select_one_odds_per_match,
+    write_market_odds_csv,
+)
 from worldcup_betting_edp.data.prediction_input import (
     PredictionInput,
     load_prediction_input_mapping,
@@ -48,9 +55,11 @@ __all__ = [
     "CanonicalMatch",
     "InternationalResult",
     "MARTJ42_RESULTS_URL",
+    "MARKET_ODDS_COLUMNS",
     "PredictionInput",
     "SettledResult",
     "WORLD_CUP_TOURNAMENT",
+    "MarketOddsSnapshot",
     "download_martj42_results",
     "filter_tournament",
     "filter_world_cup_canonical_matches",
@@ -61,6 +70,7 @@ __all__ = [
     "load_backtest_manifest_path",
     "load_backtest_manifest_text",
     "load_canonical_matches_csv",
+    "load_market_odds_csv",
     "load_martj42_results_path",
     "load_martj42_results_text",
     "load_prediction_input_mapping",
@@ -71,5 +81,7 @@ __all__ = [
     "load_settled_result_text",
     "summarize_canonical_matches",
     "summarize_results",
+    "select_one_odds_per_match",
+    "write_market_odds_csv",
     "write_canonical_matches_csv",
 ]

@@ -303,6 +303,38 @@ print(result.to_dict())
 PY
 ```
 
+Compare World Cup model probabilities against a supplied market odds file:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 - <<'PY'
+from worldcup_betting_edp.backtest import (
+    build_market_comparison_rows,
+    evaluate_market_comparison,
+    load_1x2_probability_rows_csv,
+)
+from worldcup_betting_edp.data import load_market_odds_csv
+
+model_rows = load_1x2_probability_rows_csv(
+    "data/processed/ratings/world_cup_elo_1x2_probabilities_calibrated.csv"
+)
+odds = load_market_odds_csv("examples/demo_world_cup_market_odds.csv")
+comparison_rows, unmatched_model, unmatched_market = build_market_comparison_rows(
+    model_rows,
+    odds,
+)
+summary = evaluate_market_comparison(
+    comparison_rows,
+    model_name="elo_draw_calibrated_world_cup",
+    market_name="synthetic_demo_market",
+    unmatched_model_match_count=unmatched_model,
+    unmatched_market_match_count=unmatched_market,
+)
+print(summary.to_dict())
+PY
+```
+
+`examples/demo_world_cup_market_odds.csv` is synthetic and exists only to verify the pipeline. It is not real historical market data.
+
 Run a batch backtest manifest from Python:
 
 ```bash
