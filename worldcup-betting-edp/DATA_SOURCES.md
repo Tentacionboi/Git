@@ -51,3 +51,16 @@ This file records candidate data sources, their expected use, and their risks.
 - Columns: `match_id`, `match_date`, `home_team`, `away_team`, `home_score`, `away_score`, `result_1x2`, `total_goals`, `tournament`, `city`, `country`, `neutral`, `source`, `source_match_id`.
 - Intended use: baseline modeling, Elo updates, Poisson training, tournament filters, and reproducible historical backtests.
 - Limitation: this table currently has match results only. It does not include odds, xG, lineups, injuries, market movement, or live situation signals.
+
+### Project-generated Elo tables
+
+- Elo history file: `data/processed/ratings/elo_history.csv`
+- Elo history metadata: `data/processed/ratings/elo_history.csv.metadata.json`
+- Current ratings file: `data/processed/ratings/current_elo_ratings.csv`
+- Current ratings metadata: `data/processed/ratings/current_elo_ratings.csv.metadata.json`
+- Source table: `data/processed/matches/canonical_matches.csv`
+- Current Elo history rows: 49,425 matches.
+- Current team rating rows: 336 teams.
+- Current simple-Elo top five: Argentina, Spain, France, England, Brazil.
+- Intended use: model features, historical rating diagnostics, and the next Elo-to-1X2 probability model.
+- Limitation: these are project-generated simple Elo ratings, not official ratings and not yet calibrated to 1X2 probabilities.

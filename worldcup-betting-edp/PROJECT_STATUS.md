@@ -30,7 +30,9 @@ The project can:
 - save CLI JSON/CSV outputs to files with `--output`;
 - run a local Streamlit dashboard with single-match and batch-backtest modes, English-first bilingual labels, JSON upload, summary metrics, tables, and Kelly bankroll chart.
 - download and parse martj42 international results CSV into typed historical result rows;
-- build, write, load, and summarize a canonical historical match table for modeling.
+- build, write, load, and summarize a canonical historical match table for modeling;
+- replay historical matches through a deterministic Elo rating engine;
+- write full Elo history and current team Elo rating tables to processed CSV files.
 
 ## What It Does Not Do Yet
 
@@ -40,7 +42,7 @@ The project does not yet:
 - ingest real fixture feeds;
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
-- generate model probabilities from Elo;
+- convert Elo ratings into calibrated 1X2 model probabilities;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
 - run historical backtests;
@@ -71,6 +73,7 @@ worldcup-betting-edp/
 │   ├── backtest/settlement.py
 │   ├── backtest/runner.py
 │   ├── models/market_baseline.py
+│   ├── models/elo.py
 │   └── reports/single_match.py
 ├── tests/
 ├── reports/initial_research_report.md
@@ -108,11 +111,14 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/backtest/scoring.py`: Brier score and log loss.
 - `src/worldcup_betting_edp/backtest/settlement.py`: flat-stake settlement and Kelly bankroll curves.
 - `src/worldcup_betting_edp/backtest/runner.py`: manifest-driven batch backtest runner.
+- `src/worldcup_betting_edp/models/elo.py`: simple Elo rating engine, historical replay, and rating table writers.
 - `src/worldcup_betting_edp/cli.py`: command-line report generator.
 - `data/raw/martj42/results.csv`: downloaded public historical international results snapshot.
 - `data/raw/martj42/results.csv.metadata.json`: source URL, download time, and license notes.
 - `data/processed/matches/canonical_matches.csv`: processed canonical match table for model training.
 - `data/processed/matches/canonical_matches.csv.metadata.json`: processed table creation time, source, row count, and columns.
+- `data/processed/ratings/elo_history.csv`: match-by-match simple Elo replay output.
+- `data/processed/ratings/current_elo_ratings.csv`: latest simple Elo team ratings.
 
 ## Current UI
 
@@ -149,7 +155,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 78 tests
+Ran 88 tests
 OK
 ```
 
@@ -204,6 +210,25 @@ neutral_match_count: 13075
 ```
 
 This is the immediate input table for Elo ratings and the later Poisson model.
+
+## Current Elo Data
+
+The project can replay the canonical match table through a simple Elo engine:
+
+```text
+data/processed/ratings/elo_history.csv
+data/processed/ratings/current_elo_ratings.csv
+```
+
+Current generated snapshot:
+
+```text
+elo_history_rows: 49425
+current_team_rows: 336
+top_5_simple_elo: Argentina, Spain, France, England, Brazil
+```
+
+Important: these are project-generated simple Elo ratings. They are useful model features, but they are not yet calibrated 1X2 probabilities and they do not prove betting edge.
 
 ## Current JSON Input Contract
 

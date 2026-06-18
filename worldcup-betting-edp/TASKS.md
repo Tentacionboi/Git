@@ -33,15 +33,17 @@
 - [x] Download martj42 international results data.
 - [x] Parse martj42 international results data.
 - [x] Build canonical historical match table.
+- [x] Implement Elo ratings.
+- [x] Generate processed Elo history and current rating tables.
 
 ## Doing
 
-- [ ] Implement Elo ratings.
+- [ ] Generate Elo-based 1X2 probabilities for historical matches.
 
 ## Next
 
 - [ ] Download openfootball/worldcup data.
-- [ ] Generate Elo-based 1X2 probabilities for historical matches.
+- [ ] Calibrate draw probability for the Elo model.
 
 ## Later
 
