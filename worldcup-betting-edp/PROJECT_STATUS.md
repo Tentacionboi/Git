@@ -32,7 +32,9 @@ The project can:
 - download and parse martj42 international results CSV into typed historical result rows;
 - build, write, load, and summarize a canonical historical match table for modeling;
 - replay historical matches through a deterministic Elo rating engine;
-- write full Elo history and current team Elo rating tables to processed CSV files.
+- write full Elo history and current team Elo rating tables to processed CSV files;
+- convert Elo expected score into first-pass home/draw/away probabilities with a transparent draw heuristic;
+- write historical Elo 1X2 probabilities to processed CSV files.
 
 ## What It Does Not Do Yet
 
@@ -42,7 +44,8 @@ The project does not yet:
 - ingest real fixture feeds;
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
-- convert Elo ratings into calibrated 1X2 model probabilities;
+- calibrate Elo draw probability against historical data;
+- evaluate Elo 1X2 probabilities with Brier score and log loss;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
 - run historical backtests;
@@ -119,6 +122,7 @@ worldcup-betting-edp/
 - `data/processed/matches/canonical_matches.csv.metadata.json`: processed table creation time, source, row count, and columns.
 - `data/processed/ratings/elo_history.csv`: match-by-match simple Elo replay output.
 - `data/processed/ratings/current_elo_ratings.csv`: latest simple Elo team ratings.
+- `data/processed/ratings/elo_1x2_probabilities.csv`: match-by-match first-pass Elo 1X2 probabilities.
 
 ## Current UI
 
@@ -155,7 +159,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 88 tests
+Ran 93 tests
 OK
 ```
 
@@ -218,6 +222,7 @@ The project can replay the canonical match table through a simple Elo engine:
 ```text
 data/processed/ratings/elo_history.csv
 data/processed/ratings/current_elo_ratings.csv
+data/processed/ratings/elo_1x2_probabilities.csv
 ```
 
 Current generated snapshot:
@@ -225,10 +230,12 @@ Current generated snapshot:
 ```text
 elo_history_rows: 49425
 current_team_rows: 336
+elo_1x2_probability_rows: 49425
+elo_1x2_average_probabilities: home 39.18%, draw 23.87%, away 36.94%
 top_5_simple_elo: Argentina, Spain, France, England, Brazil
 ```
 
-Important: these are project-generated simple Elo ratings. They are useful model features, but they are not yet calibrated 1X2 probabilities and they do not prove betting edge.
+Important: these are project-generated simple Elo ratings and heuristic 1X2 probabilities. They are useful model features, but they are not yet draw-calibrated, not compared against market odds, and they do not prove betting edge.
 
 ## Current JSON Input Contract
 

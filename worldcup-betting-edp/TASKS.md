@@ -35,15 +35,16 @@
 - [x] Build canonical historical match table.
 - [x] Implement Elo ratings.
 - [x] Generate processed Elo history and current rating tables.
+- [x] Generate Elo-based 1X2 probabilities for historical matches.
 
 ## Doing
 
-- [ ] Generate Elo-based 1X2 probabilities for historical matches.
+- [ ] Calibrate draw probability for the Elo model.
 
 ## Next
 
 - [ ] Download openfootball/worldcup data.
-- [ ] Calibrate draw probability for the Elo model.
+- [ ] Evaluate Elo 1X2 probability quality with Brier score and log loss.
 
 ## Later
 

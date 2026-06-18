@@ -49,12 +49,12 @@ Exit criteria:
 
 ## Phase 4: Baseline Models
 
-Status: In progress. Market baseline exists, and a deterministic Elo rating engine now produces historical rating tables. Elo-to-1X2 probability calibration is still pending.
+Status: In progress. Market baseline exists, and a deterministic Elo rating engine now produces historical rating tables plus first-pass 1X2 probabilities. Draw calibration and model evaluation are still pending.
 
 Deliverables:
 
 - Market baseline.
-- Elo model. Rating engine done; probability calibration pending.
+- Elo model. Rating engine and first-pass 1X2 probability split done; draw calibration pending.
 - Poisson goals model.
 - Simple probability fusion.
 

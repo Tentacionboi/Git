@@ -10,7 +10,12 @@ from pathlib import Path
 from typing import Iterable, Mapping
 
 from worldcup_betting_edp.data import CanonicalMatch
-from worldcup_betting_edp.domain import OUTCOME_AWAY, OUTCOME_DRAW, OUTCOME_HOME
+from worldcup_betting_edp.domain import (
+    OUTCOME_AWAY,
+    OUTCOME_DRAW,
+    OUTCOME_HOME,
+    validate_probability_map,
+)
 
 
 DEFAULT_TOURNAMENT_MULTIPLIERS = {
@@ -49,6 +54,23 @@ CURRENT_ELO_RATING_COLUMNS = (
     "last_match_date",
 )
 
+ELO_1X2_PROBABILITY_COLUMNS = (
+    "match_id",
+    "match_date",
+    "home_team",
+    "away_team",
+    "tournament",
+    "neutral",
+    "home_rating_pre",
+    "away_rating_pre",
+    "rating_gap",
+    "expected_home_score",
+    "home_probability",
+    "draw_probability",
+    "away_probability",
+    "actual_result",
+)
+
 
 @dataclass(frozen=True)
 class EloConfig:
@@ -71,6 +93,24 @@ class EloConfig:
                 raise ValueError("tournament multiplier names cannot be empty")
             if multiplier <= 0.0:
                 raise ValueError("tournament multipliers must be positive")
+
+
+@dataclass(frozen=True)
+class EloProbabilityConfig:
+    """Configuration for splitting Elo expected score into 1X2 probabilities."""
+
+    base_draw_probability: float = 0.27
+    draw_gap_penalty_per_100_elo: float = 0.025
+    min_draw_probability: float = 0.12
+    max_draw_probability: float = 0.34
+
+    def __post_init__(self) -> None:
+        if not 0.0 < self.base_draw_probability < 1.0:
+            raise ValueError("base_draw_probability must be in (0, 1)")
+        if self.draw_gap_penalty_per_100_elo < 0.0:
+            raise ValueError("draw_gap_penalty_per_100_elo cannot be negative")
+        if not 0.0 <= self.min_draw_probability <= self.max_draw_probability < 1.0:
+            raise ValueError("draw probability bounds must satisfy 0 <= min <= max < 1")
 
 
 @dataclass(frozen=True)
@@ -110,6 +150,46 @@ class EloMatchRating:
         }
 
 
+@dataclass(frozen=True)
+class EloMatchProbabilities:
+    """One match's Elo-derived 1X2 probability row."""
+
+    match_id: str
+    match_date: str
+    home_team: str
+    away_team: str
+    tournament: str
+    neutral: bool
+    home_rating_pre: float
+    away_rating_pre: float
+    rating_gap: float
+    expected_home_score: float
+    probabilities: dict[str, float]
+    actual_result: str
+
+    def __post_init__(self) -> None:
+        validate_probability_map(self.probabilities)
+
+    def to_dict(self) -> dict[str, object]:
+        """Return a flat row for CSV, JSON, or dashboard rendering."""
+        return {
+            "match_id": self.match_id,
+            "match_date": self.match_date,
+            "home_team": self.home_team,
+            "away_team": self.away_team,
+            "tournament": self.tournament,
+            "neutral": self.neutral,
+            "home_rating_pre": self.home_rating_pre,
+            "away_rating_pre": self.away_rating_pre,
+            "rating_gap": self.rating_gap,
+            "expected_home_score": self.expected_home_score,
+            "home_probability": self.probabilities[OUTCOME_HOME],
+            "draw_probability": self.probabilities[OUTCOME_DRAW],
+            "away_probability": self.probabilities[OUTCOME_AWAY],
+            "actual_result": self.actual_result,
+        }
+
+
 def expected_home_score(
     home_rating: float,
     away_rating: float,
@@ -119,6 +199,66 @@ def expected_home_score(
     """Return the Elo expected score for the home side."""
     adjusted_home_rating = home_rating + home_advantage
     return 1.0 / (1.0 + 10.0 ** ((away_rating - adjusted_home_rating) / 400.0))
+
+
+def draw_probability_from_rating_gap(
+    rating_gap: float,
+    *,
+    config: EloProbabilityConfig | None = None,
+) -> float:
+    """Estimate draw probability from absolute Elo gap using a simple heuristic."""
+    active_config = config or EloProbabilityConfig()
+    draw_probability = (
+        active_config.base_draw_probability
+        - active_config.draw_gap_penalty_per_100_elo * abs(rating_gap) / 100.0
+    )
+    return _clip(
+        draw_probability,
+        lower=active_config.min_draw_probability,
+        upper=active_config.max_draw_probability,
+    )
+
+
+def elo_1x2_probabilities(
+    *,
+    home_rating: float,
+    away_rating: float,
+    neutral: bool = True,
+    elo_config: EloConfig | None = None,
+    probability_config: EloProbabilityConfig | None = None,
+) -> dict[str, float]:
+    """Convert two Elo ratings into home/draw/away probabilities.
+
+    Elo directly estimates expected score, not 1X2 probabilities. This function
+    applies a transparent draw heuristic, then allocates the remaining mass so
+    that `P(home) + 0.5 * P(draw)` equals the Elo expected home score.
+    """
+    active_elo_config = elo_config or EloConfig()
+    active_probability_config = probability_config or EloProbabilityConfig()
+    home_advantage = 0.0 if neutral else active_elo_config.home_advantage
+    expected = expected_home_score(
+        home_rating,
+        away_rating,
+        home_advantage=home_advantage,
+    )
+    rating_gap = home_rating + home_advantage - away_rating
+    draw_probability = draw_probability_from_rating_gap(
+        rating_gap,
+        config=active_probability_config,
+    )
+
+    max_draw_probability = 2.0 * min(expected, 1.0 - expected)
+    draw_probability = min(draw_probability, max_draw_probability)
+    home_probability = expected - 0.5 * draw_probability
+    away_probability = 1.0 - expected - 0.5 * draw_probability
+
+    probabilities = {
+        OUTCOME_HOME: home_probability,
+        OUTCOME_DRAW: draw_probability,
+        OUTCOME_AWAY: away_probability,
+    }
+    validate_probability_map(probabilities, tolerance=1e-8)
+    return probabilities
 
 
 def actual_home_score(result_1x2: str) -> float:
@@ -228,6 +368,44 @@ def current_elo_ratings(
     return ratings
 
 
+def build_elo_probability_history(
+    rating_history: Iterable[EloMatchRating],
+    *,
+    elo_config: EloConfig | None = None,
+    probability_config: EloProbabilityConfig | None = None,
+) -> list[EloMatchProbabilities]:
+    """Build historical 1X2 probability rows from pre-match Elo ratings."""
+    active_elo_config = elo_config or EloConfig()
+    rows: list[EloMatchProbabilities] = []
+    for rating in rating_history:
+        home_advantage = 0.0 if rating.neutral else active_elo_config.home_advantage
+        rating_gap = rating.home_rating_pre + home_advantage - rating.away_rating_pre
+        probabilities = elo_1x2_probabilities(
+            home_rating=rating.home_rating_pre,
+            away_rating=rating.away_rating_pre,
+            neutral=rating.neutral,
+            elo_config=active_elo_config,
+            probability_config=probability_config,
+        )
+        rows.append(
+            EloMatchProbabilities(
+                match_id=rating.match_id,
+                match_date=rating.match_date,
+                home_team=rating.home_team,
+                away_team=rating.away_team,
+                tournament=rating.tournament,
+                neutral=rating.neutral,
+                home_rating_pre=rating.home_rating_pre,
+                away_rating_pre=rating.away_rating_pre,
+                rating_gap=rating_gap,
+                expected_home_score=rating.expected_home_score,
+                probabilities=probabilities,
+                actual_result=_result_from_actual_score(rating.actual_home_score),
+            )
+        )
+    return rows
+
+
 def current_elo_table(history: Iterable[EloMatchRating]) -> list[dict[str, object]]:
     """Return latest ratings with match counts and last observed dates."""
     ratings: dict[str, float] = {}
@@ -306,6 +484,35 @@ def write_current_elo_ratings_csv(
     return destination
 
 
+def write_elo_probability_history_csv(
+    probabilities: Iterable[EloMatchProbabilities],
+    destination_path: str | Path,
+) -> Path:
+    """Write Elo-derived 1X2 probability history to CSV with sidecar metadata."""
+    rows = list(probabilities)
+    destination = Path(destination_path)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with destination.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(ELO_1X2_PROBABILITY_COLUMNS))
+        writer.writeheader()
+        writer.writerows(row.to_dict() for row in rows)
+
+    dates = [row.match_date for row in rows]
+    metadata = {
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "row_count": len(rows),
+        "first_date": min(dates) if dates else None,
+        "last_date": max(dates) if dates else None,
+        "columns": list(ELO_1X2_PROBABILITY_COLUMNS),
+        "model_note": "Simple heuristic split of Elo expected score into 1X2 probabilities; not market-validated.",
+    }
+    destination.with_suffix(destination.suffix + ".metadata.json").write_text(
+        json.dumps(metadata, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    return destination
+
+
 def _match_sort_key(match: CanonicalMatch) -> tuple[str, int, str]:
     return (match.match_date, _source_index(match.source_match_id), match.match_id)
 
@@ -315,3 +522,17 @@ def _source_index(source_match_id: str) -> int:
         return int(source_match_id.rsplit(":", 1)[1])
     except (IndexError, ValueError):
         return 0
+
+
+def _result_from_actual_score(actual_score: float) -> str:
+    if actual_score == 1.0:
+        return OUTCOME_HOME
+    if actual_score == 0.5:
+        return OUTCOME_DRAW
+    if actual_score == 0.0:
+        return OUTCOME_AWAY
+    raise ValueError(f"unsupported Elo actual score: {actual_score!r}")
+
+
+def _clip(value: float, *, lower: float, upper: float) -> float:
+    return max(lower, min(upper, value))

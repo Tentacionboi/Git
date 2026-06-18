@@ -8,16 +8,22 @@ from worldcup_betting_edp.data import (
 )
 from worldcup_betting_edp.models import (
     CURRENT_ELO_RATING_COLUMNS,
+    ELO_1X2_PROBABILITY_COLUMNS,
     ELO_RATING_HISTORY_COLUMNS,
     EloConfig,
+    EloProbabilityConfig,
     actual_home_score,
     build_elo_rating_history,
+    build_elo_probability_history,
     current_elo_table,
     current_elo_ratings,
+    draw_probability_from_rating_gap,
+    elo_1x2_probabilities,
     expected_home_score,
     tournament_multiplier,
     update_elo_ratings,
     write_current_elo_ratings_csv,
+    write_elo_probability_history_csv,
     write_elo_rating_history_csv,
 )
 
@@ -39,6 +45,42 @@ class EloModelTests(unittest.TestCase):
         self.assertEqual(actual_home_score("away"), 0.0)
         with self.assertRaises(ValueError):
             actual_home_score("cancelled")
+
+    def test_draw_probability_declines_with_rating_gap(self) -> None:
+        self.assertGreater(
+            draw_probability_from_rating_gap(0.0),
+            draw_probability_from_rating_gap(400.0),
+        )
+        self.assertGreaterEqual(draw_probability_from_rating_gap(1000.0), 0.12)
+
+    def test_elo_1x2_probabilities_sum_to_one_and_preserve_expected_score(self) -> None:
+        probabilities = elo_1x2_probabilities(home_rating=1600.0, away_rating=1500.0)
+        expected = expected_home_score(1600.0, 1500.0)
+
+        self.assertAlmostEqual(sum(probabilities.values()), 1.0)
+        self.assertAlmostEqual(
+            probabilities["home"] + 0.5 * probabilities["draw"],
+            expected,
+        )
+        self.assertGreater(probabilities["home"], probabilities["away"])
+
+    def test_elo_1x2_probabilities_support_custom_draw_config(self) -> None:
+        probability_config = EloProbabilityConfig(
+            base_draw_probability=0.30,
+            draw_gap_penalty_per_100_elo=0.0,
+            min_draw_probability=0.10,
+            max_draw_probability=0.40,
+        )
+
+        probabilities = elo_1x2_probabilities(
+            home_rating=1500.0,
+            away_rating=1500.0,
+            probability_config=probability_config,
+        )
+
+        self.assertAlmostEqual(probabilities["draw"], 0.30)
+        self.assertAlmostEqual(probabilities["home"], 0.35)
+        self.assertAlmostEqual(probabilities["away"], 0.35)
 
     def test_tournament_multiplier_defaults_unknown_to_one(self) -> None:
         self.assertEqual(tournament_multiplier("Unknown Cup"), 1.0)
@@ -96,6 +138,18 @@ class EloModelTests(unittest.TestCase):
         self.assertGreaterEqual(table[0]["rating"], table[-1]["rating"])
         self.assertEqual(table[0]["matches_played"], 1)
 
+    def test_build_elo_probability_history(self) -> None:
+        results = load_martj42_results_path(SAMPLE_CSV)
+        matches = build_canonical_matches_from_results(results)
+        history = build_elo_rating_history(matches)
+
+        probability_history = build_elo_probability_history(history)
+
+        self.assertEqual(len(probability_history), 4)
+        self.assertEqual(tuple(probability_history[0].to_dict().keys()), ELO_1X2_PROBABILITY_COLUMNS)
+        self.assertEqual(probability_history[0].actual_result, "home")
+        self.assertAlmostEqual(sum(probability_history[0].probabilities.values()), 1.0)
+
     def test_writes_elo_history_and_current_rating_csvs(self) -> None:
         results = load_martj42_results_path(SAMPLE_CSV)
         matches = build_canonical_matches_from_results(results)
@@ -117,6 +171,21 @@ class EloModelTests(unittest.TestCase):
             self.assertTrue(current_path.with_suffix(".csv.metadata.json").exists())
             self.assertIn(",".join(ELO_RATING_HISTORY_COLUMNS), history_path.read_text())
             self.assertIn(",".join(CURRENT_ELO_RATING_COLUMNS), current_path.read_text())
+
+    def test_writes_elo_probability_history_csv(self) -> None:
+        results = load_martj42_results_path(SAMPLE_CSV)
+        matches = build_canonical_matches_from_results(results)
+        history = build_elo_rating_history(matches)
+        probability_history = build_elo_probability_history(history)
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            destination = Path(tmp_dir) / "elo_1x2_probabilities.csv"
+
+            written = write_elo_probability_history_csv(probability_history, destination)
+
+            self.assertEqual(written, destination)
+            self.assertTrue(destination.with_suffix(".csv.metadata.json").exists())
+            self.assertIn(",".join(ELO_1X2_PROBABILITY_COLUMNS), destination.read_text())
 
     def test_custom_config_changes_update_size(self) -> None:
         config = EloConfig(k_factor=10.0, tournament_multipliers={"FIFA World Cup": 1.0})

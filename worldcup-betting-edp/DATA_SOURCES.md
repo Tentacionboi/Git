@@ -58,9 +58,13 @@ This file records candidate data sources, their expected use, and their risks.
 - Elo history metadata: `data/processed/ratings/elo_history.csv.metadata.json`
 - Current ratings file: `data/processed/ratings/current_elo_ratings.csv`
 - Current ratings metadata: `data/processed/ratings/current_elo_ratings.csv.metadata.json`
+- Elo 1X2 probability file: `data/processed/ratings/elo_1x2_probabilities.csv`
+- Elo 1X2 probability metadata: `data/processed/ratings/elo_1x2_probabilities.csv.metadata.json`
 - Source table: `data/processed/matches/canonical_matches.csv`
 - Current Elo history rows: 49,425 matches.
 - Current team rating rows: 336 teams.
+- Current Elo 1X2 probability rows: 49,425 matches.
+- Current Elo 1X2 average probabilities: home 39.18%, draw 23.87%, away 36.94%.
 - Current simple-Elo top five: Argentina, Spain, France, England, Brazil.
-- Intended use: model features, historical rating diagnostics, and the next Elo-to-1X2 probability model.
-- Limitation: these are project-generated simple Elo ratings, not official ratings and not yet calibrated to 1X2 probabilities.
+- Intended use: model features, historical rating diagnostics, first-pass Elo 1X2 model scoring, and later calibration.
+- Limitation: these are project-generated simple Elo ratings and heuristic Elo 1X2 probabilities, not official ratings, not market-validated, and not yet draw-calibrated.

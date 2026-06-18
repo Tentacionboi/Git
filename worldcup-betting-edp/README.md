@@ -230,6 +230,28 @@ print(current[:5])
 PY
 ```
 
+Generate first-pass Elo 1X2 probabilities from the Elo history:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 - <<'PY'
+from worldcup_betting_edp.data import load_canonical_matches_csv
+from worldcup_betting_edp.models import (
+    build_elo_rating_history,
+    build_elo_probability_history,
+    write_elo_probability_history_csv,
+)
+
+matches = load_canonical_matches_csv("data/processed/matches/canonical_matches.csv")
+history = build_elo_rating_history(matches)
+probabilities = build_elo_probability_history(history)
+write_elo_probability_history_csv(
+    probabilities,
+    "data/processed/ratings/elo_1x2_probabilities.csv",
+)
+print(probabilities[0].to_dict())
+PY
+```
+
 Run a batch backtest manifest from Python:
 
 ```bash
