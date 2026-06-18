@@ -1,0 +1,75 @@
+{
+  "calibration": {
+    "best_candidate": {
+      "probability_config": {
+        "base_draw_probability": 0.28,
+        "draw_gap_penalty_per_100_elo": 0.05,
+        "max_draw_probability": 0.4,
+        "min_draw_probability": 0.08
+      },
+      "summary": {
+        "accuracy": 0.5418660287081339,
+        "average_probability_actual": 0.4062221971037115,
+        "match_count": 836,
+        "mean_brier_score": 0.5840452148318527,
+        "mean_log_loss": 0.9830070944287528,
+        "model_name": "elo_draw_calibrated_world_cup_candidate_65",
+        "outcome_counts": {
+          "away": 264,
+          "draw": 186,
+          "home": 386
+        },
+        "predicted_outcome_counts": {
+          "away": 322,
+          "draw": 0,
+          "home": 514
+        }
+      }
+    },
+    "candidate_count": 99,
+    "model_name": "elo_draw_calibrated_world_cup",
+    "objective_metric": "mean_log_loss"
+  },
+  "created_at": "2026-06-18T14:32:39.483782+00:00",
+  "full_sample_summary": {
+    "accuracy": 0.5416666666666666,
+    "average_probability_actual": 0.40671771404449675,
+    "match_count": 984,
+    "mean_brier_score": 0.5859268570679823,
+    "mean_log_loss": 0.9861132044703014,
+    "model_name": "elo_draw_calibrated_world_cup_all",
+    "outcome_counts": {
+      "away": 313,
+      "draw": 222,
+      "home": 449
+    },
+    "predicted_outcome_counts": {
+      "away": 384,
+      "draw": 0,
+      "home": 600
+    }
+  },
+  "notes": [
+    "Calibration set: FIFA World Cup matches through 2014-12-31.",
+    "Validation set: FIFA World Cup matches from 2018-01-01 through current snapshot.",
+    "Objective: minimize calibration-set mean log loss over a fixed draw-probability grid."
+  ],
+  "validation_summary": {
+    "accuracy": 0.5405405405405406,
+    "average_probability_actual": 0.4095167151424459,
+    "match_count": 148,
+    "mean_brier_score": 0.5965555929423355,
+    "mean_log_loss": 1.0036585287590485,
+    "model_name": "elo_draw_calibrated_world_cup_validation_2018_2026",
+    "outcome_counts": {
+      "away": 49,
+      "draw": 36,
+      "home": 63
+    },
+    "predicted_outcome_counts": {
+      "away": 62,
+      "draw": 0,
+      "home": 86
+    }
+  }
+}

@@ -50,12 +50,12 @@ Exit criteria:
 
 ## Phase 4: Baseline Models
 
-Status: In progress. Market baseline exists, and a deterministic Elo rating engine now produces historical rating tables plus first-pass 1X2 probabilities. World Cup-only Elo evaluation exists; draw calibration and market comparison are still pending.
+Status: In progress. Market baseline exists, and a deterministic Elo rating engine now produces historical rating tables plus first-pass and calibrated 1X2 probabilities. World Cup-only Elo evaluation and draw calibration exist; market comparison is still pending.
 
 Deliverables:
 
 - Market baseline.
-- Elo model. Rating engine and first-pass 1X2 probability split done; draw calibration pending.
+- Elo model. Rating engine, first-pass 1X2 probability split, World Cup evaluation, and draw calibration done.
 - Poisson goals model.
 - Simple probability fusion.
 

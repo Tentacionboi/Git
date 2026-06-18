@@ -72,6 +72,9 @@ This file records candidate data sources, their expected use, and their risks.
 - Elo 1X2 probability metadata: `data/processed/ratings/elo_1x2_probabilities.csv.metadata.json`
 - World Cup Elo 1X2 probability file: `data/processed/ratings/world_cup_elo_1x2_probabilities.csv`
 - World Cup Elo 1X2 probability metadata: `data/processed/ratings/world_cup_elo_1x2_probabilities.csv.metadata.json`
+- Calibrated World Cup Elo 1X2 probability file: `data/processed/ratings/world_cup_elo_1x2_probabilities_calibrated.csv`
+- Calibrated World Cup Elo evaluation report: `reports/world_cup_elo_1x2_evaluation_calibrated.json`
+- World Cup Elo draw calibration report: `reports/world_cup_elo_draw_calibration.json`
 - Source table: `data/processed/matches/canonical_matches.csv`
 - Current Elo history rows: 49,425 matches.
 - Current team rating rows: 336 teams.
@@ -93,3 +96,19 @@ This file records candidate data sources, their expected use, and their risks.
 - Actual result mix: home 449, draw 222, away 313.
 - Predicted outcome mix: home 600, draw 0, away 384.
 - Interpretation: useful as a first baseline, but the zero predicted draws are a clear sign that draw probability needs calibration before this can be treated as a serious World Cup 1X2 model.
+
+### World Cup Elo draw calibration report
+
+- Report file: `reports/world_cup_elo_draw_calibration.json`
+- Calibrated probability file: `data/processed/ratings/world_cup_elo_1x2_probabilities_calibrated.csv`
+- Calibration set: FIFA World Cup matches through 2014-12-31, 836 matches.
+- Validation set: FIFA World Cup matches from 2018-01-01 through current snapshot, 148 matches.
+- Objective: minimize calibration-set mean log loss.
+- Grid size: 99 draw-probability candidates.
+- Best draw config: base draw probability 0.28, draw gap penalty per 100 Elo 0.05, min draw 0.08, max draw 0.40.
+- Full-sample calibrated accuracy: 54.17%.
+- Full-sample calibrated mean Brier score: 0.5859.
+- Full-sample calibrated mean log loss: 0.9861.
+- Validation calibrated mean Brier score: 0.5966.
+- Validation calibrated mean log loss: 1.0037.
+- Interpretation: calibration slightly improves probability quality versus the uncalibrated heuristic, but not enough to claim a strong model. The project still needs market-odds comparison and richer World Cup-specific features.

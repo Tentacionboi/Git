@@ -38,15 +38,17 @@
 - [x] Generate Elo-based 1X2 probabilities for historical matches.
 - [x] Generate World Cup-only match and Elo probability tables.
 - [x] Evaluate World Cup Elo 1X2 probability quality with Brier score and log loss.
+- [x] Calibrate World Cup Elo draw probability with a historical train/validation split.
+- [x] Add World Cup Elo calibration report.
 
 ## Doing
 
-- [ ] Calibrate draw probability for the Elo model.
+- [ ] Confirm a reproducible source for historical World Cup odds.
 
 ## Next
 
-- [ ] Add World Cup era/time-split evaluation.
 - [ ] Download openfootball/worldcup data.
+- [ ] Add World Cup era/time-split evaluation.
 
 ## Later
 

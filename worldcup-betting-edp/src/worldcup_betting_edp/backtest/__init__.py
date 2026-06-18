@@ -17,6 +17,14 @@ from worldcup_betting_edp.backtest.probability_evaluation import (
     load_1x2_probability_rows_csv,
     write_probability_evaluation_json,
 )
+from worldcup_betting_edp.backtest.elo_calibration import (
+    EloCalibrationCandidate,
+    EloCalibrationResult,
+    calibrate_elo_probability_config,
+    default_elo_probability_config_grid,
+    filter_rating_history_by_date,
+    write_elo_calibration_report_json,
+)
 from worldcup_betting_edp.backtest.settlement import (
     BankrollCurve,
     BankrollPoint,
@@ -29,11 +37,16 @@ __all__ = [
     "BatchBacktestResult",
     "BankrollCurve",
     "BankrollPoint",
+    "EloCalibrationCandidate",
+    "EloCalibrationResult",
     "FlatStakeSettlement",
     "ProbabilityEvaluationSummary",
     "ScoredPrediction",
     "brier_score",
+    "calibrate_elo_probability_config",
+    "default_elo_probability_config_grid",
     "evaluate_1x2_probability_rows",
+    "filter_rating_history_by_date",
     "load_1x2_probability_rows_csv",
     "log_loss",
     "run_batch_backtest",
@@ -41,5 +54,6 @@ __all__ = [
     "score_prediction_report",
     "settle_flat_stake",
     "settle_kelly_bankroll",
+    "write_elo_calibration_report_json",
     "write_probability_evaluation_json",
 ]

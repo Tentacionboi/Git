@@ -36,7 +36,8 @@ The project can:
 - convert Elo expected score into first-pass home/draw/away probabilities with a transparent draw heuristic;
 - write historical Elo 1X2 probabilities to processed CSV files;
 - generate World Cup-only match and Elo probability tables;
-- evaluate World Cup Elo 1X2 probability quality with Brier score, log loss, accuracy, and outcome-count diagnostics.
+- evaluate World Cup Elo 1X2 probability quality with Brier score, log loss, accuracy, and outcome-count diagnostics;
+- calibrate World Cup Elo draw-probability parameters with a train/validation split.
 
 ## What It Does Not Do Yet
 
@@ -46,7 +47,6 @@ The project does not yet:
 - ingest real fixture feeds;
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
-- calibrate Elo draw probability against historical data;
 - compare World Cup predictions against market odds;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
@@ -127,7 +127,10 @@ worldcup-betting-edp/
 - `data/processed/ratings/current_elo_ratings.csv`: latest simple Elo team ratings.
 - `data/processed/ratings/elo_1x2_probabilities.csv`: match-by-match first-pass Elo 1X2 probabilities.
 - `data/processed/ratings/world_cup_elo_1x2_probabilities.csv`: World Cup-only Elo 1X2 probabilities.
+- `data/processed/ratings/world_cup_elo_1x2_probabilities_calibrated.csv`: World Cup-only calibrated Elo 1X2 probabilities.
 - `reports/world_cup_elo_1x2_evaluation.json`: first World Cup-only Elo probability evaluation report.
+- `reports/world_cup_elo_1x2_evaluation_calibrated.json`: calibrated World Cup-only Elo probability evaluation report.
+- `reports/world_cup_elo_draw_calibration.json`: train/validation draw calibration report.
 
 ## Current UI
 
@@ -164,7 +167,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 98 tests
+Ran 103 tests
 OK
 ```
 
@@ -243,6 +246,7 @@ data/processed/ratings/elo_history.csv
 data/processed/ratings/current_elo_ratings.csv
 data/processed/ratings/elo_1x2_probabilities.csv
 data/processed/ratings/world_cup_elo_1x2_probabilities.csv
+data/processed/ratings/world_cup_elo_1x2_probabilities_calibrated.csv
 ```
 
 Current generated snapshot:
@@ -274,6 +278,25 @@ predicted_results: home 600, draw 0, away 384
 ```
 
 The zero predicted draws are not acceptable for a mature 1X2 model. This is the strongest current evidence that the next modeling task should be draw calibration, not UI polish.
+
+World Cup Elo draw calibration:
+
+```text
+report: reports/world_cup_elo_draw_calibration.json
+calibration_set: World Cup matches through 2014-12-31, 836 matches
+validation_set: World Cup matches from 2018-01-01, 148 matches
+objective: mean_log_loss
+candidate_count: 99
+best_base_draw_probability: 0.28
+best_draw_gap_penalty_per_100_elo: 0.05
+full_sample_calibrated_accuracy: 54.17%
+full_sample_calibrated_mean_brier_score: 0.5859
+full_sample_calibrated_mean_log_loss: 0.9861
+validation_calibrated_mean_brier_score: 0.5966
+validation_calibrated_mean_log_loss: 1.0037
+```
+
+This is a small improvement over the uncalibrated heuristic, not a breakthrough. The next serious research blocker is historical World Cup odds: without odds, the project can score probability quality but cannot test market edge.
 
 ## Current JSON Input Contract
 

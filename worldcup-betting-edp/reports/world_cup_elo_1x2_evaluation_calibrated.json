@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-06-18T14:32:39.483677+00:00",
+  "notes": [
+    "Lower Brier score and log loss are better.",
+    "This report evaluates probability quality only; it does not include odds or betting ROI."
+  ],
+  "summary": {
+    "accuracy": 0.5416666666666666,
+    "average_probability_actual": 0.40671771404449675,
+    "match_count": 984,
+    "mean_brier_score": 0.5859268570679823,
+    "mean_log_loss": 0.9861132044703014,
+    "model_name": "elo_draw_calibrated_world_cup_all",
+    "outcome_counts": {
+      "away": 313,
+      "draw": 222,
+      "home": 449
+    },
+    "predicted_outcome_counts": {
+      "away": 384,
+      "draw": 0,
+      "home": 600
+    }
+  }
+}

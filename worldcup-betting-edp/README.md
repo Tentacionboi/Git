@@ -280,6 +280,29 @@ print(summary.to_dict())
 PY
 ```
 
+Calibrate World Cup Elo draw probability:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 - <<'PY'
+from worldcup_betting_edp.backtest import (
+    calibrate_elo_probability_config,
+    filter_rating_history_by_date,
+)
+from worldcup_betting_edp.data import filter_world_cup_canonical_matches, load_canonical_matches_csv
+from worldcup_betting_edp.models import build_elo_rating_history
+
+matches = load_canonical_matches_csv("data/processed/matches/canonical_matches.csv")
+world_cup_ids = {match.match_id for match in filter_world_cup_canonical_matches(matches)}
+history = [row for row in build_elo_rating_history(matches) if row.match_id in world_cup_ids]
+train = filter_rating_history_by_date(history, end_date="2014-12-31")
+result = calibrate_elo_probability_config(
+    train,
+    model_name="elo_draw_calibrated_world_cup",
+)
+print(result.to_dict())
+PY
+```
+
 Run a batch backtest manifest from Python:
 
 ```bash
