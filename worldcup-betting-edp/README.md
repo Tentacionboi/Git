@@ -335,6 +335,25 @@ PY
 
 `examples/demo_world_cup_market_odds.csv` is synthetic and exists only to verify the pipeline. It is not real historical market data.
 
+Validate odds timing for a no-leakage pre-match backtest:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 - <<'PY'
+from worldcup_betting_edp.backtest import validate_odds_as_of_prediction
+
+result = validate_odds_as_of_prediction(
+    odds_captured_at="2026-06-18T10:00:00+00:00",
+    prediction_time="2026-06-18T12:00:00+00:00",
+    kickoff_time="2026-06-18T15:00:00+00:00",
+    odds_type="opening",
+    mode="pre_match",
+)
+print(result.to_dict())
+PY
+```
+
+Actionable pre-match backtests must satisfy `odds_captured_at <= prediction_time <= kickoff_time`. Closing odds are rejected by default for pre-match simulations because they can contain later team news, lineup information, and market movement.
+
 Run a batch backtest manifest from Python:
 
 ```bash

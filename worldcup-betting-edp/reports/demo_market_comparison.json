@@ -1,11 +1,15 @@
 {
-  "created_at": "2026-06-18T14:40:18.286514+00:00",
+  "created_at": "2026-06-18T14:50:06.792402+00:00",
   "notes": [
     "Demo only: examples/demo_world_cup_market_odds.csv contains synthetic odds, not real historical market data.",
-    "The pipeline is ready for real historical World Cup 1X2 odds once a reproducible source is confirmed."
+    "The pipeline is ready for real historical World Cup 1X2 odds once a reproducible source is confirmed.",
+    "No kickoff/prediction timestamps were supplied for this synthetic demo, so timing validation is structural only here."
   ],
   "summary": {
     "average_market_overround": 0.06444503332009537,
+    "leakage_risk_counts": {
+      "low": 3
+    },
     "market_name": "synthetic_demo_market",
     "market_summary": {
       "accuracy": 0.3333333333333333,
@@ -49,6 +53,8 @@
         "home": 1
       }
     },
+    "timing_invalid_match_count": 0,
+    "timing_valid_match_count": 3,
     "unmatched_market_match_count": 0,
     "unmatched_model_match_count": 981
   }

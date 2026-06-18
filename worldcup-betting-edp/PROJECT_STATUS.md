@@ -39,7 +39,8 @@ The project can:
 - evaluate World Cup Elo 1X2 probability quality with Brier score, log loss, accuracy, and outcome-count diagnostics;
 - calibrate World Cup Elo draw-probability parameters with a train/validation split;
 - load canonical historical 1X2 odds snapshots from CSV;
-- compare model probabilities against devigged market probabilities when odds snapshots are supplied.
+- compare model probabilities against devigged market probabilities when odds snapshots are supplied;
+- validate odds timing with as-of/no-leakage rules for pre-match, closing-market, and in-play modes.
 
 ## What It Does Not Do Yet
 
@@ -50,6 +51,7 @@ The project does not yet:
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
 - compare World Cup predictions against verified real historical market odds;
+- attach exact kickoff timestamps to historical World Cup matches;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
 - run historical backtests;
@@ -117,6 +119,7 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/data/canonical_matches.py`: canonical historical match table builder/loader.
 - `src/worldcup_betting_edp/backtest/scoring.py`: Brier score and log loss.
 - `src/worldcup_betting_edp/backtest/market_comparison.py`: model-vs-market probability comparison for matched odds rows.
+- `src/worldcup_betting_edp/backtest/temporal_validation.py`: as-of timing validation to detect odds leakage.
 - `src/worldcup_betting_edp/backtest/settlement.py`: flat-stake settlement and Kelly bankroll curves.
 - `src/worldcup_betting_edp/backtest/runner.py`: manifest-driven batch backtest runner.
 - `src/worldcup_betting_edp/models/elo.py`: simple Elo rating engine, historical replay, and rating table writers.
@@ -172,7 +175,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 111 tests
+Ran 121 tests
 OK
 ```
 
@@ -325,9 +328,28 @@ odds_file: examples/demo_world_cup_market_odds.csv
 matched_match_count: 3
 unmatched_model_match_count: 981
 average_market_overround: 6.44%
+leakage_risk_counts: low 3
 ```
 
 The demo odds are synthetic and are not historical market evidence. The project can now compare against market odds once a real, reproducible, legally usable World Cup odds file is added.
+
+Timing leakage policy now exists in code:
+
+```text
+actionable pre-match backtest:
+  odds_captured_at <= prediction_time <= kickoff_time
+  closing odds rejected by default
+
+closing-market comparison:
+  odds_captured_at <= kickoff_time
+  valid only as market-baseline research, not as an early betting strategy
+
+in-play comparison:
+  prediction_time >= kickoff_time
+  must not be mixed with pre-match model evaluation
+```
+
+Date-only timestamps are treated as medium leakage risk because they do not prove the odds were available at the claimed prediction moment.
 
 ## Current JSON Input Contract
 

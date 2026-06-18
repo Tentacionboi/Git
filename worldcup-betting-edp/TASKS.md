@@ -43,6 +43,7 @@
 - [x] Define canonical historical 1X2 market odds schema.
 - [x] Implement model-vs-market probability comparison.
 - [x] Add synthetic demo market comparison report.
+- [x] Implement as-of/no-leakage timing validation for odds backtests.
 
 ## Doing
 
@@ -53,6 +54,7 @@
 - [ ] Download openfootball/worldcup data.
 - [ ] Add World Cup era/time-split evaluation.
 - [ ] Add real historical World Cup odds once source and license are verified.
+- [ ] Add kickoff timestamps for World Cup matches.
 
 ## Later
 
