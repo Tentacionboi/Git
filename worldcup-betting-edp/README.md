@@ -180,6 +180,23 @@ print(manifest.to_dict())
 PY
 ```
 
+Load the downloaded martj42 international results snapshot:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 - <<'PY'
+from worldcup_betting_edp.data import (
+    filter_world_cup_results,
+    load_martj42_results_path,
+    summarize_results,
+)
+
+results = load_martj42_results_path("data/raw/martj42/results.csv")
+world_cup = filter_world_cup_results(results)
+print(summarize_results(results))
+print({"world_cup_match_count": len(world_cup)})
+PY
+```
+
 Run a batch backtest manifest from Python:
 
 ```bash

@@ -1,0 +1,5 @@
+date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
+1930-07-13,France,Mexico,4,1,FIFA World Cup,Montevideo,Uruguay,TRUE
+1930-07-13,United States,Belgium,3,0,FIFA World Cup,Montevideo,Uruguay,TRUE
+2022-12-18,Argentina,France,3,3,FIFA World Cup,Lusail,Qatar,TRUE
+2024-06-01,England,Brazil,1,2,Friendly,London,England,FALSE

@@ -13,7 +13,7 @@ Deliverables:
 
 ## Phase 2: MVP Engineering Foundation
 
-Status: In progress. Core single-match engine and bilingual Streamlit dashboard are done; JSON input/upload is next.
+Status: Done. Core single-match engine, batch backtest loop, CLI, and bilingual Streamlit dashboard are working.
 
 Deliverables:
 
@@ -32,6 +32,8 @@ Exit criteria:
 - The dashboard can load one prediction input from JSON.
 
 ## Phase 3: Data Pipeline
+
+Status: In progress. martj42 international results have been downloaded and parsed.
 
 Deliverables:
 

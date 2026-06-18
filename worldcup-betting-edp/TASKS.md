@@ -28,20 +28,22 @@
 - [x] Add batch backtest output files.
 - [x] Add Streamlit batch backtest page.
 - [x] Add project screenshots for GitHub README.
+- [x] Save a local Git checkpoint when permissions allow.
+- [x] Configure GitHub remote and push.
+- [x] Download martj42 international results data.
+- [x] Parse martj42 international results data.
 
 ## Doing
 
-- [ ] Save a local Git checkpoint when permissions allow.
+- [ ] Build canonical historical match table.
 
 ## Next
 
-- [ ] Configure GitHub remote and push.
+- [ ] Download openfootball/worldcup data.
+- [ ] Implement Elo ratings.
 
 ## Later
 
-- [ ] Download openfootball/worldcup data.
-- [ ] Download martj42 international results data.
-- [ ] Implement Elo ratings.
 - [ ] Implement Poisson goals model.
 - [ ] Implement model fusion.
 - [ ] Implement historical backtest.

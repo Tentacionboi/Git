@@ -7,7 +7,7 @@ This file records candidate data sources, their expected use, and their risks.
 | Source | Use | Access | Reliability | Risk |
 |---|---|---|---|---|
 | openfootball/worldcup | World Cup schedule/results | GitHub | Medium-high | Text format parsing |
-| martj42/international_results | Historical national-team results | GitHub CSV | Medium-high | Community maintained |
+| martj42/international_results | Historical national-team results | GitHub CSV | Medium-high | Community maintained; includes `NA` score rows that must be skipped |
 | FIFA Men's Ranking | Ranking feature | FIFA site | High | Historical scraping/download friction |
 | World Football Elo Ratings | Rating feature | Website snapshot | Medium-high | Not official; API stability unclear |
 | football-data.co.uk | Historical results and odds | CSV/XLSX | Medium-high | World Cup coverage/fields must be verified |
@@ -28,3 +28,15 @@ This file records candidate data sources, their expected use, and their risks.
 3. If a source cannot be redistributed, store only scripts and metadata, not copied proprietary data.
 4. Odds data must include timestamp or be clearly labeled as open/close/closing.
 
+## Downloaded Snapshots
+
+### martj42/international_results
+
+- Raw file: `data/raw/martj42/results.csv`
+- Metadata: `data/raw/martj42/results.csv.metadata.json`
+- Source URL: `https://raw.githubusercontent.com/martj42/international_results/master/results.csv`
+- License note: CC0-1.0 according to the upstream repository.
+- Current parsed rows: 49,425 settled matches.
+- Current parsed FIFA World Cup rows: 984.
+- Date coverage in parsed settled rows: 1872-11-30 to 2026-06-16.
+- Loader behavior: skips unplayed/unsettled rows where score is `NA` by default.

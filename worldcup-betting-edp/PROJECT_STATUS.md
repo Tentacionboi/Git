@@ -29,6 +29,7 @@ The project can:
 - run single-match prediction and batch backtest flows from the CLI;
 - save CLI JSON/CSV outputs to files with `--output`;
 - run a local Streamlit dashboard with single-match and batch-backtest modes, English-first bilingual labels, JSON upload, summary metrics, tables, and Kelly bankroll chart.
+- download and parse martj42 international results CSV into typed historical result rows.
 
 ## What It Does Not Do Yet
 
@@ -37,6 +38,7 @@ The project does not yet:
 - scrape or monitor live odds;
 - ingest real fixture feeds;
 - auto-detect the next match;
+- build a canonical processed match table from multiple sources;
 - generate model probabilities from Elo;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
@@ -102,6 +104,9 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/backtest/settlement.py`: flat-stake settlement and Kelly bankroll curves.
 - `src/worldcup_betting_edp/backtest/runner.py`: manifest-driven batch backtest runner.
 - `src/worldcup_betting_edp/cli.py`: command-line report generator.
+- `src/worldcup_betting_edp/data/historical_results.py`: martj42 CSV downloader/parser and dataset summaries.
+- `data/raw/martj42/results.csv`: downloaded public historical international results snapshot.
+- `data/raw/martj42/results.csv.metadata.json`: source URL, download time, and license notes.
 
 ## Current UI
 
@@ -138,7 +143,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 64 tests
+Ran 73 tests
 OK
 ```
 
@@ -151,9 +156,30 @@ The Streamlit dashboard was also browser-verified with local Chrome automation. 
 ## Current Git Situation
 
 - Branch: `main`
-- Remote: none configured
-- This repository had no commits before the first checkpoint.
-- The intended first commit is a local checkpoint containing the current project structure, research report, code, tests, and bilingual dashboard.
+- Remote: `https://github.com/Tentacionboi/Git.git`
+- Latest pushed commit before the data-pipeline update: `842813b`.
+- The current local data-pipeline changes still need their own checkpoint after verification.
+
+## Current Historical Results Data
+
+The project can download and parse `martj42/international_results`:
+
+```text
+data/raw/martj42/results.csv
+```
+
+Current parsed snapshot:
+
+```text
+match_count: 49425
+first_date: 1872-11-30
+last_date: 2026-06-16
+team_count: 336
+tournament_count: 200
+FIFA World Cup match_count: 984
+```
+
+The loader skips rows with `NA` scores by default because those rows are not settled historical results.
 
 ## Current JSON Input Contract
 
@@ -356,5 +382,5 @@ Please continue the World Cup Betting EDP project. First read:
 - worldcup-betting-edp/ROADMAP.md
 - worldcup-betting-edp/DECISIONS.md
 
-Current priority: save a local Git checkpoint when permissions allow, then prepare GitHub remote upload. Do not start live odds monitoring, Elo, Poisson, or full historical backtesting before the current MVP is safely checkpointed.
+Current priority: build the canonical historical match table from martj42 results, then continue toward Elo ratings. Do not start live odds monitoring before historical data and baseline models are reproducible.
 ```

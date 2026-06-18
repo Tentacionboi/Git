@@ -7,6 +7,16 @@ from worldcup_betting_edp.data.backtest_manifest import (
     load_backtest_manifest_path,
     load_backtest_manifest_text,
 )
+from worldcup_betting_edp.data.historical_results import (
+    MARTJ42_RESULTS_URL,
+    InternationalResult,
+    download_martj42_results,
+    filter_tournament,
+    filter_world_cup_results,
+    load_martj42_results_path,
+    load_martj42_results_text,
+    summarize_results,
+)
 from worldcup_betting_edp.data.prediction_input import (
     PredictionInput,
     load_prediction_input_mapping,
@@ -24,16 +34,24 @@ from worldcup_betting_edp.data.settled_result import (
 __all__ = [
     "BacktestManifest",
     "BacktestManifestEntry",
+    "InternationalResult",
+    "MARTJ42_RESULTS_URL",
     "PredictionInput",
     "SettledResult",
+    "download_martj42_results",
+    "filter_tournament",
+    "filter_world_cup_results",
     "infer_result_1x2",
     "load_backtest_manifest_mapping",
     "load_backtest_manifest_path",
     "load_backtest_manifest_text",
+    "load_martj42_results_path",
+    "load_martj42_results_text",
     "load_prediction_input_mapping",
     "load_prediction_input_path",
     "load_prediction_input_text",
     "load_settled_result_mapping",
     "load_settled_result_path",
     "load_settled_result_text",
+    "summarize_results",
 ]
