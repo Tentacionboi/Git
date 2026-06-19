@@ -63,16 +63,18 @@
 - [x] Add `.env` auto-loading and sanitized API error diagnostics.
 - [x] Run a real The Odds API historical fetch permission check with local `.env`.
 - [x] Confirm the current The Odds API key is on a free plan without historical odds access.
+- [x] Add API-Football odds parser, client, and source-probe script.
+- [x] Add API-Football source-probe plan.
 
 ## Doing
 
-- [ ] Decide whether to upgrade The Odds API or validate API-Football as the next odds source.
+- [ ] Configure `API_FOOTBALL_KEY` locally and run the API-Football source probe.
 - [ ] Design real-time odds ingestion plan for upcoming World Cup matches.
 
 ## Next
 
 - [ ] If The Odds API is upgraded, rerun historical fetch for 2022-11-20T12:00:00Z.
-- [ ] If not upgrading, implement an API-Football odds-source probe.
+- [ ] If not upgrading The Odds API, evaluate API-Football probe results.
 - [ ] Store one raw historical odds JSON snapshot under `data/raw/odds/`, excluding API keys.
 - [ ] Convert the first real The Odds API snapshot into canonical `MarketOddsSnapshot` CSV.
 - [ ] Align The Odds API event IDs to project `match_id` values.

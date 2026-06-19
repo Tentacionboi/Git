@@ -56,6 +56,8 @@ The project can:
 - load a local `.env` file for the one-shot The Odds API fetch script.
 - write no-key fetch metadata next to raw odds JSON.
 - diagnose The Odds API historical endpoint permission failures without leaking the API key.
+- parse API-Football `Match Winner` odds into the canonical 1X2 market-odds schema.
+- run an API-Football source probe once `API_FOOTBALL_KEY` is configured.
 
 ## What It Does Not Do Yet
 
@@ -68,6 +70,7 @@ The project does not yet:
 - merge multiple raw sources into one deduplicated canonical table;
 - compare World Cup predictions against verified real historical market odds;
 - fetch historical odds using the current free The Odds API key, because historical odds require a paid usage plan;
+- verify API-Football historical World Cup odds coverage yet, because no API-Football key has been configured.
 - attach verified exact kickoff timestamps to all historical World Cup matches;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
@@ -86,8 +89,11 @@ worldcup-betting-edp/
 │   ├── demo_single_match.json
 │   └── demo_settled_match.json
 ├── scripts/
-│   └── fetch_the_odds_api_snapshot.py
+│   ├── fetch_the_odds_api_snapshot.py
+│   └── probe_api_football_source.py
 ├── src/worldcup_betting_edp/
+│   ├── data/api_football.py
+│   ├── data/api_football_client.py
 │   ├── data/prediction_input.py
 │   ├── data/settled_result.py
 │   ├── data/backtest_manifest.py
@@ -143,6 +149,9 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/data/the_odds_api.py`: parser and URL builder for stored The Odds API historical World Cup 1X2 odds snapshots.
 - `src/worldcup_betting_edp/data/the_odds_api_client.py`: environment-key reader and minimal HTTP client helpers for The Odds API.
 - `scripts/fetch_the_odds_api_snapshot.py`: one-shot historical odds fetch script that writes raw JSON and optional canonical CSV.
+- `src/worldcup_betting_edp/data/api_football.py`: API-Football odds parser and probe summarizer.
+- `src/worldcup_betting_edp/data/api_football_client.py`: minimal API-Football HTTP client helpers.
+- `scripts/probe_api_football_source.py`: source-validation script for API-Football World Cup fixtures and odds.
 - `src/worldcup_betting_edp/backtest/scoring.py`: Brier score and log loss.
 - `src/worldcup_betting_edp/backtest/market_comparison.py`: model-vs-market probability comparison for matched odds rows.
 - `src/worldcup_betting_edp/backtest/temporal_validation.py`: as-of timing validation to detect odds leakage.
@@ -173,6 +182,7 @@ worldcup-betting-edp/
 - `reports/demo_market_movement_features.csv`: synthetic demo market movement feature table.
 - `reports/odds_source_validation.md`: audit of candidate real World Cup odds sources and current recommendation.
 - `reports/the_odds_api_access_check.md`: local API-key permission check showing the current key lacks historical odds access.
+- `reports/api_football_source_probe_plan.md`: API-Football validation plan and probe command.
 
 ## Current UI
 

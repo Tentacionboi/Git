@@ -1,5 +1,19 @@
 """Data loading helpers for World Cup Betting EDP."""
 
+from worldcup_betting_edp.data.api_football import (
+    API_FOOTBALL_MATCH_WINNER_BET_NAMES,
+    API_FOOTBALL_SOURCE,
+    API_FOOTBALL_WORLD_CUP_LEAGUE_ID,
+    parse_api_football_odds_response,
+    summarize_api_football_probe_payloads,
+)
+from worldcup_betting_edp.data.api_football_client import (
+    API_FOOTBALL_KEY_ENV_VAR,
+    ApiFootballRequestError,
+    build_api_football_url,
+    fetch_api_football_payload,
+    get_api_football_key_from_env,
+)
 from worldcup_betting_edp.data.backtest_manifest import (
     BacktestManifest,
     BacktestManifestEntry,
@@ -71,6 +85,11 @@ from worldcup_betting_edp.data.the_odds_api_client import (
 )
 
 __all__ = [
+    "API_FOOTBALL_KEY_ENV_VAR",
+    "API_FOOTBALL_MATCH_WINNER_BET_NAMES",
+    "API_FOOTBALL_SOURCE",
+    "API_FOOTBALL_WORLD_CUP_LEAGUE_ID",
+    "ApiFootballRequestError",
     "BacktestManifest",
     "BacktestManifestEntry",
     "CANONICAL_MATCH_COLUMNS",
@@ -89,13 +108,16 @@ __all__ = [
     "TheOddsApiRequestError",
     "WORLD_CUP_TOURNAMENT",
     "MarketOddsSnapshot",
+    "build_api_football_url",
     "build_the_odds_api_historical_odds_url",
     "download_martj42_results",
+    "fetch_api_football_payload",
     "fetch_the_odds_api_historical_odds_payload",
     "filter_tournament",
     "filter_world_cup_canonical_matches",
     "filter_world_cup_results",
     "get_the_odds_api_key_from_env",
+    "get_api_football_key_from_env",
     "infer_result_1x2",
     "build_canonical_matches_from_results",
     "load_backtest_manifest_mapping",
@@ -113,9 +135,11 @@ __all__ = [
     "load_settled_result_mapping",
     "load_settled_result_path",
     "load_settled_result_text",
+    "parse_api_football_odds_response",
     "parse_the_odds_api_historical_odds_response",
     "summarize_canonical_matches",
     "summarize_results",
+    "summarize_api_football_probe_payloads",
     "select_one_odds_per_match",
     "kickoff_time_by_match_id",
     "summarize_match_timing_coverage",

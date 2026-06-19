@@ -76,6 +76,7 @@ Then edit `.env` locally and set:
 
 ```text
 THE_ODDS_API_KEY=your_real_key
+API_FOOTBALL_KEY=your_real_key
 ```
 
 Current checkpoint status:
@@ -266,6 +267,17 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 scripts/fetch_the_odds_api_snapshot.
 The script loads `.env` automatically, writes a `.metadata.json` file next to the raw JSON, and never writes the API key to output files.
 
 Do not commit `.env` or raw vendor odds files unless the data license explicitly allows redistribution.
+
+Probe API-Football as an alternate World Cup odds source after setting `API_FOOTBALL_KEY`:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 scripts/probe_api_football_source.py \
+  --league 1 \
+  --season 2022 \
+  --raw-output data/raw/source_probes/api_football/world_cup_2022_probe.json \
+  --summary-output data/raw/source_probes/api_football/world_cup_2022_probe.summary.json \
+  --canonical-output data/processed/source_probes/api_football/world_cup_2022_odds.csv
+```
 
 Generate Elo history and current team ratings from the canonical table:
 

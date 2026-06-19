@@ -14,3 +14,5 @@ build/
 !.env.example
 data/raw/odds/
 data/processed/odds/
+data/raw/source_probes/
+data/processed/source_probes/

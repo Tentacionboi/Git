@@ -12,6 +12,7 @@ This file records candidate data sources, their expected use, and their risks.
 | World Football Elo Ratings | Rating feature | Website snapshot | Medium-high | Not official; API stability unclear |
 | football-data.co.uk | Historical league results and odds | CSV/XLSX | Medium-high | Strong for leagues, not currently verified as usable historical World Cup odds |
 | The Odds API historical snapshots | Time-stamped World Cup 1X2 odds | Paid API JSON | High | Requires paid plan/API key and raw snapshot retention |
+| API-Football | Candidate World Cup fixtures and odds | API JSON | Medium-high | Historical odds timestamp suitability must be probed |
 
 ## Enhancement Candidates
 
@@ -145,3 +146,13 @@ This file records candidate data sources, their expected use, and their risks.
 - Implemented fetch script: `scripts/fetch_the_odds_api_snapshot.py` reads `THE_ODDS_API_KEY` from the local environment or `.env`, then can write raw JSON, metadata, and canonical odds CSV.
 - Access check: `reports/the_odds_api_access_check.md` records that the current local key reached The Odds API but was rejected for historical odds with `HISTORICAL_UNAVAILABLE_ON_FREE_USAGE_PLAN`.
 - Current recommendation: use The Odds API for real historical/live odds ingestion if the project owner chooses to obtain access; otherwise keep market data synthetic and do not claim market-beating World Cup evidence.
+
+### API-Football probe
+
+- Probe plan: `reports/api_football_source_probe_plan.md`
+- Implemented parser: `src/worldcup_betting_edp/data/api_football.py`
+- Implemented client: `src/worldcup_betting_edp/data/api_football_client.py`
+- Implemented probe script: `scripts/probe_api_football_source.py`
+- Required local secret: `API_FOOTBALL_KEY`
+- Current status: probe code exists, but no API-Football key has been configured or tested in this repository.
+- Decision rule: API-Football can be used for historical World Cup market backtesting only if it returns complete 1X2 bookmaker odds with usable odds update timestamps for historical fixtures.
