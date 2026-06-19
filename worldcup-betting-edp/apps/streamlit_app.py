@@ -9,7 +9,7 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-from worldcup_betting_edp.backtest import run_batch_backtest
+from worldcup_betting_edp.backtest import run_batch_backtest, run_real_market_backtest
 from worldcup_betting_edp.data import (
     PredictionInput,
     load_backtest_manifest_path,
@@ -36,6 +36,21 @@ SOURCE_LABELS = {
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEMO_MANIFEST_PATH = PROJECT_ROOT / "examples" / "demo_backtest_manifest.json"
+DEFAULT_REAL_ODDS_PATH = (
+    PROJECT_ROOT
+    / "data"
+    / "processed"
+    / "odds"
+    / "the_odds_api"
+    / "2022-11-20T120000Z_canonical_odds.csv"
+)
+DEFAULT_ELO_PROBABILITIES_PATH = (
+    PROJECT_ROOT
+    / "data"
+    / "processed"
+    / "ratings"
+    / "world_cup_elo_1x2_probabilities_calibrated.csv"
+)
 
 
 def _inject_styles() -> None:
@@ -876,6 +891,354 @@ def _render_batch_backtest_page() -> None:
         st.json(payload)
 
 
+@st.cache_data(show_spinner=False)
+def _run_cached_real_market_backtest(
+    canonical_odds_path: str,
+    elo_probabilities_path: str,
+    edge_threshold: float,
+    ev_threshold: float,
+    residual_gap_weight: float,
+    residual_max_adjustment: float,
+) -> dict[str, object]:
+    return run_real_market_backtest(
+        canonical_odds_path=canonical_odds_path,
+        elo_probabilities_path=elo_probabilities_path,
+        edge_threshold=edge_threshold,
+        ev_threshold=ev_threshold,
+        residual_config=ResidualEdgeConfig(
+            fundamental_gap_weight=residual_gap_weight,
+            max_abs_adjustment_per_outcome=residual_max_adjustment,
+        ),
+    )
+
+
+def _probability_quality_dataframe(payload: dict[str, object]) -> pd.DataFrame:
+    quality = payload["probability_quality"]
+    rows = []
+    model_labels = {
+        "market_average": "Market Average / 市场均值",
+        "elo_calibrated": "Elo Calibrated / 校准Elo",
+        "market_residual": "Market Residual / 市场残差",
+    }
+    for key, label in model_labels.items():
+        summary = quality[key]
+        rows.append(
+            {
+                "Model / 模型": label,
+                "Accuracy / 准确率": summary["accuracy"],
+                "Brier Score": summary["mean_brier_score"],
+                "Log Loss": summary["mean_log_loss"],
+                "Avg Actual Prob / 实际结果均值概率": summary["average_probability_actual"],
+            }
+        )
+    return pd.DataFrame.from_records(rows)
+
+
+def _real_value_bets_dataframe(payload: dict[str, object]) -> pd.DataFrame:
+    records = []
+    for bet in payload["value_bets"]:
+        records.append(
+            {
+                "Date / 日期": bet["match_date"],
+                "Match / 比赛": f"{bet['home_team']} vs {bet['away_team']}",
+                "Bookmaker / 公司": bet["bookmaker"],
+                "Bet / 方向": OUTCOME_LABELS[str(bet["outcome"])],
+                "Actual / 实际": OUTCOME_LABELS[str(bet["actual"])],
+                "Odds / 赔率": bet["odds"],
+                "Market Prob (%) / 市场概率(%)": float(bet["market_probability"]) * 100.0,
+                "Model Prob (%) / 模型概率(%)": float(bet["model_probability"]) * 100.0,
+                "Edge (%) / 概率差(%)": float(bet["edge"]) * 100.0,
+                "EV (%)": float(bet["ev"]) * 100.0,
+                "Profit / 盈亏": bet["profit_flat_1"],
+                "Hit / 命中": bool(bet["hit"]),
+            }
+        )
+    return pd.DataFrame.from_records(records)
+
+
+def _real_bankroll_dataframe(payload: dict[str, object]) -> pd.DataFrame:
+    records = []
+    for point in payload["bankroll_curve"]:
+        records.append(
+            {
+                "Step / 步骤": point["step"],
+                "Date / 日期": point["match_date"],
+                "Match / 比赛": f"{point['home_team']} vs {point['away_team']}",
+                "Bet / 方向": OUTCOME_LABELS[str(point["outcome"])],
+                "Actual / 实际": OUTCOME_LABELS[str(point["actual"])],
+                "Odds / 赔率": point["odds"],
+                "Profit / 盈亏": point["profit"],
+                "Bankroll / 本金": point["bankroll"],
+                "Drawdown (%) / 回撤(%)": float(point["drawdown"]) * 100.0,
+            }
+        )
+    return pd.DataFrame.from_records(records)
+
+
+def _real_match_rows_dataframe(payload: dict[str, object]) -> pd.DataFrame:
+    records = []
+    for row in payload["match_rows"]:
+        records.append(
+            {
+                "Date / 日期": row["match_date"],
+                "Match / 比赛": f"{row['home_team']} vs {row['away_team']}",
+                "Actual / 实际": OUTCOME_LABELS[str(row["actual_result"])],
+                "Bookmakers / 公司数": row["bookmaker_count"],
+                "Market H/D/A / 市场主平客": (
+                    f"{float(row['market_home_probability']):.1%} / "
+                    f"{float(row['market_draw_probability']):.1%} / "
+                    f"{float(row['market_away_probability']):.1%}"
+                ),
+                "Elo H/D/A / Elo主平客": (
+                    f"{float(row['elo_home_probability']):.1%} / "
+                    f"{float(row['elo_draw_probability']):.1%} / "
+                    f"{float(row['elo_away_probability']):.1%}"
+                ),
+                "Residual H/D/A / 残差主平客": (
+                    f"{float(row['residual_home_probability']):.1%} / "
+                    f"{float(row['residual_draw_probability']):.1%} / "
+                    f"{float(row['residual_away_probability']):.1%}"
+                ),
+                "Largest Adj / 最大修正": (
+                    f"{OUTCOME_LABELS[str(row['largest_residual_adjustment_outcome'])]} "
+                    f"{float(row['largest_residual_adjustment']):+.2%}"
+                ),
+            }
+        )
+    return pd.DataFrame.from_records(records)
+
+
+def _render_real_market_backtest_page() -> None:
+    st.sidebar.header("Real Odds Data / 真实赔率数据")
+    odds_path = st.sidebar.text_input(
+        "Canonical odds CSV / 标准赔率CSV",
+        value=str(DEFAULT_REAL_ODDS_PATH),
+    )
+    elo_path = st.sidebar.text_input(
+        "Elo probabilities CSV / Elo概率CSV",
+        value=str(DEFAULT_ELO_PROBABILITIES_PATH),
+    )
+    st.sidebar.caption(
+        "Default data is local and ignored by Git when it comes from paid odds. / "
+        "默认赔率数据保存在本地，付费赔率明细不会提交到Git。"
+    )
+
+    st.sidebar.header("Tuning / 调参")
+    edge_threshold = st.sidebar.slider(
+        "Edge threshold / 概率优势阈值",
+        min_value=0.0,
+        max_value=0.10,
+        value=0.02,
+        step=0.005,
+        format="%.3f",
+        key="real_edge_threshold",
+    )
+    ev_threshold = st.sidebar.slider(
+        "EV threshold / 期望值阈值",
+        min_value=0.0,
+        max_value=0.20,
+        value=0.01,
+        step=0.005,
+        format="%.3f",
+        key="real_ev_threshold",
+    )
+    residual_gap_weight = st.sidebar.slider(
+        "Residual gap weight / 残差权重",
+        min_value=0.0,
+        max_value=0.75,
+        value=0.25,
+        step=0.05,
+        format="%.2f",
+        key="real_residual_gap_weight",
+    )
+    residual_max_adjustment = st.sidebar.slider(
+        "Max residual adjustment / 最大残差修正",
+        min_value=0.0,
+        max_value=0.10,
+        value=0.05,
+        step=0.005,
+        format="%.3f",
+        key="real_residual_max_adjustment",
+    )
+
+    if not Path(odds_path).exists():
+        st.error(
+            "Real odds CSV not found. / 未找到真实赔率CSV。"
+            f"\n\n`{odds_path}`"
+        )
+        return
+    if not Path(elo_path).exists():
+        st.error(
+            "Elo probabilities CSV not found. / 未找到Elo概率CSV。"
+            f"\n\n`{elo_path}`"
+        )
+        return
+
+    try:
+        payload = _run_cached_real_market_backtest(
+            odds_path,
+            elo_path,
+            float(edge_threshold),
+            float(ev_threshold),
+            float(residual_gap_weight),
+            float(residual_max_adjustment),
+        )
+    except ValueError as exc:
+        st.error(f"Real market backtest failed. / 真实赔率回测失败：{exc}")
+        return
+
+    coverage = payload["coverage"]
+    value_summary = payload["value_bet_summary"]
+    quality = payload["probability_quality"]
+
+    st.subheader("Real Market Backtest / 真实赔率回测")
+    st.caption(
+        "Historical The Odds API snapshot + calibrated World Cup Elo. This is a "
+        "time-slice research view, not live monitoring yet. / "
+        "历史赔率快照 + 校准世界杯Elo。这是时间截面研究视图，还不是实时监控。"
+    )
+    st.warning(
+        "Interpretation guardrail / 解读约束：当前只有一个历史赔率截面，且 value bet "
+        "会在多个博彩公司之间选最高EV；ROI可能非常不稳定，不能当作已验证优势。"
+    )
+
+    metric_cols = st.columns(6)
+    metric_cols[0].metric("Matches / 比赛数", str(coverage["evaluated_match_count"]))
+    metric_cols[1].metric(
+        "Bookmakers / 平均公司数",
+        _format_number(coverage["average_bookmakers_per_match"], digits=1),
+    )
+    metric_cols[2].metric(
+        "Market Overround / 平均水位",
+        _format_percent(float(coverage["average_market_overround"])),
+    )
+    metric_cols[3].metric("Bets / 下注数", str(value_summary["bet_count"]))
+    metric_cols[4].metric("Flat ROI / 固定注ROI", _format_optional_percent(value_summary["flat_roi"]))
+    metric_cols[5].metric(
+        "Max Drawdown / 最大回撤",
+        _format_optional_percent(value_summary["max_drawdown"]),
+    )
+
+    st.divider()
+
+    quality_df = _probability_quality_dataframe(payload)
+    bankroll_df = _real_bankroll_dataframe(payload)
+    chart_col, pnl_col = st.columns([1.05, 1.25], gap="large")
+    with chart_col:
+        st.subheader("Prediction Quality / 预测质量")
+        quality_long = quality_df.melt(
+            id_vars=["Model / 模型"],
+            value_vars=["Brier Score", "Log Loss"],
+            var_name="Metric / 指标",
+            value_name="Value / 数值",
+        )
+        quality_chart = (
+            alt.Chart(quality_long)
+            .mark_bar(cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
+            .encode(
+                x=alt.X("Metric / 指标:N", title=None),
+                xOffset=alt.XOffset("Model / 模型:N"),
+                y=alt.Y("Value / 数值:Q", title="Lower is better / 越低越好"),
+                color=alt.Color("Model / 模型:N", legend=alt.Legend(orient="bottom", title=None)),
+                tooltip=[
+                    "Metric / 指标:N",
+                    "Model / 模型:N",
+                    alt.Tooltip("Value / 数值:Q", format=".4f"),
+                ],
+            )
+            .properties(height=320)
+        )
+        st.altair_chart(quality_chart, width="stretch")
+
+    with pnl_col:
+        st.subheader("Flat-Stake Bankroll Curve / 固定注资金曲线")
+        if bankroll_df.empty:
+            st.info("No bets passed the current thresholds. / 当前阈值下没有下注。")
+        else:
+            pnl_chart = (
+                alt.Chart(bankroll_df)
+                .mark_line(point=True)
+                .encode(
+                    x=alt.X("Step / 步骤:O", title="Bet sequence / 下注序列"),
+                    y=alt.Y("Bankroll / 本金:Q", title="Bankroll / 本金", scale=alt.Scale(zero=False)),
+                    tooltip=[
+                        "Step / 步骤:O",
+                        "Date / 日期:N",
+                        "Match / 比赛:N",
+                        "Bet / 方向:N",
+                        alt.Tooltip("Odds / 赔率:Q", format=".2f"),
+                        alt.Tooltip("Profit / 盈亏:Q", format=".2f"),
+                        alt.Tooltip("Bankroll / 本金:Q", format=".2f"),
+                        alt.Tooltip("Drawdown (%) / 回撤(%):Q", format=".2f"),
+                    ],
+                )
+                .properties(height=320)
+            )
+            st.altair_chart(pnl_chart, width="stretch")
+
+    score_cols = st.columns(4)
+    score_cols[0].metric(
+        "Residual vs Market Brier / 残差-Brier",
+        _format_number(quality["residual_minus_market_brier"], digits=4),
+    )
+    score_cols[1].metric(
+        "Residual vs Market LogLoss / 残差-LogLoss",
+        _format_number(quality["residual_minus_market_log_loss"], digits=4),
+    )
+    score_cols[2].metric("Hit Rate / 命中率", _format_optional_percent(value_summary["hit_rate"]))
+    score_cols[3].metric("Average Odds / 平均赔率", _format_number(value_summary["average_odds"]))
+
+    st.subheader("Quality Table / 预测质量表")
+    st.dataframe(
+        quality_df,
+        hide_index=True,
+        width="stretch",
+        column_config={
+            "Accuracy / 准确率": st.column_config.NumberColumn(format="%.2f"),
+            "Brier Score": st.column_config.NumberColumn(format="%.4f"),
+            "Log Loss": st.column_config.NumberColumn(format="%.4f"),
+            "Avg Actual Prob / 实际结果均值概率": st.column_config.NumberColumn(format="%.4f"),
+        },
+    )
+
+    st.subheader("Value Bet Table / 价值投注表")
+    value_df = _real_value_bets_dataframe(payload)
+    if value_df.empty:
+        st.info("No value bets under current rules. / 当前规则下没有价值投注。")
+    else:
+        st.dataframe(
+            value_df,
+            hide_index=True,
+            width="stretch",
+            column_config={
+                "Odds / 赔率": st.column_config.NumberColumn(format="%.2f"),
+                "Market Prob (%) / 市场概率(%)": st.column_config.NumberColumn(format="%.2f"),
+                "Model Prob (%) / 模型概率(%)": st.column_config.NumberColumn(format="%.2f"),
+                "Edge (%) / 概率差(%)": st.column_config.NumberColumn(format="%.2f"),
+                "EV (%)": st.column_config.NumberColumn(format="%.2f"),
+                "Profit / 盈亏": st.column_config.NumberColumn(format="%.2f"),
+            },
+        )
+
+    with st.expander("Match probability rows / 比赛概率明细"):
+        st.dataframe(
+            _real_match_rows_dataframe(payload),
+            hide_index=True,
+            width="stretch",
+        )
+
+    with st.expander("Raw aggregate payload / 原始聚合结果"):
+        st.json(
+            {
+                "input": payload["input"],
+                "coverage": payload["coverage"],
+                "probability_quality": payload["probability_quality"],
+                "value_bet_summary": payload["value_bet_summary"],
+                "notes": payload["notes"],
+            }
+        )
+
+
 def main() -> None:
     st.set_page_config(
         page_title="World Cup Betting EDP",
@@ -886,7 +1249,11 @@ def main() -> None:
     st.title("World Cup Betting EDP")
     mode = st.sidebar.radio(
         "Mode / 模式",
-        ["Single Match / 单场预测", "Batch Backtest / 批量回测"],
+        [
+            "Single Match / 单场预测",
+            "Batch Backtest / 批量回测",
+            "Real Market Backtest / 真实赔率回测",
+        ],
         horizontal=False,
     )
 
@@ -899,12 +1266,21 @@ def main() -> None:
         _render_single_match_page()
         return
 
+    if mode.startswith("Batch"):
+        st.markdown(
+            '<p class="section-note">Manifest-driven batch scoring, settlement, and bankroll monitoring. '
+            "/ 基于清单的批量评分、结算与资金曲线监控。</p>",
+            unsafe_allow_html=True,
+        )
+        _render_batch_backtest_page()
+        return
+
     st.markdown(
-        '<p class="section-note">Manifest-driven batch scoring, settlement, and bankroll monitoring. '
-        "/ 基于清单的批量评分、结算与资金曲线监控。</p>",
+        '<p class="section-note">Real historical odds snapshot backtest with interactive thresholds, '
+        "residual tuning, scoring, and P&L curve. / 真实历史赔率截面回测、交互阈值调参、评分与盈亏曲线。</p>",
         unsafe_allow_html=True,
     )
-    _render_batch_backtest_page()
+    _render_real_market_backtest_page()
 
 
 if __name__ == "__main__":
