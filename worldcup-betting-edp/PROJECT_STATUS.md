@@ -53,6 +53,8 @@ The project can:
 - parse stored The Odds API historical World Cup 1X2 odds JSON snapshots into the canonical market-odds schema.
 - build The Odds API historical odds URLs for `soccer_fifa_world_cup` with decimal odds format.
 - fetch one The Odds API historical odds snapshot from a local `THE_ODDS_API_KEY` environment variable without committing the key.
+- load a local `.env` file for the one-shot The Odds API fetch script.
+- write no-key fetch metadata next to raw odds JSON.
 
 ## What It Does Not Do Yet
 
@@ -60,7 +62,6 @@ The project does not yet:
 
 - scrape or monitor live odds;
 - call The Odds API directly or store API keys;
-- automatically load `.env` files; users must export environment variables before running fetch scripts.
 - ingest real fixture feeds;
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;

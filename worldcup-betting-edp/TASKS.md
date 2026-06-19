@@ -60,10 +60,11 @@
 - [x] Document why Football-Data is not currently enough for World Cup odds evidence.
 - [x] Add safe local API-key environment variable flow.
 - [x] Add one-shot The Odds API historical snapshot fetch script.
+- [x] Add `.env` auto-loading and sanitized API error diagnostics.
 
 ## Doing
 
-- [ ] Run a real The Odds API fetch after local API key setup.
+- [ ] Run a real The Odds API fetch after local `.env` key setup.
 - [ ] Design real-time odds ingestion plan for upcoming World Cup matches.
 
 ## Next

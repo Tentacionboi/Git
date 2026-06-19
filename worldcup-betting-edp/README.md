@@ -257,15 +257,13 @@ PY
 Fetch one real The Odds API historical World Cup 1X2 snapshot after setting `THE_ODDS_API_KEY`:
 
 ```bash
-set -a
-. ./.env
-set +a
-
 PYTHONPATH=src /opt/homebrew/bin/python3.12 scripts/fetch_the_odds_api_snapshot.py \
   --date 2022-11-20T12:00:00Z \
   --raw-output data/raw/odds/the_odds_api/2022-11-20T120000Z.json \
   --canonical-output data/processed/odds/the_odds_api/2022-11-20T120000Z.csv
 ```
+
+The script loads `.env` automatically, writes a `.metadata.json` file next to the raw JSON, and never writes the API key to output files.
 
 Do not commit `.env` or raw vendor odds files unless the data license explicitly allows redistribution.
 

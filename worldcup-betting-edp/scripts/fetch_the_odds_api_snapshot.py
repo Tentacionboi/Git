@@ -23,8 +23,10 @@ from worldcup_betting_edp.data import (
 )
 from worldcup_betting_edp.data.the_odds_api_client import (
     THE_ODDS_API_KEY_ENV_VAR,
+    TheOddsApiRequestError,
     fetch_the_odds_api_historical_odds_payload,
     get_the_odds_api_key_from_env,
+    load_dotenv_file,
 )
 
 
@@ -61,16 +63,30 @@ def main(argv: Sequence[str] | None = None) -> int:
         default="h2h",
         help="Requested markets. Keep h2h for World Cup 1X2 MVP.",
     )
+    parser.add_argument(
+        "--env-file",
+        default=".env",
+        help="Optional local env file to load before reading THE_ODDS_API_KEY.",
+    )
+    parser.add_argument(
+        "--metadata-output",
+        help="Optional metadata path. Defaults to RAW_OUTPUT.metadata.json.",
+    )
     args = parser.parse_args(argv)
 
-    api_key = get_the_odds_api_key_from_env()
-    payload = fetch_the_odds_api_historical_odds_payload(
-        api_key=api_key,
-        date=args.date,
-        sport_key=args.sport_key,
-        regions=args.regions,
-        markets=args.markets,
-    )
+    try:
+        load_dotenv_file(args.env_file)
+        api_key = get_the_odds_api_key_from_env()
+        payload = fetch_the_odds_api_historical_odds_payload(
+            api_key=api_key,
+            date=args.date,
+            sport_key=args.sport_key,
+            regions=args.regions,
+            markets=args.markets,
+        )
+    except (OSError, ValueError, TheOddsApiRequestError) as exc:
+        print(json.dumps({"status": "failed", "error": str(exc)}, ensure_ascii=False, indent=2))
+        return 1
 
     raw_output = Path(args.raw_output)
     raw_output.parent.mkdir(parents=True, exist_ok=True)
@@ -83,11 +99,34 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.canonical_output:
         write_market_odds_csv(snapshots, args.canonical_output)
 
+    metadata_output = Path(args.metadata_output) if args.metadata_output else raw_output.with_suffix(
+        raw_output.suffix + ".metadata.json"
+    )
+    metadata_output.parent.mkdir(parents=True, exist_ok=True)
+    metadata = {
+        "source": "the-odds-api",
+        "sport_key": args.sport_key,
+        "regions": args.regions,
+        "markets": args.markets,
+        "requested_date": args.date,
+        "snapshot_timestamp": payload.get("timestamp"),
+        "raw_output": str(raw_output),
+        "canonical_output": args.canonical_output,
+        "snapshot_count": len(snapshots),
+        "api_key_env_var": THE_ODDS_API_KEY_ENV_VAR,
+        "api_key_stored": False,
+    }
+    metadata_output.write_text(
+        json.dumps(metadata, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
     print(
         json.dumps(
             {
                 "raw_output": str(raw_output),
                 "canonical_output": args.canonical_output,
+                "metadata_output": str(metadata_output),
                 "snapshot_count": len(snapshots),
                 "api_key_env_var": THE_ODDS_API_KEY_ENV_VAR,
             },

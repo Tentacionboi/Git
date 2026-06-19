@@ -64,8 +64,10 @@ from worldcup_betting_edp.data.the_odds_api import (
 )
 from worldcup_betting_edp.data.the_odds_api_client import (
     THE_ODDS_API_KEY_ENV_VAR,
+    TheOddsApiRequestError,
     fetch_the_odds_api_historical_odds_payload,
     get_the_odds_api_key_from_env,
+    load_dotenv_file,
 )
 
 __all__ = [
@@ -84,6 +86,7 @@ __all__ = [
     "THE_ODDS_API_KEY_ENV_VAR",
     "THE_ODDS_API_SOURCE",
     "THE_ODDS_API_WORLD_CUP_SPORT_KEY",
+    "TheOddsApiRequestError",
     "WORLD_CUP_TOURNAMENT",
     "MarketOddsSnapshot",
     "build_the_odds_api_historical_odds_url",
@@ -103,6 +106,7 @@ __all__ = [
     "load_match_timing_csv",
     "load_martj42_results_path",
     "load_martj42_results_text",
+    "load_dotenv_file",
     "load_prediction_input_mapping",
     "load_prediction_input_path",
     "load_prediction_input_text",
