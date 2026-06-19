@@ -1,0 +1,40 @@
+{
+  "timestamp": "2022-11-20T12:00:00Z",
+  "data": [
+    {
+      "id": "demo_event_qatar_ecuador",
+      "sport_key": "soccer_fifa_world_cup",
+      "sport_title": "FIFA World Cup",
+      "commence_time": "2022-11-20T16:00:00Z",
+      "home_team": "Qatar",
+      "away_team": "Ecuador",
+      "bookmakers": [
+        {
+          "key": "demo_book",
+          "title": "Demo Bookmaker",
+          "last_update": "2022-11-20T11:58:00Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2022-11-20T11:58:00Z",
+              "outcomes": [
+                {
+                  "name": "Qatar",
+                  "price": 3.6
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.2
+                },
+                {
+                  "name": "Ecuador",
+                  "price": 2.1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

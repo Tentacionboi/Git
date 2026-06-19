@@ -55,6 +55,13 @@ from worldcup_betting_edp.data.settled_result import (
     load_settled_result_path,
     load_settled_result_text,
 )
+from worldcup_betting_edp.data.the_odds_api import (
+    THE_ODDS_API_H2H_MARKET,
+    THE_ODDS_API_SOURCE,
+    THE_ODDS_API_WORLD_CUP_SPORT_KEY,
+    build_the_odds_api_historical_odds_url,
+    parse_the_odds_api_historical_odds_response,
+)
 
 __all__ = [
     "BacktestManifest",
@@ -68,8 +75,12 @@ __all__ = [
     "MatchTiming",
     "PredictionInput",
     "SettledResult",
+    "THE_ODDS_API_H2H_MARKET",
+    "THE_ODDS_API_SOURCE",
+    "THE_ODDS_API_WORLD_CUP_SPORT_KEY",
     "WORLD_CUP_TOURNAMENT",
     "MarketOddsSnapshot",
+    "build_the_odds_api_historical_odds_url",
     "download_martj42_results",
     "filter_tournament",
     "filter_world_cup_canonical_matches",
@@ -90,6 +101,7 @@ __all__ = [
     "load_settled_result_mapping",
     "load_settled_result_path",
     "load_settled_result_text",
+    "parse_the_odds_api_historical_odds_response",
     "summarize_canonical_matches",
     "summarize_results",
     "select_one_odds_per_match",

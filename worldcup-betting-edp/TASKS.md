@@ -55,18 +55,23 @@
 - [x] Add market-residual probabilities to batch backtests.
 - [x] Add fundamental-vs-market-vs-residual batch comparison metrics.
 - [x] Add CLI and Streamlit batch controls for market-residual mode.
+- [x] Audit candidate sources for real historical World Cup 1X2 odds.
+- [x] Add The Odds API historical World Cup 1X2 odds parser.
+- [x] Document why Football-Data is not currently enough for World Cup odds evidence.
 
 ## Doing
 
-- [ ] Confirm a reproducible source for historical World Cup odds.
+- [ ] Obtain or provide access to a reproducible historical World Cup odds source.
 - [ ] Design real-time odds ingestion plan for upcoming World Cup matches.
 
 ## Next
 
-- [ ] Download openfootball/worldcup data.
-- [ ] Add World Cup era/time-split evaluation.
-- [ ] Add real historical World Cup odds once source and license are verified.
+- [ ] Decide whether to use The Odds API paid historical access or another licensed odds export.
+- [ ] Store one raw historical odds JSON snapshot under `data/raw/odds/` with metadata, excluding API keys.
+- [ ] Convert the first real The Odds API snapshot into canonical `MarketOddsSnapshot` CSV.
+- [ ] Align The Odds API event IDs to project `match_id` values.
 - [ ] Add verified real kickoff timestamps for World Cup matches.
+- [ ] Add World Cup era/time-split evaluation.
 - [ ] Add market movement features to model-vs-market reports.
 - [ ] Add market movement signals to the Streamlit dashboard.
 - [ ] Evaluate market-residual probabilities on real historical odds once available.

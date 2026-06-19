@@ -1,6 +1,6 @@
 # Project Status
 
-Last updated: 2026-06-18
+Last updated: 2026-06-19
 
 ## One-Line Summary
 
@@ -50,12 +50,15 @@ The project can:
 - show market, fundamental, and final probabilities in the Streamlit single-match dashboard when residual mode is selected.
 - run batch backtests with either direct model probabilities or market-residual final probabilities;
 - report raw fundamental, market baseline, and residual-final probability quality side by side in residual batch mode.
+- parse stored The Odds API historical World Cup 1X2 odds JSON snapshots into the canonical market-odds schema.
+- build The Odds API historical odds URLs for `soccer_fifa_world_cup` with decimal odds format.
 
 ## What It Does Not Do Yet
 
 The project does not yet:
 
 - scrape or monitor live odds;
+- call The Odds API directly or store API keys;
 - ingest real fixture feeds;
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
@@ -83,6 +86,7 @@ worldcup-betting-edp/
 │   ├── data/backtest_manifest.py
 │   ├── data/historical_results.py
 │   ├── data/canonical_matches.py
+│   ├── data/the_odds_api.py
 │   ├── cli.py
 │   ├── domain.py
 │   ├── market/devig.py
@@ -129,6 +133,7 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/data/historical_results.py`: martj42 CSV downloader/parser and dataset summaries.
 - `src/worldcup_betting_edp/data/canonical_matches.py`: canonical historical match table builder/loader.
 - `src/worldcup_betting_edp/data/match_timing.py`: kickoff timestamp schema, loader, writer, and coverage diagnostics.
+- `src/worldcup_betting_edp/data/the_odds_api.py`: parser and URL builder for stored The Odds API historical World Cup 1X2 odds snapshots.
 - `src/worldcup_betting_edp/backtest/scoring.py`: Brier score and log loss.
 - `src/worldcup_betting_edp/backtest/market_comparison.py`: model-vs-market probability comparison for matched odds rows.
 - `src/worldcup_betting_edp/backtest/temporal_validation.py`: as-of timing validation to detect odds leakage.
@@ -154,8 +159,10 @@ worldcup-betting-edp/
 - `examples/demo_world_cup_market_odds.csv`: synthetic odds file that demonstrates the historical odds schema.
 - `examples/demo_world_cup_match_timing.csv`: synthetic kickoff timing file that demonstrates as-of validation.
 - `examples/demo_world_cup_market_odds_timeseries.csv`: synthetic opening/current odds time-series file for market movement features.
+- `examples/demo_the_odds_api_historical_snapshot.json`: synthetic The Odds API-shaped JSON snapshot for parser verification only.
 - `reports/demo_market_comparison.json`: synthetic demo model-vs-market comparison report.
 - `reports/demo_market_movement_features.csv`: synthetic demo market movement feature table.
+- `reports/odds_source_validation.md`: audit of candidate real World Cup odds sources and current recommendation.
 
 ## Current UI
 
@@ -203,7 +210,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 139 tests
+Ran 144 tests
 OK
 ```
 

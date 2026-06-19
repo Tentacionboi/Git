@@ -60,6 +60,12 @@ worldcup-betting-edp/
 reports/initial_research_report.md
 ```
 
+赔率数据源审计见：
+
+```text
+reports/odds_source_validation.md
+```
+
 Current checkpoint status:
 
 ```text
@@ -217,6 +223,22 @@ from worldcup_betting_edp.data import load_canonical_matches_csv, summarize_cano
 
 matches = load_canonical_matches_csv("data/processed/matches/world_cup_matches.csv")
 print(summarize_canonical_matches(matches))
+PY
+```
+
+Parse a stored The Odds API historical World Cup 1X2 snapshot:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 - <<'PY'
+import json
+from worldcup_betting_edp.data import parse_the_odds_api_historical_odds_response
+
+with open("examples/demo_the_odds_api_historical_snapshot.json", "r", encoding="utf-8") as handle:
+    payload = json.load(handle)
+
+snapshots = parse_the_odds_api_historical_odds_response(payload)
+print(len(snapshots))
+print(snapshots[0].to_dict() if snapshots else "no complete 1X2 markets found")
 PY
 ```
 

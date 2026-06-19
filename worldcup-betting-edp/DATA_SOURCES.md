@@ -10,13 +10,14 @@ This file records candidate data sources, their expected use, and their risks.
 | martj42/international_results | Historical national-team results | GitHub CSV | Medium-high | Community maintained; includes `NA` score rows that must be skipped |
 | FIFA Men's Ranking | Ranking feature | FIFA site | High | Historical scraping/download friction |
 | World Football Elo Ratings | Rating feature | Website snapshot | Medium-high | Not official; API stability unclear |
-| football-data.co.uk | Historical results and odds | CSV/XLSX | Medium-high | World Cup coverage/fields must be verified |
+| football-data.co.uk | Historical league results and odds | CSV/XLSX | Medium-high | Strong for leagues, not currently verified as usable historical World Cup odds |
+| The Odds API historical snapshots | Time-stamped World Cup 1X2 odds | Paid API JSON | High | Requires paid plan/API key and raw snapshot retention |
 
 ## Enhancement Candidates
 
 | Source | Use | Access | Reliability | Risk |
 |---|---|---|---|---|
-| The Odds API | Live and historical odds | API | High | Historical odds may require paid plan |
+| The Odds API live feed | Upcoming/live World Cup odds monitoring | API JSON | High | Requires API key, usage-budget planning, and source terms review |
 | StatsBomb Open Data | xG/events/lineups | GitHub JSON | High | Limited competition coverage |
 | Open-Meteo | Historical and forecast weather | API | High | Needs stadium coordinates |
 | FIFA Match Centre | Fixtures/lineups | FIFA website | High | Automation and terms need verification |
@@ -27,6 +28,7 @@ This file records candidate data sources, their expected use, and their risks.
 2. Every raw file should retain source URL, download date, and license notes.
 3. If a source cannot be redistributed, store only scripts and metadata, not copied proprietary data.
 4. Odds data must include timestamp or be clearly labeled as open/close/closing.
+5. Actionable backtests must use only odds snapshots captured before the prediction timestamp and kickoff timestamp.
 
 ## Downloaded Snapshots
 
@@ -131,3 +133,13 @@ This file records candidate data sources, their expected use, and their risks.
 - Market movement features: the project can compare two odds snapshots for the same match/bookmaker, such as opening and current odds, then emit overround deltas, devigged probability deltas, favorite changes, and largest probability moves.
 - Intended market-signal use: market movement features are candidate inputs for the later World Cup prediction model and dashboard, especially for detecting price movement, steam, favorite flips, and market reaction to team news.
 - Current blocker: no verified redistributable historical World Cup 1X2 odds dataset or full real kickoff timestamp dataset has been committed to the repository.
+
+### Historical World Cup odds source audit
+
+- Report file: `reports/odds_source_validation.md`
+- Football-Data finding: Football-Data is useful for historical league betting-system experiments, with long-running league results and odds files, but it should not be treated as a verified World Cup historical odds source for this project yet.
+- Football-Data World Cup resource check: `https://www.football-data.co.uk/WorldCup2026.xlsx` was advertised from the site resources area but returned an effectively empty XLSX download during the current audit.
+- The Odds API finding: The Odds API historical endpoint is the best currently identified structured candidate for World Cup 1X2 market odds because it returns time-stamped snapshots and includes a `soccer_fifa_world_cup` sport key.
+- The Odds API limitation: historical odds require a paid plan. The repo should include code adapters and metadata, not private API keys or proprietary raw exports.
+- Implemented adapter: `src/worldcup_betting_edp/data/the_odds_api.py` converts stored The Odds API historical JSON snapshots into the canonical `MarketOddsSnapshot` schema.
+- Current recommendation: use The Odds API for real historical/live odds ingestion if the project owner chooses to obtain access; otherwise keep market data synthetic and do not claim market-beating World Cup evidence.
