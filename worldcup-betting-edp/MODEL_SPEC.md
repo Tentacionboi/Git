@@ -42,11 +42,50 @@ Input:
 Output:
 
 - 1X2 probability vector.
+- Rating gap.
+- Expected home score.
+- Explicit `EloBasePrediction` diagnostics for structured reports.
 
 Constraints:
 
 - Must use only ratings available before the match.
 - Draw probability must be explicitly modeled, not ignored.
+- Elo is the base-strength layer. It is not the final probability when context
+  and market calibration layers are available.
+
+### 2B. Context-Adjusted Elo
+
+Input:
+
+- Elo base probabilities.
+- Signed home-team context factors:
+  - rest;
+  - travel;
+  - host / near-host;
+  - recent form;
+  - lineup availability.
+
+Method:
+
+```text
+context_adjustment =
+    w_rest   * rest_delta
+  + w_travel * travel_delta
+  + w_host   * host_delta
+  + w_form   * recent_form_delta
+  + w_lineup * lineup_delta
+
+p_context = normalize_and_bound(p_elo + bounded_context_adjustment)
+```
+
+Constraints:
+
+- Context adjusts Elo; it does not replace Elo.
+- Missing, synthetic, blocked, or unverified context inputs do not change team
+  probabilities.
+- Evidence status affects confidence, not team strength.
+- Weights must stay centralized in `ContextAdjustmentConfig` and be tuned only
+  through backtests.
 
 ### 3. Poisson Goals Model
 
@@ -87,6 +126,17 @@ p_final_i = normalize_and_bound(p_market_i + raw_adjustment_i)
 
 The market is the anchor, not an ordinary weak feature. Fundamental and movement signals must only apply bounded residual adjustments until out-of-sample evidence proves they add value.
 
+Market reports also classify model-vs-market alignment:
+
+```text
+market_aligned
+mild_divergence
+strong_divergence
+```
+
+The classification is explanatory and risk-control metadata. It does not prove
+an edge by itself.
+
 ### 5. Simple Fusion
 
 Simple weighted averaging remains a research baseline, not the preferred decision model:
@@ -118,7 +168,7 @@ Default thresholds are intentionally conservative and may be tuned only through 
 
 ## Current Single-Match Output Contract
 
-The single-match MVP report returns a flat dictionary with:
+The single-match report preserves the flat dictionary contract with:
 
 - match metadata;
 - bookmaker and odds timestamp;
@@ -134,3 +184,16 @@ The single-match MVP report returns a flat dictionary with:
 - risk level;
 - decision reason;
 - per-outcome EV, Kelly fraction, and reason.
+
+It also exposes `to_structured_dict()` with:
+
+- match metadata;
+- data status;
+- Elo base diagnostics;
+- context adjustments;
+- fundamental probabilities;
+- goal-model placeholder until Poisson is implemented;
+- market odds, devig probabilities, and alignment;
+- residual final probabilities;
+- confidence report;
+- value-bet decision.

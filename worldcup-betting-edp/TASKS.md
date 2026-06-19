@@ -71,10 +71,16 @@
 - [x] Generate canonical-orientation World Cup odds rows from the paid snapshot.
 - [x] Run the first real 2022 World Cup model-vs-market backtest.
 - [x] Write first real market backtest report.
+- [x] Add Elo base single-match diagnostics.
+- [x] Add context-adjusted Elo module with bounded factors.
+- [x] Add evidence status and confidence schema.
+- [x] Add structured single-match report output while preserving flat compatibility.
+- [x] Add market alignment classification to single-match reports.
 
 ## Doing
 
 - [ ] Design a multi-timestamp odds backtest plan.
+- [ ] Implement Poisson score matrix model as the next model layer.
 - [ ] Design real-time odds ingestion plan for upcoming World Cup matches.
 
 ## Next
@@ -82,6 +88,7 @@
 - [ ] Fetch additional 2022 snapshots: open-ish, 24h before, 6h before, and near-close where available.
 - [ ] Restrict value-bet settlement to one bookmaker or a clearly executable bookmaker set.
 - [ ] Add confidence intervals/bootstrap sensitivity for ROI and scoring.
+- [ ] Add Poisson top scorelines, totals, and BTTS to structured reports.
 - [ ] Add verified real kickoff timestamps for World Cup matches.
 - [ ] Add World Cup era/time-split evaluation.
 - [ ] Add market movement features to model-vs-market reports.

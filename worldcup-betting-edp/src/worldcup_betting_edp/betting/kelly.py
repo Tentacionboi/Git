@@ -24,6 +24,13 @@ class BetSizingResult:
     fractional_kelly: float
     capped_fraction: float
 
+    def to_dict(self) -> dict[str, float]:
+        return {
+            "full_kelly": self.full_kelly,
+            "fractional_kelly": self.fractional_kelly,
+            "capped_fraction": self.capped_fraction,
+        }
+
 
 @dataclass(frozen=True)
 class ValueBetDecision:
@@ -39,6 +46,20 @@ class ValueBetDecision:
     sizing: BetSizingResult
     risk_level: RiskLevel
     reason: str
+
+    def to_dict(self) -> dict[str, object]:
+        return {
+            "is_value_bet": self.is_value_bet,
+            "outcome": self.outcome,
+            "model_probability": self.model_probability,
+            "market_probability": self.market_probability,
+            "decimal_odds": self.decimal_odds,
+            "probability_edge": self.probability_edge,
+            "expected_value": self.expected_value,
+            "sizing": self.sizing.to_dict(),
+            "risk_level": self.risk_level.value,
+            "reason": self.reason,
+        }
 
 
 def _validate_probability(probability: float, name: str = "probability") -> None:
@@ -168,4 +189,3 @@ def evaluate_value_bet(
         risk_level=risk_level,
         reason=reason,
     )
-

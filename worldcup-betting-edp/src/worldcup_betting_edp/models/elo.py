@@ -190,6 +190,41 @@ class EloMatchProbabilities:
         }
 
 
+@dataclass(frozen=True)
+class EloBasePrediction:
+    """Single-match Elo base prediction before context or market adjustment."""
+
+    match_id: str
+    home_team: str
+    away_team: str
+    home_rating: float
+    away_rating: float
+    neutral: bool
+    rating_gap: float
+    expected_home_score: float
+    probabilities: dict[str, float]
+    model_name: str = "elo_base"
+
+    def __post_init__(self) -> None:
+        if not self.match_id:
+            raise ValueError("match_id cannot be empty")
+        validate_probability_map(self.probabilities)
+
+    def to_dict(self) -> dict[str, object]:
+        return {
+            "match_id": self.match_id,
+            "model_name": self.model_name,
+            "home_team": self.home_team,
+            "away_team": self.away_team,
+            "home_rating": self.home_rating,
+            "away_rating": self.away_rating,
+            "neutral": self.neutral,
+            "rating_gap": self.rating_gap,
+            "expected_home_score": self.expected_home_score,
+            "probabilities": dict(self.probabilities),
+        }
+
+
 def expected_home_score(
     home_rating: float,
     away_rating: float,
@@ -259,6 +294,47 @@ def elo_1x2_probabilities(
     }
     validate_probability_map(probabilities, tolerance=1e-8)
     return probabilities
+
+
+def build_elo_base_prediction(
+    *,
+    match_id: str,
+    home_team: str,
+    away_team: str,
+    home_rating: float,
+    away_rating: float,
+    neutral: bool = True,
+    elo_config: EloConfig | None = None,
+    probability_config: EloProbabilityConfig | None = None,
+    model_name: str = "elo_base",
+) -> EloBasePrediction:
+    """Build a single-match Elo base prediction with diagnostics."""
+    active_elo_config = elo_config or EloConfig()
+    home_advantage = 0.0 if neutral else active_elo_config.home_advantage
+    expected = expected_home_score(
+        home_rating,
+        away_rating,
+        home_advantage=home_advantage,
+    )
+    probabilities = elo_1x2_probabilities(
+        home_rating=home_rating,
+        away_rating=away_rating,
+        neutral=neutral,
+        elo_config=active_elo_config,
+        probability_config=probability_config,
+    )
+    return EloBasePrediction(
+        match_id=match_id,
+        home_team=home_team,
+        away_team=away_team,
+        home_rating=home_rating,
+        away_rating=away_rating,
+        neutral=neutral,
+        rating_gap=home_rating + home_advantage - away_rating,
+        expected_home_score=expected,
+        probabilities=probabilities,
+        model_name=model_name,
+    )
 
 
 def actual_home_score(result_1x2: str) -> float:

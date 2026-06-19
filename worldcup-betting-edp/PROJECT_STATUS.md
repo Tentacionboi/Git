@@ -34,6 +34,12 @@ The project can:
 - replay historical matches through a deterministic Elo rating engine;
 - write full Elo history and current team Elo rating tables to processed CSV files;
 - convert Elo expected score into first-pass home/draw/away probabilities with a transparent draw heuristic;
+- build single-match Elo base predictions with rating gap, expected home score, and 1X2 probabilities;
+- apply bounded context adjustments to Elo using rest, travel, host, form, and lineup factors when verified inputs are supplied;
+- keep missing/unverified context data from changing probability while reflecting it in confidence;
+- represent evidence status and confidence separately from probability;
+- return structured single-match reports while preserving the old flat output contract;
+- classify market alignment as market-aligned, mild divergence, or strong divergence;
 - write historical Elo 1X2 probabilities to processed CSV files;
 - generate World Cup-only match and Elo probability tables;
 - evaluate World Cup Elo 1X2 probability quality with Brier score, log loss, accuracy, and outcome-count diagnostics;
@@ -68,7 +74,7 @@ The project can:
 The project does not yet:
 
 - scrape or monitor live odds;
-- call The Odds API directly or store API keys;
+- store API keys in Git or reports;
 - ingest real fixture feeds;
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
@@ -107,11 +113,13 @@ worldcup-betting-edp/
 │   ├── market/devig.py
 │   ├── market/movement.py
 │   ├── betting/kelly.py
+│   ├── evidence.py
 │   ├── backtest/scoring.py
 │   ├── backtest/settlement.py
 │   ├── backtest/runner.py
 │   ├── models/market_baseline.py
 │   ├── models/elo.py
+│   ├── models/context.py
 │   ├── models/residual.py
 │   └── reports/single_match.py
 ├── tests/
@@ -161,7 +169,9 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/backtest/settlement.py`: flat-stake settlement and Kelly bankroll curves.
 - `src/worldcup_betting_edp/backtest/runner.py`: manifest-driven batch backtest runner.
 - `src/worldcup_betting_edp/models/elo.py`: simple Elo rating engine, historical replay, and rating table writers.
+- `src/worldcup_betting_edp/models/context.py`: bounded context-adjusted Elo layer.
 - `src/worldcup_betting_edp/models/residual.py`: conservative market-residual model that treats market probability as the anchor and applies bounded residual adjustments.
+- `src/worldcup_betting_edp/evidence.py`: evidence status and confidence scoring schemas.
 - `src/worldcup_betting_edp/cli.py`: command-line report generator.
 - `data/raw/martj42/results.csv`: downloaded public historical international results snapshot.
 - `data/raw/martj42/results.csv.metadata.json`: source URL, download time, and license notes.
@@ -194,7 +204,7 @@ worldcup-betting-edp/
 Dashboard:
 
 ```text
-http://localhost:8503
+http://localhost:8504
 ```
 
 Run locally:
@@ -235,7 +245,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 144 tests
+Ran 166 tests
 OK
 ```
 
