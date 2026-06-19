@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 import unittest
 
 from worldcup_betting_edp.domain import Match, ModelProbabilities, OddsSnapshot
-from worldcup_betting_edp.models import MarketBaselineModel
+from worldcup_betting_edp.models import MarketBaselineModel, ResidualEdgeConfig
 from worldcup_betting_edp.reports import evaluate_single_match
 
 
@@ -77,7 +77,38 @@ class SingleMatchReportTests(unittest.TestCase):
         self.assertEqual(row["fractional_kelly_fraction"], 0.0)
         self.assertEqual(row["risk_level"], "no_bet")
 
+    def test_single_match_report_can_use_market_residual_final_probabilities(self) -> None:
+        fundamental = ModelProbabilities.from_1x2(
+            match_id="m1",
+            model_name="fundamental_test_model",
+            home=0.60,
+            draw=0.22,
+            away=0.18,
+        )
+
+        report = evaluate_single_match(
+            match=self._match(),
+            odds_snapshot=self._odds(),
+            model_probabilities=fundamental,
+            use_market_residual_model=True,
+            residual_config=ResidualEdgeConfig(
+                fundamental_gap_weight=0.25,
+                max_abs_adjustment_per_outcome=0.03,
+            ),
+        )
+        row = report.to_dict()
+
+        self.assertEqual(row["probability_model_mode"], "market_residual")
+        self.assertEqual(row["fundamental_model_name"], "fundamental_test_model")
+        self.assertEqual(row["model_name"], "market_residual_mvp")
+        self.assertGreater(row["fundamental_home_prob"], row["model_home_prob"])
+        self.assertGreater(row["model_home_prob"], row["market_home_prob_devig"])
+        self.assertAlmostEqual(
+            row["delta_home"],
+            row["model_home_prob"] - row["market_home_prob_devig"],
+        )
+        self.assertIn("residual_home_adjustment", row)
+
 
 if __name__ == "__main__":
     unittest.main()
-

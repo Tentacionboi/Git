@@ -46,6 +46,8 @@ The project can:
 - engineer market movement features between configurable start and end odds types, such as opening to current;
 - write market movement feature tables with overround deltas, devigged probability deltas, favorite changes, and largest probability moves.
 - build a conservative market-residual probability vector where market probability is the anchor and fundamental/movement signals can only make bounded adjustments.
+- evaluate single-match decisions with either direct model probabilities or market-residual final probabilities;
+- show market, fundamental, and final probabilities in the Streamlit single-match dashboard when residual mode is selected.
 
 ## What It Does Not Do Yet
 
@@ -177,6 +179,11 @@ The dashboard has two sidebar modes:
 - `Single Match / 单场预测`: manual or JSON-loaded single-match pricing.
 - `Batch Backtest / 批量回测`: manifest-driven summary metrics, model-vs-market chart, scoring table, flat-stake settlement table, and Kelly bankroll curve.
 
+The single-match page has two probability modes:
+
+- `Direct Model / 直接模型概率`: user-supplied model probabilities are used directly for EV/Kelly decisions.
+- `Market Residual / 市场残差模型`: user-supplied probabilities are treated as fundamental probabilities, then converted into market-anchored final probabilities before EV/Kelly decisions.
+
 ## Verification
 
 Latest test command:
@@ -188,7 +195,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 135 tests
+Ran 136 tests
 OK
 ```
 
@@ -551,11 +558,11 @@ This demo result only validates batch plumbing. It does not prove real market ed
 
 ## Next Recommended Task
 
-Wire the market-residual probability layer into the model-vs-market reporting path and Streamlit dashboard:
+Wire the market-residual probability layer into batch/model-vs-market research:
 
-1. Display market probability, fundamental/Elo probability, residual adjustment, and final probability side by side.
-2. Use final probability, not raw Elo probability, for value-bet decisions.
-3. Keep the market probability visible as the benchmark and current trade price.
+1. Generate historical final probabilities from market probability plus Elo/fundamental residuals.
+2. Compare direct Elo, market baseline, and market-residual probabilities on the same settled World Cup matches.
+3. Add market movement signals once real timestamped odds exist.
 4. Do not claim market edge until real timestamped odds and out-of-sample backtests exist.
 
 ## Target End-State

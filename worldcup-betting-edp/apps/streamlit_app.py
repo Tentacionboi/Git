@@ -17,6 +17,7 @@ from worldcup_betting_edp.data import (
     load_prediction_input_text,
 )
 from worldcup_betting_edp.domain import Match, ModelProbabilities, OddsSnapshot
+from worldcup_betting_edp.models import ResidualEdgeConfig
 from worldcup_betting_edp.reports import evaluate_single_match
 
 
@@ -29,6 +30,8 @@ OUTCOME_LABELS = {
 SOURCE_LABELS = {
     "market": "Market / 市场",
     "model": "Model / 模型",
+    "fundamental": "Fundamental / 基本面",
+    "final": "Final / 最终",
 }
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -146,40 +149,71 @@ def _load_sidebar_prediction_input() -> PredictionInput | None:
 
 def _probability_dataframe(row: dict[str, object]) -> pd.DataFrame:
     records = []
+    is_residual = row.get("probability_model_mode") == "market_residual"
     for outcome in ("home", "draw", "away"):
-        records.extend(
-            [
+        records.append(
+            {
+                "Outcome": OUTCOME_LABELS[outcome],
+                "Source / 来源": SOURCE_LABELS["market"],
+                "Probability (%) / 概率(%)": float(row[f"market_{outcome}_prob_devig"]) * 100.0,
+            }
+        )
+        if is_residual:
+            records.append(
                 {
                     "Outcome": OUTCOME_LABELS[outcome],
-                    "Source / 来源": SOURCE_LABELS["market"],
-                    "Probability (%) / 概率(%)": float(row[f"market_{outcome}_prob_devig"]) * 100.0,
-                },
+                    "Source / 来源": SOURCE_LABELS["fundamental"],
+                    "Probability (%) / 概率(%)": float(row[f"fundamental_{outcome}_prob"])
+                    * 100.0,
+                }
+            )
+            records.append(
+                {
+                    "Outcome": OUTCOME_LABELS[outcome],
+                    "Source / 来源": SOURCE_LABELS["final"],
+                    "Probability (%) / 概率(%)": float(row[f"model_{outcome}_prob"]) * 100.0,
+                }
+            )
+        else:
+            records.append(
                 {
                     "Outcome": OUTCOME_LABELS[outcome],
                     "Source / 来源": SOURCE_LABELS["model"],
                     "Probability (%) / 概率(%)": float(row[f"model_{outcome}_prob"]) * 100.0,
-                },
-            ]
-        )
+                }
+            )
     return pd.DataFrame.from_records(records)
 
 
 def _decision_dataframe(row: dict[str, object]) -> pd.DataFrame:
     records = []
+    is_residual = row.get("probability_model_mode") == "market_residual"
+    model_probability_column = (
+        "Final Prob (%) / 最终概率(%)"
+        if is_residual
+        else "Model Prob (%) / 模型概率(%)"
+    )
     for outcome in ("home", "draw", "away"):
         reason = str(row[f"{outcome}_decision_reason"])
-        records.append(
-            {
-                "Outcome / 结果": OUTCOME_LABELS[outcome],
-                "Odds / 赔率": float(row[f"market_{outcome}_odds"]),
-                "Market Prob (%) / 市场概率(%)": float(row[f"market_{outcome}_prob_devig"]) * 100.0,
-                "Model Prob (%) / 模型概率(%)": float(row[f"model_{outcome}_prob"]) * 100.0,
-                "Edge (%) / 概率差(%)": float(row[f"delta_{outcome}"]) * 100.0,
-                "EV (%)": float(row[f"{outcome}_ev"]) * 100.0,
-                "Kelly (%) / 凯利(%)": float(row[f"{outcome}_kelly_fraction"]) * 100.0,
-                "Reason / 理由": _display_reason(reason),
-            }
-        )
+        record = {
+            "Outcome / 结果": OUTCOME_LABELS[outcome],
+            "Odds / 赔率": float(row[f"market_{outcome}_odds"]),
+            "Market Prob (%) / 市场概率(%)": float(row[f"market_{outcome}_prob_devig"]) * 100.0,
+        }
+        if is_residual:
+            record["Fundamental Prob (%) / 基本面概率(%)"] = (
+                float(row[f"fundamental_{outcome}_prob"]) * 100.0
+            )
+        record[model_probability_column] = float(row[f"model_{outcome}_prob"]) * 100.0
+        if is_residual:
+            record["Residual Adj (%) / 残差修正(%)"] = (
+                float(row[f"residual_{outcome}_adjustment"]) * 100.0
+            )
+        record["Edge (%) / 概率差(%)"] = float(row[f"delta_{outcome}"]) * 100.0
+        record["EV (%)"] = float(row[f"{outcome}_ev"]) * 100.0
+        record["Kelly (%) / 凯利(%)"] = float(row[f"{outcome}_kelly_fraction"]) * 100.0
+        record["Reason / 理由"] = _display_reason(reason)
+        records.append(record)
     return pd.DataFrame.from_records(records)
 
 
@@ -267,7 +301,13 @@ def _display_reason(reason: str) -> str:
     return reason
 
 
-def _build_sidebar_inputs() -> tuple[Match, OddsSnapshot, ModelProbabilities] | None:
+def _build_sidebar_inputs() -> tuple[
+    Match,
+    OddsSnapshot,
+    ModelProbabilities,
+    bool,
+    ResidualEdgeConfig | None,
+] | None:
     defaults = _load_sidebar_prediction_input()
     if defaults is None:
         st.info("Fix the uploaded JSON file or remove it. / 请修复上传的 JSON 文件，或移除该文件。")
@@ -300,9 +340,31 @@ def _build_sidebar_inputs() -> tuple[Match, OddsSnapshot, ModelProbabilities] | 
     odds_draw = st.sidebar.number_input("Draw odds / 平局赔率", min_value=1.01, value=float(default_odds.draw), step=0.01)
     odds_away = st.sidebar.number_input("Away odds / 客胜赔率", min_value=1.01, value=float(default_odds.away), step=0.01)
 
-    st.sidebar.header("Model Probabilities / 模型概率")
-    st.sidebar.caption("Enter probabilities as percentages. They must sum to 100%. / 请输入百分比，三项合计必须为100%。")
-    model_name = st.sidebar.text_input("Model name / 模型名称", value=default_model.model_name)
+    st.sidebar.header("Model Mode / 模型模式")
+    model_mode = st.sidebar.selectbox(
+        "Probability mode / 概率模式",
+        ["Direct Model / 直接模型概率", "Market Residual / 市场残差模型"],
+        index=0,
+    )
+    use_residual_model = model_mode.startswith("Market Residual")
+
+    st.sidebar.header(
+        "Fundamental Probabilities / 基本面概率"
+        if use_residual_model
+        else "Model Probabilities / 模型概率"
+    )
+    st.sidebar.caption(
+        "In residual mode these are fundamental probabilities; final probabilities are "
+        "market-anchored. / 残差模式下这里输入的是基本面概率，最终概率会锚定市场概率。"
+        if use_residual_model
+        else "Enter probabilities as percentages. They must sum to 100%. / 请输入百分比，三项合计必须为100%。"
+    )
+    model_name = st.sidebar.text_input(
+        "Fundamental model name / 基本面模型名称"
+        if use_residual_model
+        else "Model name / 模型名称",
+        value=default_model.model_name,
+    )
     model_home_pct = st.sidebar.number_input(
         "Home model probability / 主胜模型概率",
         0.0,
@@ -325,6 +387,29 @@ def _build_sidebar_inputs() -> tuple[Match, OddsSnapshot, ModelProbabilities] | 
         0.5,
     )
     probability_total = model_home_pct + model_draw_pct + model_away_pct
+    residual_config = None
+    if use_residual_model:
+        st.sidebar.header("Residual Rules / 残差规则")
+        fundamental_gap_weight = st.sidebar.slider(
+            "Fundamental gap weight / 基本面差异权重",
+            min_value=0.0,
+            max_value=1.0,
+            value=0.25,
+            step=0.05,
+            format="%.2f",
+        )
+        max_abs_adjustment = st.sidebar.slider(
+            "Max adjustment per outcome / 单项最大修正",
+            min_value=0.0,
+            max_value=0.10,
+            value=0.05,
+            step=0.005,
+            format="%.3f",
+        )
+        residual_config = ResidualEdgeConfig(
+            fundamental_gap_weight=float(fundamental_gap_weight),
+            max_abs_adjustment_per_outcome=float(max_abs_adjustment),
+        )
 
     st.sidebar.header("Bet Rules / 下注规则")
     probability_edge_threshold = st.sidebar.slider(
@@ -402,7 +487,7 @@ def _build_sidebar_inputs() -> tuple[Match, OddsSnapshot, ModelProbabilities] | 
         "kelly_fraction": kelly_fraction,
         "stake_cap": stake_cap,
     }
-    return match, odds, model
+    return match, odds, model, use_residual_model, residual_config
 
 
 def _render_single_match_page() -> None:
@@ -410,7 +495,7 @@ def _render_single_match_page() -> None:
     if inputs is None:
         return
 
-    match, odds, model = inputs
+    match, odds, model, use_residual_model, residual_config = inputs
     rules = st.session_state["bet_rules"]
     report = evaluate_single_match(
         match=match,
@@ -420,6 +505,8 @@ def _render_single_match_page() -> None:
         ev_threshold=float(rules["ev_threshold"]),
         kelly_fraction=float(rules["kelly_fraction"]),
         stake_cap=float(rules["stake_cap"]),
+        use_market_residual_model=use_residual_model,
+        residual_config=residual_config,
     )
     row = report.to_dict()
 
@@ -449,7 +536,11 @@ def _render_single_match_page() -> None:
 
     chart_col, summary_col = st.columns([1.3, 0.9], gap="large")
     with chart_col:
-        st.subheader("Market vs Model Probability / 市场概率 vs 模型概率")
+        st.subheader(
+            "Market vs Fundamental vs Final Probability / 市场 vs 基本面 vs 最终概率"
+            if row.get("probability_model_mode") == "market_residual"
+            else "Market vs Model Probability / 市场概率 vs 模型概率"
+        )
         probability_df = _probability_dataframe(row)
         chart = (
             alt.Chart(probability_df)
@@ -468,7 +559,7 @@ def _render_single_match_page() -> None:
                 ),
                 color=alt.Color(
                     "Source / 来源:N",
-                    scale=alt.Scale(range=["#175cd3", "#7cc4fa"]),
+                    scale=alt.Scale(range=["#175cd3", "#7cc4fa", "#12b76a"]),
                     legend=alt.Legend(orient="bottom", title=None),
                 ),
                 tooltip=[
@@ -479,7 +570,7 @@ def _render_single_match_page() -> None:
             )
             .properties(height=310)
         )
-        st.altair_chart(chart, use_container_width=True)
+        st.altair_chart(chart, width="stretch")
 
     with summary_col:
         st.subheader("Decision / 决策")
@@ -487,12 +578,23 @@ def _render_single_match_page() -> None:
             st.success(_display_reason(str(row["reason"])))
         else:
             st.warning(_display_reason(str(row["reason"])))
+        decision_summary = {
+            "risk_level / 风险等级": row["risk_level"],
+            "probability_mode / 概率模式": row["probability_model_mode"],
+            "bookmaker / 博彩公司": row["bookmaker"],
+            "odds_captured_at / 赔率采集时间": row["odds_captured_at"],
+        }
+        if row.get("probability_model_mode") == "market_residual":
+            adjustment_outcome = str(row["largest_residual_adjustment_outcome"])
+            decision_summary["largest_residual_adjustment / 最大残差修正"] = (
+                f"{OUTCOME_LABELS[adjustment_outcome]} "
+                f"{float(row['largest_residual_adjustment']):+.2%}"
+            )
+            decision_summary["residual_gap_weight / 残差权重"] = row[
+                "residual_fundamental_gap_weight"
+            ]
         st.write(
-            {
-                "risk_level / 风险等级": row["risk_level"],
-                "bookmaker / 博彩公司": row["bookmaker"],
-                "odds_captured_at / 赔率采集时间": row["odds_captured_at"],
-            }
+            decision_summary
         )
 
     st.subheader("Outcome Table / 结果表")
@@ -500,11 +602,14 @@ def _render_single_match_page() -> None:
     st.dataframe(
         decision_df,
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
         column_config={
             "Odds / 赔率": st.column_config.NumberColumn(format="%.2f"),
             "Market Prob (%) / 市场概率(%)": st.column_config.NumberColumn(format="%.2f"),
             "Model Prob (%) / 模型概率(%)": st.column_config.NumberColumn(format="%.2f"),
+            "Fundamental Prob (%) / 基本面概率(%)": st.column_config.NumberColumn(format="%.2f"),
+            "Final Prob (%) / 最终概率(%)": st.column_config.NumberColumn(format="%.2f"),
+            "Residual Adj (%) / 残差修正(%)": st.column_config.NumberColumn(format="%.2f"),
             "Edge (%) / 概率差(%)": st.column_config.NumberColumn(format="%.2f"),
             "EV (%)": st.column_config.NumberColumn(format="%.2f"),
             "Kelly (%) / 凯利(%)": st.column_config.NumberColumn(format="%.2f"),
@@ -666,7 +771,7 @@ def _render_batch_backtest_page() -> None:
                 )
                 .properties(height=320)
             )
-            st.altair_chart(curve_chart, use_container_width=True)
+            st.altair_chart(curve_chart, width="stretch")
 
     with score_col:
         st.subheader("Model vs Market / 模型 vs 市场")
@@ -700,14 +805,14 @@ def _render_batch_backtest_page() -> None:
             )
             .properties(height=320)
         )
-        st.altair_chart(comparison_chart, use_container_width=True)
+        st.altair_chart(comparison_chart, width="stretch")
 
     st.subheader("Scoring Table / 评分表")
     scoring_df = _batch_scoring_dataframe(payload["scored_predictions"])
     st.dataframe(
         scoring_df,
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
         column_config={
             "Model Brier": st.column_config.NumberColumn(format="%.4f"),
             "Market Brier": st.column_config.NumberColumn(format="%.4f"),
@@ -721,7 +826,7 @@ def _render_batch_backtest_page() -> None:
     st.dataframe(
         settlement_df,
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
         column_config={
             "Odds / 赔率": st.column_config.NumberColumn(format="%.2f"),
             "Stake / 注额": st.column_config.NumberColumn(format="%.2f"),

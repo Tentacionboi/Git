@@ -490,3 +490,4 @@ streamlit run apps/streamlit_app.py
 The dashboard uses English-first bilingual labels, for example `Market Odds / 市场赔率`.
 It can also load a one-match prediction file through `Upload JSON / 上传JSON`.
 Use the sidebar `Mode / 模式` control to switch between single-match pricing and batch backtesting.
+In single-match mode, use `Probability mode / 概率模式` to switch between direct model probabilities and market-residual final probabilities.
