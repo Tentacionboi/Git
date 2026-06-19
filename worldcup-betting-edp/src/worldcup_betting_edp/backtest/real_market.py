@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+from itertools import product
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
@@ -165,6 +166,98 @@ def run_real_market_backtest(
     }
 
 
+def run_real_market_parameter_sweep(
+    *,
+    canonical_odds_path: str | Path,
+    elo_probabilities_path: str | Path,
+    edge_thresholds: Sequence[float],
+    ev_thresholds: Sequence[float],
+    residual_gap_weights: Sequence[float],
+    residual_max_adjustments: Sequence[float],
+    max_parameter_runs: int = 200,
+) -> dict[str, Any]:
+    """Run a bounded grid search over real-market backtest parameters."""
+    edge_values = _validated_sweep_values(edge_thresholds, name="edge_thresholds")
+    ev_values = _validated_sweep_values(ev_thresholds, name="ev_thresholds")
+    gap_values = _validated_sweep_values(residual_gap_weights, name="residual_gap_weights")
+    adjustment_values = _validated_sweep_values(
+        residual_max_adjustments,
+        name="residual_max_adjustments",
+    )
+    parameter_count = len(edge_values) * len(ev_values) * len(gap_values) * len(adjustment_values)
+    if parameter_count > max_parameter_runs:
+        raise ValueError(
+            f"parameter grid has {parameter_count} runs, above max_parameter_runs={max_parameter_runs}"
+        )
+
+    rows = []
+    for edge_threshold, ev_threshold, gap_weight, max_adjustment in product(
+        edge_values,
+        ev_values,
+        gap_values,
+        adjustment_values,
+    ):
+        payload = run_real_market_backtest(
+            canonical_odds_path=canonical_odds_path,
+            elo_probabilities_path=elo_probabilities_path,
+            edge_threshold=edge_threshold,
+            ev_threshold=ev_threshold,
+            residual_config=ResidualEdgeConfig(
+                fundamental_gap_weight=gap_weight,
+                max_abs_adjustment_per_outcome=max_adjustment,
+            ),
+        )
+        quality = payload["probability_quality"]
+        residual = quality["market_residual"]
+        value_summary = payload["value_bet_summary"]
+        rows.append(
+            {
+                "edge_threshold": edge_threshold,
+                "ev_threshold": ev_threshold,
+                "residual_gap_weight": gap_weight,
+                "residual_max_adjustment": max_adjustment,
+                "accuracy": residual["accuracy"],
+                "brier_score": residual["mean_brier_score"],
+                "log_loss": residual["mean_log_loss"],
+                "residual_minus_market_brier": quality["residual_minus_market_brier"],
+                "residual_minus_market_log_loss": quality["residual_minus_market_log_loss"],
+                "bet_count": value_summary["bet_count"],
+                "hit_rate": value_summary["hit_rate"],
+                "flat_roi": value_summary["flat_roi"],
+                "flat_profit": value_summary["flat_profit"],
+                "average_ev": value_summary["average_ev"],
+                "average_odds": value_summary["average_odds"],
+                "max_drawdown": value_summary["max_drawdown"],
+            }
+        )
+
+    return {
+        "input": {
+            "canonical_odds": str(canonical_odds_path),
+            "elo_probabilities": str(elo_probabilities_path),
+            "edge_thresholds": list(edge_values),
+            "ev_thresholds": list(ev_values),
+            "residual_gap_weights": list(gap_values),
+            "residual_max_adjustments": list(adjustment_values),
+            "max_parameter_runs": max_parameter_runs,
+        },
+        "run_count": parameter_count,
+        "rows": sorted(
+            rows,
+            key=lambda row: (
+                -float(row["flat_roi"]),
+                float(row["brier_score"]),
+                -int(row["bet_count"]),
+            ),
+        ),
+        "notes": [
+            "Sweep results are descriptive. They are not an out-of-sample parameter selection proof.",
+            "Ranking by ROI alone can overfit this single historical odds snapshot.",
+            "Prefer parameter regions that also preserve probability quality and enough bet count.",
+        ],
+    }
+
+
 def strip_detail_rows(payload: Mapping[str, Any]) -> dict[str, Any]:
     """Return an aggregate-only report payload safe for committed reports."""
     aggregate = dict(payload)
@@ -179,6 +272,16 @@ def strip_detail_rows(payload: Mapping[str, Any]) -> dict[str, Any]:
         ),
     }
     return aggregate
+
+
+def _validated_sweep_values(values: Sequence[float], *, name: str) -> tuple[float, ...]:
+    unique_values = tuple(sorted({round(float(value), 10) for value in values}))
+    if not unique_values:
+        raise ValueError(f"{name} cannot be empty")
+    for value in unique_values:
+        if value < 0.0:
+            raise ValueError(f"{name} cannot include negative values")
+    return unique_values
 
 
 def _load_probability_rows(path: str | Path) -> list[dict[str, object]]:

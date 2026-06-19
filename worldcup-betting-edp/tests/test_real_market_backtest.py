@@ -3,7 +3,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from worldcup_betting_edp.backtest import run_real_market_backtest, strip_detail_rows
+from worldcup_betting_edp.backtest import (
+    run_real_market_backtest,
+    run_real_market_parameter_sweep,
+    strip_detail_rows,
+)
 from worldcup_betting_edp.data import MarketOddsSnapshot, write_market_odds_csv
 from worldcup_betting_edp.models import ResidualEdgeConfig
 
@@ -111,6 +115,79 @@ class RealMarketBacktestTests(unittest.TestCase):
         self.assertNotIn("value_bets", aggregate)
         self.assertNotIn("match_rows", aggregate)
         self.assertEqual(aggregate["bankroll_curve"]["final_bankroll"], 101.0)
+
+    def test_run_real_market_parameter_sweep_returns_ranked_rows(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            odds_path = tmp_path / "odds.csv"
+            elo_path = tmp_path / "elo.csv"
+            write_market_odds_csv(
+                [
+                    MarketOddsSnapshot(
+                        match_id="m1",
+                        bookmaker="book_a",
+                        captured_at="2022-11-20T12:00:00Z",
+                        home_odds=2.20,
+                        draw_odds=3.50,
+                        away_odds=4.00,
+                        odds_type="historical_snapshot",
+                        source="unit-test",
+                    )
+                ],
+                odds_path,
+            )
+            with elo_path.open("w", encoding="utf-8", newline="") as handle:
+                writer = csv.DictWriter(
+                    handle,
+                    fieldnames=[
+                        "match_id",
+                        "match_date",
+                        "home_team",
+                        "away_team",
+                        "home_probability",
+                        "draw_probability",
+                        "away_probability",
+                        "actual_result",
+                    ],
+                )
+                writer.writeheader()
+                writer.writerow(
+                    {
+                        "match_id": "m1",
+                        "match_date": "2022-11-21",
+                        "home_team": "A",
+                        "away_team": "B",
+                        "home_probability": 0.58,
+                        "draw_probability": 0.24,
+                        "away_probability": 0.18,
+                        "actual_result": "home",
+                    }
+                )
+
+            payload = run_real_market_parameter_sweep(
+                canonical_odds_path=odds_path,
+                elo_probabilities_path=elo_path,
+                edge_thresholds=[0.0, 0.02],
+                ev_thresholds=[0.0],
+                residual_gap_weights=[0.25],
+                residual_max_adjustments=[0.05, 0.10],
+            )
+
+        self.assertEqual(payload["run_count"], 4)
+        self.assertEqual(len(payload["rows"]), 4)
+        self.assertIn("flat_roi", payload["rows"][0])
+
+    def test_run_real_market_parameter_sweep_rejects_large_grids(self):
+        with self.assertRaises(ValueError):
+            run_real_market_parameter_sweep(
+                canonical_odds_path="unused.csv",
+                elo_probabilities_path="unused.csv",
+                edge_thresholds=[0.0, 0.01, 0.02],
+                ev_thresholds=[0.0, 0.01, 0.02],
+                residual_gap_weights=[0.0, 0.25, 0.50],
+                residual_max_adjustments=[0.02, 0.05, 0.08],
+                max_parameter_runs=10,
+            )
 
 
 if __name__ == "__main__":

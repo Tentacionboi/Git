@@ -53,6 +53,7 @@ from worldcup_betting_edp.backtest.settlement import (
     settle_kelly_bankroll,
 )
 from worldcup_betting_edp.backtest.real_market import (
+    run_real_market_parameter_sweep,
     run_real_market_backtest,
     strip_detail_rows,
 )
@@ -89,6 +90,7 @@ __all__ = [
     "parse_timestamp",
     "run_batch_backtest",
     "run_batch_backtest_path",
+    "run_real_market_parameter_sweep",
     "run_real_market_backtest",
     "score_prediction_report",
     "settle_flat_stake",

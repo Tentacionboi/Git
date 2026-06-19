@@ -9,7 +9,11 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-from worldcup_betting_edp.backtest import run_batch_backtest, run_real_market_backtest
+from worldcup_betting_edp.backtest import (
+    run_batch_backtest,
+    run_real_market_backtest,
+    run_real_market_parameter_sweep,
+)
 from worldcup_betting_edp.data import (
     PredictionInput,
     load_backtest_manifest_path,
@@ -912,6 +916,25 @@ def _run_cached_real_market_backtest(
     )
 
 
+@st.cache_data(show_spinner=False)
+def _run_cached_real_market_parameter_sweep(
+    canonical_odds_path: str,
+    elo_probabilities_path: str,
+    edge_thresholds: tuple[float, ...],
+    ev_thresholds: tuple[float, ...],
+    residual_gap_weights: tuple[float, ...],
+    residual_max_adjustments: tuple[float, ...],
+) -> dict[str, object]:
+    return run_real_market_parameter_sweep(
+        canonical_odds_path=canonical_odds_path,
+        elo_probabilities_path=elo_probabilities_path,
+        edge_thresholds=edge_thresholds,
+        ev_thresholds=ev_thresholds,
+        residual_gap_weights=residual_gap_weights,
+        residual_max_adjustments=residual_max_adjustments,
+    )
+
+
 def _probability_quality_dataframe(payload: dict[str, object]) -> pd.DataFrame:
     quality = payload["probability_quality"]
     rows = []
@@ -1006,6 +1029,36 @@ def _real_match_rows_dataframe(payload: dict[str, object]) -> pd.DataFrame:
             }
         )
     return pd.DataFrame.from_records(records)
+
+
+def _sweep_dataframe(payload: dict[str, object]) -> pd.DataFrame:
+    records = []
+    for row in payload["rows"]:
+        records.append(
+            {
+                "Edge Threshold / 概率阈值": row["edge_threshold"],
+                "EV Threshold / EV阈值": row["ev_threshold"],
+                "Residual Gap Weight / 残差权重": row["residual_gap_weight"],
+                "Max Adjustment / 最大修正": row["residual_max_adjustment"],
+                "Accuracy / 准确率": row["accuracy"],
+                "Brier Score": row["brier_score"],
+                "Log Loss": row["log_loss"],
+                "Residual-Market Brier": row["residual_minus_market_brier"],
+                "Residual-Market LogLoss": row["residual_minus_market_log_loss"],
+                "Bet Count / 下注数": row["bet_count"],
+                "Hit Rate / 命中率": row["hit_rate"],
+                "Flat ROI / 固定注ROI": row["flat_roi"],
+                "Flat Profit / 固定注盈亏": row["flat_profit"],
+                "Average EV / 平均EV": row["average_ev"],
+                "Average Odds / 平均赔率": row["average_odds"],
+                "Max Drawdown / 最大回撤": row["max_drawdown"],
+            }
+        )
+    return pd.DataFrame.from_records(records)
+
+
+def _format_float_choice(value: float) -> str:
+    return f"{value:.3f}".rstrip("0").rstrip(".")
 
 
 def _render_real_market_backtest_page() -> None:
@@ -1217,6 +1270,186 @@ def _render_real_market_backtest_page() -> None:
                 "Edge (%) / 概率差(%)": st.column_config.NumberColumn(format="%.2f"),
                 "EV (%)": st.column_config.NumberColumn(format="%.2f"),
                 "Profit / 盈亏": st.column_config.NumberColumn(format="%.2f"),
+            },
+        )
+
+    st.subheader("Parameter Sweep / 参数扫描")
+    st.caption(
+        "Run a bounded grid search to see parameter regions, not just one hand-picked setting. / "
+        "运行受控网格扫描，看参数区域，而不是只看一个手选参数点。"
+    )
+    sweep_edge_candidates = [0.0, 0.01, 0.02, 0.03, 0.04, 0.05]
+    sweep_ev_candidates = [0.0, 0.01, 0.02, 0.05, 0.10]
+    sweep_gap_candidates = [0.0, 0.15, 0.25, 0.35, 0.50]
+    sweep_adjustment_candidates = [0.02, 0.05, 0.08, 0.10]
+    sweep_cols = st.columns(4)
+    with sweep_cols[0]:
+        sweep_edges = st.multiselect(
+            "Edge values / 概率阈值候选",
+            sweep_edge_candidates,
+            default=[0.0, 0.02, 0.04],
+            format_func=_format_float_choice,
+            key="sweep_edges",
+        )
+    with sweep_cols[1]:
+        sweep_evs = st.multiselect(
+            "EV values / EV阈值候选",
+            sweep_ev_candidates,
+            default=[0.0, 0.01, 0.05],
+            format_func=_format_float_choice,
+            key="sweep_evs",
+        )
+    with sweep_cols[2]:
+        sweep_gaps = st.multiselect(
+            "Residual weights / 残差权重候选",
+            sweep_gap_candidates,
+            default=[0.0, 0.25, 0.50],
+            format_func=_format_float_choice,
+            key="sweep_gaps",
+        )
+    with sweep_cols[3]:
+        sweep_adjustments = st.multiselect(
+            "Max adjustments / 最大修正候选",
+            sweep_adjustment_candidates,
+            default=[0.05, 0.10],
+            format_func=_format_float_choice,
+            key="sweep_adjustments",
+        )
+
+    sweep_run_count = (
+        len(sweep_edges) * len(sweep_evs) * len(sweep_gaps) * len(sweep_adjustments)
+    )
+    st.caption(f"Planned runs / 计划回测组合数：{sweep_run_count}")
+    if sweep_run_count == 0:
+        st.info("Choose at least one value in each sweep control. / 每组候选值至少选择一个。")
+    elif sweep_run_count > 200:
+        st.error("Sweep grid is too large. Keep it at 200 runs or fewer. / 参数组合过多，请控制在200组以内。")
+    else:
+        run_sweep = st.button(
+            "Run Parameter Sweep / 运行参数扫描",
+            key="run_real_market_sweep",
+            type="primary",
+        )
+        if run_sweep:
+            with st.spinner("Running parameter sweep... / 正在运行参数扫描..."):
+                try:
+                    st.session_state["real_market_sweep_payload"] = (
+                        _run_cached_real_market_parameter_sweep(
+                            odds_path,
+                            elo_path,
+                            tuple(float(value) for value in sweep_edges),
+                            tuple(float(value) for value in sweep_evs),
+                            tuple(float(value) for value in sweep_gaps),
+                            tuple(float(value) for value in sweep_adjustments),
+                        )
+                    )
+                except ValueError as exc:
+                    st.error(f"Parameter sweep failed. / 参数扫描失败：{exc}")
+
+    sweep_payload = st.session_state.get("real_market_sweep_payload")
+    if sweep_payload:
+        sweep_df = _sweep_dataframe(sweep_payload)
+        st.warning(
+            "Sweep interpretation / 扫描解读：这里仍然是同一个历史样本内结果。"
+            "不要用最高ROI单点作为最终模型参数；优先看概率质量、下注数和回撤是否同时合理。"
+        )
+        metric_choice = st.selectbox(
+            "Heatmap metric / 热力图指标",
+            [
+                "Flat ROI / 固定注ROI",
+                "Brier Score",
+                "Log Loss",
+                "Bet Count / 下注数",
+                "Max Drawdown / 最大回撤",
+            ],
+            index=0,
+            key="sweep_heatmap_metric",
+        )
+        filter_cols = st.columns(2)
+        with filter_cols[0]:
+            gap_slice = st.selectbox(
+                "Heatmap residual weight slice / 热力图残差权重切片",
+                sorted(sweep_df["Residual Gap Weight / 残差权重"].unique()),
+                format_func=_format_float_choice,
+                key="sweep_gap_slice",
+            )
+        with filter_cols[1]:
+            adjustment_slice = st.selectbox(
+                "Heatmap max adjustment slice / 热力图最大修正切片",
+                sorted(sweep_df["Max Adjustment / 最大修正"].unique()),
+                format_func=_format_float_choice,
+                key="sweep_adjustment_slice",
+            )
+        heatmap_df = sweep_df[
+            (sweep_df["Residual Gap Weight / 残差权重"] == gap_slice)
+            & (sweep_df["Max Adjustment / 最大修正"] == adjustment_slice)
+        ]
+        heatmap = (
+            alt.Chart(heatmap_df)
+            .mark_rect()
+            .encode(
+                x=alt.X("Edge Threshold / 概率阈值:O", title="Edge threshold / 概率阈值"),
+                y=alt.Y("EV Threshold / EV阈值:O", title="EV threshold / EV阈值"),
+                color=alt.Color(f"{metric_choice}:Q", title=metric_choice),
+                tooltip=[
+                    alt.Tooltip("Edge Threshold / 概率阈值:Q", format=".3f"),
+                    alt.Tooltip("EV Threshold / EV阈值:Q", format=".3f"),
+                    alt.Tooltip("Residual Gap Weight / 残差权重:Q", format=".2f"),
+                    alt.Tooltip("Max Adjustment / 最大修正:Q", format=".3f"),
+                    alt.Tooltip(f"{metric_choice}:Q", format=".4f"),
+                    alt.Tooltip("Bet Count / 下注数:Q", format=".0f"),
+                    alt.Tooltip("Brier Score:Q", format=".4f"),
+                    alt.Tooltip("Log Loss:Q", format=".4f"),
+                ],
+            )
+            .properties(height=320)
+        )
+        st.altair_chart(heatmap, width="stretch")
+
+        rank_metric = st.selectbox(
+            "Ranking metric / 排名指标",
+            [
+                "Flat ROI / 固定注ROI",
+                "Brier Score",
+                "Log Loss",
+                "Residual-Market Brier",
+                "Bet Count / 下注数",
+                "Max Drawdown / 最大回撤",
+            ],
+            index=0,
+            key="sweep_rank_metric",
+        )
+        lower_is_better = rank_metric in {
+            "Brier Score",
+            "Log Loss",
+            "Residual-Market Brier",
+            "Max Drawdown / 最大回撤",
+        }
+        ranked_df = sweep_df.sort_values(
+            by=rank_metric,
+            ascending=lower_is_better,
+            na_position="last",
+        )
+        st.dataframe(
+            ranked_df.head(25),
+            hide_index=True,
+            width="stretch",
+            column_config={
+                "Edge Threshold / 概率阈值": st.column_config.NumberColumn(format="%.3f"),
+                "EV Threshold / EV阈值": st.column_config.NumberColumn(format="%.3f"),
+                "Residual Gap Weight / 残差权重": st.column_config.NumberColumn(format="%.2f"),
+                "Max Adjustment / 最大修正": st.column_config.NumberColumn(format="%.3f"),
+                "Accuracy / 准确率": st.column_config.NumberColumn(format="%.3f"),
+                "Brier Score": st.column_config.NumberColumn(format="%.4f"),
+                "Log Loss": st.column_config.NumberColumn(format="%.4f"),
+                "Residual-Market Brier": st.column_config.NumberColumn(format="%.4f"),
+                "Residual-Market LogLoss": st.column_config.NumberColumn(format="%.4f"),
+                "Hit Rate / 命中率": st.column_config.NumberColumn(format="%.3f"),
+                "Flat ROI / 固定注ROI": st.column_config.NumberColumn(format="%.3f"),
+                "Flat Profit / 固定注盈亏": st.column_config.NumberColumn(format="%.2f"),
+                "Average EV / 平均EV": st.column_config.NumberColumn(format="%.3f"),
+                "Average Odds / 平均赔率": st.column_config.NumberColumn(format="%.2f"),
+                "Max Drawdown / 最大回撤": st.column_config.NumberColumn(format="%.3f"),
             },
         )
 
