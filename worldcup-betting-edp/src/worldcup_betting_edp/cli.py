@@ -11,6 +11,7 @@ from typing import Any, Sequence, TextIO
 
 from worldcup_betting_edp.backtest import run_batch_backtest_path
 from worldcup_betting_edp.data import load_prediction_input_path
+from worldcup_betting_edp.models import ResidualEdgeConfig
 from worldcup_betting_edp.reports import evaluate_single_match
 
 
@@ -21,6 +22,8 @@ def run_prediction(
     ev_threshold: float = 0.01,
     kelly_fraction: float = 0.25,
     stake_cap: float = 0.02,
+    use_market_residual_model: bool = False,
+    residual_config: ResidualEdgeConfig | None = None,
 ) -> dict[str, Any]:
     """Run the single-match prediction pipeline and return a flat report."""
     prediction_input = load_prediction_input_path(input_path)
@@ -32,6 +35,8 @@ def run_prediction(
         ev_threshold=ev_threshold,
         kelly_fraction=kelly_fraction,
         stake_cap=stake_cap,
+        use_market_residual_model=use_market_residual_model,
+        residual_config=residual_config,
     )
     return report.to_dict()
 
@@ -45,6 +50,8 @@ def run_backtest(
     ev_threshold: float = 0.01,
     kelly_fraction: float = 0.25,
     stake_cap: float = 0.02,
+    use_market_residual_model: bool = False,
+    residual_config: ResidualEdgeConfig | None = None,
 ) -> dict[str, Any]:
     """Run a manifest-driven batch backtest and return a serializable payload."""
     return run_batch_backtest_path(
@@ -55,6 +62,8 @@ def run_backtest(
         ev_threshold=ev_threshold,
         kelly_fraction=kelly_fraction,
         stake_cap=stake_cap,
+        use_market_residual_model=use_market_residual_model,
+        residual_config=residual_config,
     ).to_dict()
 
 
@@ -68,6 +77,7 @@ def main(
     error_output = stderr or sys.stderr
     parser = _build_parser()
     args = parser.parse_args(argv)
+    residual_config = _residual_config_from_args(args)
 
     try:
         if args.input:
@@ -77,6 +87,8 @@ def main(
                 ev_threshold=args.ev_threshold,
                 kelly_fraction=args.kelly_fraction,
                 stake_cap=args.stake_cap,
+                use_market_residual_model=args.market_residual,
+                residual_config=residual_config,
             )
         else:
             if args.format != "json":
@@ -89,6 +101,8 @@ def main(
                 ev_threshold=args.ev_threshold,
                 kelly_fraction=args.kelly_fraction,
                 stake_cap=args.stake_cap,
+                use_market_residual_model=args.market_residual,
+                residual_config=residual_config,
             )
     except (OSError, ValueError) as exc:
         print(f"error: {exc}", file=error_output)
@@ -105,6 +119,15 @@ def main(
         return 1
 
     return 0
+
+
+def _residual_config_from_args(args: argparse.Namespace) -> ResidualEdgeConfig | None:
+    if not args.market_residual:
+        return None
+    return ResidualEdgeConfig(
+        fundamental_gap_weight=args.residual_fundamental_gap_weight,
+        max_abs_adjustment_per_outcome=args.residual_max_adjustment,
+    )
 
 
 def _render_payload(row: dict[str, Any], output_format: str) -> str:
@@ -191,6 +214,23 @@ def _build_parser() -> argparse.ArgumentParser:
         type=float,
         default=100.0,
         help="Starting bankroll used for Kelly bankroll curves in batch backtests.",
+    )
+    parser.add_argument(
+        "--market-residual",
+        action="store_true",
+        help="Use market-residual final probabilities instead of direct model probabilities.",
+    )
+    parser.add_argument(
+        "--residual-fundamental-gap-weight",
+        type=float,
+        default=0.25,
+        help="Weight applied to fundamental-minus-market probability gaps in residual mode.",
+    )
+    parser.add_argument(
+        "--residual-max-adjustment",
+        type=float,
+        default=0.05,
+        help="Maximum absolute residual probability adjustment per outcome.",
     )
     return parser
 

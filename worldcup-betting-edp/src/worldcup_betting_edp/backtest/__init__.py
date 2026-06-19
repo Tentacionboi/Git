@@ -2,6 +2,7 @@
 
 from worldcup_betting_edp.backtest.runner import (
     BatchBacktestResult,
+    FundamentalScore,
     run_batch_backtest,
     run_batch_backtest_path,
 )
@@ -59,6 +60,7 @@ __all__ = [
     "EloCalibrationCandidate",
     "EloCalibrationResult",
     "FlatStakeSettlement",
+    "FundamentalScore",
     "LEAKAGE_RISK_HIGH",
     "LEAKAGE_RISK_LOW",
     "LEAKAGE_RISK_MEDIUM",

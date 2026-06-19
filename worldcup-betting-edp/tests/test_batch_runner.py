@@ -3,6 +3,7 @@ import unittest
 
 from worldcup_betting_edp.backtest import run_batch_backtest, run_batch_backtest_path
 from worldcup_betting_edp.data import load_backtest_manifest_path
+from worldcup_betting_edp.models import ResidualEdgeConfig
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -37,6 +38,33 @@ class BatchRunnerTests(unittest.TestCase):
         self.assertEqual(result.summary()["entry_count"], 1)
         self.assertAlmostEqual(result.summary()["flat_total_profit"], 6.0)
         self.assertAlmostEqual(result.kelly_curve.final_bankroll, 50.975)
+
+    def test_runs_batch_backtest_with_market_residual_probabilities(self) -> None:
+        manifest = load_backtest_manifest_path(MANIFEST)
+
+        result = run_batch_backtest(
+            manifest,
+            flat_stake=10.0,
+            starting_bankroll=100.0,
+            use_market_residual_model=True,
+            residual_config=ResidualEdgeConfig(
+                fundamental_gap_weight=0.25,
+                max_abs_adjustment_per_outcome=0.05,
+            ),
+        )
+        payload = result.to_dict()
+        summary = payload["summary"]
+
+        self.assertEqual(summary["probability_model_mode"], "market_residual")
+        self.assertEqual(payload["reports"][0]["probability_model_mode"], "market_residual")
+        self.assertEqual(len(payload["fundamental_scores"]), 1)
+        self.assertIsNotNone(summary["mean_fundamental_brier_score"])
+        self.assertIsNotNone(summary["mean_fundamental_log_loss"])
+        self.assertIn("model_beats_fundamental_brier_count", summary)
+        self.assertLess(
+            payload["reports"][0]["model_home_prob"],
+            payload["reports"][0]["fundamental_home_prob"],
+        )
 
     def test_rejects_non_positive_flat_stake(self) -> None:
         manifest = load_backtest_manifest_path(MANIFEST)

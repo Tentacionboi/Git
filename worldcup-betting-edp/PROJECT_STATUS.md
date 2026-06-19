@@ -48,6 +48,8 @@ The project can:
 - build a conservative market-residual probability vector where market probability is the anchor and fundamental/movement signals can only make bounded adjustments.
 - evaluate single-match decisions with either direct model probabilities or market-residual final probabilities;
 - show market, fundamental, and final probabilities in the Streamlit single-match dashboard when residual mode is selected.
+- run batch backtests with either direct model probabilities or market-residual final probabilities;
+- report raw fundamental, market baseline, and residual-final probability quality side by side in residual batch mode.
 
 ## What It Does Not Do Yet
 
@@ -184,6 +186,12 @@ The single-match page has two probability modes:
 - `Direct Model / 直接模型概率`: user-supplied model probabilities are used directly for EV/Kelly decisions.
 - `Market Residual / 市场残差模型`: user-supplied probabilities are treated as fundamental probabilities, then converted into market-anchored final probabilities before EV/Kelly decisions.
 
+The batch-backtest page can also run in market-residual mode. In that mode:
+
+- `Model / 模型` means residual-final probability.
+- `Fundamental / 基本面` means the raw user-supplied model probability before market anchoring.
+- `Market / 市场` means devigged bookmaker probability.
+
 ## Verification
 
 Latest test command:
@@ -195,7 +203,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 136 tests
+Ran 139 tests
 OK
 ```
 
@@ -558,12 +566,13 @@ This demo result only validates batch plumbing. It does not prove real market ed
 
 ## Next Recommended Task
 
-Wire the market-residual probability layer into batch/model-vs-market research:
+Evaluate market-residual probabilities on real or verified historical market odds:
 
-1. Generate historical final probabilities from market probability plus Elo/fundamental residuals.
-2. Compare direct Elo, market baseline, and market-residual probabilities on the same settled World Cup matches.
-3. Add market movement signals once real timestamped odds exist.
-4. Do not claim market edge until real timestamped odds and out-of-sample backtests exist.
+1. Add a reproducible historical World Cup 1X2 odds source with timestamps and license notes.
+2. Generate residual-final probabilities from market probability plus Elo/fundamental probabilities.
+3. Compare market baseline, raw fundamental, and residual-final probabilities on identical settled matches.
+4. Add market movement signals once real timestamped odds exist.
+5. Do not claim market edge until out-of-sample backtests beat market baselines.
 
 ## Target End-State
 
@@ -593,5 +602,5 @@ Please continue the World Cup Betting EDP project. First read:
 - worldcup-betting-edp/ROADMAP.md
 - worldcup-betting-edp/DECISIONS.md
 
-Current priority: wire the conservative market-residual probability layer into reports and the dashboard, while continuing to verify reproducible historical World Cup odds. Do not claim market edge before real timestamped odds and out-of-sample model-vs-market backtests exist.
+Current priority: find or build a reproducible historical World Cup odds dataset, then evaluate market baseline, raw fundamental, and market-residual probabilities on identical settled matches. Do not claim market edge before real timestamped odds and out-of-sample model-vs-market backtests exist.
 ```

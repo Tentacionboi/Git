@@ -453,6 +453,16 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m worldcup_betting_edp.cli \
   --starting-bankroll 100
 ```
 
+Run the same batch backtest with market-residual final probabilities:
+
+```bash
+PYTHONPATH=src /opt/homebrew/bin/python3.12 -m worldcup_betting_edp.cli \
+  --manifest examples/demo_backtest_manifest.json \
+  --market-residual
+```
+
+In residual batch mode, the output includes `fundamental_scores` so the raw fundamental model, market baseline, and residual-final model can be compared separately.
+
 Save the batch backtest result to a report file:
 
 ```bash
@@ -491,3 +501,4 @@ The dashboard uses English-first bilingual labels, for example `Market Odds / �
 It can also load a one-match prediction file through `Upload JSON / 上传JSON`.
 Use the sidebar `Mode / 模式` control to switch between single-match pricing and batch backtesting.
 In single-match mode, use `Probability mode / 概率模式` to switch between direct model probabilities and market-residual final probabilities.
+In batch-backtest mode, use `Use market residual probabilities / 使用市场残差概率` to compare residual-final probabilities against the market and raw fundamental probabilities.

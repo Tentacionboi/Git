@@ -52,6 +52,9 @@
 - [x] Implement conservative market-residual probability model.
 - [x] Add market-residual probabilities to single-match reports.
 - [x] Add market-residual probability mode to the Streamlit dashboard.
+- [x] Add market-residual probabilities to batch backtests.
+- [x] Add fundamental-vs-market-vs-residual batch comparison metrics.
+- [x] Add CLI and Streamlit batch controls for market-residual mode.
 
 ## Doing
 
@@ -66,11 +69,12 @@
 - [ ] Add verified real kickoff timestamps for World Cup matches.
 - [ ] Add market movement features to model-vs-market reports.
 - [ ] Add market movement signals to the Streamlit dashboard.
+- [ ] Evaluate market-residual probabilities on real historical odds once available.
 
 ## Later
 
 - [ ] Implement Poisson goals model.
-- [ ] Implement model fusion.
+- [ ] Implement trainable residual/fusion model.
 - [ ] Implement historical backtest.
 - [ ] Add charts and report generation.
 

@@ -714,6 +714,38 @@ def _render_batch_backtest_page() -> None:
         format="%.3f",
         key="batch_stake_cap",
     )
+    use_residual_model = st.sidebar.checkbox(
+        "Use market residual probabilities / 使用市场残差概率",
+        value=False,
+        key="batch_use_residual_model",
+    )
+    residual_config = None
+    if use_residual_model:
+        st.sidebar.header("Batch Residual Rules / 批量残差规则")
+        residual_config = ResidualEdgeConfig(
+            fundamental_gap_weight=float(
+                st.sidebar.slider(
+                    "Fundamental gap weight / 基本面差异权重",
+                    min_value=0.0,
+                    max_value=1.0,
+                    value=0.25,
+                    step=0.05,
+                    format="%.2f",
+                    key="batch_residual_fundamental_gap_weight",
+                )
+            ),
+            max_abs_adjustment_per_outcome=float(
+                st.sidebar.slider(
+                    "Max adjustment per outcome / 单项最大修正",
+                    min_value=0.0,
+                    max_value=0.10,
+                    value=0.05,
+                    step=0.005,
+                    format="%.3f",
+                    key="batch_residual_max_adjustment",
+                )
+            ),
+        )
 
     try:
         result = run_batch_backtest(
@@ -724,6 +756,8 @@ def _render_batch_backtest_page() -> None:
             ev_threshold=float(ev_threshold),
             kelly_fraction=float(kelly_fraction),
             stake_cap=float(stake_cap),
+            use_market_residual_model=use_residual_model,
+            residual_config=residual_config,
         )
     except ValueError as exc:
         st.error(f"Batch backtest failed. / 批量回测失败：{exc}")
@@ -781,14 +815,17 @@ def _render_batch_backtest_page() -> None:
                     "Metric / 指标": "Mean Brier",
                     "Model / 模型": summary["mean_model_brier_score"],
                     "Market / 市场": summary["mean_market_brier_score"],
+                    "Fundamental / 基本面": summary.get("mean_fundamental_brier_score"),
                 },
                 {
                     "Metric / 指标": "Mean Log Loss",
                     "Model / 模型": summary["mean_model_log_loss"],
                     "Market / 市场": summary["mean_market_log_loss"],
+                    "Fundamental / 基本面": summary.get("mean_fundamental_log_loss"),
                 },
             ]
         )
+        comparison_df = comparison_df.dropna(axis=1, how="all")
         comparison_chart = (
             alt.Chart(comparison_df.melt("Metric / 指标", var_name="Source / 来源", value_name="Value / 数值"))
             .mark_bar(cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
