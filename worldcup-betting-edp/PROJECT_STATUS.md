@@ -52,6 +52,7 @@ The project can:
 - report raw fundamental, market baseline, and residual-final probability quality side by side in residual batch mode.
 - parse stored The Odds API historical World Cup 1X2 odds JSON snapshots into the canonical market-odds schema.
 - build The Odds API historical odds URLs for `soccer_fifa_world_cup` with decimal odds format.
+- fetch one The Odds API historical odds snapshot from a local `THE_ODDS_API_KEY` environment variable without committing the key.
 
 ## What It Does Not Do Yet
 
@@ -59,6 +60,7 @@ The project does not yet:
 
 - scrape or monitor live odds;
 - call The Odds API directly or store API keys;
+- automatically load `.env` files; users must export environment variables before running fetch scripts.
 - ingest real fixture feeds;
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
@@ -80,6 +82,8 @@ worldcup-betting-edp/
 │   ├── single_match_demo.py
 │   ├── demo_single_match.json
 │   └── demo_settled_match.json
+├── scripts/
+│   └── fetch_the_odds_api_snapshot.py
 ├── src/worldcup_betting_edp/
 │   ├── data/prediction_input.py
 │   ├── data/settled_result.py
@@ -134,6 +138,8 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/data/canonical_matches.py`: canonical historical match table builder/loader.
 - `src/worldcup_betting_edp/data/match_timing.py`: kickoff timestamp schema, loader, writer, and coverage diagnostics.
 - `src/worldcup_betting_edp/data/the_odds_api.py`: parser and URL builder for stored The Odds API historical World Cup 1X2 odds snapshots.
+- `src/worldcup_betting_edp/data/the_odds_api_client.py`: environment-key reader and minimal HTTP client helpers for The Odds API.
+- `scripts/fetch_the_odds_api_snapshot.py`: one-shot historical odds fetch script that writes raw JSON and optional canonical CSV.
 - `src/worldcup_betting_edp/backtest/scoring.py`: Brier score and log loss.
 - `src/worldcup_betting_edp/backtest/market_comparison.py`: model-vs-market probability comparison for matched odds rows.
 - `src/worldcup_betting_edp/backtest/temporal_validation.py`: as-of timing validation to detect odds leakage.

@@ -142,4 +142,5 @@ This file records candidate data sources, their expected use, and their risks.
 - The Odds API finding: The Odds API historical endpoint is the best currently identified structured candidate for World Cup 1X2 market odds because it returns time-stamped snapshots and includes a `soccer_fifa_world_cup` sport key.
 - The Odds API limitation: historical odds require a paid plan. The repo should include code adapters and metadata, not private API keys or proprietary raw exports.
 - Implemented adapter: `src/worldcup_betting_edp/data/the_odds_api.py` converts stored The Odds API historical JSON snapshots into the canonical `MarketOddsSnapshot` schema.
+- Implemented fetch script: `scripts/fetch_the_odds_api_snapshot.py` reads `THE_ODDS_API_KEY` from the local environment and can write both raw JSON and canonical odds CSV.
 - Current recommendation: use The Odds API for real historical/live odds ingestion if the project owner chooses to obtain access; otherwise keep market data synthetic and do not claim market-beating World Cup evidence.

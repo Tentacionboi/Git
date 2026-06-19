@@ -9,4 +9,8 @@ build/
 *.egg-info/
 .DS_Store
 .streamlit/secrets.toml
-
+.env
+.env.*
+!.env.example
+data/raw/odds/
+data/processed/odds/

@@ -62,6 +62,11 @@ from worldcup_betting_edp.data.the_odds_api import (
     build_the_odds_api_historical_odds_url,
     parse_the_odds_api_historical_odds_response,
 )
+from worldcup_betting_edp.data.the_odds_api_client import (
+    THE_ODDS_API_KEY_ENV_VAR,
+    fetch_the_odds_api_historical_odds_payload,
+    get_the_odds_api_key_from_env,
+)
 
 __all__ = [
     "BacktestManifest",
@@ -76,15 +81,18 @@ __all__ = [
     "PredictionInput",
     "SettledResult",
     "THE_ODDS_API_H2H_MARKET",
+    "THE_ODDS_API_KEY_ENV_VAR",
     "THE_ODDS_API_SOURCE",
     "THE_ODDS_API_WORLD_CUP_SPORT_KEY",
     "WORLD_CUP_TOURNAMENT",
     "MarketOddsSnapshot",
     "build_the_odds_api_historical_odds_url",
     "download_martj42_results",
+    "fetch_the_odds_api_historical_odds_payload",
     "filter_tournament",
     "filter_world_cup_canonical_matches",
     "filter_world_cup_results",
+    "get_the_odds_api_key_from_env",
     "infer_result_1x2",
     "build_canonical_matches_from_results",
     "load_backtest_manifest_mapping",

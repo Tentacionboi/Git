@@ -58,16 +58,18 @@
 - [x] Audit candidate sources for real historical World Cup 1X2 odds.
 - [x] Add The Odds API historical World Cup 1X2 odds parser.
 - [x] Document why Football-Data is not currently enough for World Cup odds evidence.
+- [x] Add safe local API-key environment variable flow.
+- [x] Add one-shot The Odds API historical snapshot fetch script.
 
 ## Doing
 
-- [ ] Obtain or provide access to a reproducible historical World Cup odds source.
+- [ ] Run a real The Odds API fetch after local API key setup.
 - [ ] Design real-time odds ingestion plan for upcoming World Cup matches.
 
 ## Next
 
-- [ ] Decide whether to use The Odds API paid historical access or another licensed odds export.
-- [ ] Store one raw historical odds JSON snapshot under `data/raw/odds/` with metadata, excluding API keys.
+- [ ] Confirm whether the current The Odds API key has historical odds access.
+- [ ] Store one raw historical odds JSON snapshot under `data/raw/odds/`, excluding API keys.
 - [ ] Convert the first real The Odds API snapshot into canonical `MarketOddsSnapshot` CSV.
 - [ ] Align The Odds API event IDs to project `match_id` values.
 - [ ] Add verified real kickoff timestamps for World Cup matches.

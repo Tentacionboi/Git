@@ -66,6 +66,18 @@ reports/initial_research_report.md
 reports/odds_source_validation.md
 ```
 
+Copy the local environment template before fetching paid/live odds data:
+
+```bash
+cp .env.example .env
+```
+
+Then edit `.env` locally and set:
+
+```text
+THE_ODDS_API_KEY=your_real_key
+```
+
 Current checkpoint status:
 
 ```text
@@ -241,6 +253,21 @@ print(len(snapshots))
 print(snapshots[0].to_dict() if snapshots else "no complete 1X2 markets found")
 PY
 ```
+
+Fetch one real The Odds API historical World Cup 1X2 snapshot after setting `THE_ODDS_API_KEY`:
+
+```bash
+set -a
+. ./.env
+set +a
+
+PYTHONPATH=src /opt/homebrew/bin/python3.12 scripts/fetch_the_odds_api_snapshot.py \
+  --date 2022-11-20T12:00:00Z \
+  --raw-output data/raw/odds/the_odds_api/2022-11-20T120000Z.json \
+  --canonical-output data/processed/odds/the_odds_api/2022-11-20T120000Z.csv
+```
+
+Do not commit `.env` or raw vendor odds files unless the data license explicitly allows redistribution.
 
 Generate Elo history and current team ratings from the canonical table:
 
