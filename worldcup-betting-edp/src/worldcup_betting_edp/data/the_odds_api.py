@@ -7,10 +7,15 @@ odds ingestion reproducible from stored raw snapshots.
 
 from __future__ import annotations
 
+import csv
+from dataclasses import dataclass
+from datetime import datetime
 from collections.abc import Mapping, Sequence
+from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
 
+from worldcup_betting_edp.data.canonical_matches import CanonicalMatch
 from worldcup_betting_edp.data.market_odds import MarketOddsSnapshot
 
 
@@ -19,6 +24,51 @@ THE_ODDS_API_SOURCE = "the-odds-api"
 THE_ODDS_API_WORLD_CUP_SPORT_KEY = "soccer_fifa_world_cup"
 THE_ODDS_API_H2H_MARKET = "h2h"
 THE_ODDS_API_DRAW_NAME = "draw"
+THE_ODDS_API_EVENT_MAPPING_COLUMNS = (
+    "source_event_id",
+    "source_match_id",
+    "canonical_match_id",
+    "commence_time",
+    "match_date",
+    "source_home_team",
+    "source_away_team",
+    "canonical_home_team",
+    "canonical_away_team",
+    "orientation",
+)
+THE_ODDS_API_TEAM_ALIASES = {
+    "usa": "united states",
+}
+
+
+@dataclass(frozen=True)
+class TheOddsApiEventMapping:
+    """Mapping from a The Odds API event id to a canonical project match id."""
+
+    source_event_id: str
+    source_match_id: str
+    canonical_match_id: str
+    commence_time: str
+    match_date: str
+    source_home_team: str
+    source_away_team: str
+    canonical_home_team: str
+    canonical_away_team: str
+    orientation: str
+
+    def to_dict(self) -> dict[str, str]:
+        return {
+            "source_event_id": self.source_event_id,
+            "source_match_id": self.source_match_id,
+            "canonical_match_id": self.canonical_match_id,
+            "commence_time": self.commence_time,
+            "match_date": self.match_date,
+            "source_home_team": self.source_home_team,
+            "source_away_team": self.source_away_team,
+            "canonical_home_team": self.canonical_home_team,
+            "canonical_away_team": self.canonical_away_team,
+            "orientation": self.orientation,
+        }
 
 
 def build_the_odds_api_historical_odds_url(
@@ -122,6 +172,100 @@ def parse_the_odds_api_historical_odds_response(
     return snapshots
 
 
+def build_the_odds_api_event_mapping(
+    payload: Mapping[str, Any] | Sequence[Mapping[str, Any]],
+    *,
+    canonical_matches: Sequence[CanonicalMatch],
+) -> list[TheOddsApiEventMapping]:
+    """Map The Odds API event ids to canonical matches by date and teams."""
+    _, events = _extract_events(payload)
+    canonical_index = _build_canonical_match_index(canonical_matches)
+    mappings: list[TheOddsApiEventMapping] = []
+    for event in events:
+        event_id = _string_value(event, "id")
+        commence_time = _string_value(event, "commence_time")
+        home_team = _string_value(event, "home_team")
+        away_team = _string_value(event, "away_team")
+        match_date = _date_from_iso_datetime(commence_time)
+        if not event_id or not match_date or not home_team or not away_team:
+            continue
+        match, orientation = _find_canonical_match(
+            canonical_index=canonical_index,
+            match_date=match_date,
+            source_home_team=home_team,
+            source_away_team=away_team,
+        )
+        if match is None or orientation is None:
+            continue
+        mappings.append(
+            TheOddsApiEventMapping(
+                source_event_id=event_id,
+                source_match_id=f"{THE_ODDS_API_SOURCE}:{event_id}",
+                canonical_match_id=match.match_id,
+                commence_time=commence_time,
+                match_date=match.match_date,
+                source_home_team=home_team,
+                source_away_team=away_team,
+                canonical_home_team=match.home_team,
+                canonical_away_team=match.away_team,
+                orientation=orientation,
+            )
+        )
+    return mappings
+
+
+def remap_the_odds_api_snapshots_to_canonical(
+    snapshots: Sequence[MarketOddsSnapshot],
+    mappings: Sequence[TheOddsApiEventMapping],
+) -> list[MarketOddsSnapshot]:
+    """Replace The Odds API source match ids with canonical match ids.
+
+    If a source event uses the opposite home/away order from the canonical match
+    table, home and away odds are swapped while draw odds remain unchanged.
+    """
+    mapping_by_source_match_id = {mapping.source_match_id: mapping for mapping in mappings}
+    remapped: list[MarketOddsSnapshot] = []
+    for snapshot in snapshots:
+        mapping = mapping_by_source_match_id.get(snapshot.match_id)
+        if mapping is None:
+            continue
+        if mapping.orientation == "same":
+            home_odds = snapshot.home_odds
+            away_odds = snapshot.away_odds
+        elif mapping.orientation == "swapped":
+            home_odds = snapshot.away_odds
+            away_odds = snapshot.home_odds
+        else:
+            raise ValueError(f"unknown mapping orientation: {mapping.orientation}")
+        remapped.append(
+            MarketOddsSnapshot(
+                match_id=mapping.canonical_match_id,
+                bookmaker=snapshot.bookmaker,
+                captured_at=snapshot.captured_at,
+                home_odds=home_odds,
+                draw_odds=snapshot.draw_odds,
+                away_odds=away_odds,
+                odds_type=snapshot.odds_type,
+                source=snapshot.source,
+            )
+        )
+    return remapped
+
+
+def write_the_odds_api_event_mapping_csv(
+    mappings: Sequence[TheOddsApiEventMapping],
+    destination_path: str | Path,
+) -> Path:
+    """Write The Odds API event-to-canonical-match mapping rows."""
+    destination = Path(destination_path)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with destination.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(THE_ODDS_API_EVENT_MAPPING_COLUMNS))
+        writer.writeheader()
+        writer.writerows(mapping.to_dict() for mapping in mappings)
+    return destination
+
+
 def _extract_events(
     payload: Mapping[str, Any] | Sequence[Mapping[str, Any]],
 ) -> tuple[str, Sequence[Mapping[str, Any]]]:
@@ -160,6 +304,49 @@ def _extract_complete_1x2_odds(
     if {"home", "draw", "away"}.issubset(prices):
         return prices
     return None
+
+
+def _canonical_match_key(match_date: str, home_team: str, away_team: str) -> tuple[str, str, str]:
+    return (match_date, _normalize_team_name(home_team), _normalize_team_name(away_team))
+
+
+def _normalize_team_name(value: str) -> str:
+    normalized = " ".join(value.strip().casefold().split())
+    return THE_ODDS_API_TEAM_ALIASES.get(normalized, normalized)
+
+
+def _build_canonical_match_index(
+    canonical_matches: Sequence[CanonicalMatch],
+) -> dict[tuple[str, str, str], CanonicalMatch]:
+    return {
+        _canonical_match_key(match.match_date, match.home_team, match.away_team): match
+        for match in canonical_matches
+    }
+
+
+def _find_canonical_match(
+    *,
+    canonical_index: Mapping[tuple[str, str, str], CanonicalMatch],
+    match_date: str,
+    source_home_team: str,
+    source_away_team: str,
+) -> tuple[CanonicalMatch | None, str | None]:
+    same = canonical_index.get(_canonical_match_key(match_date, source_home_team, source_away_team))
+    if same is not None:
+        return same, "same"
+    swapped = canonical_index.get(_canonical_match_key(match_date, source_away_team, source_home_team))
+    if swapped is not None:
+        return swapped, "swapped"
+    return None, None
+
+
+def _date_from_iso_datetime(value: str) -> str:
+    if not value:
+        return ""
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00")).date().isoformat()
+    except ValueError:
+        return value[:10]
 
 
 def _decimal_price(value: Any) -> float | None:

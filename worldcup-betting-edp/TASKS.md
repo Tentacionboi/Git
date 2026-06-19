@@ -65,19 +65,22 @@
 - [x] Confirm the current The Odds API key is on a free plan without historical odds access.
 - [x] Add API-Football odds parser, client, and source-probe script.
 - [x] Add API-Football source-probe plan.
+- [x] Verify paid The Odds API historical access.
+- [x] Download one real 2022 World Cup historical 1X2 odds snapshot.
+- [x] Map The Odds API event IDs to canonical World Cup match IDs.
+- [x] Generate canonical-orientation World Cup odds rows from the paid snapshot.
 
 ## Doing
 
-- [ ] Configure `API_FOOTBALL_KEY` locally and run the API-Football source probe.
+- [ ] Build the first real 2022 World Cup model-vs-market backtest from the paid odds snapshot.
 - [ ] Design real-time odds ingestion plan for upcoming World Cup matches.
 
 ## Next
 
-- [ ] If The Odds API is upgraded, rerun historical fetch for 2022-11-20T12:00:00Z.
-- [ ] If not upgrading The Odds API, evaluate API-Football probe results.
-- [ ] Store one raw historical odds JSON snapshot under `data/raw/odds/`, excluding API keys.
-- [ ] Convert the first real The Odds API snapshot into canonical `MarketOddsSnapshot` CSV.
-- [ ] Align The Odds API event IDs to project `match_id` values.
+- [ ] Join canonical odds, settled results, and Elo probabilities for the 48 mapped matches.
+- [ ] Choose one odds row per match, starting with bookmaker average or a preferred bookmaker.
+- [ ] Run market baseline vs Elo vs market-residual probability scoring.
+- [ ] Settle any value-bet decisions under strict no-leakage timing.
 - [ ] Add verified real kickoff timestamps for World Cup matches.
 - [ ] Add World Cup era/time-split evaluation.
 - [ ] Add market movement features to model-vs-market reports.

@@ -58,6 +58,9 @@ The project can:
 - diagnose The Odds API historical endpoint permission failures without leaking the API key.
 - parse API-Football `Match Winner` odds into the canonical 1X2 market-odds schema.
 - run an API-Football source probe once `API_FOOTBALL_KEY` is configured.
+- ingest a paid The Odds API historical World Cup 1X2 snapshot.
+- map The Odds API event ids to canonical World Cup match ids.
+- remap vendor home/away odds into canonical match orientation when a source event has reversed teams.
 
 ## What It Does Not Do Yet
 
@@ -69,7 +72,6 @@ The project does not yet:
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
 - compare World Cup predictions against verified real historical market odds;
-- fetch historical odds using the current free The Odds API key, because historical odds require a paid usage plan;
 - verify API-Football historical World Cup odds coverage yet, because no API-Football key has been configured.
 - attach verified exact kickoff timestamps to all historical World Cup matches;
 - generate model probabilities from Poisson or Dixon-Coles;
@@ -182,6 +184,7 @@ worldcup-betting-edp/
 - `reports/demo_market_movement_features.csv`: synthetic demo market movement feature table.
 - `reports/odds_source_validation.md`: audit of candidate real World Cup odds sources and current recommendation.
 - `reports/the_odds_api_access_check.md`: local API-key permission check showing the current key lacks historical odds access.
+- `reports/the_odds_api_paid_snapshot_check.md`: paid historical snapshot diagnostics and mapping coverage.
 - `reports/api_football_source_probe_plan.md`: API-Football validation plan and probe command.
 
 ## Current UI

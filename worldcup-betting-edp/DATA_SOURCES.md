@@ -145,6 +145,7 @@ This file records candidate data sources, their expected use, and their risks.
 - Implemented adapter: `src/worldcup_betting_edp/data/the_odds_api.py` converts stored The Odds API historical JSON snapshots into the canonical `MarketOddsSnapshot` schema.
 - Implemented fetch script: `scripts/fetch_the_odds_api_snapshot.py` reads `THE_ODDS_API_KEY` from the local environment or `.env`, then can write raw JSON, metadata, and canonical odds CSV.
 - Access check: `reports/the_odds_api_access_check.md` records that the current local key reached The Odds API but was rejected for historical odds with `HISTORICAL_UNAVAILABLE_ON_FREE_USAGE_PLAN`.
+- Paid snapshot check: `reports/the_odds_api_paid_snapshot_check.md` records that the paid key successfully downloaded a 2022 World Cup historical 1X2 snapshot with 48 events, 42 bookmakers, and 1,737 canonical odds rows.
 - Current recommendation: use The Odds API for real historical/live odds ingestion if the project owner chooses to obtain access; otherwise keep market data synthetic and do not claim market-beating World Cup evidence.
 
 ### API-Football probe

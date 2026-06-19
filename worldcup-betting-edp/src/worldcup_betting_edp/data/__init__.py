@@ -70,11 +70,16 @@ from worldcup_betting_edp.data.settled_result import (
     load_settled_result_text,
 )
 from worldcup_betting_edp.data.the_odds_api import (
+    THE_ODDS_API_EVENT_MAPPING_COLUMNS,
     THE_ODDS_API_H2H_MARKET,
     THE_ODDS_API_SOURCE,
     THE_ODDS_API_WORLD_CUP_SPORT_KEY,
+    TheOddsApiEventMapping,
+    build_the_odds_api_event_mapping,
     build_the_odds_api_historical_odds_url,
     parse_the_odds_api_historical_odds_response,
+    remap_the_odds_api_snapshots_to_canonical,
+    write_the_odds_api_event_mapping_csv,
 )
 from worldcup_betting_edp.data.the_odds_api_client import (
     THE_ODDS_API_KEY_ENV_VAR,
@@ -103,12 +108,15 @@ __all__ = [
     "SettledResult",
     "THE_ODDS_API_H2H_MARKET",
     "THE_ODDS_API_KEY_ENV_VAR",
+    "THE_ODDS_API_EVENT_MAPPING_COLUMNS",
     "THE_ODDS_API_SOURCE",
     "THE_ODDS_API_WORLD_CUP_SPORT_KEY",
     "TheOddsApiRequestError",
+    "TheOddsApiEventMapping",
     "WORLD_CUP_TOURNAMENT",
     "MarketOddsSnapshot",
     "build_api_football_url",
+    "build_the_odds_api_event_mapping",
     "build_the_odds_api_historical_odds_url",
     "download_martj42_results",
     "fetch_api_football_payload",
@@ -137,6 +145,7 @@ __all__ = [
     "load_settled_result_text",
     "parse_api_football_odds_response",
     "parse_the_odds_api_historical_odds_response",
+    "remap_the_odds_api_snapshots_to_canonical",
     "summarize_canonical_matches",
     "summarize_results",
     "summarize_api_football_probe_payloads",
@@ -145,5 +154,6 @@ __all__ = [
     "summarize_match_timing_coverage",
     "write_match_timing_csv",
     "write_market_odds_csv",
+    "write_the_odds_api_event_mapping_csv",
     "write_canonical_matches_csv",
 ]
