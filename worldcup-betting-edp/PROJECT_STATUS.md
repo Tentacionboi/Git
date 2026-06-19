@@ -4,7 +4,7 @@ Last updated: 2026-06-19
 
 ## One-Line Summary
 
-This project is currently a bilingual, local World Cup 1X2 value-bet research dashboard plus a reproducible World Cup-focused historical-results, Elo baseline, and market-odds research pipeline. It is not yet a real-time odds monitor or an automatic prediction system.
+This project is currently a bilingual, local World Cup 1X2 value-bet research dashboard plus a reproducible World Cup-focused historical-results, Elo baseline, market-odds, real-snapshot, parameter-sweep, and time-sliced backtest research pipeline. It is not yet a real-time odds monitor or an automatic prediction system.
 
 ## Current Capability
 
@@ -68,6 +68,11 @@ The project can:
 - map The Odds API event ids to canonical World Cup match ids.
 - remap vendor home/away odds into canonical match orientation when a source event has reversed teams.
 - run a first real 2022 World Cup model-vs-market backtest on a paid pre-tournament odds snapshot.
+- run an interactive real market backtest dashboard on the local Streamlit app;
+- sweep real-market backtest parameters across bounded grids and display heatmaps/ranking tables;
+- run an as-of time-sliced market backtest engine for open, 24h, 6h, 1h, and close slices;
+- select only odds available at or before each slice prediction time to reduce odds-time leakage risk;
+- display a Streamlit time-slice backtest page using synthetic demo odds/timing data until real multi-timestamp odds are added.
 
 ## What It Does Not Do Yet
 
@@ -78,13 +83,14 @@ The project does not yet:
 - ingest real fixture feeds;
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
-- compare World Cup predictions against verified real historical market odds;
+- compare World Cup predictions against a full verified real historical multi-timestamp odds archive;
 - verify API-Football historical World Cup odds coverage yet, because no API-Football key has been configured.
 - attach verified exact kickoff timestamps to all historical World Cup matches;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
 - prove that any model beats the market;
 - send alerts or notifications.
+- make real conclusions from the synthetic time-slice demo files;
 
 ## Current Architecture
 
@@ -117,6 +123,8 @@ worldcup-betting-edp/
 │   ├── backtest/scoring.py
 │   ├── backtest/settlement.py
 │   ├── backtest/runner.py
+│   ├── backtest/real_market.py
+│   ├── backtest/time_slices.py
 │   ├── models/market_baseline.py
 │   ├── models/elo.py
 │   ├── models/context.py
@@ -165,6 +173,8 @@ worldcup-betting-edp/
 - `src/worldcup_betting_edp/backtest/scoring.py`: Brier score and log loss.
 - `src/worldcup_betting_edp/backtest/market_comparison.py`: model-vs-market probability comparison for matched odds rows.
 - `src/worldcup_betting_edp/backtest/temporal_validation.py`: as-of timing validation to detect odds leakage.
+- `src/worldcup_betting_edp/backtest/real_market.py`: real historical odds snapshot backtest, parameter sweep, value-bet rows, and bankroll curve helpers.
+- `src/worldcup_betting_edp/backtest/time_slices.py`: open/24h/6h/1h/close as-of odds selection and time-sliced market comparison.
 - `src/worldcup_betting_edp/market/movement.py`: market movement features between two odds snapshots for the same match and bookmaker.
 - `src/worldcup_betting_edp/backtest/settlement.py`: flat-stake settlement and Kelly bankroll curves.
 - `src/worldcup_betting_edp/backtest/runner.py`: manifest-driven batch backtest runner.
@@ -218,10 +228,12 @@ streamlit run apps/streamlit_app.py
 
 The currently running development server was started from a temporary virtual environment under `/private/tmp/worldcup-edp-ui-venv312`.
 
-The dashboard has two sidebar modes:
+The dashboard has four sidebar modes:
 
 - `Single Match / 单场预测`: manual or JSON-loaded single-match pricing.
 - `Batch Backtest / 批量回测`: manifest-driven summary metrics, model-vs-market chart, scoring table, flat-stake settlement table, and Kelly bankroll curve.
+- `Real Market Backtest / 真实赔率回测`: paid historical odds snapshot evaluation, value-bet rows, bankroll curve, and bounded parameter sweep.
+- `Time Slice Backtest / 时间切片回测`: as-of odds selection across open/24h/6h/1h/close slices. The current default files are synthetic demos until real multi-timestamp odds and verified kickoff times are added.
 
 The single-match page has two probability modes:
 
@@ -245,7 +257,7 @@ PYTHONPATH=src /opt/homebrew/bin/python3.12 -m unittest discover -s tests
 Latest result:
 
 ```text
-Ran 166 tests
+Ran 172 tests
 OK
 ```
 

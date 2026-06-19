@@ -76,15 +76,20 @@
 - [x] Add evidence status and confidence schema.
 - [x] Add structured single-match report output while preserving flat compatibility.
 - [x] Add market alignment classification to single-match reports.
+- [x] Add real market backtest dashboard.
+- [x] Add real market parameter sweep dashboard.
+- [x] Implement as-of time-sliced market backtest engine.
+- [x] Add Streamlit time-slice backtest page with demo odds time series.
 
 ## Doing
 
-- [ ] Design a multi-timestamp odds backtest plan.
 - [ ] Implement Poisson score matrix model as the next model layer.
 - [ ] Design real-time odds ingestion plan for upcoming World Cup matches.
+- [ ] Replace synthetic time-slice demo with real multi-timestamp World Cup odds snapshots.
 
 ## Next
 
+- [ ] Update GitHub README screenshots and project status for the four-mode dashboard.
 - [ ] Fetch additional 2022 snapshots: open-ish, 24h before, 6h before, and near-close where available.
 - [ ] Restrict value-bet settlement to one bookmaker or a clearly executable bookmaker set.
 - [ ] Add confidence intervals/bootstrap sensitivity for ROI and scoring.
@@ -93,7 +98,7 @@
 - [ ] Add World Cup era/time-split evaluation.
 - [ ] Add market movement features to model-vs-market reports.
 - [ ] Add market movement signals to the Streamlit dashboard.
-- [ ] Evaluate market-residual probabilities on real historical odds once available.
+- [ ] Evaluate market-residual probabilities across real open/24h/6h/1h/close historical odds.
 
 ## Later
 

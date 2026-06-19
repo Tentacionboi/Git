@@ -57,6 +57,12 @@ from worldcup_betting_edp.backtest.real_market import (
     run_real_market_backtest,
     strip_detail_rows,
 )
+from worldcup_betting_edp.backtest.time_slices import (
+    OddsTimeSlice,
+    default_world_cup_time_slices,
+    run_market_time_slice_backtest,
+    run_market_time_slice_backtest_from_csv,
+)
 
 __all__ = [
     "BatchBacktestResult",
@@ -73,6 +79,7 @@ __all__ = [
     "MarketComparisonSummary",
     "ParsedTimestamp",
     "ProbabilityEvaluationSummary",
+    "OddsTimeSlice",
     "ScoredPrediction",
     "TIMING_MODE_CLOSING_MARKET",
     "TIMING_MODE_IN_PLAY",
@@ -82,6 +89,7 @@ __all__ = [
     "calibrate_elo_probability_config",
     "build_market_comparison_rows",
     "default_elo_probability_config_grid",
+    "default_world_cup_time_slices",
     "evaluate_1x2_probability_rows",
     "evaluate_market_comparison",
     "filter_rating_history_by_date",
@@ -92,6 +100,8 @@ __all__ = [
     "run_batch_backtest_path",
     "run_real_market_parameter_sweep",
     "run_real_market_backtest",
+    "run_market_time_slice_backtest",
+    "run_market_time_slice_backtest_from_csv",
     "score_prediction_report",
     "settle_flat_stake",
     "settle_kelly_bankroll",

@@ -10,7 +10,9 @@ import pandas as pd
 import streamlit as st
 
 from worldcup_betting_edp.backtest import (
+    default_world_cup_time_slices,
     run_batch_backtest,
+    run_market_time_slice_backtest_from_csv,
     run_real_market_backtest,
     run_real_market_parameter_sweep,
 )
@@ -55,6 +57,8 @@ DEFAULT_ELO_PROBABILITIES_PATH = (
     / "ratings"
     / "world_cup_elo_1x2_probabilities_calibrated.csv"
 )
+DEMO_TIME_SERIES_ODDS_PATH = PROJECT_ROOT / "examples" / "demo_world_cup_market_odds_timeseries.csv"
+DEMO_MATCH_TIMING_PATH = PROJECT_ROOT / "examples" / "demo_world_cup_match_timing.csv"
 
 
 def _inject_styles() -> None:
@@ -935,6 +939,26 @@ def _run_cached_real_market_parameter_sweep(
     )
 
 
+@st.cache_data(show_spinner=False)
+def _run_cached_time_slice_backtest(
+    market_odds_path: str,
+    model_probabilities_path: str,
+    match_timing_path: str,
+    residual_gap_weight: float,
+    residual_max_adjustment: float,
+) -> dict[str, object]:
+    return run_market_time_slice_backtest_from_csv(
+        market_odds_path=market_odds_path,
+        model_probabilities_path=model_probabilities_path,
+        match_timing_path=match_timing_path,
+        slices=default_world_cup_time_slices(),
+        residual_config=ResidualEdgeConfig(
+            fundamental_gap_weight=residual_gap_weight,
+            max_abs_adjustment_per_outcome=residual_max_adjustment,
+        ),
+    )
+
+
 def _probability_quality_dataframe(payload: dict[str, object]) -> pd.DataFrame:
     quality = payload["probability_quality"]
     rows = []
@@ -1054,6 +1078,61 @@ def _sweep_dataframe(payload: dict[str, object]) -> pd.DataFrame:
                 "Max Drawdown / 最大回撤": row["max_drawdown"],
             }
         )
+    return pd.DataFrame.from_records(records)
+
+
+def _time_slice_summary_dataframe(payload: dict[str, object]) -> pd.DataFrame:
+    records = []
+    for slice_payload in payload["slices"]:
+        coverage = slice_payload["coverage"]
+        quality = slice_payload["quality"]
+        record = {
+            "Slice / 时间切片": slice_payload["name"],
+            "Selection / 选择规则": slice_payload["selection_mode"],
+            "Hours Before / 开赛前小时": slice_payload["hours_before_kickoff"],
+            "Evaluated Matches / 回测场数": coverage["evaluated_match_count"],
+            "Avg Bookmakers / 平均公司数": coverage["average_bookmakers_per_match"],
+            "Selected Odds / 选中赔率行": coverage["selected_odds_count"],
+        }
+        if quality is not None:
+            record.update(
+                {
+                    "Market Brier": quality["market"]["mean_brier_score"],
+                    "Residual Brier": quality["market_residual"]["mean_brier_score"],
+                    "Residual-Market Brier": quality["residual_minus_market_brier"],
+                    "Market LogLoss": quality["market"]["mean_log_loss"],
+                    "Residual LogLoss": quality["market_residual"]["mean_log_loss"],
+                    "Residual-Market LogLoss": quality["residual_minus_market_log_loss"],
+                    "Residual Accuracy / 残差准确率": quality["market_residual"]["accuracy"],
+                }
+            )
+        records.append(record)
+    return pd.DataFrame.from_records(records)
+
+
+def _time_slice_rows_dataframe(payload: dict[str, object]) -> pd.DataFrame:
+    records = []
+    for slice_payload in payload["slices"]:
+        for row in slice_payload["rows"]:
+            records.append(
+                {
+                    "Slice / 时间切片": row["slice_name"],
+                    "Prediction Time / 预测时间": row["prediction_time"],
+                    "Match / 比赛": f"{row['home_team']} vs {row['away_team']}",
+                    "Actual / 实际": OUTCOME_LABELS[str(row["actual_result"])],
+                    "Bookmakers / 公司数": row["bookmaker_count"],
+                    "Market H/D/A / 市场主平客": (
+                        f"{float(row['market_home_probability']):.1%} / "
+                        f"{float(row['market_draw_probability']):.1%} / "
+                        f"{float(row['market_away_probability']):.1%}"
+                    ),
+                    "Residual H/D/A / 残差主平客": (
+                        f"{float(row['residual_home_probability']):.1%} / "
+                        f"{float(row['residual_draw_probability']):.1%} / "
+                        f"{float(row['residual_away_probability']):.1%}"
+                    ),
+                }
+            )
     return pd.DataFrame.from_records(records)
 
 
@@ -1472,6 +1551,150 @@ def _render_real_market_backtest_page() -> None:
         )
 
 
+def _render_time_slice_backtest_page() -> None:
+    st.sidebar.header("Time Slice Data / 时间切片数据")
+    odds_path = st.sidebar.text_input(
+        "Odds time-series CSV / 赔率时间序列CSV",
+        value=str(DEMO_TIME_SERIES_ODDS_PATH),
+        key="time_slice_odds_path",
+    )
+    model_path = st.sidebar.text_input(
+        "Model probabilities CSV / 模型概率CSV",
+        value=str(DEFAULT_ELO_PROBABILITIES_PATH),
+        key="time_slice_model_path",
+    )
+    timing_path = st.sidebar.text_input(
+        "Match timing CSV / 比赛开赛时间CSV",
+        value=str(DEMO_MATCH_TIMING_PATH),
+        key="time_slice_timing_path",
+    )
+    st.sidebar.caption(
+        "Default odds and timing files are synthetic demos. Replace them with real multi-timestamp "
+        "odds and verified kickoff times for real evaluation. / 默认赔率和开赛时间是合成演示数据；"
+        "真实评估需要替换为真实多时间点赔率和已验证开赛时间。"
+    )
+    st.sidebar.header("Residual Rules / 残差规则")
+    residual_gap_weight = st.sidebar.slider(
+        "Residual gap weight / 残差权重",
+        min_value=0.0,
+        max_value=0.75,
+        value=0.25,
+        step=0.05,
+        format="%.2f",
+        key="time_slice_residual_gap",
+    )
+    residual_max_adjustment = st.sidebar.slider(
+        "Max residual adjustment / 最大残差修正",
+        min_value=0.0,
+        max_value=0.10,
+        value=0.05,
+        step=0.005,
+        format="%.3f",
+        key="time_slice_residual_max",
+    )
+
+    for path, label in (
+        (odds_path, "Odds time-series CSV / 赔率时间序列CSV"),
+        (model_path, "Model probabilities CSV / 模型概率CSV"),
+        (timing_path, "Match timing CSV / 比赛开赛时间CSV"),
+    ):
+        if not Path(path).exists():
+            st.error(f"{label} not found. / 文件不存在：`{path}`")
+            return
+
+    try:
+        payload = _run_cached_time_slice_backtest(
+            odds_path,
+            model_path,
+            timing_path,
+            float(residual_gap_weight),
+            float(residual_max_adjustment),
+        )
+    except ValueError as exc:
+        st.error(f"Time-slice backtest failed. / 时间切片回测失败：{exc}")
+        return
+
+    summary_df = _time_slice_summary_dataframe(payload)
+    rows_df = _time_slice_rows_dataframe(payload)
+    coverage = payload["coverage"]
+
+    st.subheader("Time Slice Backtest / 时间切片回测")
+    st.caption(
+        "As-of odds selection for open, 24h, 6h, 1h, and close slices. / "
+        "按 open、24h、6h、1h、close 时间切片选择当时可见赔率。"
+    )
+    st.warning(
+        "Current default data is synthetic. This page validates the no-leakage mechanism; "
+        "real conclusions require real multi-timestamp odds and verified kickoff timestamps. / "
+        "当前默认数据是合成演示。此页用于验证无未来函数机制；真实结论需要真实多时间点赔率和已验证开赛时间。"
+    )
+
+    metric_cols = st.columns(4)
+    metric_cols[0].metric("Model Matches / 模型场数", str(coverage["model_match_count"]))
+    metric_cols[1].metric("Timing Matches / 开赛时间场数", str(coverage["timing_match_count"]))
+    metric_cols[2].metric("Odds Matches / 赔率场数", str(coverage["odds_match_count"]))
+    metric_cols[3].metric("Common Matches / 交集场数", str(coverage["common_match_count"]))
+
+    st.subheader("Slice Quality / 切片质量")
+    if summary_df.empty:
+        st.info("No slices could be evaluated. / 没有可回测的时间切片。")
+        return
+
+    quality_long = summary_df.melt(
+        id_vars=["Slice / 时间切片"],
+        value_vars=["Market Brier", "Residual Brier", "Market LogLoss", "Residual LogLoss"],
+        var_name="Metric / 指标",
+        value_name="Value / 数值",
+    ).dropna()
+    quality_chart = (
+        alt.Chart(quality_long)
+        .mark_bar(cornerRadiusTopLeft=3, cornerRadiusTopRight=3)
+        .encode(
+            x=alt.X("Slice / 时间切片:N", title=None),
+            xOffset=alt.XOffset("Metric / 指标:N"),
+            y=alt.Y("Value / 数值:Q", title="Lower is better / 越低越好"),
+            color=alt.Color("Metric / 指标:N", legend=alt.Legend(orient="bottom", title=None)),
+            tooltip=[
+                "Slice / 时间切片:N",
+                "Metric / 指标:N",
+                alt.Tooltip("Value / 数值:Q", format=".4f"),
+            ],
+        )
+        .properties(height=320)
+    )
+    st.altair_chart(quality_chart, width="stretch")
+
+    st.subheader("Slice Summary Table / 切片汇总表")
+    st.dataframe(
+        summary_df,
+        hide_index=True,
+        width="stretch",
+        column_config={
+            "Hours Before / 开赛前小时": st.column_config.NumberColumn(format="%.1f"),
+            "Avg Bookmakers / 平均公司数": st.column_config.NumberColumn(format="%.2f"),
+            "Market Brier": st.column_config.NumberColumn(format="%.4f"),
+            "Residual Brier": st.column_config.NumberColumn(format="%.4f"),
+            "Residual-Market Brier": st.column_config.NumberColumn(format="%.4f"),
+            "Market LogLoss": st.column_config.NumberColumn(format="%.4f"),
+            "Residual LogLoss": st.column_config.NumberColumn(format="%.4f"),
+            "Residual-Market LogLoss": st.column_config.NumberColumn(format="%.4f"),
+            "Residual Accuracy / 残差准确率": st.column_config.NumberColumn(format="%.3f"),
+        },
+    )
+
+    st.subheader("Selected Match Rows / 选中比赛明细")
+    st.dataframe(rows_df, hide_index=True, width="stretch")
+
+    with st.expander("Raw time-slice payload / 原始时间切片结果"):
+        st.json(
+            {
+                "input": payload["input"],
+                "coverage": payload["coverage"],
+                "notes": payload["notes"],
+            }
+        )
+
+
 def main() -> None:
     st.set_page_config(
         page_title="World Cup Betting EDP",
@@ -1486,6 +1709,7 @@ def main() -> None:
             "Single Match / 单场预测",
             "Batch Backtest / 批量回测",
             "Real Market Backtest / 真实赔率回测",
+            "Time Slice Backtest / 时间切片回测",
         ],
         horizontal=False,
     )
@@ -1508,12 +1732,21 @@ def main() -> None:
         _render_batch_backtest_page()
         return
 
+    if mode.startswith("Real"):
+        st.markdown(
+            '<p class="section-note">Real historical odds snapshot backtest with interactive thresholds, '
+            "residual tuning, scoring, and P&L curve. / 真实历史赔率截面回测、交互阈值调参、评分与盈亏曲线。</p>",
+            unsafe_allow_html=True,
+        )
+        _render_real_market_backtest_page()
+        return
+
     st.markdown(
-        '<p class="section-note">Real historical odds snapshot backtest with interactive thresholds, '
-        "residual tuning, scoring, and P&L curve. / 真实历史赔率截面回测、交互阈值调参、评分与盈亏曲线。</p>",
+        '<p class="section-note">As-of time-sliced odds backtest for leakage-safe market comparison. '
+        "/ 按时间切片验证赔率可见性、模型质量与市场基准。</p>",
         unsafe_allow_html=True,
     )
-    _render_real_market_backtest_page()
+    _render_time_slice_backtest_page()
 
 
 if __name__ == "__main__":
