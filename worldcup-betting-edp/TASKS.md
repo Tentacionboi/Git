@@ -69,18 +69,19 @@
 - [x] Download one real 2022 World Cup historical 1X2 odds snapshot.
 - [x] Map The Odds API event IDs to canonical World Cup match IDs.
 - [x] Generate canonical-orientation World Cup odds rows from the paid snapshot.
+- [x] Run the first real 2022 World Cup model-vs-market backtest.
+- [x] Write first real market backtest report.
 
 ## Doing
 
-- [ ] Build the first real 2022 World Cup model-vs-market backtest from the paid odds snapshot.
+- [ ] Design a multi-timestamp odds backtest plan.
 - [ ] Design real-time odds ingestion plan for upcoming World Cup matches.
 
 ## Next
 
-- [ ] Join canonical odds, settled results, and Elo probabilities for the 48 mapped matches.
-- [ ] Choose one odds row per match, starting with bookmaker average or a preferred bookmaker.
-- [ ] Run market baseline vs Elo vs market-residual probability scoring.
-- [ ] Settle any value-bet decisions under strict no-leakage timing.
+- [ ] Fetch additional 2022 snapshots: open-ish, 24h before, 6h before, and near-close where available.
+- [ ] Restrict value-bet settlement to one bookmaker or a clearly executable bookmaker set.
+- [ ] Add confidence intervals/bootstrap sensitivity for ROI and scoring.
 - [ ] Add verified real kickoff timestamps for World Cup matches.
 - [ ] Add World Cup era/time-split evaluation.
 - [ ] Add market movement features to model-vs-market reports.

@@ -66,6 +66,12 @@ reports/initial_research_report.md
 reports/odds_source_validation.md
 ```
 
+第一版真实赔率回测报告见：
+
+```text
+reports/real_market_backtest_2022_snapshot.md
+```
+
 Copy the local environment template before fetching paid/live odds data:
 
 ```bash

@@ -1,0 +1,91 @@
+{
+  "coverage": {
+    "average_bookmakers_per_match": 36.1875,
+    "average_market_overround": 0.05846794175789796,
+    "elo_match_count": 984,
+    "evaluated_match_count": 48,
+    "odds_match_count": 48,
+    "odds_row_count": 1737
+  },
+  "input": {
+    "canonical_odds": "data/processed/odds/the_odds_api/2022-11-20T120000Z_canonical_odds.csv",
+    "edge_threshold": 0.02,
+    "elo_probabilities": "data/processed/ratings/world_cup_elo_1x2_probabilities_calibrated.csv",
+    "ev_threshold": 0.01
+  },
+  "notes": [
+    "Market probabilities are averaged across bookmaker-level proportional-devig probabilities.",
+    "Value-bet settlement line-shops across bookmakers available in the snapshot.",
+    "This is a first 48-match group-stage snapshot test, not proof of durable market edge.",
+    "The underlying paid odds rows are ignored by Git and are not included in this report."
+  ],
+  "probability_quality": {
+    "elo_calibrated": {
+      "accuracy": 0.5416666666666666,
+      "average_probability_actual": 0.4061986299412134,
+      "match_count": 48,
+      "mean_brier_score": 0.6090351994767697,
+      "mean_log_loss": 1.0331757588573112,
+      "model_name": "elo_calibrated",
+      "outcome_counts": {
+        "away": 20,
+        "draw": 10,
+        "home": 18
+      },
+      "predicted_outcome_counts": {
+        "away": 21,
+        "draw": 0,
+        "home": 27
+      }
+    },
+    "elo_minus_market_brier": -0.009129107782012369,
+    "elo_minus_market_log_loss": -0.02670746948422109,
+    "market_average": {
+      "accuracy": 0.5416666666666666,
+      "average_probability_actual": 0.41143831933698,
+      "match_count": 48,
+      "mean_brier_score": 0.618164307258782,
+      "mean_log_loss": 1.0598832283415323,
+      "model_name": "market_average_devig",
+      "outcome_counts": {
+        "away": 20,
+        "draw": 10,
+        "home": 18
+      },
+      "predicted_outcome_counts": {
+        "away": 21,
+        "draw": 0,
+        "home": 27
+      }
+    },
+    "market_residual": {
+      "accuracy": 0.5208333333333334,
+      "average_probability_actual": 0.41052066637470275,
+      "match_count": 48,
+      "mean_brier_score": 0.6117311842075217,
+      "mean_log_loss": 1.0444103684063577,
+      "model_name": "market_residual_mvp",
+      "outcome_counts": {
+        "away": 20,
+        "draw": 10,
+        "home": 18
+      },
+      "predicted_outcome_counts": {
+        "away": 20,
+        "draw": 0,
+        "home": 28
+      }
+    },
+    "residual_minus_market_brier": -0.006433123051260314,
+    "residual_minus_market_log_loss": -0.015472859935174554
+  },
+  "value_bet_summary": {
+    "average_ev": 0.2231005185444739,
+    "average_odds": 7.448235294117647,
+    "bet_count": 34,
+    "flat_profit": 59.55,
+    "flat_roi": 1.7514705882352941,
+    "hit_count": 13,
+    "hit_rate": 0.38235294117647056
+  }
+}

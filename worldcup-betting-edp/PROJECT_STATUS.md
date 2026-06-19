@@ -61,6 +61,7 @@ The project can:
 - ingest a paid The Odds API historical World Cup 1X2 snapshot.
 - map The Odds API event ids to canonical World Cup match ids.
 - remap vendor home/away odds into canonical match orientation when a source event has reversed teams.
+- run a first real 2022 World Cup model-vs-market backtest on a paid pre-tournament odds snapshot.
 
 ## What It Does Not Do Yet
 
@@ -76,7 +77,6 @@ The project does not yet:
 - attach verified exact kickoff timestamps to all historical World Cup matches;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
-- run historical backtests;
 - prove that any model beats the market;
 - send alerts or notifications.
 
@@ -185,6 +185,8 @@ worldcup-betting-edp/
 - `reports/odds_source_validation.md`: audit of candidate real World Cup odds sources and current recommendation.
 - `reports/the_odds_api_access_check.md`: local API-key permission check showing the current key lacks historical odds access.
 - `reports/the_odds_api_paid_snapshot_check.md`: paid historical snapshot diagnostics and mapping coverage.
+- `reports/real_market_backtest_2022_snapshot.json`: aggregate JSON output for the first real market backtest.
+- `reports/real_market_backtest_2022_snapshot.md`: interpretation of the first real market backtest.
 - `reports/api_football_source_probe_plan.md`: API-Football validation plan and probe command.
 
 ## Current UI
