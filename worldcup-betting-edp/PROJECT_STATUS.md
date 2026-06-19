@@ -55,6 +55,7 @@ The project can:
 - fetch one The Odds API historical odds snapshot from a local `THE_ODDS_API_KEY` environment variable without committing the key.
 - load a local `.env` file for the one-shot The Odds API fetch script.
 - write no-key fetch metadata next to raw odds JSON.
+- diagnose The Odds API historical endpoint permission failures without leaking the API key.
 
 ## What It Does Not Do Yet
 
@@ -66,6 +67,7 @@ The project does not yet:
 - auto-detect the next match;
 - merge multiple raw sources into one deduplicated canonical table;
 - compare World Cup predictions against verified real historical market odds;
+- fetch historical odds using the current free The Odds API key, because historical odds require a paid usage plan;
 - attach verified exact kickoff timestamps to all historical World Cup matches;
 - generate model probabilities from Poisson or Dixon-Coles;
 - use injury, lineup, weather, sentiment, or tactical signals;
@@ -170,6 +172,7 @@ worldcup-betting-edp/
 - `reports/demo_market_comparison.json`: synthetic demo model-vs-market comparison report.
 - `reports/demo_market_movement_features.csv`: synthetic demo market movement feature table.
 - `reports/odds_source_validation.md`: audit of candidate real World Cup odds sources and current recommendation.
+- `reports/the_odds_api_access_check.md`: local API-key permission check showing the current key lacks historical odds access.
 
 ## Current UI
 

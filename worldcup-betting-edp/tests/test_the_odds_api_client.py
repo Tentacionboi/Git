@@ -61,7 +61,7 @@ class TheOddsApiClientTests(unittest.TestCase):
     def test_fetches_json_payload_with_decimal_h2h_request(self) -> None:
         calls = []
 
-        def fake_opener(request, timeout):
+        def fake_opener(request, *, timeout):
             calls.append((request, timeout))
             return _FakeResponse({"timestamp": "2022-11-20T12:00:00Z", "data": []})
 
@@ -83,7 +83,7 @@ class TheOddsApiClientTests(unittest.TestCase):
         self.assertIn("apiKey=test_key", request.full_url)
 
     def test_sanitizes_http_error_without_leaking_url(self) -> None:
-        def fake_opener(request, timeout):
+        def fake_opener(request, *, timeout):
             raise HTTPError(
                 url=request.full_url,
                 code=403,

@@ -118,7 +118,7 @@ def fetch_the_odds_api_historical_odds_payload(
     request = Request(url, headers={"Accept": "application/json"})
     open_url = opener or urlopen
     try:
-        with open_url(request, timeout_seconds) as response:
+        with open_url(request, timeout=timeout_seconds) as response:
             body = response.read().decode("utf-8")
     except HTTPError as exc:
         raise TheOddsApiRequestError(
